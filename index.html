@@ -1691,7 +1691,7 @@
       display: block;
       width: 22px;
       height: 2px;
-      background: var(--cyan);
+      background: var(--white);
       border-radius: 1px;
       transition: transform .3s ease, opacity .3s ease;
       transform-origin: center;
@@ -1831,10 +1831,10 @@
 
       /* hero */
       #hero { padding-top: calc(.75rem + 48px + 1.5rem); gap: 1.2rem; padding-bottom: 50px; }
-      .hero-video-wrap { width: 80%; border-radius: 14px; }
+      .hero-video-wrap { width: 95%; border-radius: 14px; }
       .hero-video-wrap video { border-radius: 14px; max-height: 62vh; width: 100%; }
       .hero-video-overlay { border-radius: 14px; padding: 1.2rem 1rem 1rem; }
-      .hero-title { font-size: clamp(2rem, 11vw, 3.5rem); }
+      .hero-title { font-size: clamp(3rem, 13vw, 4.5rem); }
       .hero-subtitle { font-size: clamp(.8rem, 3.5vw, 1rem); }
       .hero-overlay-eyebrow { font-size: 10px; padding: .3rem .9rem .3rem .6rem; }
       .overlay-pills-row { gap: .35rem; }
@@ -1902,20 +1902,20 @@
       .judge-desc { font-size: 12px; max-width: none; }
 
       /* prizes */
-      .prizes-layout { grid-template-columns: 1fr; gap: .7rem; max-width: 420px; margin: 0 auto; }
-      .prize-card { padding: 1.1rem 1rem; border-radius: 14px; }
-      .prize-card.first { order: -1; padding: 1.3rem 1.1rem; }
-      .prize-badge { margin-bottom: .7rem; font-size: 10px; padding: .2rem .7rem; }
-      .prize-amount { font-size: clamp(1.3rem, 5.5vw, 1.7rem); margin-bottom: .2rem; }
-      .prize-card.first .prize-amount { font-size: clamp(1.5rem, 6vw, 1.9rem); }
-      .prize-desc { font-size: 12px; margin-bottom: .9rem; }
-      .prize-actions { flex-direction: row; gap: .5rem; margin-bottom: 1rem; }
-      .prize-btn-primary, .prize-btn-secondary { font-size: 12px; padding: .55rem .8rem; }
-      .prize-divider { margin-bottom: .9rem; }
-      .prize-perks { gap: .45rem; }
-      .prize-perks li { font-size: 11px; gap: .4rem; }
-      .prize-perk-icon { font-size: 11px; }
-      .prize-note { font-size: 12px; margin-top: 1.2rem; }
+      .prizes-layout { grid-template-columns: 1fr; gap: .6rem; max-width: 100%; margin: 0; }
+      .prize-card { padding: 1.2rem 1rem; border-radius: 14px; }
+      .prize-card.first { order: -1; padding: 1.4rem 1.1rem; }
+      .prize-card.first::after { display: none; }
+      .prize-badge { margin-bottom: .6rem; font-size: 10px; padding: .2rem .7rem; }
+      .prize-amount { font-size: clamp(1.4rem, 6vw, 1.8rem); margin-bottom: .15rem; }
+      .prize-card.first .prize-amount { font-size: clamp(1.6rem, 7vw, 2rem); }
+      .prize-desc { font-size: 12px; margin-bottom: .8rem; line-height: 1.4; }
+      .prize-actions { flex-direction: column; gap: .45rem; margin-bottom: .8rem; }
+      .prize-btn-primary, .prize-btn-secondary { font-size: 13px; padding: .65rem 1rem; flex: none; width: 100%; }
+      .prize-divider { margin-bottom: .7rem; }
+      .prize-perks { gap: .4rem; }
+      .prize-perks li { font-size: 12px; gap: .4rem; }
+      .prize-note { font-size: 12px; margin-top: 1rem; }
 
       /* eligibility */
       .elig-grid { grid-template-columns: 1fr; }
@@ -1956,7 +1956,7 @@
     /* ─── HERO VIDEO : PORTRAIT ORIENTATION ─────────────────────────────────── */
     @media (max-width: 600px) and (orientation: portrait) {
       .hero-video-wrap {
-        width: 90%;
+        width: 95%;
         border-radius: 14px;
         /* force portrait crop of the landscape video */
         aspect-ratio: 9 / 14;
@@ -1974,7 +1974,7 @@
         border-radius: 14px;
         padding: 1.4rem 1rem 1.2rem;
       }
-      .hero-title { font-size: clamp(2.4rem, 12vw, 4rem); }
+      .hero-title { font-size: clamp(3.2rem, 14vw, 5rem); }
       .hero-subtitle { font-size: clamp(.85rem, 3.5vw, 1.1rem); }
     }
 
@@ -2090,7 +2090,7 @@
 
     <!-- video frame with overlay (full hero) -->
     <div class="hero-video-wrap">
-      <video src="Video.mp4" autoplay muted loop playsinline></video>
+      <video src="Video-2.mp4" autoplay muted loop playsinline></video>
 
       <div class="hero-video-overlay">
 
