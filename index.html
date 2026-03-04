@@ -158,11 +158,16 @@
       text-decoration: none;
       border-radius: 100px;
       flex-shrink: 0;
-      transition: box-shadow .2s, opacity .2s, transform .15s;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
     }
     .nav-cta:hover {
-      opacity: .85;
-      transform: scale(1.02);
+      transform: translateY(-1px) scale(1.03);
+      background: #9d6ff7;
+      box-shadow: 0 6px 28px rgba(139,92,246,.45);
+    }
+    .nav-cta:active {
+      transform: scale(.98);
+      box-shadow: none;
     }
 
     /* ─── HERO ───────────────────────────────────────────────────────────────── */
@@ -1975,7 +1980,7 @@
         border-radius: 14px;
         padding: 1.4rem 1rem 1.2rem;
       }
-      .hero-title { font-size: clamp(4.5rem, 14vw, 5rem); }
+      .hero-title { font-size: clamp(5rem, 14vw, 5rem); }
       .hero-subtitle { font-size: clamp(.85rem, 3.5vw, 1.1rem); }
     }
 
@@ -1995,49 +2000,48 @@
       position: fixed; inset: 0; z-index: 9999;
       background: #0a0a0a;
       display: flex; align-items: center; justify-content: center;
-      transition: opacity .65s ease, visibility .65s ease;
+      transition: opacity .7s ease, visibility .7s ease;
     }
     #loader.loader-done { opacity: 0; visibility: hidden; pointer-events: none; }
+
     .loader-inner {
-      text-align: center;
       display: flex; flex-direction: column; align-items: center;
-      gap: 1.6rem;
-      animation: loader-fadein .7s ease both;
+      gap: 2.4rem;
+      animation: loader-fadein .6s ease both;
     }
-    .loader-wordmark {
+
+    /* Counter */
+    .loader-counter {
       font-family: 'Instrument Serif', serif;
       font-style: italic;
-      font-size: clamp(3rem, 9vw, 5.5rem);
-      color: #f5f5f5;
-      letter-spacing: -.01em;
+      font-size: clamp(3.5rem, 10vw, 6rem);
+      font-weight: 400;
+      color: rgba(255,255,255,.08);
+      letter-spacing: -.04em;
       line-height: 1;
+      user-select: none;
+      transition: color .15s ease;
     }
-    .loader-sub {
-      font-family: 'Satoshi', sans-serif;
-      font-size: 11px;
-      letter-spacing: .14em;
-      color: rgba(255,255,255,.3);
-      text-transform: uppercase;
+    .loader-counter span {
+      color: rgba(139,92,246,.9);
     }
+
+    /* progress bar */
     .loader-track {
-      width: 140px; height: 2px;
-      background: rgba(255,255,255,.07);
+      width: 80px; height: 1px;
+      background: rgba(255,255,255,.06);
       border-radius: 100px; overflow: hidden;
     }
     .loader-fill {
       height: 100%;
-      background: #8B5CF6;
+      background: linear-gradient(90deg, rgba(139,92,246,.5), #8B5CF6);
       border-radius: 100px;
       width: 0%;
-      animation: loader-progress 4s cubic-bezier(.4,0,.2,1) forwards;
-    }
-    @keyframes loader-progress {
-      0%   { width: 0%; }
-      100% { width: 88%; }
+      transition: width .06s linear;
     }
     @keyframes loader-fadein {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
 
   </style>
@@ -2047,8 +2051,7 @@
   <!-- LOADING SCREEN -->
   <div id="loader">
     <div class="loader-inner">
-      <div class="loader-wordmark">Ignisia</div>
-      <div class="loader-sub">MIT World Peace University</div>
+      <div class="loader-counter" id="loaderCounter"><span>0</span>%</div>
       <div class="loader-track"><div class="loader-fill" id="loaderFill"></div></div>
     </div>
   </div>
@@ -2724,37 +2727,54 @@
 
     /* ── loader dismiss ── */
     (function () {
-      var loader = document.getElementById('loader');
-      var fill   = document.getElementById('loaderFill');
-      var start  = Date.now();
-      var MIN_MS = 1400;   /* always show at least 1.4 s */
-      var done   = false;
+      var loader    = document.getElementById('loader');
+      var fill      = document.getElementById('loaderFill');
+      var counterEl = document.getElementById('loaderCounter');
+      var DURATION  = 2400;   /* ms for counter to run 0 → 100 */
+      var rafStart  = Date.now();
+      var pageReady = false;
+      var counterDone = false;
 
-      function hideLoader() {
-        if (done) return;
-        done = true;
-        var wait = Math.max(0, MIN_MS - (Date.now() - start));
+      /* tick counter 0 → 100, sync fill bar */
+      function tick() {
+        var elapsed = Date.now() - rafStart;
+        /* ease-out curve: fast start, decelerates toward 100 */
+        var t = Math.min(elapsed / DURATION, 1);
+        var eased = 1 - Math.pow(1 - t, 2.4); /* ease-out power */
+        var pct = Math.round(eased * 100);
+        if (counterEl) counterEl.innerHTML = '<span>' + pct + '</span>%';
+        if (fill) fill.style.width = pct + '%';
+        if (t < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          counterDone = true;
+          tryDismiss();
+        }
+      }
+      requestAnimationFrame(tick);
+
+      function tryDismiss() {
+        if (!pageReady || !counterDone) return;
+        /* small pause so user sees 100 */
         setTimeout(function () {
-          /* snap bar to 100 % before fade */
-          if (fill) { fill.style.transition = 'width .25s ease'; fill.style.width = '100%'; }
+          loader.classList.add('loader-done');
           setTimeout(function () {
-            loader.classList.add('loader-done');
-            setTimeout(function () {
-              if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
-            }, 700);
-          }, 280);
-        }, wait);
+            if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
+          }, 750);
+        }, 160);
       }
 
-      /* primary: video ready to play */
+      function markReady() { pageReady = true; tryDismiss(); }
+
+      /* primary: video ready */
       var vid = document.querySelector('#hero video');
-      if (vid) vid.addEventListener('canplay', function () { hideLoader(); }, { once: true });
+      if (vid) vid.addEventListener('canplay', markReady, { once: true });
 
-      /* secondary: all page assets loaded */
-      window.addEventListener('load', function () { hideLoader(); }, { once: true });
+      /* secondary: all assets */
+      window.addEventListener('load', markReady, { once: true });
 
-      /* hard fallback after 7 s */
-      setTimeout(hideLoader, 7000);
+      /* hard fallback */
+      setTimeout(markReady, 7000);
     }());
 
     /* pills below video on scroll */
