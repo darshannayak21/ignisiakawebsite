@@ -11,6 +11,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet" />
   <!-- Instrument Serif (Google Fonts) -->
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="typewriter.css">
   <style>
     /* ─── RESET + BASE ─────────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -2556,7 +2557,6 @@
   <!-- ╚═══════════════════════════════════════╝ -->
   <footer>
     <div class="container">
-
       <div class="footer-top">
         <div class="footer-wordmark">Ignisia</div>
         <p class="footer-tagline">MIT World Peace University &mdash; Pune, India &mdash; April 2026</p>
@@ -2576,6 +2576,7 @@
           <span class="footer-copy">&copy; 2026 Ignisia &mdash; MIT World Peace University. All rights reserved.</span>
           <span class="footer-uni-line">Kothrud, Pune &ndash; 411038, Maharashtra, India</span>
         </div>
+
         <div class="footer-bottom-right">
           <div class="footer-social">
             <a href="#">Instagram</a>&ensp;&middot;&ensp;
@@ -2586,7 +2587,14 @@
         </div>
       </div>
 
+      <div class="developer-signature">
+        <span class="typewriter" id="developer-credit"></span>
+      </div>
+                    <script src="typewriter.js"></script>
+
+
     </div>
+
   </footer>
 
   <!-- ═══════════════════════════════════════════
@@ -2756,5 +2764,6 @@
         scrollTrigger: { trigger: '.hero-below', start: 'top 90%' } }
     );
   </script>
+
 </body>
 </html>
