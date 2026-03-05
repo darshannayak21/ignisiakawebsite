@@ -55,7 +55,7 @@
 
     .section-label {
       font-family: var(--font-body);
-      font-size: 11px;
+      font-size: 15px;
       letter-spacing: .3em;
       color: var(--cyan);
       text-transform: uppercase;
@@ -98,8 +98,9 @@
     /* ─── NAV ────────────────────────────────────────────────────────────────── */
     nav {
       position: fixed;
-      top: 1.25rem;
+      top: 2.25rem;
       left: 50%;
+      width: 80%;
       transform: translateX(-50%);
       z-index: 1000;
       width: min(920px, calc(100vw - 2.5rem));
@@ -134,7 +135,7 @@
 
     .nav-links a {
       font-family: var(--font-body);
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 500;
       letter-spacing: 0;
       text-transform: none;
@@ -146,7 +147,7 @@
 
     .nav-cta {
       font-family: var(--font-body);
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 600;
       letter-spacing: 0;
       text-transform: none;
@@ -172,12 +173,12 @@
     /* ─── HERO ───────────────────────────────────────────────────────────────── */
     #hero {
       position: relative;
-      padding-top: calc(1.25rem + 56px + 2.5rem); /* nav top + nav height + gap */
-      padding-bottom: 80px;
+      padding-top: 0;           /* video starts at very top, behind fixed nav */
+      padding-bottom: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 2rem;
+      gap: 0;
       overflow: hidden;
     }
 
@@ -199,16 +200,18 @@
     /* ── video frame ────────────────────── */
     .hero-video-wrap {
       position: relative;
-      width: 92%;
+      width: 95%;              
       border-radius: 24px;
       overflow: hidden;
       flex-shrink: 0;
+      margin-top: 20px;
     }
 
     .hero-video-wrap video {
       width: 100%;
       display: block;
-      max-height: 78vh;
+      height: 92vh;             /* desktop: slightly shorter than full viewport */
+      max-height: 92vh;
       object-fit: cover;
       border-radius: 24px;
     }
@@ -219,15 +222,17 @@
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(0,0,0,.52) 0%,
-        rgba(0,0,0,.10) 40%,
-        rgba(0,0,0,.55) 100%
+        rgba(0,0,0,.58) 0%,
+        rgba(0,0,0,.08) 45%,
+        rgba(0,0,0,.60) 100%
       );
+      border: 1px solid #484848;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      padding: 2.2rem 2rem 2rem;
+      /* push top content below the floating navbar */
+      padding: calc(1.25rem + 56px + 2rem) 2rem 2.5rem;
       border-radius: 24px;
     }
 
@@ -241,11 +246,15 @@
       border-radius: 100px;
       padding: .38rem 1.1rem .38rem .75rem;
       font-family: var(--font-body);
-      font-size: 11px;
+      font-size: 16px;
       font-weight: 400;
       letter-spacing: .08em;
       color: rgba(255,255,255,.75);
       align-self: center;
+      width: fit-content;
+      max-width: calc(100% - 2rem);
+      justify-content: center;
+      white-space: nowrap;
     }
     .hero-overlay-eyebrow .badge-dot {
       width: 6px;
@@ -266,7 +275,7 @@
     }
     .overlay-pill {
       font-family: var(--font-body);
-      font-size: 10px;
+      font-size: 14px;
       font-weight: 400;
       letter-spacing: .06em;
       padding: .28rem .85rem;
@@ -362,7 +371,7 @@
 
     .hero-eyebrow {
       font-family: var(--font-body);
-      font-size: 12px;
+      font-size: 16px;
       letter-spacing: .04em;
       color: rgba(255,255,255,.65);
       opacity: 1;
@@ -378,7 +387,7 @@
       border-radius: 100px;
       padding: .42rem 1.1rem .42rem .75rem;
       font-family: var(--font-body);
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 400;
       letter-spacing: .01em;
       color: rgba(255,255,255,.62);
@@ -399,13 +408,13 @@
       font-style: italic;
       font-weight: 400;
       letter-spacing: .04em;
-      color: var(--cyan);
+      color: #b392ff;
     }
 
     .hero-title {
       font-family: var(--font-serif);
       font-style: italic;
-      font-size: clamp(3.5rem, 10vw, 8.5rem);
+      font-size: 14vw;
       font-weight: 400;
       letter-spacing: -.01em;
       line-height: .95;
@@ -422,10 +431,11 @@
 
     .hero-tagline {
       font-family: var(--font-body);
-      font-size: clamp(1rem, 2.2vw, 1.5rem);
+      font-size: clamp(1.6rem, 3vw, 1.5rem);
       font-weight: 400;
       letter-spacing: .04em;
-      color: rgba(255,255,255,.65);
+      color: rgba(255, 255, 255, 0.913);
+      margin-top: 1rem;
     }
 
     /* pill tags */
@@ -439,7 +449,7 @@
 
     .pill {
       font-family: var(--font-body);
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 500;
       letter-spacing: .02em;
       padding: .35rem .9rem;
@@ -460,7 +470,7 @@
     }
 
     .countdown-label {
-      font-size: 10px;
+      font-size: 14px;
       letter-spacing: .3em;
       color: var(--muted);
       text-transform: uppercase;
@@ -502,7 +512,7 @@
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.5;transform:scale(.8);} }
 
     .countdown-unit span:last-child {
-      font-size: 9px;
+      font-size: 13px;
       letter-spacing: .2em;
       color: var(--muted);
       text-transform: uppercase;
@@ -519,7 +529,7 @@
 
     .btn-primary {
       font-family: var(--font-body);
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 500;
       letter-spacing: 0;
       text-transform: none;
@@ -542,7 +552,7 @@
 
     .btn-ghost {
       font-family: var(--font-body);
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 500;
       letter-spacing: 0;
       text-transform: none;
@@ -575,7 +585,7 @@
     }
 
     .scroll-indicator span {
-      font-size: 9px;
+      font-size: 13px;
       letter-spacing: .25em;
       color: var(--muted);
       text-transform: uppercase;
@@ -613,7 +623,7 @@
       border: 1px solid rgba(255,255,255,.12);
       border-radius: 100px;
       padding: .35rem 1.1rem .35rem .75rem;
-      font-size: 11px;
+      font-size: 15px;
       letter-spacing: .12em;
       color: rgba(255,255,255,.55);
       text-transform: uppercase;
@@ -675,7 +685,7 @@
       border: 1px solid rgba(255,255,255,.12);
       border-radius: 100px;
       padding: .28rem .85rem;
-      font-size: 11px;
+      font-size: 15px;
       color: rgba(255,255,255,.65);
       letter-spacing: .04em;
       margin-bottom: 2rem;
@@ -717,7 +727,7 @@
     }
 
     .about-stat-label {
-      font-size: 10px;
+      font-size: 14px;
       font-weight: 500;
       letter-spacing: .16em;
       text-transform: uppercase;
@@ -726,7 +736,7 @@
     }
 
     .about-stat-desc {
-      font-size: 12px;
+      font-size: 16px;
       color: var(--muted);
       line-height: 1.5;
     }
@@ -769,12 +779,12 @@
     .about-benefit-title::before {
       content: '✦';
       color: var(--cyan);
-      font-size: 10px;
+      font-size: 14px;
       flex-shrink: 0;
     }
 
     .about-benefit-desc {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--muted);
       line-height: 1.65;
     }
@@ -803,7 +813,7 @@
       border: 1px solid rgba(255,255,255,.12);
       border-radius: 100px;
       padding: .38rem 1.1rem;
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 400;
       letter-spacing: .04em;
       color: rgba(255,255,255,.6);
@@ -871,7 +881,7 @@
       border: 1px solid rgba(139,92,246,.3);
       border-radius: 100px;
       padding: .22rem .75rem;
-      font-size: 9px;
+      font-size: 13px;
       letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--cyan);
@@ -888,7 +898,7 @@
     }
 
     .how-step-desc {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--muted);
       line-height: 1.7;
       max-width: 220px;
@@ -931,7 +941,7 @@
       border: 1px solid rgba(255,255,255,.12);
       border-radius: 100px;
       padding: .38rem 1.1rem .38rem .75rem;
-      font-size: 11px;
+      font-size: 15px;
       letter-spacing: .08em;
       color: rgba(255,255,255,.6);
       margin-bottom: 1.4rem;
@@ -1011,7 +1021,7 @@
     }
 
     .theme-desc {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--muted);
       line-height: 1.65;
       max-width: 220px;
@@ -1104,7 +1114,7 @@
       align-items: center;
       gap: .55rem;
       font-family: var(--font-body);
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 500;
       color: rgba(255,255,255,.85);
       border: 1px solid rgba(255,255,255,.14);
@@ -1221,7 +1231,7 @@
     }
 
     .judge-desc {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--muted);
       line-height: 1.65;
       max-width: 200px;
@@ -1304,7 +1314,7 @@
       border: 1px solid rgba(255,255,255,.12);
       border-radius: 100px;
       padding: .28rem .85rem;
-      font-size: 11px;
+      font-size: 15px;
       color: rgba(255,255,255,.65);
       letter-spacing: .04em;
       margin-bottom: 1.4rem;
@@ -1333,7 +1343,7 @@
     }
 
     .prize-desc {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--muted);
       line-height: 1.5;
       margin-bottom: 1.6rem;
@@ -1355,7 +1365,7 @@
       background: var(--cyan);
       color: #fff;
       font-family: var(--font-body);
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 500;
       padding: .7rem 1.2rem;
       border-radius: 100px;
@@ -1374,7 +1384,7 @@
       border: 1px solid rgba(255,255,255,.14);
       color: rgba(255,255,255,.8);
       font-family: var(--font-body);
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 500;
       padding: .7rem 1.2rem;
       border-radius: 100px;
@@ -1404,21 +1414,21 @@
       display: flex;
       align-items: center;
       gap: .6rem;
-      font-size: 13px;
+      font-size: 15px;
       color: rgba(255,255,255,.75);
       line-height: 1.4;
     }
 
     .prize-perk-icon {
       color: var(--cyan);
-      font-size: 14px;
+      font-size: 16px;
       flex-shrink: 0;
       line-height: 1;
     }
 
     .prize-note {
       text-align: center;
-      font-size: 13px;
+      font-size: 15px;
       color: var(--muted);
       margin-top: 2.5rem;
       font-style: italic;
@@ -1497,7 +1507,7 @@
     }
 
     .elig-label {
-      font-size: 10px;
+      font-size: 14px;
       letter-spacing: .16em;
       color: var(--muted);
       text-transform: uppercase;
@@ -1515,7 +1525,7 @@
     }
 
     .elig-note {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--muted);
       line-height: 1.65;
     }
@@ -1529,7 +1539,7 @@
     }
 
     .elig-tag {
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 500;
       color: rgba(255,255,255,.65);
       border: 1px solid rgba(255,255,255,.1);
@@ -1563,7 +1573,7 @@
     }
 
     .footer-tagline {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--muted);
       letter-spacing: .06em;
       margin-bottom: 2rem;
@@ -1597,7 +1607,7 @@
     .footer-nav-row li:last-child::after { display: none; }
 
     .footer-nav-row a {
-      font-size: 13px;
+      font-size: 15px;
       color: rgba(255,255,255,.5);
       text-decoration: none;
       font-weight: 500;
@@ -1613,7 +1623,7 @@
       background: var(--cyan);
       color: #fff;
       font-family: var(--font-body);
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 500;
       padding: .75rem 2rem;
       border-radius: 100px;
@@ -1640,12 +1650,12 @@
     }
 
     .footer-copy {
-      font-size: 12px;
+      font-size: 16px;
       color: rgba(255,255,255,.3);
     }
 
     .footer-uni-line {
-      font-size: 11px;
+      font-size: 15px;
       color: rgba(255,255,255,.2);
     }
 
@@ -1656,7 +1666,7 @@
     }
 
     .footer-social a {
-      font-size: 12px;
+      font-size: 16px;
       color: rgba(255,255,255,.35);
       text-decoration: none;
       transition: color .2s;
@@ -1665,7 +1675,7 @@
     .footer-social a:hover { color: var(--white); }
 
     .footer-email {
-      font-size: 12px;
+      font-size: 16px;
       color: rgba(255,255,255,.3);
       text-decoration: none;
       transition: color .2s;
@@ -1688,18 +1698,15 @@
       align-items: center;
       gap: 5px;
       background: rgba(139,92,246,.08);
-      border: 1px solid rgba(139,92,246,.18);
-      border-radius: 10px;
       cursor: pointer;
       padding: 8px 10px;
       width: 40px;
       height: 36px;
       z-index: 1100;
+      border: none;
       transition: background .2s, border-color .2s;
     }
     .nav-hamburger:hover {
-      background: rgba(139,92,246,.14);
-      border-color: rgba(139,92,246,.35);
     }
     .nav-hamburger span {
       display: block;
@@ -1769,7 +1776,7 @@
     }
     .mob-header-label {
       font-family: var(--font-body);
-      font-size: 10px;
+      font-size: 14px;
       letter-spacing: .3em;
       text-transform: uppercase;
       color: rgba(255,255,255,.25);
@@ -1832,7 +1839,7 @@
     }
     .mobile-menu li a .mob-idx {
       font-family: var(--font-body);
-      font-size: 10px;
+      font-size: 14px;
       font-weight: 500;
       letter-spacing: .06em;
       color: rgba(139,92,246,.5);
@@ -1859,7 +1866,7 @@
       width: 100%;
       text-align: center;
       font-family: var(--font-body);
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 600;
       color: #fff;
       background: var(--cyan);
@@ -1881,18 +1888,18 @@
       .container { padding: 0 2rem; }
 
       /* nav */
-      nav { top: .85rem; padding: .45rem .6rem .45rem 1.2rem; }
+      nav {   padding: .45rem .6rem .45rem 1.2rem; width: 80%;; }
       .nav-links { display: none; }
       .nav-cta   { display: none; }
       .nav-hamburger { display: flex; }
 
       /* hero */
-      #hero { padding-top: calc(.85rem + 52px + 2rem); gap: 1.5rem; }
-      .hero-video-wrap { width: 94%; border-radius: 20px; }
-      .hero-video-wrap video { border-radius: 20px; max-height: 70vh; }
-      .hero-video-overlay { border-radius: 20px; padding: 1.6rem 1.5rem 1.5rem; gap: .6rem; }
+      #hero { padding-top: 0; gap: 0; }
+      .hero-video-wrap { width: 95%; border-radius: 20px; }
+      .hero-video-wrap video { border-radius: 20px; height: 100vh; max-height: 100vh; }
+      .hero-video-overlay { border-radius: 20px; padding: calc(.85rem + 52px + 1.8rem) 1.5rem 1.5rem; gap: .6rem; }
       .hero-overlay-bottom { gap: 1rem; }
-      .hero-title { font-size: clamp(2.8rem, 9vw, 6rem); }
+      .hero-title { font-size: clamp(2.8rem, 12vw, 6rem); }
       .hero-subtitle { font-size: clamp(.9rem, 2.2vw, 1.2rem); }
 
       /* about */
@@ -1939,21 +1946,31 @@
       .container { padding: 0 1.1rem; }
 
       /* hero */
-      #hero { padding-top: calc(.75rem + 48px + 1.5rem); gap: 1.2rem; padding-bottom: 50px; }
+      #hero { padding-top: 0; gap: 0; padding-bottom: 0; }
       .hero-video-wrap { width: 95%; border-radius: 14px; }
-      .hero-video-wrap video { border-radius: 14px; max-height: 62vh; width: 100%; }
-      .hero-video-overlay { border-radius: 14px; padding: 1.2rem 1rem 1rem; }
+      .hero-video-wrap video { border-radius: 14px; height: 100vh; max-height: 100vh; width: 100%; }
+      .hero-video-overlay { border-radius: 14px; padding: calc(.75rem + 48px + 1.4rem) 1rem 1.2rem; }
       .hero-title { font-size: clamp(3rem, 13vw, 4.5rem); }
       .hero-subtitle { font-size: clamp(.8rem, 3.5vw, 1rem); }
-      .hero-overlay-eyebrow { font-size: 10px; padding: .3rem .9rem .3rem .6rem; }
+      .hero-overlay-eyebrow { font-size: 14px; padding: .3rem .9rem .3rem .6rem; width: fit-content; max-width: calc(100% - 2rem); }
+      .hero-overlay-eyebrow img { height: 18px; width: auto; }
       .overlay-pills-row { display:none;}
-      .overlay-pill { font-size: 9px; padding: .22rem .65rem; }
+      .hero-tagline
+      {
+        font-size: 15px;
+        color: var(--muted);
+        max-width: 480px;
+        margin: 0 auto;
+        line-height: 1.7;
+        text-align: center;
+      }
+      .overlay-pill { font-size: 13px; padding: .22rem .65rem; }
       .hero-overlay-bottom { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: .5rem; flex-wrap: nowrap; }
       .overlay-countdown { gap: .5rem; flex-shrink: 1; }
       .overlay-countdown .countdown-num { font-size: clamp(.85rem, 4.5vw, 1.2rem); min-width: 1.6ch; }
       .overlay-countdown .countdown-sep { font-size: clamp(.9rem, 3.5vw, 1.1rem); }
       .overlay-countdown .countdown-unit span:last-child { font-size: 7px; }
-      .hero-apply-corner { font-size: 13px; padding: .75rem 1.5rem; flex-shrink: 0; font-weight: 600; }
+      .hero-apply-corner { font-size: 15px; padding: .75rem 1.5rem; flex-shrink: 0; font-weight: 600; }
       .hero-below { gap: 1rem; }
 
       /* section headers (shared pattern) */
@@ -1964,7 +1981,7 @@
       .elig-big-title { font-size: clamp(1.7rem, 7.5vw, 2.6rem); }
       .about-big-title { font-size: clamp(1.7rem, 7.5vw, 2.6rem); }
       .themes-lead, .tech-lead, .judging-lead, .prizes-lead, .elig-lead,
-      .about-lead { font-size: 13px; }
+      .about-lead { font-size: 15px; }
 
       /* about */
       .about-card { padding: 1.4rem 1.1rem; border-radius: 16px; }
@@ -1987,18 +2004,18 @@
       .how-step-icon svg { width: 22px; height: 22px; }
       .how-step-badge { font-size: 8px; padding: .18rem .6rem; margin-bottom: .5rem; }
       .how-step-title { font-size: .85rem; margin-bottom: .4rem; }
-      .how-step-desc { font-size: 11px; line-height: 1.55; max-width: none; }
+      .how-step-desc { font-size: 15px; line-height: 1.55; max-width: none; }
       .how-cta { margin-top: 1.6rem; }
-      .how-cta-btn { font-size: 14px; padding: .85rem 2rem; }
+      .how-cta-btn { font-size: 16px; padding: .85rem 2rem; }
 
       /* themes */
       .themes-grid { grid-template-columns: 1fr 1fr; gap: 2rem .5rem; }
       .theme-name { font-size: .9rem; }
-      .theme-desc { font-size: 12px; max-width: none; }
-      .themes-cta-btn { font-size: 14px; padding: .85rem 2rem; }
+      .theme-desc { font-size: 16px; max-width: none; }
+      .themes-cta-btn { font-size: 16px; padding: .85rem 2rem; }
 
       /* tech marquee */
-      .tech-pill { font-size: 12px; padding: .5rem 1rem; }
+      .tech-pill { font-size: 16px; padding: .5rem 1rem; }
       .tech-pill svg { width: 14px; height: 14px; }
 
       /* judging */
@@ -2008,23 +2025,23 @@
       .judge-card:nth-child(3), .judge-card:nth-child(4) { border-bottom: none; }
       .judge-icon { width: 42px; height: 42px; border-radius: 10px; }
       .judge-name { font-size: .9rem; }
-      .judge-desc { font-size: 12px; max-width: none; }
+      .judge-desc { font-size: 16px; max-width: none; }
 
       /* prizes */
       .prizes-layout { gap: .6rem; max-width: 100%; margin: 0; }
       .prize-card { padding: 1.2rem 1rem; border-radius: 14px; }
       .prize-card.first { order: -1; padding: 1.4rem 1.1rem; }
       .prize-card.first::after { display: none; }
-      .prize-badge { margin-bottom: .6rem; font-size: 10px; padding: .2rem .7rem; }
+      .prize-badge { margin-bottom: .6rem; font-size: 14px; padding: .2rem .7rem; }
       .prize-amount { font-size: clamp(1.4rem, 6vw, 1.8rem); margin-bottom: .15rem; }
       .prize-card.first .prize-amount { font-size: clamp(1.6rem, 7vw, 2rem); }
-      .prize-desc { font-size: 12px; margin-bottom: .8rem; line-height: 1.4; }
+      .prize-desc { font-size: 16px; margin-bottom: .8rem; line-height: 1.4; }
       .prize-actions { flex-direction: column; gap: .45rem; margin-bottom: .8rem; }
-      .prize-btn-primary, .prize-btn-secondary { font-size: 13px; padding: .65rem 1rem; flex: none; width: 100%; }
+      .prize-btn-primary, .prize-btn-secondary { font-size: 15px; padding: .65rem 1rem; flex: none; width: 100%; }
       .prize-divider { margin-bottom: .7rem; }
       .prize-perks { gap: .4rem; }
-      .prize-perks li { font-size: 12px; gap: .4rem; }
-      .prize-note { font-size: 12px; margin-top: 1rem; }
+      .prize-perks li { font-size: 16px; gap: .4rem; }
+      .prize-note { font-size: 16px; margin-top: 1rem; }
 
       /* eligibility */
       .elig-grid { grid-template-columns: 1fr; }
@@ -2035,17 +2052,17 @@
       .elig-icon svg { width: 18px; height: 18px; }
       .elig-label { margin-bottom: .2rem; }
       .elig-value { font-size: .95rem; margin-bottom: .3rem; }
-      .elig-note { font-size: 12px; line-height: 1.5; }
+      .elig-note { font-size: 16px; line-height: 1.5; }
       .elig-tags { justify-content: flex-start; gap: .35rem; margin-top: 1.4rem; }
-      .elig-tag { font-size: 11px; padding: .28rem .8rem; }
+      .elig-tag { font-size: 15px; padding: .28rem .8rem; }
 
       /* footer */
       .footer-wordmark { font-size: clamp(2.2rem, 10vw, 3.5rem); }
       .footer-nav-row { gap: .15rem 0; }
-      .footer-nav-row a { font-size: 12px; }
+      .footer-nav-row a { font-size: 16px; }
       .footer-bottom { flex-direction: column; align-items: flex-start; gap: .8rem; }
       .footer-bottom-right { flex-direction: column; align-items: flex-start; gap: .5rem; }
-      .footer-apply { font-size: 13px; padding: .65rem 1.6rem; }
+      .footer-apply { font-size: 15px; padding: .65rem 1.6rem; }
     }
 
     /* ─── RESPONSIVE : SMALL PHONES 380px ───────────────────────────────────── */
@@ -2066,33 +2083,33 @@
     @media (max-width: 600px) and (orientation: portrait) {
       .hero-video-wrap {
         width: 95%;
-        border-radius: 14px;
-        /* force portrait crop of the landscape video */
-        aspect-ratio: 9 / 14;
+        border-radius: 18px;
+        aspect-ratio: unset;
+        height: 100vh;
         overflow: hidden;
       }
       .hero-video-wrap video {
         width: 100%;
         height: 100%;
-        max-height: none;
+        max-height: 100vh;
         object-fit: cover;
         object-position: center center;
         border-radius: 14px;
       }
       .hero-video-overlay {
-        border-radius: 14px;
-        padding: 1.4rem 1rem 1.2rem;
+        border-radius: 18px;
+        padding: calc(.75rem + 48px + 1.4rem) 1rem 1.2rem;
       }
-      .hero-title { font-size: clamp(5rem, 14vw, 5rem); }
+      .hero-title { font-size: clamp(6rem, 16vw, 6rem); }
       .hero-subtitle { font-size: clamp(.85rem, 3.5vw, 1.1rem); }
     }
 
     /* ─── HERO VIDEO : LANDSCAPE PHONE ──────────────────────────────────────── */
     @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
-      #hero { padding-top: calc(.6rem + 44px + 1rem); }
-      .hero-video-wrap { width: 88%; border-radius: 14px; }
-      .hero-video-wrap video { max-height: 82vh; border-radius: 14px; }
-      .hero-video-overlay { padding: 1rem 1.2rem; }
+      #hero { padding-top: 0; }
+      .hero-video-wrap { width: 95%; border-radius: 14px; }
+      .hero-video-wrap video { height: 100vh; max-height: 100vh; border-radius: 14px; }
+      .hero-video-overlay { padding: calc(.6rem + 44px + 1rem) 1.2rem 1rem; }
       .hero-title { font-size: clamp(1.5rem, 5vw, 2.5rem); }
       .hero-subtitle { font-size: clamp(.75rem, 2vw, 1rem); }
       .overlay-pills-row { display: none; }
@@ -2147,6 +2164,288 @@
       to   { opacity: 1; }
     }
 
+    /* ─── MIT LOGO BADGE ────────────────────────────────────────────────────── */
+    .mit-logo-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,.97);
+      color: #0a0a0a;
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .07em;
+      padding: 3px 6px 2.5px;
+      border-radius: 4px;
+      line-height: 1.2;
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
+
+    /* ─── HERO AI HACKATHON BADGE ───────────────────────────────────────────── */
+    .hero-title-block {
+      position: relative;
+      display: inline-block;
+      line-height: .95;
+    }
+    .hero-ai-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: -0.8em;
+      padding-right: .2rem;
+    }
+    .hero-ai-badge {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: rgba(139,92,246,.12);
+      border-radius: 100px;
+      padding: .22rem .75rem;
+      white-space: nowrap;
+    }
+
+    /* ─── HERO SOCIALS ──────────────────────────────────────────────────────── */
+    .hero-socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      flex-wrap: wrap;
+      padding: 1.4rem 0 .4rem;
+    }
+    .hero-social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      color: rgba(255,255,255,.52);
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 50%;
+      background: rgba(255,255,255,.04);
+      text-decoration: none;
+      transition: color .22s, border-color .22s, background .22s;
+      flex-shrink: 0;
+    }
+    .hero-social-link:hover {
+      color: rgba(255,255,255,.88);
+      border-color: rgba(255,255,255,.26);
+      background: rgba(255,255,255,.08);
+    }
+    .hero-social-link svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    /* ─── TIMELINE ──────────────────────────────────────────────────────────── */
+    #timeline { background: var(--bg); }
+    .timeline-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .timeline-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 100px;
+      padding: .38rem 1.1rem .38rem .75rem;
+      font-size: 15px;
+      letter-spacing: .08em;
+      color: rgba(255,255,255,.6);
+      margin-bottom: 1.4rem;
+    }
+    .timeline-big-title {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: -.025em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .timeline-big-title em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--cyan);
+    }
+    .timeline-lead {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* vertical track */
+    .timeline-track {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .timeline-track::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(139,92,246,.35) 6%,
+        rgba(139,92,246,.18) 94%,
+        transparent 100%
+      );
+      pointer-events: none;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 48px 1fr;
+      align-items: start;
+      gap: 0 2rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-side-left  { text-align: right; padding-right: .5rem; }
+    .timeline-side-right { text-align: left;  padding-left: .5rem; }
+
+    /* center node */
+    .timeline-node {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: .22rem;
+    }
+    .timeline-node-inner {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1px solid rgba(139,92,246,.38);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+    .timeline-node-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      opacity: .65;
+    }
+    .timeline-item.tl-active .timeline-node-inner {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 5px rgba(139,92,246,.1);
+    }
+    .timeline-item.tl-active .timeline-node-dot {
+      opacity: 1;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .timeline-date {
+      font-family: var(--font-body);
+      font-size: 15px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      opacity: .85;
+      margin-bottom: .4rem;
+      font-weight: 600;
+    }
+    .timeline-title {
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: -.01em;
+      margin-bottom: .5rem;
+      line-height: 1.2;
+    }
+    .timeline-desc {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .timeline-pill {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(139,92,246,.1);
+      border: 1px solid rgba(139,92,246,.25);
+      border-radius: 100px;
+      padding: .25rem .8rem;
+      font-size: 14px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-top: .6rem;
+      font-weight: 500;
+    }
+    .timeline-pill.tl-upcoming {
+      background: rgba(255,255,255,.04);
+      border-color: rgba(255,255,255,.1);
+      color: var(--muted);
+    }
+    .timeline-empty { min-height: 10px; }
+
+    /* mobile timeline */
+    @media (max-width: 700px) {
+      .timeline-track::before {
+        left: 10px;
+        transform: none;
+        top: 0; bottom: 0;
+      }
+      .hero-ai-badge
+      {
+        font-size: 10px;
+        padding: .18rem .6rem;
+      }
+      .timeline-item {
+        grid-template-columns: 22px 1fr;
+        gap: 0 1rem;
+        margin-bottom: 2.2rem;
+      }
+      .timeline-node {
+        grid-column: 1;
+        grid-row: 1;
+      }
+      .timeline-side-left  {
+        grid-column: 2;
+        grid-row: 1;
+        text-align: left !important;
+        padding: 0 !important;
+      }
+      .timeline-side-right {
+        grid-column: 2;
+        grid-row: 1;
+        text-align: left !important;
+        padding: 0 !important;
+      }
+      .timeline-empty { display: none; }
+      .timeline-node-inner { width: 12px; height: 12px; }
+      .timeline-node-dot { width: 5px; height: 5px; }
+    }
+
+    /* ─── MOBILE MENU 6th item delay ───────────────────────────────────────── */
+    .mobile-menu.open li:nth-child(6) { transition-delay: .32s; opacity: 1; transform: none; }
+
   </style>
 </head>
 <body>
@@ -2167,11 +2466,12 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#how">Process</a></li>
+      <li><a href="#timeline">Timeline</a></li>
       <li><a href="#themes">Themes</a></li>
       <li><a href="#prizes">Prizes</a></li>
       <li><a href="#eligibility">Eligibility</a></li>
     </ul>
-    <a href="#" class="nav-cta">Apply Now</a>
+    <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="nav-cta">Apply Now</a>
     <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -2189,12 +2489,13 @@
     <div class="mob-nav">
       <li><a href="#about" class="mob-link"><span class="mob-idx">01</span>About</a></li>
       <li><a href="#how" class="mob-link"><span class="mob-idx">02</span>Process</a></li>
-      <li><a href="#themes" class="mob-link"><span class="mob-idx">03</span>Themes</a></li>
-      <li><a href="#prizes" class="mob-link"><span class="mob-idx">04</span>Prizes</a></li>
-      <li><a href="#eligibility" class="mob-link"><span class="mob-idx">05</span>Eligibility</a></li>
+      <li><a href="#timeline" class="mob-link"><span class="mob-idx">03</span>Timeline</a></li>
+      <li><a href="#themes" class="mob-link"><span class="mob-idx">04</span>Themes</a></li>
+      <li><a href="#prizes" class="mob-link"><span class="mob-idx">05</span>Prizes</a></li>
+      <li><a href="#eligibility" class="mob-link"><span class="mob-idx">06</span>Eligibility</a></li>
     </div>
     <div class="mob-footer">
-      <a href="#" class="mobile-cta">Apply Now</a>
+      <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="mobile-cta">Apply Now</a>
     </div>
   </ul>
 
@@ -2210,16 +2511,20 @@
       <div class="hero-video-overlay">
 
         <!-- top: MIT label pill -->
-        <p class="hero-overlay-eyebrow"><span class="badge-dot"></span>MIT World Peace University Presents</p>
+        <p class="hero-overlay-eyebrow"><span style="margin-left: 20px; background: rgb(71, 255, 47);" class="badge-dot"></span><img style="height: 68px; width: auto; max-width: 100%; margin-bottom: 6px; margin-right: 20px; margin-left: 8px;" src="MIT-white-logo (1).png" alt="MIT WPU"></p>
 
         <!-- center: brand + tagline -->
         <div class="hero-video-center">
-          <h1 class="hero-title">Ignisia</h1>
+          <div class="hero-title-block">
+            <h1 class="hero-title">Ignisia</h1>
+            <div class="hero-ai-row">
+              <span class="hero-ai-badge">AI Hackathon</span>
+            </div>
+          </div>
           <p class="hero-tagline">Think.&nbsp; <span class="hero-tagline-accent">Build.</span>&nbsp; Evolve.</p>
           <div class="overlay-pills-row">
             <span class="overlay-pill">National Level</span>
             <span class="overlay-pill">24 Hours</span>
-            <span class="overlay-pill">Hybrid Mode</span>
             <span class="overlay-pill">₹1,00,000 Prize Pool</span>
           </div>
         </div>
@@ -2248,18 +2553,27 @@
             </div>
           </div>
 
-          <a href="#" class="hero-apply-corner">Apply Now</a>
+          <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="hero-apply-corner">Apply Now</a>
         </div>
 
       </div>
     </div>
 
-    <!-- pills below the video -->
-
+    <!-- social icons below the video -->
+    <div style="display: none;" class="hero-socials">
+      <a href="#" class="hero-social-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" class="hero-social-link" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="#" class="hero-social-link" aria-label="Twitter / X">
+        <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </a>
+    </div>
 
   </section>
 
-  <div class="divider"></div>
 
   <!-- ╔═══════════════════════════════════════╗ -->
   <!-- ║               ABOUT                   ║ -->
@@ -2376,9 +2690,89 @@
 
       <!-- CTA below frame -->
       <div class="how-cta fade-in delay-2">
-        <a href="#" class="how-cta-btn">Apply Now</a>
+        <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="how-cta-btn">Apply Now</a>
       </div>
 
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ╔═══════════════════════════════════════╗ -->
+  <!-- ║             TIMELINE                  ║ -->
+  <!-- ╚═══════════════════════════════════════╝ -->
+  <section id="timeline" class="section">
+    <div class="container">
+
+      <div class="timeline-header fade-in">
+        <span class="timeline-eyebrow"><span class="badge-dot"></span>Key Dates</span>
+        <h2 class="timeline-big-title">Your journey, <em>mapped out.</em></h2>
+        <p class="timeline-lead">Every milestone from registration to the grand finale — mark your calendar.</p>
+      </div>
+
+      <div class="timeline-track">
+
+        <!-- 1: Registrations Open — ACTIVE -->
+        <div class="timeline-item tl-active fade-in">
+          <div class="timeline-side-left">
+            <div class="timeline-date">Mar 5, 2026</div>
+            <div class="timeline-title">Registrations Open</div>
+            <p class="timeline-desc">The gates open. Form your team, choose your domain, and stake your claim at Ignisia 2026.</p>
+            <span class="timeline-pill">&#9679;&ensp;Registration Open</span>
+          </div>
+          <div class="timeline-node"><div class="timeline-node-inner"><div class="timeline-node-dot"></div></div></div>
+          <div class="timeline-side-right timeline-empty"></div>
+        </div>
+
+        <!-- 2: Idea Submission -->
+        <div class="timeline-item fade-in delay-1">
+          <div class="timeline-side-left timeline-empty"></div>
+          <div class="timeline-node"><div class="timeline-node-inner"><div class="timeline-node-dot"></div></div></div>
+          <div class="timeline-side-right">
+            <div class="timeline-date">Mar 14, 2026</div>
+            <div class="timeline-title">Idea Submission Closes</div>
+            <p class="timeline-desc">Submit your project idea, problem statement, and proposed AI approach before the deadline.</p>
+            <span class="timeline-pill tl-upcoming">Stage 1 Deadline</span>
+          </div>
+        </div>
+
+        <!-- 3: Screening Results -->
+        <div class="timeline-item fade-in delay-2">
+          <div class="timeline-side-left">
+            <div class="timeline-date">Mar 19, 2026</div>
+            <div class="timeline-title">Screening Results</div>
+            <p class="timeline-desc">Shortlisted teams are notified via email. Top ideas advance to the next round.</p>
+            <span class="timeline-pill tl-upcoming">Shortlist Announced</span>
+          </div>
+          <div class="timeline-node"><div class="timeline-node-inner"><div class="timeline-node-dot"></div></div></div>
+          <div class="timeline-side-right timeline-empty"></div>
+        </div>
+
+        <!-- 4: Finalists Announced -->
+        <div class="timeline-item fade-in delay-1">
+          <div class="timeline-side-left timeline-empty"></div>
+          <div class="timeline-node"><div class="timeline-node-inner"><div class="timeline-node-dot"></div></div></div>
+          <div class="timeline-side-right">
+            <div class="timeline-date">Mar 21, 2026</div>
+            <div class="timeline-title">Finalists Announced</div>
+            <p class="timeline-desc">The final roster is confirmed. If you make it, pack your bags &mdash; the Grand Finale awaits.</p>
+            <span class="timeline-pill tl-upcoming">Final Selection</span>
+          </div>
+        </div>
+
+        <!-- 5: Grand Finale -->
+        <div class="timeline-item fade-in delay-2">
+          <div class="timeline-side-left">
+            <div class="timeline-date">Apr 3, 2026</div>
+            <div class="timeline-title">Grand Finale &mdash; 24 Hours</div>
+            <p class="timeline-desc">Non-stop build marathon on-campus at MIT-WPU, Pune. 24 hours to ship your AI solution and compete for ₹1,00,000.</p>
+            <span class="timeline-pill">Main Event</span>
+          </div>
+          <div class="timeline-node"><div class="timeline-node-inner"><div class="timeline-node-dot"></div></div></div>
+          <div class="timeline-side-right timeline-empty"></div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -2429,15 +2823,15 @@
         </div>
 
         <div class="theme-card fade-in delay-4">
-          <div class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
-          <div class="theme-name">Open Innovation</div>
-          <p class="theme-desc">Got a groundbreaking AI idea outside these domains? Build it anyway.</p>
+          <div class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01"/></svg></div>
+          <div class="theme-name">FinTech</div>
+          <p class="theme-desc">AI-powered solutions transforming payments, lending, fraud detection, and financial inclusion.</p>
         </div>
 
       </div>
 
       <div class="themes-cta fade-in delay-2">
-        <a href="#" class="themes-cta-btn">Apply Now</a>
+        <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="themes-cta-btn">Apply Now</a>
       </div>
 
     </div>
@@ -2580,7 +2974,7 @@
           <div class="prize-amount">₹50,000</div>
           <p class="prize-desc">Awarded to the team that ships the most impactful AI solution in 24 hours.</p>
           <div class="prize-actions">
-            <a href="#" class="prize-btn-primary">Apply Now</a>
+            <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="prize-btn-primary">Apply Now</a>
             <a href="#" class="prize-btn-secondary">Learn More</a>
           </div>
           <div class="prize-divider"></div>
@@ -2647,8 +3041,8 @@
         <div class="elig-item fade-in delay-3">
           <div class="elig-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
           <div class="elig-label">Format</div>
-          <div class="elig-value">Hybrid</div>
-          <p class="elig-note">Preliminary rounds online, grand finale on-campus at MIT World Peace University, Pune.</p>
+          <div class="elig-value">Physical</div>
+          <p class="elig-note">Grand Finale held fully on-campus at MIT World Peace University, Pune.</p>
         </div>
 
       </div>
@@ -2656,9 +3050,7 @@
       <div class="elig-tags fade-in delay-3">
         <span class="elig-tag">All Indian Universities</span>
         <span class="elig-tag">No Prerequisites</span>
-        <span class="elig-tag">Free to Register</span>
         <span class="elig-tag">Cross-Disciplinary</span>
-        <span class="elig-tag">Hybrid Format</span>
       </div>
 
     </div>
@@ -2677,12 +3069,13 @@
         <ul class="footer-nav-row">
           <li><a href="#about">About</a></li>
           <li><a href="#how">How It Works</a></li>
+          <li><a href="#timeline">Timeline</a></li>
           <li><a href="#themes">Themes</a></li>
           <li><a href="#judging">Judging</a></li>
           <li><a href="#prizes">Prizes</a></li>
           <li><a href="#eligibility">Eligibility</a></li>
         </ul>
-        <a href="#" class="footer-apply">Apply Now &rarr;</a>
+        <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="footer-apply">Apply Now &rarr;</a>
       </div>
 
       <div class="footer-bottom">
@@ -2719,7 +3112,7 @@
        Set your event date here (YYYY, MM-1, DD, HH, MM, SS)
        Month is 0-indexed: April = 3
     ──────────────────────────────────────────────────────────── */
-    const EVENT_DATE = new Date(2026, 3, 18, 9, 0, 0); // April 18, 2026 09:00
+    const EVENT_DATE = new Date(2026, 3, 3, 9, 0, 0); // April 3, 2026 09:00
 
     function pad(n) { return String(n).padStart(2, '0'); }
 
