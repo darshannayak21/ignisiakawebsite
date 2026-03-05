@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,26 +15,35 @@
   <link rel="stylesheet" href="typewriter.css">
   <style>
     /* ─── RESET + BASE ─────────────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
-      --bg:        #0a0a0a;
-      --bg2:       #0e0e0e;
-      --bg3:       #141414;
-      --cyan:      #8B5CF6;
-      --cyan-dim:  #7C3AED;
-      --cyan-glow: rgba(139,92,246,.18);
-      --cyan-glow2:rgba(139,92,246,.38);
-      --white:     #FFFFFF;
-      --muted:     #888899;
-      --border:    rgba(139,92,246,.2);
+      --bg: #0a0a0a;
+      --bg2: #0e0e0e;
+      --bg3: #141414;
+      --cyan: #8B5CF6;
+      --cyan-dim: #7C3AED;
+      --cyan-glow: rgba(139, 92, 246, .18);
+      --cyan-glow2: rgba(139, 92, 246, .38);
+      --white: #FFFFFF;
+      --muted: #888899;
+      --border: rgba(139, 92, 246, .2);
       --font-head: 'Satoshi', sans-serif;
       --font-body: 'Satoshi', sans-serif;
       --font-mono: 'Satoshi', sans-serif;
       --font-serif: 'Instrument Serif', Georgia, serif;
     }
 
-    html { scroll-behavior: smooth; overflow-x: hidden; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
 
     body {
       background: var(--bg);
@@ -45,13 +55,30 @@
     }
 
     /* ─── SCROLLBAR ─────────────────────────────────────────────────────────── */
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--cyan-dim); border-radius: 2px; }
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--cyan-dim);
+      border-radius: 2px;
+    }
 
     /* ─── GLOBAL UTILITIES ───────────────────────────────────────────────────── */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-    .section { padding: 100px 0; position: relative; }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
 
     .section-label {
       font-family: var(--font-body);
@@ -74,7 +101,9 @@
       margin-bottom: 1.5rem;
     }
 
-    .cyan { color: var(--cyan); }
+    .cyan {
+      color: var(--cyan);
+    }
 
     /* fade-in animation class added by IntersectionObserver */
     .fade-in {
@@ -82,18 +111,36 @@
       transform: translateY(30px);
       transition: opacity .7s ease, transform .7s ease;
     }
+
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    .fade-in.delay-1 { transition-delay: .1s; }
-    .fade-in.delay-2 { transition-delay: .2s; }
-    .fade-in.delay-3 { transition-delay: .3s; }
-    .fade-in.delay-4 { transition-delay: .4s; }
-    .fade-in.delay-5 { transition-delay: .5s; }
+
+    .fade-in.delay-1 {
+      transition-delay: .1s;
+    }
+
+    .fade-in.delay-2 {
+      transition-delay: .2s;
+    }
+
+    .fade-in.delay-3 {
+      transition-delay: .3s;
+    }
+
+    .fade-in.delay-4 {
+      transition-delay: .4s;
+    }
+
+    .fade-in.delay-5 {
+      transition-delay: .5s;
+    }
 
     /* ─── CIRCUIT OVERLAY ────────────────────────────────────────────────────── */
-    .circuit-bg { display: none; }
+    .circuit-bg {
+      display: none;
+    }
 
     /* ─── NAV ────────────────────────────────────────────────────────────────── */
     nav {
@@ -111,8 +158,8 @@
       background: rgba(8, 8, 8, 0.45);
       backdrop-filter: blur(32px) saturate(160%);
       -webkit-backdrop-filter: blur(32px) saturate(160%);
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: 0 1px 0 0 rgba(255,255,255,.06) inset, 0 8px 32px rgba(0,0,0,.4);
+      border: 1px solid rgba(255, 255, 255, .12);
+      box-shadow: 0 1px 0 0 rgba(255, 255, 255, .06) inset, 0 8px 32px rgba(0, 0, 0, .4);
       border-radius: 100px;
       transition: all .3s;
     }
@@ -139,11 +186,14 @@
       font-weight: 500;
       letter-spacing: 0;
       text-transform: none;
-      color: rgba(255,255,255,.65);
+      color: rgba(255, 255, 255, .65);
       text-decoration: none;
       transition: color .2s;
     }
-    .nav-links a:hover { color: #fff; }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
 
     .nav-cta {
       font-family: var(--font-body);
@@ -161,11 +211,13 @@
       flex-shrink: 0;
       transition: background .22s ease, color .22s ease, border-color .22s ease;
     }
+
     .nav-cta:hover {
       background: transparent;
       color: var(--cyan);
       border-color: var(--cyan);
     }
+
     .nav-cta:active {
       opacity: .75;
     }
@@ -173,7 +225,8 @@
     /* ─── HERO ───────────────────────────────────────────────────────────────── */
     #hero {
       position: relative;
-      padding-top: 0;           /* video starts at very top, behind fixed nav */
+      padding-top: 0;
+      /* video starts at very top, behind fixed nav */
       padding-bottom: 0;
       display: flex;
       flex-direction: column;
@@ -184,10 +237,14 @@
 
     /* no overlays — clean black */
 
-    .hero-vignette { display: none; }
+    .hero-vignette {
+      display: none;
+    }
 
     /* particle canvas */
-    #particleCanvas { display: none; }
+    #particleCanvas {
+      display: none;
+    }
 
     /* ── badge above video ──────────────── */
     .hero-content {
@@ -200,7 +257,7 @@
     /* ── video frame ────────────────────── */
     .hero-video-wrap {
       position: relative;
-      width: 95%;              
+      width: 95%;
       border-radius: 24px;
       overflow: hidden;
       flex-shrink: 0;
@@ -210,7 +267,8 @@
     .hero-video-wrap video {
       width: 100%;
       display: block;
-      height: 92vh;             /* desktop: slightly shorter than full viewport */
+      height: 92vh;
+      /* desktop: slightly shorter than full viewport */
       max-height: 92vh;
       object-fit: cover;
       border-radius: 24px;
@@ -220,12 +278,10 @@
     .hero-video-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,.58) 0%,
-        rgba(0,0,0,.08) 45%,
-        rgba(0,0,0,.60) 100%
-      );
+      background: linear-gradient(to bottom,
+          rgba(0, 0, 0, .58) 0%,
+          rgba(0, 0, 0, .08) 45%,
+          rgba(0, 0, 0, .60) 100%);
       border: 1px solid #484848;
       display: flex;
       flex-direction: column;
@@ -241,21 +297,22 @@
       display: inline-flex;
       align-items: center;
       gap: .5rem;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .2);
       border-radius: 100px;
       padding: .38rem 1.1rem .38rem .75rem;
       font-family: var(--font-body);
       font-size: 16px;
       font-weight: 400;
       letter-spacing: .08em;
-      color: rgba(255,255,255,.75);
+      color: rgba(255, 255, 255, .75);
       align-self: center;
       width: fit-content;
       max-width: calc(100% - 2rem);
       justify-content: center;
       white-space: nowrap;
     }
+
     .hero-overlay-eyebrow .badge-dot {
       width: 6px;
       height: 6px;
@@ -273,15 +330,16 @@
       justify-content: center;
       margin-top: .4rem;
     }
+
     .overlay-pill {
       font-family: var(--font-body);
       font-size: 14px;
       font-weight: 400;
       letter-spacing: .06em;
       padding: .28rem .85rem;
-      border: 1px solid rgba(255,255,255,.22);
-      color: rgba(255,255,255,.7);
-      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255, 255, 255, .22);
+      color: rgba(255, 255, 255, .7);
+      background: rgba(255, 255, 255, .07);
       border-radius: 100px;
     }
 
@@ -309,12 +367,14 @@
       gap: 1.2rem;
       align-items: flex-end;
     }
+
     .overlay-countdown .countdown-unit {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: .1rem;
     }
+
     .overlay-countdown .countdown-num {
       font-family: var(--font-body);
       font-size: clamp(1.4rem, 3vw, 2.2rem);
@@ -324,18 +384,20 @@
       min-width: 2ch;
       text-align: center;
     }
+
     .overlay-countdown .countdown-sep {
       font-family: var(--font-body);
       font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-      color: rgba(255,255,255,.4);
+      color: rgba(255, 255, 255, .4);
       align-self: center;
       padding-bottom: 1rem;
       animation: blink 1s step-end infinite;
     }
+
     .overlay-countdown .countdown-unit span:last-child {
       font-size: 8px;
       letter-spacing: .15em;
-      color: rgba(255,255,255,.4);
+      color: rgba(255, 255, 255, .4);
       text-transform: uppercase;
     }
 
@@ -356,6 +418,7 @@
       flex-shrink: 0;
       letter-spacing: -.01em;
     }
+
     .hero-apply-corner:hover {
       opacity: .85;
       transform: translateY(-1px);
@@ -373,7 +436,7 @@
       font-family: var(--font-body);
       font-size: 16px;
       letter-spacing: .04em;
-      color: rgba(255,255,255,.65);
+      color: rgba(255, 255, 255, .65);
       opacity: 1;
     }
 
@@ -382,15 +445,15 @@
       display: inline-flex;
       align-items: center;
       gap: .55rem;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .12);
       border-radius: 100px;
       padding: .42rem 1.1rem .42rem .75rem;
       font-family: var(--font-body);
       font-size: 16px;
       font-weight: 400;
       letter-spacing: .01em;
-      color: rgba(255,255,255,.62);
+      color: rgba(255, 255, 255, .62);
     }
 
     .badge-dot {
@@ -426,7 +489,7 @@
       font-size: clamp(1rem, 2.5vw, 1.4rem);
       font-weight: 500;
       letter-spacing: -.01em;
-      color: rgba(255,255,255,.9);
+      color: rgba(255, 255, 255, .9);
     }
 
     .hero-tagline {
@@ -453,9 +516,9 @@
       font-weight: 500;
       letter-spacing: .02em;
       padding: .35rem .9rem;
-      border: 1px solid rgba(139,92,246,.3);
-      color: rgba(255,255,255,.75);
-      background: rgba(139,92,246,.08);
+      border: 1px solid rgba(139, 92, 246, .3);
+      color: rgba(255, 255, 255, .75);
+      background: rgba(139, 92, 246, .08);
       border-radius: 100px;
       text-transform: none;
     }
@@ -508,8 +571,31 @@
       animation: blink 1s step-end infinite;
     }
 
-    @keyframes blink { 0%,100%{opacity:.5;} 50%{opacity:.1;} }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.5;transform:scale(.8);} }
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: .5;
+      }
+
+      50% {
+        opacity: .1;
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: .5;
+        transform: scale(.8);
+      }
+    }
 
     .countdown-unit span:last-child {
       font-size: 13px;
@@ -556,17 +642,18 @@
       font-weight: 500;
       letter-spacing: 0;
       text-transform: none;
-      color: rgba(255,255,255,.82);
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.15);
+      color: rgba(255, 255, 255, .82);
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .15);
       padding: .85rem 2.2rem;
       cursor: pointer;
       text-decoration: none;
       border-radius: 100px;
       transition: border-color .3s, box-shadow .3s, transform .2s, color .2s;
     }
+
     .btn-ghost:hover {
-      border-color: rgba(255,255,255,.35);
+      border-color: rgba(255, 255, 255, .35);
       color: #fff;
       transform: translateY(-1px);
     }
@@ -599,14 +686,31 @@
     }
 
     @keyframes scrollDrop {
-      0% { transform: scaleY(0); transform-origin: top; }
-      50% { transform: scaleY(1); transform-origin: top; }
-      51% { transform: scaleY(1); transform-origin: bottom; }
-      100% { transform: scaleY(0); transform-origin: bottom; }
+      0% {
+        transform: scaleY(0);
+        transform-origin: top;
+      }
+
+      50% {
+        transform: scaleY(1);
+        transform-origin: top;
+      }
+
+      51% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+      }
+
+      100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+      }
     }
 
     /* ─── ABOUT (REDESIGNED) ───────────────────────────────────────────────── */
-    #about { background: var(--bg); }
+    #about {
+      background: var(--bg);
+    }
 
     /* centered header block */
     .about-header {
@@ -619,13 +723,13 @@
       display: inline-flex;
       align-items: center;
       gap: .5rem;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .12);
       border-radius: 100px;
       padding: .35rem 1.1rem .35rem .75rem;
       font-size: 15px;
       letter-spacing: .12em;
-      color: rgba(255,255,255,.55);
+      color: rgba(255, 255, 255, .55);
       text-transform: uppercase;
       margin-bottom: 1.6rem;
     }
@@ -658,7 +762,7 @@
     /* ── about card (prize-card style) ── */
     .about-card {
       background: #111;
-      border: 1px solid rgba(255,255,255,.12);
+      border: 1px solid rgba(255, 255, 255, .12);
       border-radius: 24px;
       padding: 2.8rem 2.4rem;
       position: relative;
@@ -671,9 +775,11 @@
     .about-card::after {
       content: '';
       position: absolute;
-      bottom: -100px; right: -100px;
-      width: 360px; height: 360px;
-      background: radial-gradient(circle, rgba(139,92,246,.35) 0%, transparent 68%);
+      bottom: -100px;
+      right: -100px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(139, 92, 246, .35) 0%, transparent 68%);
       pointer-events: none;
     }
 
@@ -681,12 +787,12 @@
       display: inline-flex;
       align-items: center;
       gap: .4rem;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .12);
       border-radius: 100px;
       padding: .28rem .85rem;
       font-size: 15px;
-      color: rgba(255,255,255,.65);
+      color: rgba(255, 255, 255, .65);
       letter-spacing: .04em;
       margin-bottom: 2rem;
     }
@@ -698,7 +804,7 @@
       gap: 0;
       padding-bottom: 2rem;
       margin-bottom: 2rem;
-      border-bottom: 1px solid rgba(255,255,255,.07);
+      border-bottom: 1px solid rgba(255, 255, 255, .07);
     }
 
     .about-stat {
@@ -706,7 +812,7 @@
       flex-direction: column;
       padding-right: 2rem;
       margin-right: 2rem;
-      border-right: 1px solid rgba(255,255,255,.07);
+      border-right: 1px solid rgba(255, 255, 255, .07);
     }
 
     .about-stat:last-child {
@@ -750,7 +856,7 @@
 
     .about-benefit {
       padding: 1.4rem 2.4rem 1.4rem 0;
-      border-right: 1px solid rgba(255,255,255,.06);
+      border-right: 1px solid rgba(255, 255, 255, .06);
     }
 
     .about-benefit:nth-child(even) {
@@ -760,7 +866,7 @@
     }
 
     .about-benefit:nth-child(n+3) {
-      border-top: 1px solid rgba(255,255,255,.06);
+      border-top: 1px solid rgba(255, 255, 255, .06);
       padding-top: 1.4rem;
     }
 
@@ -790,7 +896,9 @@
     }
 
     /* ─── HOW IT WORKS ──────────────────────────────────────────────────────── */
-    #how { background: var(--bg); }
+    #how {
+      background: var(--bg);
+    }
 
     /* outer rounded frame (like the reference) */
     .how-frame {
@@ -809,14 +917,14 @@
     .how-eyebrow {
       display: inline-flex;
       align-items: center;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .12);
       border-radius: 100px;
       padding: .38rem 1.1rem;
       font-size: 16px;
       font-weight: 400;
       letter-spacing: .04em;
-      color: rgba(255,255,255,.6);
+      color: rgba(255, 255, 255, .6);
       margin-bottom: 1.4rem;
     }
 
@@ -861,7 +969,10 @@
       padding: 0 2rem;
       border-right: 1px solid var(--border);
     }
-    .how-step:last-child { border-right: none; }
+
+    .how-step:last-child {
+      border-right: none;
+    }
 
     .how-step-icon {
       width: 72px;
@@ -872,13 +983,19 @@
       margin-bottom: 1.6rem;
       color: var(--white);
     }
-    .how-step-icon svg { width: 42px; height: 42px; stroke: var(--white); stroke-width: 1.4; }
+
+    .how-step-icon svg {
+      width: 42px;
+      height: 42px;
+      stroke: var(--white);
+      stroke-width: 1.4;
+    }
 
     .how-step-badge {
       display: inline-flex;
       align-items: center;
-      background: rgba(139,92,246,.12);
-      border: 1px solid rgba(139,92,246,.3);
+      background: rgba(139, 92, 246, .12);
+      border: 1px solid rgba(139, 92, 246, .3);
       border-radius: 100px;
       padding: .22rem .75rem;
       font-size: 13px;
@@ -923,10 +1040,16 @@
       letter-spacing: -.01em;
       transition: opacity .2s, transform .15s;
     }
-    .how-cta-btn:hover { opacity: .85; transform: translateY(-2px); }
+
+    .how-cta-btn:hover {
+      opacity: .85;
+      transform: translateY(-2px);
+    }
 
     /* ─── THEMES ─────────────────────────────────────────────────────────────── */
-    #themes { background: var(--bg); }
+    #themes {
+      background: var(--bg);
+    }
 
     .themes-header {
       text-align: center;
@@ -937,13 +1060,13 @@
       display: inline-flex;
       align-items: center;
       gap: .5rem;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .12);
       border-radius: 100px;
       padding: .38rem 1.1rem .38rem .75rem;
       font-size: 15px;
       letter-spacing: .08em;
-      color: rgba(255,255,255,.6);
+      color: rgba(255, 255, 255, .6);
       margin-bottom: 1.4rem;
     }
 
@@ -990,7 +1113,9 @@
       cursor: default;
     }
 
-    .theme-card::after { display: none; }
+    .theme-card::after {
+      display: none;
+    }
 
     .theme-icon {
       width: 68px;
@@ -1000,10 +1125,11 @@
       justify-content: center;
       margin-bottom: 1.3rem;
     }
+
     .theme-icon svg {
       width: 44px;
       height: 44px;
-      stroke: rgba(255,255,255,.85);
+      stroke: rgba(255, 255, 255, .85);
       stroke-width: 1.2;
       fill: none;
       stroke-linecap: round;
@@ -1027,7 +1153,9 @@
       max-width: 220px;
     }
 
-    .theme-corner { display: none; }
+    .theme-corner {
+      display: none;
+    }
 
     .themes-cta {
       text-align: center;
@@ -1045,10 +1173,17 @@
       text-decoration: none;
       transition: opacity .2s, transform .15s;
     }
-    .themes-cta-btn:hover { opacity: .85; transform: translateY(-2px); }
+
+    .themes-cta-btn:hover {
+      opacity: .85;
+      transform: translateY(-2px);
+    }
 
     /* ─── TECHNOLOGIES ───────────────────────────────────────────────────────── */
-    #tech { background: var(--bg); overflow: hidden; }
+    #tech {
+      background: var(--bg);
+      overflow: hidden;
+    }
 
     .tech-header {
       text-align: center;
@@ -1100,13 +1235,23 @@
     }
 
     @keyframes marquee-left {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
     }
 
     @keyframes marquee-right {
-      from { transform: translateX(-50%); }
-      to   { transform: translateX(0); }
+      from {
+        transform: translateX(-50%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
     }
 
     .tech-pill {
@@ -1116,11 +1261,11 @@
       font-family: var(--font-body);
       font-size: 16px;
       font-weight: 500;
-      color: rgba(255,255,255,.85);
-      border: 1px solid rgba(255,255,255,.14);
+      color: rgba(255, 255, 255, .85);
+      border: 1px solid rgba(255, 255, 255, .14);
       border-radius: 100px;
       padding: .6rem 1.3rem;
-      background: rgba(255,255,255,.03);
+      background: rgba(255, 255, 255, .03);
       white-space: nowrap;
       cursor: default;
       letter-spacing: -.01em;
@@ -1129,7 +1274,7 @@
     .tech-pill svg {
       width: 16px;
       height: 16px;
-      stroke: rgba(255,255,255,.65);
+      stroke: rgba(255, 255, 255, .65);
       stroke-width: 1.5;
       fill: none;
       stroke-linecap: round;
@@ -1138,7 +1283,9 @@
     }
 
     /* ─── JUDGING ────────────────────────────────────────────────────────────── */
-    #judging { background: var(--bg); }
+    #judging {
+      background: var(--bg);
+    }
 
     .judging-header {
       text-align: center;
@@ -1183,17 +1330,19 @@
       padding: 2.5rem 1.8rem;
       background: transparent;
       border: none;
-      border-right: 1px solid rgba(255,255,255,.07);
+      border-right: 1px solid rgba(255, 255, 255, .07);
       cursor: default;
     }
 
-    .judge-card:last-child { border-right: none; }
+    .judge-card:last-child {
+      border-right: none;
+    }
 
     .judge-num {
       font-family: var(--font-serif);
       font-style: italic;
       font-size: 2.4rem;
-      color: rgba(255,255,255,.08);
+      color: rgba(255, 255, 255, .08);
       line-height: 1;
       margin-bottom: 1.2rem;
     }
@@ -1204,8 +1353,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .08);
       border-radius: 14px;
       margin-bottom: 1.3rem;
     }
@@ -1213,7 +1362,7 @@
     .judge-icon svg {
       width: 22px;
       height: 22px;
-      stroke: rgba(255,255,255,.8);
+      stroke: rgba(255, 255, 255, .8);
       stroke-width: 1.5;
       fill: none;
       stroke-linecap: round;
@@ -1237,8 +1386,114 @@
       max-width: 200px;
     }
 
+    /* ─── ENTRY FEE CARD ────────────────────────────────────────────────────── */
+    .entry-fee-card {
+      background: linear-gradient(135deg, rgba(139, 92, 246, .08) 0%, rgba(10, 10, 10, 1) 60%);
+      border: 1px solid rgba(139, 92, 246, .22);
+      border-radius: 24px;
+      padding: 2.8rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .entry-fee-glow {
+      position: absolute;
+      top: -60px;
+      left: -60px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(139, 92, 246, .2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .entry-fee-info {
+      flex: 1;
+      min-width: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .entry-fee-price {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: -.025em;
+      line-height: 1.1;
+      margin-bottom: .5rem;
+    }
+
+    .entry-fee-accent {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--cyan);
+      font-size: .85em;
+    }
+
+    .entry-fee-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 420px;
+      margin-bottom: 1.2rem;
+    }
+
+    .entry-fee-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+
+    .entry-fee-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .entry-fee-cta-text {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: rgba(255, 255, 255, .85);
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    @media (max-width: 700px) {
+      .entry-fee-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        gap: 1.8rem;
+      }
+
+      .entry-fee-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .entry-fee-pills {
+        justify-content: center;
+      }
+
+      .entry-fee-cta svg {
+        display: none;
+      }
+    }
+
     /* ─── PRIZES ─────────────────────────────────────────────────────────────── */
-    #prizes { background: var(--bg); }
+    #prizes {
+      background: var(--bg);
+    }
 
     .prizes-header {
       text-align: center;
@@ -1281,7 +1536,7 @@
     /* ── shared card base ── */
     .prize-card {
       background: #111;
-      border: 1px solid rgba(255,255,255,.1);
+      border: 1px solid rgba(255, 255, 255, .1);
       border-radius: 20px;
       padding: 2rem 1.6rem;
       position: relative;
@@ -1291,7 +1546,7 @@
     /* ── main (1st) card ── */
     .prize-card.first {
       padding: 2.4rem 2rem;
-      border-color: rgba(255,255,255,.15);
+      border-color: rgba(255, 255, 255, .15);
       background: #121212;
     }
 
@@ -1299,9 +1554,11 @@
     .prize-card.first::after {
       content: '';
       position: absolute;
-      bottom: -60px; right: -60px;
-      width: 220px; height: 220px;
-      background: radial-gradient(circle, rgba(139,92,246,.55) 0%, transparent 70%);
+      bottom: -60px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(139, 92, 246, .55) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -1310,18 +1567,19 @@
       display: inline-flex;
       align-items: center;
       gap: .4rem;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .12);
       border-radius: 100px;
       padding: .28rem .85rem;
       font-size: 15px;
-      color: rgba(255,255,255,.65);
+      color: rgba(255, 255, 255, .65);
       letter-spacing: .04em;
       margin-bottom: 1.4rem;
     }
 
     .prize-badge-dot {
-      width: 6px; height: 6px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: #8B5CF6;
       flex-shrink: 0;
@@ -1373,16 +1631,19 @@
       transition: opacity .2s;
       white-space: nowrap;
     }
-    .prize-btn-primary:hover { opacity: .85; }
+
+    .prize-btn-primary:hover {
+      opacity: .85;
+    }
 
     .prize-btn-secondary {
       flex: 1;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.14);
-      color: rgba(255,255,255,.8);
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .14);
+      color: rgba(255, 255, 255, .8);
       font-family: var(--font-body);
       font-size: 16px;
       font-weight: 500;
@@ -1392,19 +1653,23 @@
       transition: background .2s;
       white-space: nowrap;
     }
-    .prize-btn-secondary:hover { background: rgba(255,255,255,.1); }
+
+    .prize-btn-secondary:hover {
+      background: rgba(255, 255, 255, .1);
+    }
 
     /* ── divider ── */
     .prize-divider {
       height: 1px;
-      background: rgba(255,255,255,.07);
+      background: rgba(255, 255, 255, .07);
       margin-bottom: 1.4rem;
     }
 
     /* ── perks list ── */
     .prize-perks {
       list-style: none;
-      padding: 0; margin: 0;
+      padding: 0;
+      margin: 0;
       display: flex;
       flex-direction: column;
       gap: .65rem;
@@ -1415,7 +1680,7 @@
       align-items: center;
       gap: .6rem;
       font-size: 15px;
-      color: rgba(255,255,255,.75);
+      color: rgba(255, 255, 255, .75);
       line-height: 1.4;
     }
 
@@ -1435,7 +1700,9 @@
     }
 
     /* ─── ELIGIBILITY ─────────────────────────────────────────────────────────── */
-    #eligibility { background: var(--bg); }
+    #eligibility {
+      background: var(--bg);
+    }
 
     .elig-header {
       text-align: center;
@@ -1477,11 +1744,13 @@
       flex-direction: column;
       align-items: flex-start;
       padding: 2.4rem 2.4rem;
-      border-right: 1px solid rgba(255,255,255,.07);
+      border-right: 1px solid rgba(255, 255, 255, .07);
       background: transparent;
     }
 
-    .elig-item:last-child { border-right: none; }
+    .elig-item:last-child {
+      border-right: none;
+    }
 
     .elig-icon {
       width: 48px;
@@ -1489,8 +1758,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .08);
       border-radius: 12px;
       margin-bottom: 1.4rem;
       flex-shrink: 0;
@@ -1499,7 +1768,7 @@
     .elig-icon svg {
       width: 20px;
       height: 20px;
-      stroke: rgba(255,255,255,.8);
+      stroke: rgba(255, 255, 255, .8);
       stroke-width: 1.5;
       fill: none;
       stroke-linecap: round;
@@ -1541,18 +1810,18 @@
     .elig-tag {
       font-size: 16px;
       font-weight: 500;
-      color: rgba(255,255,255,.65);
-      border: 1px solid rgba(255,255,255,.1);
+      color: rgba(255, 255, 255, .65);
+      border: 1px solid rgba(255, 255, 255, .1);
       border-radius: 100px;
       padding: .35rem 1rem;
-      background: rgba(255,255,255,.03);
+      background: rgba(255, 255, 255, .03);
       letter-spacing: .02em;
     }
 
     /* ─── FOOTER ─────────────────────────────────────────────────────────────── */
     footer {
       background: var(--bg);
-      border-top: 1px solid rgba(255,255,255,.06);
+      border-top: 1px solid rgba(255, 255, 255, .06);
       padding: 5rem 0 2.5rem;
     }
 
@@ -1600,21 +1869,25 @@
       width: 3px;
       height: 3px;
       border-radius: 50%;
-      background: rgba(255,255,255,.2);
+      background: rgba(255, 255, 255, .2);
       margin: 0 1.2rem;
     }
 
-    .footer-nav-row li:last-child::after { display: none; }
+    .footer-nav-row li:last-child::after {
+      display: none;
+    }
 
     .footer-nav-row a {
       font-size: 15px;
-      color: rgba(255,255,255,.5);
+      color: rgba(255, 255, 255, .5);
       text-decoration: none;
       font-weight: 500;
       transition: color .2s;
     }
 
-    .footer-nav-row a:hover { color: var(--white); }
+    .footer-nav-row a:hover {
+      color: var(--white);
+    }
 
     .footer-apply {
       display: inline-flex;
@@ -1631,10 +1904,13 @@
       transition: opacity .2s, transform .15s;
     }
 
-    .footer-apply:hover { opacity: .85; transform: translateY(-2px); }
+    .footer-apply:hover {
+      opacity: .85;
+      transform: translateY(-2px);
+    }
 
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.06);
+      border-top: 1px solid rgba(255, 255, 255, .06);
       padding-top: 2rem;
       display: flex;
       justify-content: space-between;
@@ -1651,12 +1927,12 @@
 
     .footer-copy {
       font-size: 16px;
-      color: rgba(255,255,255,.3);
+      color: rgba(255, 255, 255, .3);
     }
 
     .footer-uni-line {
       font-size: 15px;
-      color: rgba(255,255,255,.2);
+      color: rgba(255, 255, 255, .2);
     }
 
     .footer-bottom-right {
@@ -1667,21 +1943,25 @@
 
     .footer-social a {
       font-size: 16px;
-      color: rgba(255,255,255,.35);
+      color: rgba(255, 255, 255, .35);
       text-decoration: none;
       transition: color .2s;
     }
 
-    .footer-social a:hover { color: var(--white); }
+    .footer-social a:hover {
+      color: var(--white);
+    }
 
     .footer-email {
       font-size: 16px;
-      color: rgba(255,255,255,.3);
+      color: rgba(255, 255, 255, .3);
       text-decoration: none;
       transition: color .2s;
     }
 
-    .footer-email:hover { color: var(--white); }
+    .footer-email:hover {
+      color: var(--white);
+    }
 
     /* ─── SECTION DIVIDERS ───────────────────────────────────────────────────── */
     .divider {
@@ -1697,7 +1977,7 @@
       justify-content: center;
       align-items: center;
       gap: 5px;
-      background: rgba(139,92,246,.08);
+      background: rgba(138, 92, 246, 0);
       cursor: pointer;
       padding: 8px 10px;
       width: 40px;
@@ -1706,31 +1986,55 @@
       border: none;
       transition: background .2s, border-color .2s;
     }
-    .nav-hamburger:hover {
-    }
+
+    .nav-hamburger:hover {}
+
     .nav-hamburger span {
       display: block;
       height: 1.5px;
       background: var(--white);
       border-radius: 2px;
-      transition: transform .35s cubic-bezier(.4,0,.2,1),
-                  opacity .25s ease,
-                  width .3s ease;
+      transition: transform .35s cubic-bezier(.4, 0, .2, 1),
+        opacity .25s ease,
+        width .3s ease;
       transform-origin: center;
     }
-    .nav-hamburger span:nth-child(1) { width: 18px; }
-    .nav-hamburger span:nth-child(2) { width: 12px; align-self: flex-start; margin-left: 3px; }
-    .nav-hamburger span:nth-child(3) { width: 18px; }
+
+    .nav-hamburger span:nth-child(1) {
+      width: 18px;
+    }
+
+    .nav-hamburger span:nth-child(2) {
+      width: 12px;
+      align-self: flex-start;
+      margin-left: 3px;
+    }
+
+    .nav-hamburger span:nth-child(3) {
+      width: 18px;
+    }
+
     /* open → X */
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); width: 18px; }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); width: 18px; }
+    .nav-hamburger.open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+      width: 18px;
+    }
+
+    .nav-hamburger.open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .nav-hamburger.open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+      width: 18px;
+    }
 
     /* mobile nav overlay */
     .nav-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(5,5,8,.6);
+      background: rgba(5, 5, 8, .6);
       z-index: 999;
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
@@ -1738,18 +2042,23 @@
       pointer-events: none;
       transition: opacity .35s ease;
     }
-    .nav-overlay.active { opacity: 1; pointer-events: auto; }
+
+    .nav-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
     /* mobile drawer */
     .mobile-menu {
       display: flex;
       flex-direction: column;
       position: fixed;
-      top: 0; right: 0;
+      top: 0;
+      right: 0;
       width: min(320px, 85vw);
       height: 100dvh;
       background: #0d0d0d;
-      border-left: 1px solid rgba(139,92,246,.12);
+      border-left: 1px solid rgba(139, 92, 246, .12);
       z-index: 1050;
       padding: 0;
       gap: 0;
@@ -1757,9 +2066,10 @@
       transform: translateX(100%);
       visibility: hidden;
       transition: transform .4s cubic-bezier(0.32, 0, 0.15, 1),
-                  visibility .4s;
+        visibility .4s;
       overflow: hidden;
     }
+
     .mobile-menu.open {
       transform: translateX(0);
       visibility: visible;
@@ -1771,34 +2081,38 @@
       align-items: center;
       justify-content: space-between;
       padding: 1.4rem 1.6rem 1.4rem 2rem;
-      border-bottom: 1px solid rgba(255,255,255,.05);
+      border-bottom: 1px solid rgba(255, 255, 255, .05);
       flex-shrink: 0;
     }
+
     .mob-header-label {
       font-family: var(--font-body);
       font-size: 14px;
       letter-spacing: .3em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.25);
+      color: rgba(255, 255, 255, .25);
       font-weight: 500;
     }
+
     .mob-close {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 32px; height: 32px;
+      width: 32px;
+      height: 32px;
       border-radius: 8px;
-      border: 1px solid rgba(255,255,255,.08);
+      border: 1px solid rgba(255, 255, 255, .08);
       background: transparent;
       cursor: pointer;
       transition: background .2s, border-color .2s;
-      color: rgba(255,255,255,.45);
+      color: rgba(255, 255, 255, .45);
       font-size: 16px;
       line-height: 1;
     }
+
     .mob-close:hover {
-      background: rgba(139,92,246,.12);
-      border-color: rgba(139,92,246,.3);
+      background: rgba(139, 92, 246, .12);
+      border-color: rgba(139, 92, 246, .3);
       color: #fff;
     }
 
@@ -1810,6 +2124,7 @@
       padding: 1rem 0;
       overflow-y: auto;
     }
+
     .mobile-menu li {
       list-style: none;
       padding: 0 1.2rem;
@@ -1817,11 +2132,37 @@
       transform: translateX(20px);
       transition: opacity .35s ease, transform .35s ease;
     }
-    .mobile-menu.open li:nth-child(1) { transition-delay: .07s; opacity: 1; transform: none; }
-    .mobile-menu.open li:nth-child(2) { transition-delay: .12s; opacity: 1; transform: none; }
-    .mobile-menu.open li:nth-child(3) { transition-delay: .17s; opacity: 1; transform: none; }
-    .mobile-menu.open li:nth-child(4) { transition-delay: .22s; opacity: 1; transform: none; }
-    .mobile-menu.open li:nth-child(5) { transition-delay: .27s; opacity: 1; transform: none; }
+
+    .mobile-menu.open li:nth-child(1) {
+      transition-delay: .07s;
+      opacity: 1;
+      transform: none;
+    }
+
+    .mobile-menu.open li:nth-child(2) {
+      transition-delay: .12s;
+      opacity: 1;
+      transform: none;
+    }
+
+    .mobile-menu.open li:nth-child(3) {
+      transition-delay: .17s;
+      opacity: 1;
+      transform: none;
+    }
+
+    .mobile-menu.open li:nth-child(4) {
+      transition-delay: .22s;
+      opacity: 1;
+      transform: none;
+    }
+
+    .mobile-menu.open li:nth-child(5) {
+      transition-delay: .27s;
+      opacity: 1;
+      transform: none;
+    }
+
     .mobile-menu li a {
       display: flex;
       align-items: center;
@@ -1832,35 +2173,45 @@
       font-size: 1.1rem;
       font-weight: 500;
       letter-spacing: -.01em;
-      color: rgba(255,255,255,.55);
+      color: rgba(255, 255, 255, .55);
       text-decoration: none;
       transition: color .2s, background .2s;
       position: relative;
     }
+
     .mobile-menu li a .mob-idx {
       font-family: var(--font-body);
       font-size: 14px;
       font-weight: 500;
       letter-spacing: .06em;
-      color: rgba(139,92,246,.5);
+      color: rgba(139, 92, 246, .5);
       min-width: 20px;
     }
+
     .mobile-menu li a:hover {
       color: #fff;
-      background: rgba(255,255,255,.04);
+      background: rgba(255, 255, 255, .04);
     }
-    .mobile-menu li a:hover .mob-idx { color: var(--cyan); }
+
+    .mobile-menu li a:hover .mob-idx {
+      color: var(--cyan);
+    }
 
     /* bottom CTA */
     .mob-footer {
       padding: 1.2rem 1.6rem 2.2rem;
       flex-shrink: 0;
-      border-top: 1px solid rgba(255,255,255,.05);
+      border-top: 1px solid rgba(255, 255, 255, .05);
       opacity: 0;
       transform: translateY(8px);
       transition: opacity .35s ease .32s, transform .35s ease .32s;
     }
-    .mobile-menu.open .mob-footer { opacity: 1; transform: none; }
+
+    .mobile-menu.open .mob-footer {
+      opacity: 1;
+      transform: none;
+    }
+
     .mobile-cta {
       display: block;
       width: 100%;
@@ -1875,88 +2226,253 @@
       border-radius: 12px;
       transition: background .2s, box-shadow .2s, transform .15s;
     }
+
     .mobile-cta:hover {
       background: #9d6ff7;
-      box-shadow: 0 6px 28px rgba(139,92,246,.4);
+      box-shadow: 0 6px 28px rgba(139, 92, 246, .4);
       transform: translateY(-1px);
     }
 
     /* ─── RESPONSIVE : TABLET 900px ─────────────────────────────────────────── */
     @media (max-width: 900px) {
+
       /* sections */
-      .section { padding: 70px 0; }
-      .container { padding: 0 2rem; }
+      .section {
+        padding: 70px 0;
+      }
+
+      .container {
+        padding: 0 2rem;
+      }
 
       /* nav */
-      nav {   padding: .45rem .6rem .45rem 1.2rem; width: 80%;; }
-      .nav-links { display: none; }
-      .nav-cta   { display: none; }
-      .nav-hamburger { display: flex; }
+      nav {
+        padding: .45rem .6rem .45rem 1.2rem;
+        width: 80%;
+        ;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        display: none !important;
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
 
       /* hero */
-      #hero { padding-top: 0; gap: 0; }
-      .hero-video-wrap { width: 95%; border-radius: 20px; }
-      .hero-video-wrap video { border-radius: 20px; height: 100vh; max-height: 100vh; }
-      .hero-video-overlay { border-radius: 20px; padding: calc(.85rem + 52px + 1.8rem) 1.5rem 1.5rem; gap: .6rem; }
-      .hero-overlay-bottom { gap: 1rem; }
-      .hero-title { font-size: clamp(2.8rem, 12vw, 6rem); }
-      .hero-subtitle { font-size: clamp(.9rem, 2.2vw, 1.2rem); }
+      #hero {
+        padding-top: 0;
+        gap: 0;
+      }
+
+      .hero-video-wrap {
+        width: 95%;
+        border-radius: 20px;
+      }
+
+      .hero-video-wrap video {
+        border-radius: 20px;
+        height: 100vh;
+        max-height: 100vh;
+      }
+
+      .hero-video-overlay {
+        border-radius: 20px;
+        padding: calc(.85rem + 52px + 1.8rem) 1.5rem 1.5rem;
+        gap: .6rem;
+      }
+
+      .hero-overlay-bottom {
+        gap: 1rem;
+      }
+
+      .hero-title {
+        font-size: clamp(2.8rem, 12vw, 6rem);
+      }
+
+      .hero-subtitle {
+        font-size: clamp(.9rem, 2.2vw, 1.2rem);
+      }
 
       /* about */
-      .about-big-title { font-size: clamp(1.9rem, 5vw, 2.8rem); }
-      .about-card { padding: 2rem 1.8rem; }
+      .about-big-title {
+        font-size: clamp(1.9rem, 5vw, 2.8rem);
+      }
+
+      .about-card {
+        padding: 2rem 1.8rem;
+      }
 
       /* how it works */
-      .how-steps { grid-template-columns: 1fr; padding: 2rem 1.5rem; gap: 0; }
-      .how-step { border-right: none; border-bottom: 1px solid var(--border); padding: 2rem 1rem; }
-      .how-step:last-child { border-bottom: none; }
+      .how-steps {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem;
+        gap: 0;
+      }
+
+      .how-step {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 2rem 1rem;
+      }
+
+      .how-step:last-child {
+        border-bottom: none;
+      }
 
       /* themes */
-      .themes-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem 1rem; }
+      .themes-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem 1rem;
+      }
 
       /* tech marquee — reduce speed gap */
-      .tech-marquee-row { animation-duration: 28s; }
-      .tech-marquee-row.row-reverse { animation-duration: 34s; }
+      .tech-marquee-row {
+        animation-duration: 28s;
+      }
+
+      .tech-marquee-row.row-reverse {
+        animation-duration: 34s;
+      }
 
       /* judging */
-      .judging-grid { grid-template-columns: 1fr 1fr; }
-      .judge-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); padding: 2rem 1.4rem; }
-      .judge-card:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.07); }
-      .judge-card:nth-child(3), .judge-card:nth-child(4) { border-bottom: none; }
+      .judging-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .judge-card {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, .07);
+        padding: 2rem 1.4rem;
+      }
+
+      .judge-card:nth-child(odd) {
+        border-right: 1px solid rgba(255, 255, 255, .07);
+      }
+
+      .judge-card:nth-child(3),
+      .judge-card:nth-child(4) {
+        border-bottom: none;
+      }
 
       /* prizes */
-      .prizes-layout { grid-template-columns: 1fr 1fr; max-width: 680px; margin-left: auto; margin-right: auto; }
-      .prize-card.first { grid-column: span 2; order: -1; }
+      .prizes-layout {
+        grid-template-columns: 1fr 1fr;
+        max-width: 680px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .prize-card.first {
+        grid-column: span 2;
+        order: -1;
+      }
 
       /* eligibility */
-      .elig-grid { grid-template-columns: 1fr 1fr; }
-      .elig-item:nth-child(2) { border-right: none; }
-      .elig-item:nth-child(3) { border-top: 1px solid rgba(255,255,255,.07); border-right: none; grid-column: span 2; flex-direction: row; align-items: flex-start; gap: 1.4rem; }
+      .elig-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .elig-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .elig-item:nth-child(3) {
+        border-top: 1px solid rgba(255, 255, 255, .07);
+        border-right: none;
+        grid-column: span 2;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1.4rem;
+      }
 
       /* footer */
-      .footer-nav-row { gap: .2rem 0; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 1rem; }
-      .footer-bottom-right { flex-direction: row; align-items: center; gap: 1rem; flex-wrap: wrap; }
+      .footer-nav-row {
+        gap: .2rem 0;
+      }
+
+
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .footer-bottom-right {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
     }
 
     /* ─── RESPONSIVE : MOBILE 600px ─────────────────────────────────────────── */
     @media (max-width: 600px) {
+
       /* sections */
-      .section { padding: 52px 0; }
-      .container { padding: 0 1.1rem; }
+      .section {
+        padding: 52px 0;
+      }
+
+      .container {
+        padding: 0 1.1rem;
+      }
 
       /* hero */
-      #hero { padding-top: 0; gap: 0; padding-bottom: 0; }
-      .hero-video-wrap { width: 95%; border-radius: 14px; }
-      .hero-video-wrap video { border-radius: 14px; height: 100vh; max-height: 100vh; width: 100%; }
-      .hero-video-overlay { border-radius: 14px; padding: calc(.75rem + 48px + 1.4rem) 1rem 1.2rem; }
-      .hero-title { font-size: clamp(3rem, 13vw, 4.5rem); }
-      .hero-subtitle { font-size: clamp(.8rem, 3.5vw, 1rem); }
-      .hero-overlay-eyebrow { font-size: 14px; padding: .3rem .9rem .3rem .6rem; width: fit-content; max-width: calc(100% - 2rem); }
-      .hero-overlay-eyebrow img { height: 18px; width: auto; }
-      .overlay-pills-row { display:none;}
-      .hero-tagline
-      {
+      #hero {
+        padding-top: 0;
+        gap: 0;
+        padding-bottom: 0;
+      }
+
+      .hero-video-wrap {
+        width: 95%;
+        border-radius: 14px;
+      }
+
+      .hero-video-wrap video {
+        border-radius: 14px;
+        height: 100vh;
+        max-height: 100vh;
+        width: 100%;
+      }
+
+      .hero-video-overlay {
+        border-radius: 14px;
+        padding: 22vh 1rem 1.2rem;
+      }
+
+      .hero-title {
+        font-size: clamp(3rem, 13vw, 4.5rem);
+      }
+
+      .hero-subtitle {
+        font-size: clamp(.8rem, 3.5vw, 1rem);
+      }
+
+      .hero-overlay-eyebrow {
+        font-size: 14px;
+        padding: .3rem .9rem .3rem .6rem;
+        width: fit-content;
+        max-width: calc(100% - 2rem);
+      }
+
+      .hero-overlay-eyebrow img {
+        height: 18px;
+        width: auto;
+      }
+
+      .overlay-pills-row {
+        display: none;
+      }
+
+      .hero-tagline {
         font-size: 15px;
         color: var(--muted);
         max-width: 480px;
@@ -1964,119 +2480,451 @@
         line-height: 1.7;
         text-align: center;
       }
-      .overlay-pill { font-size: 13px; padding: .22rem .65rem; }
-      .hero-overlay-bottom { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: .5rem; flex-wrap: nowrap; }
-      .overlay-countdown { gap: .5rem; flex-shrink: 1; }
-      .overlay-countdown .countdown-num { font-size: clamp(.85rem, 4.5vw, 1.2rem); min-width: 1.6ch; }
-      .overlay-countdown .countdown-sep { font-size: clamp(.9rem, 3.5vw, 1.1rem); }
-      .overlay-countdown .countdown-unit span:last-child { font-size: 7px; }
-      .hero-apply-corner { font-size: 15px; padding: .75rem 1.5rem; flex-shrink: 0; font-weight: 600; }
-      .hero-below { gap: 1rem; }
+
+      .overlay-pill {
+        font-size: 13px;
+        padding: .22rem .65rem;
+      }
+
+      .hero-overlay-bottom {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: .5rem;
+        flex-wrap: nowrap;
+      }
+
+      .overlay-countdown {
+        gap: .5rem;
+        flex-shrink: 1;
+      }
+
+      .overlay-countdown .countdown-num {
+        font-size: clamp(1.4rem, 6vw, 1.8rem);
+        min-width: 1.6ch;
+      }
+
+      .overlay-countdown .countdown-sep {
+        font-size: clamp(1.4rem, 6vw, 1.8rem);
+      }
+
+      .overlay-countdown .countdown-unit span:last-child {
+        font-size: 7px;
+      }
+
+      .hero-apply-corner {
+        font-size: 15px;
+        padding: .75rem 1.5rem;
+        flex-shrink: 0;
+        font-weight: 600;
+      }
+
+      .hero-below {
+        gap: 1rem;
+      }
 
       /* section headers (shared pattern) */
       .themes-big-title,
       .tech-big-title,
       .judging-big-title,
       .prizes-big-title,
-      .elig-big-title { font-size: clamp(1.7rem, 7.5vw, 2.6rem); }
-      .about-big-title { font-size: clamp(1.7rem, 7.5vw, 2.6rem); }
-      .themes-lead, .tech-lead, .judging-lead, .prizes-lead, .elig-lead,
-      .about-lead { font-size: 15px; }
+      .elig-big-title {
+        font-size: clamp(1.7rem, 7.5vw, 2.6rem);
+      }
+
+      .about-big-title {
+        font-size: clamp(1.7rem, 7.5vw, 2.6rem);
+      }
+
+      .themes-lead,
+      .tech-lead,
+      .judging-lead,
+      .prizes-lead,
+      .elig-lead,
+      .about-lead {
+        font-size: 15px;
+      }
 
       /* about */
-      .about-card { padding: 1.4rem 1.1rem; border-radius: 16px; }
-      .about-stats-row { grid-template-columns: 1fr; padding-bottom: 1rem; margin-bottom: 1rem; }
-      .about-stat { border-right: none; padding-right: 0; margin-right: 0; border-bottom: 1px solid rgba(255,255,255,.07); padding-bottom: .9rem; margin-bottom: .9rem; }
-      .about-stat:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
-      .about-stat-num { font-size: clamp(1.5rem, 6vw, 2rem); }
-      .about-benefits-grid { grid-template-columns: 1fr; }
-      .about-benefit { border-right: none; padding: .9rem 0; }
-      .about-benefit:nth-child(even) { padding-left: 0; }
-      .about-benefit:nth-child(n+2) { border-top: 1px solid rgba(255,255,255,.06); padding-top: .9rem; }
-      .about-benefit:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.06); }
+      .about-card {
+        padding: 1.4rem 1.1rem;
+        border-radius: 16px;
+      }
+
+      .about-stats-row {
+        grid-template-columns: 1fr;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .about-stat {
+        border-right: none;
+        padding-right: 0;
+        margin-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, .07);
+        padding-bottom: .9rem;
+        margin-bottom: .9rem;
+      }
+
+      .about-stat:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+
+      .about-stat-num {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+      }
+
+      .about-benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-benefit {
+        border-right: none;
+        padding: .9rem 0;
+      }
+
+      .about-benefit:nth-child(even) {
+        padding-left: 0;
+      }
+
+      .about-benefit:nth-child(n+2) {
+        border-top: 1px solid rgba(255, 255, 255, .06);
+        padding-top: .9rem;
+      }
+
+      .about-benefit:nth-child(n+3) {
+        border-top: 1px solid rgba(255, 255, 255, .06);
+      }
 
       /* how it works */
-      .how-header { margin-bottom: 2rem; }
-      .how-frame { border-radius: 14px; }
-      .how-steps { padding: .8rem .5rem; gap: 0; }
-      .how-step { padding: 1rem .6rem; }
-      .how-step-icon { width: 40px; height: 40px; margin-bottom: .6rem; }
-      .how-step-icon svg { width: 22px; height: 22px; }
-      .how-step-badge { font-size: 8px; padding: .18rem .6rem; margin-bottom: .5rem; }
-      .how-step-title { font-size: .85rem; margin-bottom: .4rem; }
-      .how-step-desc { font-size: 15px; line-height: 1.55; max-width: none; }
-      .how-cta { margin-top: 1.6rem; }
-      .how-cta-btn { font-size: 16px; padding: .85rem 2rem; }
+      .how-header {
+        margin-bottom: 2rem;
+      }
+
+      .how-frame {
+        border-radius: 14px;
+      }
+
+      .how-steps {
+        padding: .8rem .5rem;
+        gap: 0;
+      }
+
+      .how-step {
+        padding: 1rem .6rem;
+      }
+
+      .how-step-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: .6rem;
+      }
+
+      .how-step-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      .how-step-badge {
+        font-size: 8px;
+        padding: .18rem .6rem;
+        margin-bottom: .5rem;
+      }
+
+      .how-step-title {
+        font-size: .85rem;
+        margin-bottom: .4rem;
+      }
+
+      .how-step-desc {
+        font-size: 15px;
+        line-height: 1.55;
+        max-width: none;
+      }
+
+      .how-cta {
+        margin-top: 1.6rem;
+      }
+
+      .how-cta-btn {
+        font-size: 16px;
+        padding: .85rem 2rem;
+      }
 
       /* themes */
-      .themes-grid { grid-template-columns: 1fr 1fr; gap: 2rem .5rem; }
-      .theme-name { font-size: .9rem; }
-      .theme-desc { font-size: 16px; max-width: none; }
-      .themes-cta-btn { font-size: 16px; padding: .85rem 2rem; }
+      .themes-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem .5rem;
+      }
+
+      .theme-name {
+        font-size: .9rem;
+      }
+
+      .theme-desc {
+        font-size: 16px;
+        max-width: none;
+      }
+
+      .themes-cta-btn {
+        font-size: 16px;
+        padding: .85rem 2rem;
+      }
 
       /* tech marquee */
-      .tech-pill { font-size: 16px; padding: .5rem 1rem; }
-      .tech-pill svg { width: 14px; height: 14px; }
+      .tech-pill {
+        font-size: 16px;
+        padding: .5rem 1rem;
+      }
+
+      .tech-pill svg {
+        width: 14px;
+        height: 14px;
+      }
 
       /* judging */
-      .judging-grid { grid-template-columns: 1fr 1fr; }
-      .judge-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); padding: 1.4rem 1rem; }
-      .judge-card:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.07); }
-      .judge-card:nth-child(3), .judge-card:nth-child(4) { border-bottom: none; }
-      .judge-icon { width: 42px; height: 42px; border-radius: 10px; }
-      .judge-name { font-size: .9rem; }
-      .judge-desc { font-size: 16px; max-width: none; }
+      .judging-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .judge-card {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, .07);
+        padding: 1.4rem 1rem;
+      }
+
+      .judge-card:nth-child(odd) {
+        border-right: 1px solid rgba(255, 255, 255, .07);
+      }
+
+      .judge-card:nth-child(3),
+      .judge-card:nth-child(4) {
+        border-bottom: none;
+      }
+
+      .judge-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+      }
+
+      .judge-name {
+        font-size: .9rem;
+      }
+
+      .judge-desc {
+        font-size: 16px;
+        max-width: none;
+      }
 
       /* prizes */
-      .prizes-layout { gap: .6rem; max-width: 100%; margin: 0; }
-      .prize-card { padding: 1.2rem 1rem; border-radius: 14px; }
-      .prize-card.first { order: -1; padding: 1.4rem 1.1rem; }
-      .prize-card.first::after { display: none; }
-      .prize-badge { margin-bottom: .6rem; font-size: 14px; padding: .2rem .7rem; }
-      .prize-amount { font-size: clamp(1.4rem, 6vw, 1.8rem); margin-bottom: .15rem; }
-      .prize-card.first .prize-amount { font-size: clamp(1.6rem, 7vw, 2rem); }
-      .prize-desc { font-size: 16px; margin-bottom: .8rem; line-height: 1.4; }
-      .prize-actions { flex-direction: column; gap: .45rem; margin-bottom: .8rem; }
-      .prize-btn-primary, .prize-btn-secondary { font-size: 15px; padding: .65rem 1rem; flex: none; width: 100%; }
-      .prize-divider { margin-bottom: .7rem; }
-      .prize-perks { gap: .4rem; }
-      .prize-perks li { font-size: 16px; gap: .4rem; }
-      .prize-note { font-size: 16px; margin-top: 1rem; }
+      .prizes-layout {
+        gap: .6rem;
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .prize-card {
+        padding: 1.2rem 1rem;
+        border-radius: 14px;
+      }
+
+      .prize-card.first {
+        order: -1;
+        padding: 1.4rem 1.1rem;
+      }
+
+      .prize-card.first::after {
+        display: none;
+      }
+
+      .prize-badge {
+        margin-bottom: .6rem;
+        font-size: 14px;
+        padding: .2rem .7rem;
+      }
+
+      .prize-amount {
+        font-size: clamp(1.4rem, 6vw, 1.8rem);
+        margin-bottom: .15rem;
+      }
+
+      .prize-card.first .prize-amount {
+        font-size: clamp(1.6rem, 7vw, 2rem);
+      }
+
+      .prize-desc {
+        font-size: 16px;
+        margin-bottom: .8rem;
+        line-height: 1.4;
+      }
+
+      .prize-actions {
+        flex-direction: column;
+        gap: .45rem;
+        margin-bottom: .8rem;
+      }
+
+      .prize-btn-primary,
+      .prize-btn-secondary {
+        font-size: 15px;
+        padding: .65rem 1rem;
+        flex: none;
+        width: 100%;
+      }
+
+      .prize-divider {
+        margin-bottom: .7rem;
+      }
+
+      .prize-perks {
+        gap: .4rem;
+      }
+
+      .prize-perks li {
+        font-size: 16px;
+        gap: .4rem;
+      }
+
+      .prize-note {
+        font-size: 16px;
+        margin-top: 1rem;
+      }
 
       /* eligibility */
-      .elig-grid { grid-template-columns: 1fr; }
-      .elig-item { flex-direction: row; align-items: flex-start; gap: 1rem; border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); padding: 1.1rem .6rem; }
-      .elig-item:last-child { border-bottom: none; }
-      .elig-item:nth-child(3) { grid-column: auto; }
-      .elig-icon { margin-bottom: 0; flex-shrink: 0; width: 40px; height: 40px; }
-      .elig-icon svg { width: 18px; height: 18px; }
-      .elig-label { margin-bottom: .2rem; }
-      .elig-value { font-size: .95rem; margin-bottom: .3rem; }
-      .elig-note { font-size: 16px; line-height: 1.5; }
-      .elig-tags { justify-content: flex-start; gap: .35rem; margin-top: 1.4rem; }
-      .elig-tag { font-size: 15px; padding: .28rem .8rem; }
+      .elig-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .elig-item {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, .07);
+        padding: 1.1rem .6rem;
+      }
+
+      .elig-item:last-child {
+        border-bottom: none;
+      }
+
+      .elig-item:nth-child(3) {
+        grid-column: auto;
+      }
+
+      .elig-icon {
+        margin-bottom: 0;
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+      }
+
+      .elig-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .elig-label {
+        margin-bottom: .2rem;
+      }
+
+      .elig-value {
+        font-size: .95rem;
+        margin-bottom: .3rem;
+      }
+
+      .elig-note {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .elig-tags {
+        justify-content: flex-start;
+        gap: .35rem;
+        margin-top: 1.4rem;
+      }
+
+      .elig-tag {
+        font-size: 15px;
+        padding: .28rem .8rem;
+      }
 
       /* footer */
-      .footer-wordmark { font-size: clamp(2.2rem, 10vw, 3.5rem); }
-      .footer-nav-row { gap: .15rem 0; }
-      .footer-nav-row a { font-size: 16px; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; gap: .8rem; }
-      .footer-bottom-right { flex-direction: column; align-items: flex-start; gap: .5rem; }
-      .footer-apply { font-size: 15px; padding: .65rem 1.6rem; }
+      .footer-wordmark {
+        font-size: clamp(2.2rem, 10vw, 3.5rem);
+      }
+
+      .footer-nav-row {
+        gap: .15rem 0;
+      }
+
+      .footer-nav-row a {
+        font-size: 16px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .8rem;
+      }
+
+      .footer-bottom-right {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .5rem;
+      }
+
+      .footer-apply {
+        font-size: 15px;
+        padding: .65rem 1.6rem;
+      }
     }
 
     /* ─── RESPONSIVE : SMALL PHONES 380px ───────────────────────────────────── */
     @media (max-width: 380px) {
-      .container { padding: 0 .9rem; }
-      .themes-grid { grid-template-columns: 1fr; }
-      .judging-grid { grid-template-columns: 1fr; }
-      .judge-card:nth-child(odd) { border-right: none; }
-      .judge-card:nth-child(3) { border-bottom: 1px solid rgba(255,255,255,.07); }
-      .judging-big-title, .themes-big-title, .tech-big-title,
-      .prizes-big-title, .elig-big-title, .about-big-title { font-size: clamp(1.5rem, 9vw, 2rem); }
-      .overlay-countdown { gap: .5rem; }
-      .overlay-countdown .countdown-sep { display: none; }
-      .overlay-countdown .countdown-num { font-size: clamp(.85rem, 5vw, 1.1rem); }
+      .container {
+        padding: 0 .9rem;
+      }
+
+      .themes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .judging-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .judge-card:nth-child(odd) {
+        border-right: none;
+      }
+
+      .judge-card:nth-child(3) {
+        border-bottom: 1px solid rgba(255, 255, 255, .07);
+      }
+
+      .judging-big-title,
+      .themes-big-title,
+      .tech-big-title,
+      .prizes-big-title,
+      .elig-big-title,
+      .about-big-title {
+        font-size: clamp(1.5rem, 9vw, 2rem);
+      }
+
+      .overlay-countdown {
+        gap: .5rem;
+      }
+
+      .overlay-countdown .countdown-sep {
+        display: none;
+      }
+
+      .overlay-countdown .countdown-num {
+        font-size: clamp(1.4rem, 7vw, 1.8rem);
+      }
     }
 
     /* ─── HERO VIDEO : PORTRAIT ORIENTATION ─────────────────────────────────── */
@@ -2088,6 +2936,7 @@
         height: 100vh;
         overflow: hidden;
       }
+
       .hero-video-wrap video {
         width: 100%;
         height: 100%;
@@ -2096,36 +2945,77 @@
         object-position: center center;
         border-radius: 14px;
       }
+
       .hero-video-overlay {
         border-radius: 18px;
-        padding: calc(.75rem + 48px + 1.4rem) 1rem 1.2rem;
+        padding: 26vh 1rem 1.2rem;
       }
-      .hero-title { font-size: clamp(6rem, 16vw, 6rem); }
-      .hero-subtitle { font-size: clamp(.85rem, 3.5vw, 1.1rem); }
+
+      .hero-title {
+        font-size: clamp(6rem, 16vw, 6rem);
+      }
+
+      .hero-subtitle {
+        font-size: clamp(.85rem, 3.5vw, 1.1rem);
+      }
     }
 
     /* ─── HERO VIDEO : LANDSCAPE PHONE ──────────────────────────────────────── */
     @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
-      #hero { padding-top: 0; }
-      .hero-video-wrap { width: 95%; border-radius: 14px; }
-      .hero-video-wrap video { height: 100vh; max-height: 100vh; border-radius: 14px; }
-      .hero-video-overlay { padding: calc(.6rem + 44px + 1rem) 1.2rem 1rem; }
-      .hero-title { font-size: clamp(1.5rem, 5vw, 2.5rem); }
-      .hero-subtitle { font-size: clamp(.75rem, 2vw, 1rem); }
-      .overlay-pills-row { display: none; }
+      #hero {
+        padding-top: 0;
+      }
+
+      .hero-video-wrap {
+        width: 95%;
+        border-radius: 14px;
+      }
+
+      .hero-video-wrap video {
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 14px;
+      }
+
+      .hero-video-overlay {
+        padding: calc(.6rem + 44px + 1rem) 1.2rem 1rem;
+      }
+
+      .hero-title {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+      }
+
+      .hero-subtitle {
+        font-size: clamp(.75rem, 2vw, 1rem);
+      }
+
+      .overlay-pills-row {
+        display: none;
+      }
     }
 
     /* ─── LOADER ───────────────────────────────────────────────────────────── */
     #loader {
-      position: fixed; inset: 0; z-index: 9999;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
       background: #0a0a0a;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transition: opacity .7s ease, visibility .7s ease;
     }
-    #loader.loader-done { opacity: 0; visibility: hidden; pointer-events: none; }
+
+    #loader.loader-done {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
 
     .loader-inner {
-      display: flex; flex-direction: column; align-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       gap: 2.4rem;
       animation: loader-fadein .6s ease both;
     }
@@ -2136,32 +3026,42 @@
       font-style: italic;
       font-size: clamp(3.5rem, 10vw, 6rem);
       font-weight: 400;
-      color: rgba(255,255,255,.08);
+      color: rgba(255, 255, 255, .08);
       letter-spacing: -.04em;
       line-height: 1;
       user-select: none;
       transition: color .15s ease;
     }
+
     .loader-counter span {
-      color: rgba(139,92,246,.9);
+      color: rgba(139, 92, 246, .9);
     }
 
     /* progress bar */
     .loader-track {
-      width: 80px; height: 1px;
-      background: rgba(255,255,255,.06);
-      border-radius: 100px; overflow: hidden;
+      width: 80px;
+      height: 1px;
+      background: rgba(255, 255, 255, .06);
+      border-radius: 100px;
+      overflow: hidden;
     }
+
     .loader-fill {
       height: 100%;
-      background: linear-gradient(90deg, rgba(139,92,246,.5), #8B5CF6);
+      background: linear-gradient(90deg, rgba(139, 92, 246, .5), #8B5CF6);
       border-radius: 100px;
       width: 0%;
       transition: width .06s linear;
     }
+
     @keyframes loader-fadein {
-      from { opacity: 0; }
-      to   { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     /* ─── MIT LOGO BADGE ────────────────────────────────────────────────────── */
@@ -2169,7 +3069,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255,255,255,.97);
+      background: rgba(255, 255, 255, .97);
       color: #0a0a0a;
       font-family: var(--font-head);
       font-size: 13px;
@@ -2188,12 +3088,14 @@
       display: inline-block;
       line-height: .95;
     }
+
     .hero-ai-row {
       display: flex;
       justify-content: flex-end;
       margin-top: -0.8em;
       padding-right: .2rem;
     }
+
     .hero-ai-badge {
       font-family: var(--font-body);
       font-size: 18px;
@@ -2201,7 +3103,7 @@
       letter-spacing: .14em;
       text-transform: uppercase;
       color: var(--white);
-      background: rgba(139,92,246,.12);
+      background: rgba(139, 92, 246, .12);
       border-radius: 100px;
       padding: .22rem .75rem;
       white-space: nowrap;
@@ -2216,25 +3118,28 @@
       flex-wrap: wrap;
       padding: 1.4rem 0 .4rem;
     }
+
     .hero-social-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       width: 42px;
       height: 42px;
-      color: rgba(255,255,255,.52);
-      border: 1px solid rgba(255,255,255,.11);
+      color: rgba(255, 255, 255, .52);
+      border: 1px solid rgba(255, 255, 255, .11);
       border-radius: 50%;
-      background: rgba(255,255,255,.04);
+      background: rgba(255, 255, 255, .04);
       text-decoration: none;
       transition: color .22s, border-color .22s, background .22s;
       flex-shrink: 0;
     }
+
     .hero-social-link:hover {
-      color: rgba(255,255,255,.88);
-      border-color: rgba(255,255,255,.26);
-      background: rgba(255,255,255,.08);
+      color: rgba(255, 255, 255, .88);
+      border-color: rgba(255, 255, 255, .26);
+      background: rgba(255, 255, 255, .08);
     }
+
     .hero-social-link svg {
       width: 18px;
       height: 18px;
@@ -2247,24 +3152,29 @@
     }
 
     /* ─── TIMELINE ──────────────────────────────────────────────────────────── */
-    #timeline { background: var(--bg); }
+    #timeline {
+      background: var(--bg);
+    }
+
     .timeline-header {
       text-align: center;
       margin-bottom: 4rem;
     }
+
     .timeline-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: .5rem;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .12);
       border-radius: 100px;
       padding: .38rem 1.1rem .38rem .75rem;
       font-size: 15px;
       letter-spacing: .08em;
-      color: rgba(255,255,255,.6);
+      color: rgba(255, 255, 255, .6);
       margin-bottom: 1.4rem;
     }
+
     .timeline-big-title {
       font-family: var(--font-head);
       font-size: clamp(2rem, 5vw, 3.8rem);
@@ -2274,12 +3184,14 @@
       line-height: 1.1;
       margin-bottom: 1rem;
     }
+
     .timeline-big-title em {
       font-family: var(--font-serif);
       font-style: italic;
       font-weight: 400;
       color: var(--cyan);
     }
+
     .timeline-lead {
       font-size: 15px;
       color: var(--muted);
@@ -2294,6 +3206,7 @@
       max-width: 900px;
       margin: 0 auto;
     }
+
     .timeline-track::before {
       content: '';
       position: absolute;
@@ -2302,15 +3215,14 @@
       left: 50%;
       transform: translateX(-50%);
       width: 1px;
-      background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(139,92,246,.35) 6%,
-        rgba(139,92,246,.18) 94%,
-        transparent 100%
-      );
+      background: linear-gradient(to bottom,
+          transparent 0%,
+          rgba(139, 92, 246, .35) 6%,
+          rgba(139, 92, 246, .18) 94%,
+          transparent 100%);
       pointer-events: none;
     }
+
     .timeline-item {
       display: grid;
       grid-template-columns: 1fr 48px 1fr;
@@ -2319,10 +3231,20 @@
       margin-bottom: 3rem;
       position: relative;
     }
-    .timeline-item:last-child { margin-bottom: 0; }
 
-    .timeline-side-left  { text-align: right; padding-right: .5rem; }
-    .timeline-side-right { text-align: left;  padding-left: .5rem; }
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-side-left {
+      text-align: right;
+      padding-right: .5rem;
+    }
+
+    .timeline-side-right {
+      text-align: left;
+      padding-left: .5rem;
+    }
 
     /* center node */
     .timeline-node {
@@ -2331,12 +3253,13 @@
       justify-content: center;
       padding-top: .22rem;
     }
+
     .timeline-node-inner {
       width: 14px;
       height: 14px;
       border-radius: 50%;
       background: var(--bg);
-      border: 1px solid rgba(139,92,246,.38);
+      border: 1px solid rgba(139, 92, 246, .38);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2344,6 +3267,7 @@
       z-index: 1;
       flex-shrink: 0;
     }
+
     .timeline-node-dot {
       width: 6px;
       height: 6px;
@@ -2351,10 +3275,12 @@
       background: var(--cyan);
       opacity: .65;
     }
+
     .timeline-item.tl-active .timeline-node-inner {
       border-color: var(--cyan);
-      box-shadow: 0 0 0 5px rgba(139,92,246,.1);
+      box-shadow: 0 0 0 5px rgba(139, 92, 246, .1);
     }
+
     .timeline-item.tl-active .timeline-node-dot {
       opacity: 1;
       animation: pulse 2s ease-in-out infinite;
@@ -2370,6 +3296,7 @@
       margin-bottom: .4rem;
       font-weight: 600;
     }
+
     .timeline-title {
       font-family: var(--font-head);
       font-size: 1.3rem;
@@ -2379,16 +3306,18 @@
       margin-bottom: .5rem;
       line-height: 1.2;
     }
+
     .timeline-desc {
       font-size: 16px;
       color: var(--muted);
       line-height: 1.7;
     }
+
     .timeline-pill {
       display: inline-flex;
       align-items: center;
-      background: rgba(139,92,246,.1);
-      border: 1px solid rgba(139,92,246,.25);
+      background: rgba(139, 92, 246, .1);
+      border: 1px solid rgba(139, 92, 246, .25);
       border-radius: 100px;
       padding: .25rem .8rem;
       font-size: 14px;
@@ -2398,72 +3327,191 @@
       margin-top: .6rem;
       font-weight: 500;
     }
+
     .timeline-pill.tl-upcoming {
-      background: rgba(255,255,255,.04);
-      border-color: rgba(255,255,255,.1);
+      background: rgba(255, 255, 255, .04);
+      border-color: rgba(255, 255, 255, .1);
       color: var(--muted);
     }
-    .timeline-empty { min-height: 10px; }
+
+    .timeline-empty {
+      min-height: 10px;
+    }
 
     /* mobile timeline */
     @media (max-width: 700px) {
       .timeline-track::before {
         left: 10px;
         transform: none;
-        top: 0; bottom: 0;
+        top: 0;
+        bottom: 0;
       }
-      .hero-ai-badge
-      {
+
+      .hero-ai-badge {
         font-size: 10px;
         padding: .18rem .6rem;
       }
+
       .timeline-item {
         grid-template-columns: 22px 1fr;
         gap: 0 1rem;
         margin-bottom: 2.2rem;
       }
+
       .timeline-node {
         grid-column: 1;
         grid-row: 1;
       }
-      .timeline-side-left  {
+
+      .timeline-side-left {
         grid-column: 2;
         grid-row: 1;
         text-align: left !important;
         padding: 0 !important;
       }
+
       .timeline-side-right {
         grid-column: 2;
         grid-row: 1;
         text-align: left !important;
         padding: 0 !important;
       }
-      .timeline-empty { display: none; }
-      .timeline-node-inner { width: 12px; height: 12px; }
-      .timeline-node-dot { width: 5px; height: 5px; }
+
+      .timeline-empty {
+        display: none;
+      }
+
+      .timeline-node-inner {
+        width: 12px;
+        height: 12px;
+      }
+
+      .timeline-node-dot {
+        width: 5px;
+        height: 5px;
+      }
+
+      .entry-fee-price {
+        font-size: 4rem;
+        margin-top: 30px;
+      }
+
+      .entry-fee-cta-text {
+        display: none;
+        font-size: 1.5rem;
+        margin-top: 20px;
+      }
     }
 
     /* ─── MOBILE MENU 6th item delay ───────────────────────────────────────── */
-    .mobile-menu.open li:nth-child(6) { transition-delay: .32s; opacity: 1; transform: none; }
+    .mobile-menu.open li:nth-child(6) {
+      transition-delay: .32s;
+      opacity: 1;
+      transform: none;
+    }
 
     /* ─── GRADIENT APPLY BUTTON ─────────────────────────────────────────────── */
-    @property --pos-x { syntax: '<percentage>'; initial-value: 11.14%; inherits: false; }
-    @property --pos-y { syntax: '<percentage>'; initial-value: 140%; inherits: false; }
-    @property --spread-x { syntax: '<percentage>'; initial-value: 150%; inherits: false; }
-    @property --spread-y { syntax: '<percentage>'; initial-value: 180.06%; inherits: false; }
-    @property --color-1 { syntax: '<color>'; initial-value: #0a0a0a; inherits: false; }
-    @property --color-2 { syntax: '<color>'; initial-value: #1a0a3a; inherits: false; }
-    @property --color-3 { syntax: '<color>'; initial-value: #3b1f7a; inherits: false; }
-    @property --color-4 { syntax: '<color>'; initial-value: #5e35b1; inherits: false; }
-    @property --color-5 { syntax: '<color>'; initial-value: #7c3aed; inherits: false; }
-    @property --border-angle { syntax: '<angle>'; initial-value: 20deg; inherits: true; }
-    @property --border-color-1 { syntax: '<color>'; initial-value: hsla(262,75%,60%,0.18); inherits: true; }
-    @property --border-color-2 { syntax: '<color>'; initial-value: hsla(262,75%,65%,0.65); inherits: true; }
-    @property --stop-1 { syntax: '<percentage>'; initial-value: 37.35%; inherits: false; }
-    @property --stop-2 { syntax: '<percentage>'; initial-value: 61.36%; inherits: false; }
-    @property --stop-3 { syntax: '<percentage>'; initial-value: 78.42%; inherits: false; }
-    @property --stop-4 { syntax: '<percentage>'; initial-value: 89.52%; inherits: false; }
-    @property --stop-5 { syntax: '<percentage>'; initial-value: 100%; inherits: false; }
+    @property --pos-x {
+      syntax: '<percentage>';
+      initial-value: 11.14%;
+      inherits: false;
+    }
+
+    @property --pos-y {
+      syntax: '<percentage>';
+      initial-value: 140%;
+      inherits: false;
+    }
+
+    @property --spread-x {
+      syntax: '<percentage>';
+      initial-value: 150%;
+      inherits: false;
+    }
+
+    @property --spread-y {
+      syntax: '<percentage>';
+      initial-value: 180.06%;
+      inherits: false;
+    }
+
+    @property --color-1 {
+      syntax: '<color>';
+      initial-value: #0a0a0a;
+      inherits: false;
+    }
+
+    @property --color-2 {
+      syntax: '<color>';
+      initial-value: #1a0a3a;
+      inherits: false;
+    }
+
+    @property --color-3 {
+      syntax: '<color>';
+      initial-value: #3b1f7a;
+      inherits: false;
+    }
+
+    @property --color-4 {
+      syntax: '<color>';
+      initial-value: #5e35b1;
+      inherits: false;
+    }
+
+    @property --color-5 {
+      syntax: '<color>';
+      initial-value: #7c3aed;
+      inherits: false;
+    }
+
+    @property --border-angle {
+      syntax: '<angle>';
+      initial-value: 20deg;
+      inherits: true;
+    }
+
+    @property --border-color-1 {
+      syntax: '<color>';
+      initial-value: hsla(262, 75%, 60%, 0.18);
+      inherits: true;
+    }
+
+    @property --border-color-2 {
+      syntax: '<color>';
+      initial-value: hsla(262, 75%, 65%, 0.65);
+      inherits: true;
+    }
+
+    @property --stop-1 {
+      syntax: '<percentage>';
+      initial-value: 37.35%;
+      inherits: false;
+    }
+
+    @property --stop-2 {
+      syntax: '<percentage>';
+      initial-value: 61.36%;
+      inherits: false;
+    }
+
+    @property --stop-3 {
+      syntax: '<percentage>';
+      initial-value: 78.42%;
+      inherits: false;
+    }
+
+    @property --stop-4 {
+      syntax: '<percentage>';
+      initial-value: 89.52%;
+      inherits: false;
+    }
+
+    @property --stop-5 {
+      syntax: '<percentage>';
+      initial-value: 100%;
+      inherits: false;
+    }
 
     .gradient-button {
       position: relative;
@@ -2478,14 +3526,12 @@
       color: #fff !important;
       font-family: var(--font-body);
       font-weight: 500;
-      background: radial-gradient(
-        var(--spread-x) var(--spread-y) at var(--pos-x) var(--pos-y),
-        var(--color-1) var(--stop-1),
-        var(--color-2) var(--stop-2),
-        var(--color-3) var(--stop-3),
-        var(--color-4) var(--stop-4),
-        var(--color-5) var(--stop-5)
-      );
+      background: radial-gradient(var(--spread-x) var(--spread-y) at var(--pos-x) var(--pos-y),
+          var(--color-1) var(--stop-1),
+          var(--color-2) var(--stop-2),
+          var(--color-3) var(--stop-3),
+          var(--color-4) var(--stop-4),
+          var(--color-5) var(--stop-5));
       transition:
         --pos-x 0.5s,
         --pos-y 0.5s,
@@ -2512,11 +3558,9 @@
       inset: 0;
       border-radius: inherit;
       padding: 1px;
-      background: linear-gradient(
-        var(--border-angle),
-        var(--border-color-1),
-        var(--border-color-2)
-      );
+      background: linear-gradient(var(--border-angle),
+          var(--border-color-1),
+          var(--border-color-2));
       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       mask-composite: exclude;
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -2546,16 +3590,18 @@
       transform: none;
       color: #fff !important;
     }
-
   </style>
 </head>
+
 <body>
 
   <!-- LOADING SCREEN -->
   <div id="loader">
     <div class="loader-inner">
       <div class="loader-counter" id="loaderCounter"><span>0</span>%</div>
-      <div class="loader-track"><div class="loader-fill" id="loaderFill"></div></div>
+      <div class="loader-track">
+        <div class="loader-fill" id="loaderFill"></div>
+      </div>
     </div>
   </div>
 
@@ -2566,13 +3612,14 @@
     <a href="#hero" class="nav-logo">Ignisia</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#how">Process</a></li>
+
       <li><a href="#timeline">Timeline</a></li>
       <li><a href="#themes">Themes</a></li>
       <li><a href="#prizes">Prizes</a></li>
       <li><a href="#eligibility">Eligibility</a></li>
     </ul>
-    <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="nav-cta gradient-button">Apply Now</a>
+    <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank"
+      rel="noopener" class="nav-cta gradient-button">Apply Now</a>
     <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -2589,14 +3636,15 @@
     </div>
     <div class="mob-nav">
       <li><a href="#about" class="mob-link"><span class="mob-idx">01</span>About</a></li>
-      <li><a href="#how" class="mob-link"><span class="mob-idx">02</span>Process</a></li>
+
       <li><a href="#timeline" class="mob-link"><span class="mob-idx">03</span>Timeline</a></li>
       <li><a href="#themes" class="mob-link"><span class="mob-idx">04</span>Themes</a></li>
       <li><a href="#prizes" class="mob-link"><span class="mob-idx">05</span>Prizes</a></li>
       <li><a href="#eligibility" class="mob-link"><span class="mob-idx">06</span>Eligibility</a></li>
     </div>
     <div class="mob-footer">
-      <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="mobile-cta gradient-button">Apply Now</a>
+      <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank"
+        rel="noopener" class="mobile-cta gradient-button">Apply Now</a>
     </div>
   </ul>
 
@@ -2612,7 +3660,9 @@
       <div class="hero-video-overlay">
 
         <!-- top: MIT label pill -->
-        <p class="hero-overlay-eyebrow"><img style="height: 68px; width: auto; max-width: 100%; margin-bottom: 6px; margin-right: 12px; margin-left: 12px;" src="MIT-white-logo (1).png" alt="MIT WPU"></p>
+        <p class="hero-overlay-eyebrow"><img
+            style="height: 68px; width: auto; max-width: 100%; margin-bottom: 6px; margin-right: 12px; margin-left: 12px;"
+            src="MIT-white-logo (1).png" alt="MIT WPU"></p>
 
         <!-- center: brand + tagline -->
         <div class="hero-video-center">
@@ -2654,7 +3704,8 @@
             </div>
           </div>
 
-          <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="hero-apply-corner gradient-button">Apply Now</a>
+          <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331"
+            target="_blank" rel="noopener" class="hero-apply-corner gradient-button">Apply Now</a>
         </div>
 
       </div>
@@ -2663,13 +3714,23 @@
     <!-- social icons below the video -->
     <div style="display: none;" class="hero-socials">
       <a href="#" class="hero-social-link" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+        </svg>
       </a>
       <a href="#" class="hero-social-link" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <svg viewBox="0 0 24 24">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+          <rect x="2" y="9" width="4" height="12" />
+          <circle cx="4" cy="4" r="2" />
+        </svg>
       </a>
       <a href="#" class="hero-social-link" aria-label="Twitter / X">
-        <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        <svg viewBox="0 0 24 24">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
       </a>
     </div>
 
@@ -2679,14 +3740,16 @@
   <!-- ╔═══════════════════════════════════════╗ -->
   <!-- ║               ABOUT                   ║ -->
   <!-- ╚═══════════════════════════════════════╝ -->
-  <section id="about" class="section">
+  <section style="padding-bottom: 20px;" id="about" class="section">
     <div class="container">
 
       <!-- centered header -->
       <div class="about-header fade-in">
         <span class="about-eyebrow-pill"><span class="badge-dot"></span>About Ignisia</span>
-        <h2 class="about-big-title">Where India's brightest minds<br>build &amp; <em class="about-serif-em">evolve.</em></h2>
-        <p class="about-lead">Ignisia is MIT-WPU's flagship hackathon where cross-disciplinary student teams design, build, and deploy cutting-edge AI-driven solutions for real-world problems.</p>
+        <h2 class="about-big-title">Where India's brightest minds<br>build &amp; <em class="about-serif-em">evolve.</em>
+        </h2>
+        <p class="about-lead">MIT-WPU's flagship AI hackathon — student teams design, build, and deploy AI solutions for
+          real-world problems.</p>
       </div>
 
       <!-- about card -->
@@ -2704,12 +3767,12 @@
           <div class="about-stat">
             <div class="about-stat-num">24H</div>
             <div class="about-stat-label">Grand Finale</div>
-            <div class="about-stat-desc">Non-stop on-campus build marathon at MIT-WPU</div>
+            <div class="about-stat-desc">A continuous, immersive building experience at MIT-WPU</div>
           </div>
           <div class="about-stat">
             <div class="about-stat-num">Pan&#8209;India</div>
             <div class="about-stat-label">National Level</div>
-            <div class="about-stat-desc">Open to every university, every state</div>
+            <div class="about-stat-desc">Welcoming students from every university and state</div>
           </div>
         </div>
 
@@ -2717,87 +3780,75 @@
         <div class="about-benefits-grid">
           <div class="about-benefit">
             <div class="about-benefit-title">National Level Competition</div>
-            <p class="about-benefit-desc">Open to students from every university across India. Stand out among the country's sharpest student innovators and build your reputation on a national stage.</p>
+            <p class="about-benefit-desc">Open to students from every university across India. Connect with other
+              passionate innovators and showcase your ideas on a national stage.</p>
           </div>
           <div class="about-benefit">
             <div class="about-benefit-title">Mentorship &amp; Expert Judges</div>
-            <p class="about-benefit-desc">Work alongside industry leaders and academic experts who challenge you, guide your thinking, and help turn raw ideas into deployable AI products.</p>
+            <p class="about-benefit-desc">Learn from industry leaders and academic experts who help shape your ideas
+              into real products.</p>
           </div>
           <div class="about-benefit">
-            <div class="about-benefit-title">Hybrid Format</div>
-            <p class="about-benefit-desc">Online screening rounds for wider access, followed by an immersive on-campus Grand Finale at MIT-WPU — the best of both worlds in one event.</p>
+            <div class="about-benefit-title">Physical Format</div>
+            <p class="about-benefit-desc">Fully on-campus at MIT-WPU, Pune. Build, collaborate, and present in person.
+            </p>
           </div>
           <div class="about-benefit">
             <div class="about-benefit-title">Real-World Impact</div>
-            <p class="about-benefit-desc">Solutions that matter. Ignisia demands AI products addressing genuine societal problems — from healthcare, education to agriculture and climate.</p>
+            <p class="about-benefit-desc">AI products that solve genuine problems — healthcare, education, agriculture,
+              and climate.</p>
           </div>
         </div>
 
       </div>
     </div>
   </section>
-
-  <div class="divider"></div>
 
   <!-- ╔═══════════════════════════════════════╗ -->
-  <!-- ║           HOW IT WORKS                ║ -->
+  <!-- ║            ENTRY FEE                 ║ -->
   <!-- ╚═══════════════════════════════════════╝ -->
-  <section id="how" class="section">
+  <section id="entry-fee" class="section" style="padding:70px 0; padding-top: 10px;">
     <div class="container">
+      <div class="entry-fee-card fade-in">
+        <!-- glow orb -->
+        <div class="entry-fee-glow"></div>
 
-      <!-- centered header above frame -->
-      <div class="how-header fade-in">
-        <div class="how-eyebrow">Process</div>
-        <h2 class="how-title">Three Stages, <em>one mission.</em></h2>
-        <p class="how-lead">Ignisia takes you from a raw idea to a deployed AI solution in three high-intensity stages.</p>
-      </div>
-
-      <!-- outer rounded frame -->
-      <div class="how-frame fade-in delay-1">
-        <div class="how-steps">
-
-          <!-- Stage 1 -->
-          <div class="how-step">
-            <div class="how-step-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            </div>
-            <span class="how-step-badge">Stage 1 &bull; Online</span>
-            <div class="how-step-title">Idea Screening</div>
-            <p class="how-step-desc">Submit your project idea and get shortlisted based on innovation, feasibility, and real-world relevance.</p>
+        <!-- left: info -->
+        <div class="entry-fee-info">
+          <span class="themes-eyebrow" style="margin-bottom:1rem;"><span class="badge-dot"></span>Entry Fee</span>
+          <h2 class="entry-fee-price">₹<span style="font-variant-numeric:tabular-nums;">399</span> <span
+              class="entry-fee-accent">per team</span></h2>
+          <p class="entry-fee-desc">One-time fee for your whole team — includes event access, mentorship, meals,
+            certificates, and swag.</p>
+          <div class="entry-fee-pills">
+            <span class="pill" style="font-size:13px;padding:.28rem .75rem;">Event Access</span>
+            <span class="pill" style="font-size:13px;padding:.28rem .75rem;">Meals</span>
+            <span class="pill" style="font-size:13px;padding:.28rem .75rem;">Swag Kit</span>
+            <span class="pill" style="font-size:13px;padding:.28rem .75rem;">Certificates</span>
           </div>
+        </div>
 
-          <!-- Stage 2 -->
-          <div class="how-step">
-            <div class="how-step-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            </div>
-            <span class="how-step-badge">Stage 2 &bull; Online</span>
-            <div class="how-step-title">Online Interviews</div>
-            <p class="how-step-desc">Shortlisted teams pitch to expert judges who evaluate clarity, depth, and the potential of your AI solution.</p>
-          </div>
-
-          <!-- Stage 3 -->
-          <div class="how-step">
-            <div class="how-step-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 2h16"/><path d="M9 21h6"/><path d="M12 17v4"/><path d="M8 22h8"/><path d="M6 2v7a6 6 0 0 0 12 0V2"/></svg>
-            </div>
-            <span class="how-step-badge">Stage 3 &bull; On-Campus &bull; 24 Hours</span>
-            <div class="how-step-title">Grand Finale</div>
-            <p class="how-step-desc">Build and deploy your solution live at MIT-WPU. Non-stop. High-pressure. Ship or go home.</p>
-          </div>
-
+        <!-- right: CTA -->
+        <div class="entry-fee-cta">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)"
+            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+            style="width:44px;height:44px;opacity:.85;">
+            <path
+              d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+            <path d="M13 5v2" />
+            <path d="M13 17v2" />
+            <path d="M13 11v2" />
+          </svg>
+          <span class="entry-fee-cta-text">Secure Your Spot</span>
+          <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331"
+            target="_blank" rel="noopener" class="gradient-button"
+            style="padding:.85rem 2.2rem;font-size:16px;border-radius:100px;white-space:nowrap;">Register Now →</a>
+          <span style="font-size:12px;color:var(--muted);letter-spacing:.04em;">No hidden charges</span>
         </div>
       </div>
-
-      <!-- CTA below frame -->
-      <div class="how-cta fade-in delay-2">
-        <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="how-cta-btn gradient-button">Apply Now</a>
-      </div>
-
     </div>
   </section>
 
-  <div class="divider"></div>
 
   <!-- ╔═══════════════════════════════════════╗ -->
   <!-- ║             TIMELINE                  ║ -->
@@ -2818,59 +3869,68 @@
           <div class="timeline-side-left">
             <div class="timeline-date">Mar 5, 2026</div>
             <div class="timeline-title">Registrations Open</div>
-            <p class="timeline-desc">The gates open. Form your team, choose your domain, and stake your claim at Ignisia 2026.</p>
+            <p class="timeline-desc">We're open for applications! Gather your team, pick a topic you're passionate
+              about, and start your journey.</p>
             <span class="timeline-pill">&#9679;&ensp;Registration Open</span>
           </div>
-          <div class="timeline-node"><div class="timeline-node-inner"><div class="timeline-node-dot"></div></div></div>
+          <div class="timeline-node">
+            <div class="timeline-node-inner">
+              <div class="timeline-node-dot"></div>
+            </div>
+          </div>
           <div class="timeline-side-right timeline-empty"></div>
         </div>
 
         <!-- 2: Idea Submission -->
         <div class="timeline-item fade-in delay-1">
           <div class="timeline-side-left timeline-empty"></div>
-          <div class="timeline-node"><div class="timeline-node-inner"><div class="timeline-node-dot"></div></div></div>
+          <div class="timeline-node">
+            <div class="timeline-node-inner">
+              <div class="timeline-node-dot"></div>
+            </div>
+          </div>
           <div class="timeline-side-right">
-            <div class="timeline-date">Mar 14, 2026</div>
+            <div class="timeline-date">Mar 17, 2026</div>
             <div class="timeline-title">Idea Submission Closes</div>
-            <p class="timeline-desc">Submit your project idea, problem statement, and proposed AI approach before the deadline.</p>
+            <p class="timeline-desc">Share your idea with us, tell us what problem you want to solve, and explain your
+              unique approach.</p>
             <span class="timeline-pill tl-upcoming">Stage 1 Deadline</span>
           </div>
         </div>
 
-        <!-- 3: Screening Results -->
+
+        <!-- 3: Finalists Announced — LEFT -->
         <div class="timeline-item fade-in delay-2">
           <div class="timeline-side-left">
-            <div class="timeline-date">Mar 19, 2026</div>
-            <div class="timeline-title">Screening Results</div>
-            <p class="timeline-desc">Shortlisted teams are notified via email. Top ideas advance to the next round.</p>
-            <span class="timeline-pill tl-upcoming">Shortlist Announced</span>
-          </div>
-          <div class="timeline-node"><div class="timeline-node-inner"><div class="timeline-node-dot"></div></div></div>
-          <div class="timeline-side-right timeline-empty"></div>
-        </div>
-
-        <!-- 4: Finalists Announced -->
-        <div class="timeline-item fade-in delay-1">
-          <div class="timeline-side-left timeline-empty"></div>
-          <div class="timeline-node"><div class="timeline-node-inner"><div class="timeline-node-dot"></div></div></div>
-          <div class="timeline-side-right">
-            <div class="timeline-date">Mar 21, 2026</div>
+            <div class="timeline-date">Mar 23, 2026</div>
             <div class="timeline-title">Finalists Announced</div>
-            <p class="timeline-desc">The final roster is confirmed. If you make it, pack your bags &mdash; the Grand Finale awaits.</p>
+            <p class="timeline-desc">The final list of teams is confirmed. We can't wait to welcome you on campus for an
+              unforgettable experience!</p>
             <span class="timeline-pill tl-upcoming">Final Selection</span>
           </div>
+          <div class="timeline-node">
+            <div class="timeline-node-inner">
+              <div class="timeline-node-dot"></div>
+            </div>
+          </div>
+          <div class="timeline-side-right timeline-empty"></div>
         </div>
 
-        <!-- 5: Grand Finale -->
-        <div class="timeline-item fade-in delay-2">
-          <div class="timeline-side-left">
-            <div class="timeline-date">Apr 3, 2026</div>
+        <!-- 4: Grand Finale — RIGHT -->
+        <div class="timeline-item fade-in delay-3">
+          <div class="timeline-side-left timeline-empty"></div>
+          <div class="timeline-node">
+            <div class="timeline-node-inner">
+              <div class="timeline-node-dot"></div>
+            </div>
+          </div>
+          <div class="timeline-side-right">
+            <div class="timeline-date">Apr 3 & 4, 2026</div>
             <div class="timeline-title">Grand Finale &mdash; 24 Hours</div>
-            <p class="timeline-desc">Non-stop build marathon on-campus at MIT-WPU, Pune. 24 hours to ship your AI solution and compete for ₹1,00,000.</p>
+            <p class="timeline-desc">Join us on campus at MIT-WPU, Pune, for 24 hours of building, collaboration, and
+              competing for the top prize.</p>
             <span class="timeline-pill">Main Event</span>
           </div>
-          <div class="timeline-node"><div class="timeline-node-inner"><div class="timeline-node-dot"></div></div></div>
-          <div class="timeline-side-right timeline-empty"></div>
         </div>
 
       </div>
@@ -2882,57 +3942,90 @@
   <!-- ╔═══════════════════════════════════════╗ -->
   <!-- ║              THEMES                   ║ -->
   <!-- ╚═══════════════════════════════════════╝ -->
-    <section id="themes" class="section">
+  <section id="themes" class="section">
     <div class="container">
 
       <div class="themes-header fade-in">
         <span class="themes-eyebrow"><span class="badge-dot"></span>Problem Domains</span>
-        <h2 class="themes-big-title">Build for themes that <em>matter.</em></h2>
-        <p class="themes-lead">Five high-impact domains where AI can transform lives and reshape industries.</p>
+        <h2 class="themes-big-title">Create solutions that <em>make a difference.</em></h2>
+        <p class="themes-lead">Five areas where your AI solutions can help transform lives and shape the future.</p>
       </div>
 
       <div class="themes-grid">
 
         <div class="theme-card fade-in delay-1">
-          <div class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 2a2 2 0 0 0-2 2v5H4a2 2 0 0 0-2 2v2c0 1.1.9 2 2 2h5v5c0 1.1.9 2 2 2h2a2 2 0 0 0 2-2v-5h5a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-5V4a2 2 0 0 0-2-2h-2z"/></svg></div>
+          <div class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M11 2a2 2 0 0 0-2 2v5H4a2 2 0 0 0-2 2v2c0 1.1.9 2 2 2h5v5c0 1.1.9 2 2 2h2a2 2 0 0 0 2-2v-5h5a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-5V4a2 2 0 0 0-2-2h-2z" />
+            </svg></div>
           <div class="theme-name">Healthcare &amp; Accessibility</div>
           <p class="theme-desc">AI solutions improving medical access, diagnostics, and patient outcomes at scale.</p>
         </div>
 
         <div class="theme-card fade-in delay-2">
-          <div class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg></div>
           <div class="theme-name">Education &amp; Skills</div>
           <p class="theme-desc">Tools reimagining learning, upskilling, and bridging the education gap across India.</p>
         </div>
 
         <div class="theme-card fade-in delay-3">
-          <div class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
+          <div class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" />
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+            </svg></div>
           <div class="theme-name">Sustainability &amp; Environment</div>
           <p class="theme-desc">Tech-driven approaches to climate, energy, and ecological challenges.</p>
         </div>
 
         <div class="theme-card fade-in delay-2">
-          <div class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="18"/><path d="M16 8h4l3 3v10h-7V8z"/><path d="M5 8h1"/><path d="M5 12h1"/><path d="M9 8h1"/><path d="M9 12h1"/><path d="M5 16h1"/><path d="M9 16h1"/><path d="M20 14h1"/><path d="M20 18h1"/></svg></div>
+          <div class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <rect x="1" y="3" width="15" height="18" />
+              <path d="M16 8h4l3 3v10h-7V8z" />
+              <path d="M5 8h1" />
+              <path d="M5 12h1" />
+              <path d="M9 8h1" />
+              <path d="M9 12h1" />
+              <path d="M5 16h1" />
+              <path d="M9 16h1" />
+              <path d="M20 14h1" />
+              <path d="M20 18h1" />
+            </svg></div>
           <div class="theme-name">Smart Cities</div>
-          <p class="theme-desc">Infrastructure, mobility, safety, and urban management powered by AI and real-time data.</p>
+          <p class="theme-desc">Infrastructure, mobility, safety, and urban management powered by AI and real-time data.
+          </p>
         </div>
 
         <div class="theme-card fade-in delay-3">
-          <div class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+          <div class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+              <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+              <line x1="12" y1="12" x2="12" y2="16" />
+              <line x1="8" y1="12" x2="16" y2="12" />
+            </svg></div>
           <div class="theme-name">Tools for SMEs</div>
-          <p class="theme-desc">Empowering small and medium enterprises with intelligent automation and digital tools.</p>
+          <p class="theme-desc">Empowering small and medium enterprises with intelligent automation and digital tools.
+          </p>
         </div>
 
         <div class="theme-card fade-in delay-4">
-          <div class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01"/></svg></div>
+          <div class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+              <line x1="1" y1="10" x2="23" y2="10" />
+              <path d="M8 14h.01M12 14h.01M16 14h.01" />
+            </svg></div>
           <div class="theme-name">FinTech</div>
-          <p class="theme-desc">AI-powered solutions transforming payments, lending, fraud detection, and financial inclusion.</p>
+          <p class="theme-desc">AI-powered solutions transforming payments, lending, fraud detection, and financial
+            inclusion.</p>
         </div>
 
       </div>
 
       <div class="themes-cta fade-in delay-2">
-        <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="themes-cta-btn gradient-button">Apply Now</a>
+        <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank"
+          rel="noopener" class="themes-cta-btn gradient-button">Apply Now</a>
       </div>
 
     </div>
@@ -2956,40 +4049,138 @@
 
       <!-- Row 1 — scrolls left -->
       <div class="tech-marquee-row">
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Computer Vision</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Foundation Models</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Generative AI</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>Agentic AI</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Full-Stack Dev</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>NLP</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>Vector Databases</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>Computer Vision</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>Foundation Models</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+          </svg>Generative AI</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <rect x="4" y="4" width="16" height="16" rx="2" />
+            <rect x="9" y="9" width="6" height="6" />
+            <line x1="9" y1="1" x2="9" y2="4" />
+            <line x1="15" y1="1" x2="15" y2="4" />
+            <line x1="9" y1="20" x2="9" y2="23" />
+            <line x1="15" y1="20" x2="15" y2="23" />
+            <line x1="20" y1="9" x2="23" y2="9" />
+            <line x1="20" y1="14" x2="23" y2="14" />
+            <line x1="1" y1="9" x2="4" y2="9" />
+            <line x1="1" y1="14" x2="4" y2="14" />
+          </svg>Agentic AI</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>Full-Stack Dev</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>NLP</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <ellipse cx="12" cy="5" rx="9" ry="3" />
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+          </svg>Vector Databases</span>
         <!-- duplicate for seamless loop -->
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Computer Vision</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Foundation Models</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Generative AI</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>Agentic AI</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Full-Stack Dev</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>NLP</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>Vector Databases</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>Computer Vision</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>Foundation Models</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+          </svg>Generative AI</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <rect x="4" y="4" width="16" height="16" rx="2" />
+            <rect x="9" y="9" width="6" height="6" />
+            <line x1="9" y1="1" x2="9" y2="4" />
+            <line x1="15" y1="1" x2="15" y2="4" />
+            <line x1="9" y1="20" x2="9" y2="23" />
+            <line x1="15" y1="20" x2="15" y2="23" />
+            <line x1="20" y1="9" x2="23" y2="9" />
+            <line x1="20" y1="14" x2="23" y2="14" />
+            <line x1="1" y1="9" x2="4" y2="9" />
+            <line x1="1" y1="14" x2="4" y2="14" />
+          </svg>Agentic AI</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>Full-Stack Dev</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>NLP</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <ellipse cx="12" cy="5" rx="9" ry="3" />
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+          </svg>Vector Databases</span>
       </div>
 
       <!-- Row 2 — scrolls right -->
       <div class="tech-marquee-row row-reverse">
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Predictive Analytics</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Blockchain</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Web3</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>Reinforcement Learning</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>AI Safety &amp; Ethics</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>Edge AI</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>MLOps</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>Predictive Analytics</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+          </svg>Blockchain</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>Web3</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <polyline points="23 4 23 10 17 10" />
+            <polyline points="1 20 1 14 7 14" />
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+          </svg>Reinforcement Learning</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>AI Safety &amp; Ethics</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+          </svg>Edge AI</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <line x1="18" y1="20" x2="18" y2="10" />
+            <line x1="12" y1="20" x2="12" y2="4" />
+            <line x1="6" y1="20" x2="6" y2="14" />
+          </svg>MLOps</span>
         <!-- duplicate for seamless loop -->
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Predictive Analytics</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Blockchain</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Web3</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>Reinforcement Learning</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>AI Safety &amp; Ethics</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>Edge AI</span>
-        <span class="tech-pill"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>MLOps</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>Predictive Analytics</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+          </svg>Blockchain</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>Web3</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <polyline points="23 4 23 10 17 10" />
+            <polyline points="1 20 1 14 7 14" />
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+          </svg>Reinforcement Learning</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>AI Safety &amp; Ethics</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+          </svg>Edge AI</span>
+        <span class="tech-pill"><svg viewBox="0 0 24 24">
+            <line x1="18" y1="20" x2="18" y2="10" />
+            <line x1="12" y1="20" x2="12" y2="4" />
+            <line x1="6" y1="20" x2="6" y2="14" />
+          </svg>MLOps</span>
       </div>
 
     </div>
@@ -3006,33 +4197,45 @@
       <div class="judging-header fade-in">
         <span class="themes-eyebrow"><span class="badge-dot"></span>Judging Framework</span>
         <h2 class="judging-big-title">How we <em>evaluate.</em></h2>
-        <p class="judging-lead">Four dimensions that separate a great idea from a great solution.</p>
+        <p class="judging-lead">A simple guide to how we review and appreciate your creations.</p>
       </div>
 
       <div class="judging-grid">
 
         <div class="judge-card fade-in delay-1">
-          <div class="judge-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="judge-icon"><svg viewBox="0 0 24 24">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg></div>
           <div class="judge-name">Innovation</div>
           <p class="judge-desc">Originality and creative application of AI to solve a problem in an unexpected way.</p>
         </div>
 
         <div class="judge-card fade-in delay-2">
-          <div class="judge-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <div class="judge-icon"><svg viewBox="0 0 24 24">
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg></div>
           <div class="judge-name">Feasibility</div>
-          <p class="judge-desc">Technical soundness, implementation quality, and a realistic path to a working prototype.</p>
+          <p class="judge-desc">Technical soundness, implementation quality, and a realistic path to a working
+            prototype.</p>
         </div>
 
         <div class="judge-card fade-in delay-3">
-          <div class="judge-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <div class="judge-icon"><svg viewBox="0 0 24 24">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+              <polyline points="17 6 23 6 23 12" />
+            </svg></div>
           <div class="judge-name">Scalability</div>
           <p class="judge-desc">Potential to grow, reach wider populations, and sustain impact beyond the hackathon.</p>
         </div>
 
         <div class="judge-card fade-in delay-4">
-          <div class="judge-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="judge-icon"><svg viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg></div>
           <div class="judge-name">Social Impact</div>
-          <p class="judge-desc">Tangible benefit to society, communities, or underserved populations — built responsibly.</p>
+          <p class="judge-desc">Tangible benefit to society, communities, or underserved populations — built
+            responsibly.</p>
         </div>
 
       </div>
@@ -3049,8 +4252,8 @@
 
       <div class="prizes-header fade-in">
         <span class="themes-eyebrow"><span class="badge-dot"></span>Prize Pool</span>
-        <h2 class="prizes-big-title">₹1,00,000+ in <em>prizes.</em></h2>
-        <p class="prizes-lead">The stakes are real. Three winners. One leaderboard.</p>
+        <h2 class="prizes-big-title">₹<span id="animatedPrizeCounter">0</span>+ in <em>prizes.</em></h2>
+        <p class="prizes-lead">Three winners. One leaderboard.</p>
       </div>
 
       <div class="prizes-layout">
@@ -3059,7 +4262,7 @@
         <div class="prize-card fade-in delay-2">
           <div class="prize-badge"><span class="prize-badge-dot"></span>Runner-Up</div>
           <div class="prize-amount">₹30,000</div>
-          <p class="prize-desc">Second place team. Proven by performance.</p>
+          <p class="prize-desc">Strong performance, stronger recognition.</p>
           <div class="prize-divider"></div>
           <ul class="prize-perks">
             <li><span class="prize-perk-icon">✦</span>₹30,000 cash prize</li>
@@ -3073,18 +4276,19 @@
         <div class="prize-card first fade-in delay-1">
           <div class="prize-badge"><span class="prize-badge-dot"></span>Grand Prix — 1st Place</div>
           <div class="prize-amount">₹50,000</div>
-          <p class="prize-desc">Awarded to the team that ships the most impactful AI solution in 24 hours.</p>
+          <p class="prize-desc">Top AI solution built in 24 hours.</p>
           <div class="prize-actions">
-            <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="prize-btn-primary gradient-button">Apply Now</a>
+            <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331"
+              target="_blank" rel="noopener" class="prize-btn-primary gradient-button">Apply Now</a>
             <a href="#" class="prize-btn-secondary">Learn More</a>
           </div>
           <div class="prize-divider"></div>
           <ul class="prize-perks">
             <li><span class="prize-perk-icon">✦</span>₹50,000 cash prize</li>
             <li><span class="prize-perk-icon">✦</span>Winner certificates &amp; trophies</li>
-            <li><span class="prize-perk-icon">✦</span>National media feature</li>
-            <li><span class="prize-perk-icon">✦</span>Top-tier ecosystem access</li>
-            <li><span class="prize-perk-icon">✦</span>Incubation fast-track opportunities</li>
+            <li><span class="prize-perk-icon">✦</span>Media feature</li>
+            <li><span class="prize-perk-icon">✦</span>Ecosystem access</li>
+            <li><span class="prize-perk-icon">✦</span>Incubation opportunities</li>
           </ul>
         </div>
 
@@ -3092,7 +4296,7 @@
         <div class="prize-card fade-in delay-3">
           <div class="prize-badge"><span class="prize-badge-dot"></span>Second Runner-Up</div>
           <div class="prize-amount">₹20,000</div>
-          <p class="prize-desc">Third place team. Excellence rewarded.</p>
+          <p class="prize-desc">Excellence deserves a reward.</p>
           <div class="prize-divider"></div>
           <ul class="prize-perks">
             <li><span class="prize-perk-icon">✦</span>₹20,000 cash prize</li>
@@ -3104,7 +4308,8 @@
 
       </div>
 
-      <p class="prize-note fade-in delay-3">Plus certificates, recognition, and opportunities across India's top tech ecosystem.</p>
+      <p class="prize-note fade-in delay-3">Plus certificates, recognition, and ecosystem opportunities for all
+        participants.</p>
 
     </div>
   </section>
@@ -3120,27 +4325,41 @@
       <div class="elig-header fade-in">
         <span class="themes-eyebrow"><span class="badge-dot"></span>Eligibility</span>
         <h2 class="elig-big-title">Who can <em>compete.</em></h2>
-        <p class="elig-lead">Open to students across India — all you need is an idea and a team.</p>
+        <p class="elig-lead">Welcoming students from all over India — bring your ideas and your friends.</p>
       </div>
 
       <div class="elig-grid">
 
         <div class="elig-item fade-in delay-1">
-          <div class="elig-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="elig-icon"><svg viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg></div>
           <div class="elig-label">Open To</div>
           <div class="elig-value">UG &amp; PG Students</div>
           <p class="elig-note">Undergraduate and Postgraduate students across India — all institutions welcome.</p>
         </div>
 
         <div class="elig-item fade-in delay-2">
-          <div class="elig-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="elig-icon"><svg viewBox="0 0 24 24">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg></div>
           <div class="elig-label">Team Size</div>
           <div class="elig-value">2 – 4 Members</div>
-          <p class="elig-note">Cross-disciplinary participation strongly encouraged — diverse teams build better solutions.</p>
+          <p class="elig-note">Diverse teams encouraged — mix disciplines for stronger solutions.</p>
+
         </div>
 
         <div class="elig-item fade-in delay-3">
-          <div class="elig-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="elig-icon"><svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg></div>
           <div class="elig-label">Format</div>
           <div class="elig-value">Physical</div>
           <p class="elig-note">Grand Finale held fully on-campus at MIT World Peace University, Pune.</p>
@@ -3157,7 +4376,7 @@
     </div>
   </section>
 
-  <div class="divider"></div>
+
 
   <!-- ╔═══════════════════════════════════════╗ -->
   <!-- ║               FOOTER                  ║ -->
@@ -3169,14 +4388,15 @@
         <p class="footer-tagline">MIT World Peace University &mdash; Pune, India &mdash; April 2026</p>
         <ul class="footer-nav-row">
           <li><a href="#about">About</a></li>
-          <li><a href="#how">How It Works</a></li>
+
           <li><a href="#timeline">Timeline</a></li>
           <li><a href="#themes">Themes</a></li>
           <li><a href="#judging">Judging</a></li>
           <li><a href="#prizes">Prizes</a></li>
           <li><a href="#eligibility">Eligibility</a></li>
         </ul>
-        <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="footer-apply gradient-button">Apply Now &rarr;</a>
+        <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank"
+          rel="noopener" class="footer-apply gradient-button">Apply Now &rarr;</a>
       </div>
 
       <div class="footer-bottom">
@@ -3198,7 +4418,7 @@
       <div class="developer-signature">
         <span class="typewriter" id="developer-credit"></span>
       </div>
-                    <script src="typewriter.js"></script>
+      <script src="typewriter.js"></script>
 
 
     </div>
@@ -3218,26 +4438,26 @@
     function pad(n) { return String(n).padStart(2, '0'); }
 
     function updateCountdown() {
-      const now  = new Date();
+      const now = new Date();
       const diff = EVENT_DATE - now;
 
       if (diff <= 0) {
-        document.getElementById('cd-days').textContent  = '00';
+        document.getElementById('cd-days').textContent = '00';
         document.getElementById('cd-hours').textContent = '00';
-        document.getElementById('cd-min').textContent   = '00';
-        document.getElementById('cd-sec').textContent   = '00';
+        document.getElementById('cd-min').textContent = '00';
+        document.getElementById('cd-sec').textContent = '00';
         return;
       }
 
-      const days  = Math.floor(diff / 86400000);
+      const days = Math.floor(diff / 86400000);
       const hours = Math.floor((diff % 86400000) / 3600000);
-      const mins  = Math.floor((diff % 3600000)  / 60000);
-      const secs  = Math.floor((diff % 60000)    / 1000);
+      const mins = Math.floor((diff % 3600000) / 60000);
+      const secs = Math.floor((diff % 60000) / 1000);
 
-      document.getElementById('cd-days').textContent  = pad(days);
+      document.getElementById('cd-days').textContent = pad(days);
       document.getElementById('cd-hours').textContent = pad(hours);
-      document.getElementById('cd-min').textContent   = pad(mins);
-      document.getElementById('cd-sec').textContent   = pad(secs);
+      document.getElementById('cd-min').textContent = pad(mins);
+      document.getElementById('cd-sec').textContent = pad(secs);
     }
 
     updateCountdown();
@@ -3273,7 +4493,7 @@
     });
 
     /* ─── HAMBURGER MENU ─────────────────────────────────────── */
-    const hamburger  = document.getElementById('navHamburger');
+    const hamburger = document.getElementById('navHamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     const navOverlay = document.getElementById('navOverlay');
 
@@ -3334,11 +4554,11 @@
 
     /* ── loader dismiss ── */
     (function () {
-      var loader    = document.getElementById('loader');
-      var fill      = document.getElementById('loaderFill');
+      var loader = document.getElementById('loader');
+      var fill = document.getElementById('loaderFill');
       var counterEl = document.getElementById('loaderCounter');
-      var DURATION  = 2400;   /* ms for counter to run 0 → 100 */
-      var rafStart  = Date.now();
+      var DURATION = 2400;   /* ms for counter to run 0 → 100 */
+      var rafStart = Date.now();
       var pageReady = false;
       var counterDone = false;
 
@@ -3387,10 +4607,29 @@
     /* pills below video on scroll */
     gsap.fromTo('.hero-below',
       { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
-        scrollTrigger: { trigger: '.hero-below', start: 'top 90%' } }
+      {
+        opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+        scrollTrigger: { trigger: '.hero-below', start: 'top 90%' }
+      }
     );
+
+    /* animated counter for prizes */
+    gsap.to('#animatedPrizeCounter', {
+      innerText: 100000,
+      duration: 2.5,
+      ease: 'power3.out',
+      snap: { innerText: 1 },
+      onUpdate: function () {
+        let val = Math.round(this.targets()[0].innerText);
+        this.targets()[0].innerText = val.toLocaleString('en-IN');
+      },
+      scrollTrigger: {
+        trigger: '#prizes',
+        start: 'top 80%'
+      }
+    });
   </script>
 
 </body>
+
 </html>
