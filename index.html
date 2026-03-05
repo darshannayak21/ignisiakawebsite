@@ -2446,6 +2446,107 @@
     /* ─── MOBILE MENU 6th item delay ───────────────────────────────────────── */
     .mobile-menu.open li:nth-child(6) { transition-delay: .32s; opacity: 1; transform: none; }
 
+    /* ─── GRADIENT APPLY BUTTON ─────────────────────────────────────────────── */
+    @property --pos-x { syntax: '<percentage>'; initial-value: 11.14%; inherits: false; }
+    @property --pos-y { syntax: '<percentage>'; initial-value: 140%; inherits: false; }
+    @property --spread-x { syntax: '<percentage>'; initial-value: 150%; inherits: false; }
+    @property --spread-y { syntax: '<percentage>'; initial-value: 180.06%; inherits: false; }
+    @property --color-1 { syntax: '<color>'; initial-value: #0a0a0a; inherits: false; }
+    @property --color-2 { syntax: '<color>'; initial-value: #1a0a3a; inherits: false; }
+    @property --color-3 { syntax: '<color>'; initial-value: #3b1f7a; inherits: false; }
+    @property --color-4 { syntax: '<color>'; initial-value: #5e35b1; inherits: false; }
+    @property --color-5 { syntax: '<color>'; initial-value: #7c3aed; inherits: false; }
+    @property --border-angle { syntax: '<angle>'; initial-value: 20deg; inherits: true; }
+    @property --border-color-1 { syntax: '<color>'; initial-value: hsla(262,75%,60%,0.18); inherits: true; }
+    @property --border-color-2 { syntax: '<color>'; initial-value: hsla(262,75%,65%,0.65); inherits: true; }
+    @property --stop-1 { syntax: '<percentage>'; initial-value: 37.35%; inherits: false; }
+    @property --stop-2 { syntax: '<percentage>'; initial-value: 61.36%; inherits: false; }
+    @property --stop-3 { syntax: '<percentage>'; initial-value: 78.42%; inherits: false; }
+    @property --stop-4 { syntax: '<percentage>'; initial-value: 89.52%; inherits: false; }
+    @property --stop-5 { syntax: '<percentage>'; initial-value: 100%; inherits: false; }
+
+    .gradient-button {
+      position: relative;
+      appearance: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border: none;
+      border-radius: 28px;
+      color: #fff !important;
+      font-family: var(--font-body);
+      font-weight: 500;
+      background: radial-gradient(
+        var(--spread-x) var(--spread-y) at var(--pos-x) var(--pos-y),
+        var(--color-1) var(--stop-1),
+        var(--color-2) var(--stop-2),
+        var(--color-3) var(--stop-3),
+        var(--color-4) var(--stop-4),
+        var(--color-5) var(--stop-5)
+      );
+      transition:
+        --pos-x 0.5s,
+        --pos-y 0.5s,
+        --spread-x 0.5s,
+        --spread-y 0.5s,
+        --color-1 0.5s,
+        --color-2 0.5s,
+        --color-3 0.5s,
+        --color-4 0.5s,
+        --color-5 0.5s,
+        --border-angle 0.5s,
+        --border-color-1 0.5s,
+        --border-color-2 0.5s,
+        --stop-1 0.5s,
+        --stop-2 0.5s,
+        --stop-3 0.5s,
+        --stop-4 0.5s,
+        --stop-5 0.5s;
+    }
+
+    .gradient-button::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(
+        var(--border-angle),
+        var(--border-color-1),
+        var(--border-color-2)
+      );
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      pointer-events: none;
+    }
+
+    .gradient-button:hover {
+      --pos-x: 0%;
+      --pos-y: 91.51%;
+      --spread-x: 120.24%;
+      --spread-y: 103.18%;
+      --color-1: #8B5CF6;
+      --color-2: #6d28d9;
+      --color-3: #4c1d95;
+      --color-4: #2d1674;
+      --color-5: #0a0a0a;
+      --border-angle: 190deg;
+      --border-color-1: hsla(262, 78%, 90%, 0.12);
+      --border-color-2: hsla(262, 75%, 80%, 0.65);
+      --stop-1: 0%;
+      --stop-2: 8.8%;
+      --stop-3: 21.44%;
+      --stop-4: 71.34%;
+      --stop-5: 85.76%;
+      opacity: 1;
+      transform: none;
+      color: #fff !important;
+    }
+
   </style>
 </head>
 <body>
@@ -2471,7 +2572,7 @@
       <li><a href="#prizes">Prizes</a></li>
       <li><a href="#eligibility">Eligibility</a></li>
     </ul>
-    <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="nav-cta">Apply Now</a>
+    <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="nav-cta gradient-button">Apply Now</a>
     <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -2495,7 +2596,7 @@
       <li><a href="#eligibility" class="mob-link"><span class="mob-idx">06</span>Eligibility</a></li>
     </div>
     <div class="mob-footer">
-      <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="mobile-cta">Apply Now</a>
+      <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="mobile-cta gradient-button">Apply Now</a>
     </div>
   </ul>
 
@@ -2553,7 +2654,7 @@
             </div>
           </div>
 
-          <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="hero-apply-corner">Apply Now</a>
+          <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="hero-apply-corner gradient-button">Apply Now</a>
         </div>
 
       </div>
@@ -2690,7 +2791,7 @@
 
       <!-- CTA below frame -->
       <div class="how-cta fade-in delay-2">
-        <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="how-cta-btn">Apply Now</a>
+        <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="how-cta-btn gradient-button">Apply Now</a>
       </div>
 
     </div>
@@ -2831,7 +2932,7 @@
       </div>
 
       <div class="themes-cta fade-in delay-2">
-        <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="themes-cta-btn">Apply Now</a>
+        <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="themes-cta-btn gradient-button">Apply Now</a>
       </div>
 
     </div>
@@ -2974,7 +3075,7 @@
           <div class="prize-amount">₹50,000</div>
           <p class="prize-desc">Awarded to the team that ships the most impactful AI solution in 24 hours.</p>
           <div class="prize-actions">
-            <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="prize-btn-primary">Apply Now</a>
+            <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="prize-btn-primary gradient-button">Apply Now</a>
             <a href="#" class="prize-btn-secondary">Learn More</a>
           </div>
           <div class="prize-divider"></div>
@@ -3075,7 +3176,7 @@
           <li><a href="#prizes">Prizes</a></li>
           <li><a href="#eligibility">Eligibility</a></li>
         </ul>
-        <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="footer-apply">Apply Now &rarr;</a>
+        <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="footer-apply gradient-button">Apply Now &rarr;</a>
       </div>
 
       <div class="footer-bottom">
