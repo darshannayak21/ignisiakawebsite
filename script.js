@@ -94,3 +94,88 @@ document.querySelectorAll('.mob-link, .mobile-cta').forEach(el => {
   el.addEventListener('click', closeMenu);
 });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+
+/* ─── GALLERY MOBILE CAROUSEL ────────────────────────────── */
+(function initGalleryCarousel() {
+  const MOBILE_BP = 600;
+
+  const grid = document.getElementById('galleryGrid');
+  const prev = document.getElementById('galleryPrev');
+  const next = document.getElementById('galleryNext');
+  const dotsWrap = document.getElementById('galleryDots');
+
+  if (!grid || !prev || !next || !dotsWrap) return;
+
+  const items = Array.from(grid.querySelectorAll('.gallery-item'));
+  const total = items.length;
+  let current = 0;
+  let dots = [];
+
+  /* ── build dots ── */
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    dots = items.map((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Go to image ' + (i + 1));
+      d.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(d);
+      return d;
+    });
+  }
+
+  /* ── scroll to slide index ── */
+  function goTo(idx) {
+    if (idx < 0 || idx >= total) return;
+    current = idx;
+    const item = items[idx];
+    // scroll the track so the target item's left edge aligns with the grid's left edge
+    grid.scrollTo({ left: item.offsetLeft - grid.offsetLeft, behavior: 'smooth' });
+    updateUI();
+  }
+
+  /* ── refresh arrow states + active dot ── */
+  function updateUI() {
+    prev.classList.toggle('disabled', current === 0);
+    next.classList.toggle('disabled', current === total - 1);
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  /* ── arrow buttons ── */
+  prev.addEventListener('click', () => goTo(current - 1));
+  next.addEventListener('click', () => goTo(current + 1));
+
+  /* ── keep current in sync when user finger-swipes ── */
+  let scrollTimer;
+  grid.addEventListener('scroll', () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      // find which item is most visible
+      const gridLeft = grid.getBoundingClientRect().left;
+      let closest = 0;
+      let minDist = Infinity;
+      items.forEach((item, i) => {
+        const dist = Math.abs(item.getBoundingClientRect().left - gridLeft);
+        if (dist < minDist) { minDist = dist; closest = i; }
+      });
+      if (closest !== current) { current = closest; updateUI(); }
+    }, 80);
+  });
+
+  /* ── init / respond to resize ── */
+  function setup() {
+    if (window.innerWidth <= MOBILE_BP) {
+      buildDots();
+      updateUI();
+    } else {
+      dotsWrap.innerHTML = '';
+      dots = [];
+      // reset scroll position so desktop grid is unaffected
+      grid.scrollLeft = 0;
+    }
+  }
+
+  setup();
+  window.addEventListener('resize', setup);
+})();
