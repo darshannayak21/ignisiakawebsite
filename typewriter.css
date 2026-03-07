@@ -11,14 +11,13 @@
 .typewriter {
   position: relative;
   font-family: Instrument Serif;
-        font-style: italic;
-
-  font-size: 1.2rem;
-  color: #ffffff;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #ffffff66;
   overflow: hidden;
   white-space: nowrap;
-  font-weight: 500;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   margin-top: 0;
   display: inline-block;
   /* Improved stability across screen sizes */
@@ -28,21 +27,11 @@
   will-change: contents; /* Performance optimization */
 }
 
-/* Style for the developer name link */
-.developer-link {
-  background: linear-gradient(45deg, #236bcf, #f08cf5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Style for the developer name */
+.developer-name {
+  color: #ffffff88;
   text-decoration: none;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.developer-link:hover {
-  background: linear-gradient(45deg, #cf234e, #f08cf5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-decoration: underline;
+  font-weight: 500;
 }
 
 .typewriter::after {

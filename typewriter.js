@@ -37,22 +37,19 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!isDeleting) {
         // TYPING PHASE
 
-        // Create link when we reach the name part
+        // Create span when we reach the name part
         if (i === prefix.length) {
-          const link = document.createElement("a");
-          link.href = "https://tanishbhavsar.netlify.app/";
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          link.className = "developer-link";
-          developerCredit.appendChild(link);
+          const nameSpan = document.createElement("span");
+          nameSpan.className = "developer-name";
+          developerCredit.appendChild(nameSpan);
         }
 
         const currentChar = fullText.charAt(i);
 
         if (i >= prefix.length && i < prefix.length + name.length) {
-          // Add characters to the link when we're in the name part
-          const link = developerCredit.querySelector(".developer-link");
-          link.textContent += currentChar;
+          // Add characters to the span when we're in the name part
+          const nameSpan = developerCredit.querySelector(".developer-name");
+          nameSpan.textContent += currentChar;
         } else {
           // Otherwise add to the main element
           if (i < prefix.length) {
@@ -77,12 +74,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Handle deleting differently based on where we are in the text
         if (i >= prefix.length && i < prefix.length + name.length) {
-          // We're in the name part - adjust the link's text content
-          const link = developerCredit.querySelector(".developer-link");
-          if (link) {
-            link.textContent = name.substring(0, i - prefix.length);
+          // We're in the name part - adjust the span's text content
+          const nameSpan = developerCredit.querySelector(".developer-name");
+          if (nameSpan) {
+            nameSpan.textContent = name.substring(0, i - prefix.length);
             if (i === prefix.length) {
-              developerCredit.removeChild(link);
+              developerCredit.removeChild(nameSpan);
             }
           }
         } else {
