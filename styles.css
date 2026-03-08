@@ -29,6 +29,11 @@ html {
   overflow-x: hidden;
 }
 
+button
+{
+  cursor: pointer;
+}
+
 body {
   background: var(--bg);
   color: var(--white);
@@ -50,6 +55,11 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--cyan-dim);
   border-radius: 2px;
+}
+
+a
+{
+  cursor: pointer;
 }
 
 /* ─── GLOBAL UTILITIES ───────────────────────────────────────────────────── */
@@ -500,6 +510,7 @@ nav {
   line-height: .95;
   margin-bottom: 2 0px;
   color: var(--white);
+  font-style: italic;
 }
 
 .hero-subtitle {
@@ -2313,10 +2324,16 @@ footer {
   gap: 1.5rem;
 }
 
-.footer-social {
+.footer-social,
+.footer-social-top {
   display: flex;
   align-items: center;
-  gap: .75rem;
+  gap: 1rem;
+}
+
+.footer-social-top {
+  justify-content: center;
+  margin-bottom: 2.5rem;
 }
 
 .footer-social a {
@@ -2333,7 +2350,22 @@ footer {
   transition: background .2s, color .2s, border-color .2s, transform .15s;
 }
 
-.footer-social a:hover {
+.footer-social-top a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .1);
+  color: rgba(255, 255, 255, .45);
+  text-decoration: none;
+  transition: background .2s, color .2s, border-color .2s, transform .15s;
+}
+
+.footer-social a:hover,
+.footer-social-top a:hover {
   background: rgba(255, 255, 255, .12);
   border-color: rgba(255, 255, 255, .2);
   color: var(--white);
@@ -2343,6 +2375,16 @@ footer {
 .footer-social a svg {
   width: 14px;
   height: 14px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.footer-social-top a svg {
+  width: 20px;
+  height: 20px;
   stroke: currentColor;
   stroke-width: 1.8;
   fill: none;
