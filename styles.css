@@ -398,19 +398,26 @@ nav {
 /* apply button pinned bottom-left */
 .hero-apply-corner {
   position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .2rem;
   font-family: var(--font-body);
   font-size: 15px;
   font-weight: 500;
   color: #fff;
   background: var(--cyan);
   border: none;
-  padding: 1rem 2.2rem;
+  padding: .95rem 1.5rem;
   cursor: pointer;
   text-decoration: none;
   border-radius: 100px;
   transition: opacity .2s, transform .15s;
   flex-shrink: 0;
   letter-spacing: -.01em;
+  text-align: center;
+  min-inline-size: 12.75rem;
 }
 
 .hero-apply-corner:hover {
@@ -426,6 +433,11 @@ nav {
 }
 
 .hero-mitwpu-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .2rem;
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 500;
@@ -434,13 +446,14 @@ nav {
   border: 1.5px solid rgba(139, 92, 246, .45);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: .9rem 2rem;
+  padding: .85rem 1.45rem;
   border-radius: 100px;
   text-decoration: none;
-  white-space: nowrap;
   letter-spacing: -.01em;
   box-shadow: 0 0 18px rgba(139, 92, 246, .18), inset 0 1px 0 rgba(255, 255, 255, .08);
   transition: background .22s, color .22s, border-color .22s, box-shadow .22s, transform .15s;
+  text-align: center;
+  min-inline-size: 12.75rem;
 }
 
 .hero-mitwpu-btn:hover {
@@ -449,6 +462,24 @@ nav {
   border-color: rgba(167, 139, 250, .7);
   box-shadow: 0 0 28px rgba(139, 92, 246, .35), inset 0 1px 0 rgba(255, 255, 255, .12);
   transform: translateY(-2px);
+}
+
+.cta-kicker {
+  display: block;
+  font-size: 0.6em;
+  font-weight: 500;
+  letter-spacing: .14em;
+  line-height: 1;
+  text-transform: uppercase;
+  opacity: .72;
+}
+
+.cta-main {
+  display: block;
+  font-size: 1.1em;
+  font-weight: 500;
+  letter-spacing: -.02em;
+  line-height: 1.15;
 }
 
 
@@ -1200,16 +1231,22 @@ nav {
 }
 
 .themes-cta-btn {
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .2rem;
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 500;
   color: #fff;
   background: var(--cyan);
-  padding: .9rem 2rem;
+  padding: .9rem 1.5rem;
   border-radius: 100px;
   text-decoration: none;
   transition: opacity .2s, transform .15s;
+  text-align: center;
+  min-inline-size: 12.75rem;
 }
 
 .themes-cta-btn:hover {
@@ -2092,18 +2129,20 @@ nav {
 .prize-btn-primary {
   flex: 1;
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: .2rem;
   background: var(--cyan);
   color: #fff;
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 500;
-  padding: .9rem 2rem;
+  padding: .9rem 1.4rem;
   border-radius: 100px;
   text-decoration: none;
   transition: opacity .2s;
-  white-space: nowrap;
+  text-align: center;
 }
 
 .prize-btn-primary:hover {
@@ -2113,20 +2152,22 @@ nav {
 .prize-btn-secondary {
   flex: 1;
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: .2rem;
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 600;
   color: #d8b4fe;
   background: rgba(139, 92, 246, .12);
   border: 1.5px solid rgba(139, 92, 246, .45);
-  padding: .9rem 2rem;
+  padding: .9rem 1.4rem;
   border-radius: 100px;
   text-decoration: none;
-  white-space: nowrap;
   box-shadow: 0 0 18px rgba(139, 92, 246, .18), inset 0 1px 0 rgba(255, 255, 255, .08);
   transition: background .22s, color .22s, border-color .22s, box-shadow .22s, transform .15s;
+  text-align: center;
 }
 
 .prize-btn-secondary:hover {
@@ -2176,6 +2217,39 @@ nav {
   color: var(--muted);
   margin-top: 2.5rem;
   font-style: italic;
+}
+
+.prize-appreciation {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: rgba(139, 92, 246, .08);
+  border: 1.5px solid rgba(139, 92, 246, .3);
+  border-radius: 16px;
+  padding: 1.25rem 1.75rem;
+  margin-top: 1.5rem;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.prize-appreciation-icon {
+  color: #a78bfa;
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.prize-appreciation p {
+  font-size: 15px;
+  color: rgba(255,255,255,.75);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.prize-appreciation strong {
+  color: #c4b5fd;
+  font-weight: 600;
 }
 
 /* ─── ELIGIBILITY ─────────────────────────────────────────────────────────── */
@@ -3086,16 +3160,16 @@ footer {
     font-size: 14px;
     padding: .7rem 1.3rem;
     flex: 1;
-    text-align: center;
     justify-content: center;
     font-weight: 600;
+    min-inline-size: 0;
   }
 
   .hero-mitwpu-btn {
     font-size: 13px;
     padding: .7rem 1.1rem;
     flex: 1;
-    text-align: center;
+    min-inline-size: 0;
   }
 
   .hero-below {
@@ -3250,6 +3324,7 @@ footer {
   .themes-cta-btn {
     font-size: 16px;
     padding: .85rem 2rem;
+    min-inline-size: 0;
   }
 
   /* tech marquee */
@@ -3352,6 +3427,15 @@ footer {
     padding: .65rem 1rem;
     flex: none;
     width: 100%;
+  }
+
+  .cta-kicker {
+    font-size:8px;
+    letter-spacing: .12em;
+  }
+
+  .cta-main {
+    line-height: 1.1;
   }
 
   .prize-divider {
