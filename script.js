@@ -183,12 +183,12 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu();
 
 /* ─── REGISTRATION MODAL ───────────────────────────────────────────────── */
 (function initRegisterModal() {
-  const registerBtn = document.getElementById('registerBtn');
+  const registerTriggers = document.querySelectorAll('.register-trigger');
   const registerModal = document.getElementById('registerModal');
   const modalOverlay = document.getElementById('modalOverlay');
   const modalClose = document.getElementById('modalClose');
 
-  if (!registerBtn || !registerModal) return;
+  if (!registerTriggers.length || !registerModal || !modalOverlay || !modalClose) return;
 
   function openModal() {
     registerModal.classList.add('active');
@@ -202,8 +202,14 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu();
     document.documentElement.style.overflow = '';
   }
 
-  // Open modal on button click
-  registerBtn.addEventListener('click', openModal);
+  // Open modal on any register trigger click
+  registerTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (typeof closeMenu === 'function') closeMenu();
+      openModal();
+    });
+  });
 
   // Close modal on overlay click
   modalOverlay.addEventListener('click', closeModal);
