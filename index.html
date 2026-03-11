@@ -140,10 +140,9 @@
           </div>
 
           <div class="hero-cta-group">
-            <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331"
-              target="_blank" rel="noopener" class="hero-apply-corner gradient-button"><span class="cta-kicker">Register Now</span><span class="cta-main">All Participants</span></a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScFLZQ2mVIxq8N8gT4e9HJuRZefA3BZLxBcLWDo2PJPQRROyA/viewform?usp=publish-editor"
-              target="_blank" rel="noopener" class="hero-mitwpu-btn"><span class="cta-kicker">Register Now</span><span class="cta-main">MIT WPU Students</span></a>
+            <button id="registerBtn" class="hero-apply-corner gradient-button">
+              <span class="cta-kicker">Register Now</span>
+            </button>
           </div>
         </div>
 
@@ -171,6 +170,37 @@
           <path d="M18 6L6 18M6 6l12 12" />
         </svg>
       </a>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registerModal" class="register-modal">
+      <div class="register-modal-overlay" id="modalOverlay"></div>
+      <div class="register-modal-card">
+        <div class="register-modal-header">
+          <h3 class="register-modal-title">Select Registration Type</h3>
+          <button class="register-modal-close" id="modalClose" aria-label="Close modal">✕</button>
+        </div>
+        <div class="register-modal-content">
+          <a href="https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331" target="_blank" rel="noopener" class="register-option">
+            
+            <div class="register-option-text">
+              <div class="register-option-title">ALL PARTICIPANTS</div>
+              <div class="register-option-desc">For all participants across India</div>
+            </div>
+            <div class="register-option-arrow">→</div>
+          </a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScFLZQ2mVIxq8N8gT4e9HJuRZefA3BZLxBcLWDo2PJPQRROyA/viewform?usp=publish-editor" target="_blank" rel="noopener" class="register-option">
+            
+          
+            <div class="register-option-text">
+              <div class="register-option-title">MIT-STUDENTS</div>
+              <div class="register-option-desc">For MIT WPU Students</div>
+            </div>
+            <div class="register-option-arrow">→</div>
+          </a>
+          
+        </div>
+      </div>
     </div>
 
   </section>

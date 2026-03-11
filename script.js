@@ -179,3 +179,48 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu();
   setup();
   window.addEventListener('resize', setup);
 })();
+
+
+/* ─── REGISTRATION MODAL ───────────────────────────────────────────────── */
+(function initRegisterModal() {
+  const registerBtn = document.getElementById('registerBtn');
+  const registerModal = document.getElementById('registerModal');
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalClose = document.getElementById('modalClose');
+
+  if (!registerBtn || !registerModal) return;
+
+  function openModal() {
+    registerModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    registerModal.classList.remove('active');
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+  }
+
+  // Open modal on button click
+  registerBtn.addEventListener('click', openModal);
+
+  // Close modal on overlay click
+  modalOverlay.addEventListener('click', closeModal);
+
+  // Close modal on close button click
+  modalClose.addEventListener('click', closeModal);
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && registerModal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  // Close modal when clicking on a registration option (after navigation)
+  const registerOptions = document.querySelectorAll('.register-option');
+  registerOptions.forEach((option) => {
+    option.addEventListener('click', closeModal);
+  });
+})();
