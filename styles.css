@@ -404,12 +404,12 @@ nav {
   justify-content: center;
   gap: .2rem;
   font-family: var(--font-body);
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
   color: #fff;
   background: var(--cyan);
   border: none;
-  padding: 1.3rem 2.2rem;
+  padding: 1rem 1.1rem;
   cursor: pointer;
   text-decoration: none;
   border-radius: 100px;
@@ -466,11 +466,10 @@ nav {
 
 .cta-kicker {
   display: block;
-  font-size: 0.85em;
-  font-weight: 600;
-  letter-spacing: .14em;
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 0;
   line-height: 1;
-  text-transform: uppercase;
   opacity: .85;
 }
 
@@ -478,7 +477,7 @@ nav {
   display: block;
   font-size: 1.1em;
   font-weight: 500;
-  letter-spacing: -.02em;
+  letter-spacing: 0;
   line-height: 1.15;
 }
 
@@ -3322,16 +3321,16 @@ footer {
   }
 
   .hero-apply-corner {
-    font-size: 14px;
+    font-size: 13px;
     padding: .7rem 1.3rem;
     flex: 1;
     justify-content: center;
-    font-weight: 600;
+    font-weight: 500;
     min-inline-size: 0;
   }
 
   .hero-mitwpu-btn {
-    font-size: 13px;
+    font-size: 16px;
     padding: .7rem 1.1rem;
     flex: 1;
     min-inline-size: 0;
@@ -3561,7 +3560,7 @@ footer {
 
   .prize-badge {
     margin-bottom: .6rem;
-    font-size: 14px;
+    font-size: 11px;
     padding: .2rem .7rem;
   }
 
@@ -3575,7 +3574,7 @@ footer {
   }
 
   .prize-desc {
-    font-size: 16px;
+    font-size: 15px;
     margin-bottom: .8rem;
     line-height: 1.4;
   }
@@ -3595,8 +3594,8 @@ footer {
   }
 
   .cta-kicker {
-    font-size:8px;
-    letter-spacing: .12em;
+    font-size:15px;
+  letter-spacing:0;
   }
 
   .cta-main {

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Replace this if your canonical domain changes.
+Sitemap: https://ignisia.tech/sitemap.xml
