@@ -1,3 +1,56 @@
+/* ─── YOUTUBE BACKGROUND VIDEO ────────────────────────────
+   1. Upload your video to YouTube (Unlisted is fine).
+   2. Grab the video ID from the URL: youtube.com/watch?v=THIS_PART
+   3. Replace YOUR_VIDEO_ID below (and in index.html comment).
+──────────────────────────────────────────────────────────── */
+var YT_VIDEO_ID = 'yM71TmHFpa0';
+
+// Inject the YouTube IFrame API script
+(function () {
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+}());
+
+// Fallback: hide loader after 8 s in case the video errors/is blocked
+var _heroLoaderFallback = setTimeout(function () {
+  var el = document.getElementById('hero-loader');
+  if (el) el.classList.add('loaded');
+}, 8000);
+
+// Called automatically by the YouTube IFrame API once it is ready
+function onYouTubeIframeAPIReady() {
+  new YT.Player('yt-player', {
+    // Use privacy-enhanced domain so no cookies are set before play
+    host: 'https://www.youtube-nocookie.com',
+    videoId: YT_VIDEO_ID,
+    playerVars: {
+      autoplay:       1,
+      mute:           1,   // required for autoplay in most browsers
+      loop:           1,
+      playlist:       YT_VIDEO_ID, // needed for loop=1 to work
+      controls:       0,   // hide all player controls
+      rel:            0,   // no related videos at end
+      iv_load_policy: 3,   // hide annotations
+      playsinline:    1,   // inline on iOS
+      disablekb:      1,   // disable keyboard shortcuts
+      fs:             0,   // no fullscreen button
+      cc_load_policy: 0,   // no captions
+      origin:         'https://ignisia.tech'
+    },
+    events: {
+      onReady: function (e) { e.target.playVideo(); },
+      onStateChange: function (e) {
+        if (e.data === YT.PlayerState.PLAYING) {
+          clearTimeout(_heroLoaderFallback);
+          var loader = document.getElementById('hero-loader');
+          if (loader) loader.classList.add('loaded');
+        }
+      }
+    }
+  });
+}
+
 /* ─── COUNTDOWN TIMER ───────────────────────────────────────
    Set your event date here (YYYY, MM-1, DD, HH, MM, SS)
    Month is 0-indexed: April = 3

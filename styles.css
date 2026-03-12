@@ -252,17 +252,55 @@ nav {
 .hero-video-wrap {
   position: relative;
   width: 95%;
+  height: 92vh;          /* explicit height — no longer provided by <video> element */
   border-radius: 24px;
   overflow: hidden;
   flex-shrink: 0;
   margin-top: 20px;
+  background: radial-gradient(ellipse at 50% 30%, #1a1030 0%, #080A0F 70%);
 }
 
+/* ── YouTube iframe "object-fit: cover" wrapper ──── */
+#yt-bg-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Scale the iframe to always cover the container at 16:9 (like object-fit:cover).
+   177.78vh = 100vh × 16/9; 56.25vw = 100vw × 9/16  */
+#yt-bg-wrap iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width:  max(100%, 177.78vh);
+  height: max(100%, 56.25vw);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* ── Hero loader: gradient shown until YouTube fires PLAYING ── */
+#hero-loader {
+  position: absolute;
+  inset: 0;
+  z-index: 1;            /* above #yt-bg-wrap (0), below .hero-video-overlay (2) */
+  border-radius: inherit;
+  background: radial-gradient(ellipse at 50% 30%, #1a1030 0%, #080A0F 70%);
+  transition: opacity .6s ease;
+  pointer-events: none;
+}
+#hero-loader.loaded {
+  opacity: 0;
+}
+
+/* Kept for safety, but no <video> element is in the hero anymore */
 .hero-video-wrap video {
   width: 100%;
   display: block;
   height: 92vh;
-  /* desktop: slightly shorter than full viewport */
   max-height: 92vh;
   object-fit: cover;
   border-radius: 24px;
@@ -272,6 +310,7 @@ nav {
 .hero-video-overlay {
   position: absolute;
   inset: 0;
+  z-index: 2;            /* above #yt-bg-wrap (0) and #hero-loader (1) */
   background: linear-gradient(to bottom,
       rgba(0, 0, 0, .58) 0%,
       rgba(0, 0, 0, .08) 45%,
@@ -3066,6 +3105,7 @@ footer {
 
   .hero-video-wrap {
     width: 95%;
+    height: 100vh;
     border-radius: 20px;
   }
 
@@ -3227,6 +3267,7 @@ footer {
 
   .hero-video-wrap {
     width: 95%;
+    height: 100vh;
     border-radius: 14px;
   }
 
@@ -3760,7 +3801,7 @@ footer {
     width: 95%;
     border-radius: 18px;
     aspect-ratio: unset;
-    height: 100vh;
+    height: 100svh;        /* svh = small viewport height, avoids mobile browser chrome issues */
     overflow: hidden;
   }
 
@@ -3795,6 +3836,7 @@ footer {
 
   .hero-video-wrap {
     width: 95%;
+    height: 100vh;
     border-radius: 14px;
   }
 

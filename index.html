@@ -227,7 +227,15 @@
 
     <!-- video frame with overlay (full hero) -->
     <div class="hero-video-wrap">
-      <video src="Video-2.mp4" autoplay muted loop playsinline></video>
+      <!-- YouTube background video — zero bandwidth from your server.
+           Upload your video to YouTube (Unlisted is fine), then replace
+           YOUR_VIDEO_ID below AND in script.js with the actual video ID. -->
+      <div id="yt-bg-wrap">
+        <div id="yt-player"></div>
+      </div>
+      <!-- Gradient shown until the YouTube player fires its PLAYING event.
+           Fades out smoothly so there's no jump to a black/blank frame.  -->
+      <div id="hero-loader" aria-hidden="true"></div>
 
       <div class="hero-video-overlay">
 
