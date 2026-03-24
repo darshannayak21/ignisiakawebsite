@@ -145,7 +145,7 @@ nav {
   transform: translateX(-50%);
   z-index: 1000;
   width: min(920px, calc(100vw - 2.5rem));
-  padding: .45rem .45rem .45rem 1.8rem;
+  padding: .58rem .58rem .58rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -161,7 +161,7 @@ nav {
 .nav-logo {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.35rem;
+  font-size: 1.6rem;
   font-weight: 400;
   letter-spacing: .01em;
   color: var(--white);
@@ -178,7 +178,7 @@ nav {
 
 .nav-links a {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: 0;
   text-transform: none;
@@ -388,6 +388,39 @@ nav {
   padding: 0 2rem;
 }
 
+.hero-finalists-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: .5rem 1.8rem;
+  margin: .5rem 0;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, .34);
+  background: linear-gradient(135deg, rgba(255, 255, 255, .23), rgba(255, 255, 255, .09));
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: .86rem;
+  font-weight: 700;
+  backdrop-filter: blur(16px) saturate(145%);
+  -webkit-backdrop-filter: blur(16px) saturate(145%);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .22);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.hero-finalists-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, .5);
+  background: linear-gradient(135deg, rgba(255, 255, 255, .3), rgba(255, 255, 255, .12));
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .4), 0 0 24px rgba(255, 255, 255, .12);
+}
+
+.hero-finalists-btn:active {
+  transform: translateY(0);
+}
+
 /* bottom bar: countdown + apply button */
 .hero-overlay-bottom {
   width: 100%;
@@ -471,6 +504,80 @@ nav {
   align-items: center;
   gap: .65rem;
   flex-shrink: 0;
+}
+
+.hero-insta-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  min-height: 52px;
+  padding: .68rem 1rem .68rem .72rem;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, .22);
+  background: rgba(10, 10, 10, .42);
+  backdrop-filter: blur(12px) saturate(145%);
+  -webkit-backdrop-filter: blur(12px) saturate(145%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 8px 24px rgba(0, 0, 0, .34);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.hero-insta-cta:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, .36);
+  background: rgba(15, 15, 15, .58);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .16), 0 14px 30px rgba(0, 0, 0, .4);
+}
+
+.hero-insta-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  flex-shrink: 0;
+}
+
+.hero-insta-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-insta-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.05;
+}
+
+.hero-insta-kicker {
+  font-size: .66rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .62);
+  font-weight: 600;
+}
+
+.hero-insta-handle {
+  font-size: .9rem;
+  letter-spacing: .01em;
+  color: #fff;
+  font-weight: 700;
+}
+
+.hero-insta-arrow {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, .75);
+  margin-left: .15rem;
 }
 
 .hero-mitwpu-btn {
@@ -740,7 +847,7 @@ nav {
 
 .hero-title {
   font-family: var(--font-serif);
-  font-size: 10vw;
+  font-size: clamp(4.5rem, 11vw, 11rem);
   font-weight: 500;
   letter-spacing: -.025em;
   line-height: .95;
@@ -3082,7 +3189,7 @@ footer {
 
   /* nav */
   nav {
-    padding: .45rem .6rem .45rem 1.2rem;
+    padding: .62rem .72rem .62rem 1.45rem;
     width: 80%;
     ;
   }
@@ -3128,7 +3235,7 @@ footer {
   }
 
   .hero-title {
-    font-size: clamp(2.8rem, 12vw, 6rem);
+    font-size: clamp(3.4rem, 14vw, 7rem);
   }
 
   .hero-subtitle {
@@ -3286,7 +3393,7 @@ footer {
   }
 
   .hero-title {
-    font-size: clamp(3rem, 13vw, 4.5rem);
+    font-size: clamp(3.6rem, 16vw, 5.6rem);
   }
 
   .hero-subtitle {
@@ -3361,6 +3468,38 @@ footer {
     width: 100%;
     justify-content: center;
     gap: .55rem;
+    max-width: 290px;
+  }
+
+  .hero-finalists-btn {
+    width: 100%;
+    max-width: 290px;
+    font-size: .8rem;
+    padding: .76rem 1.4rem;
+    min-height: 45px;
+  }
+
+  .hero-insta-cta {
+    width: 100%;
+    justify-content: center;
+    padding: .62rem .84rem;
+    min-height: 46px;
+    gap: .55rem;
+  }
+
+  .hero-insta-kicker {
+    display: none;
+  }
+
+  .hero-insta-handle {
+    font-size: .82rem;
+    letter-spacing: .02em;
+    white-space: nowrap;
+  }
+
+  .hero-insta-arrow {
+    margin-left: 0;
+    font-size: .9rem;
   }
 
   .hero-apply-corner {
@@ -3822,7 +3961,7 @@ footer {
   }
 
   .hero-title {
-    font-size: clamp(6rem, 16vw, 6rem);
+    font-size: clamp(6.2rem, 17vw, 6.6rem);
   }
 
   .hero-subtitle {
@@ -3853,7 +3992,7 @@ footer {
   }
 
   .hero-title {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-size: clamp(2rem, 6.2vw, 3rem);
   }
 
   .hero-subtitle {
@@ -4203,6 +4342,38 @@ footer {
   background: rgba(255, 255, 255, .04);
   border-color: rgba(255, 255, 255, .1);
   color: var(--muted);
+}
+
+.timeline-pill-highlight {
+  background: linear-gradient(135deg, rgba(128, 249, 22, 0.2), rgba(36, 251, 36, 0.16));
+  border-color: rgba(148, 255, 99, 0.317);
+  color: #c8ffb9;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12), 0 0 22px rgba(5, 75, 18, 0.2);
+  font-weight: 700;
+}
+
+.timeline-pill-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: .46rem;
+  background: #16f91a;
+  box-shadow: 0 0 0 0 rgba(249, 115, 22, .5);
+  animation: timelinePulse 1.8s ease-out infinite;
+}
+
+@keyframes timelinePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 249, 22, 0.5);
+  }
+
+  70% {
+    box-shadow: 0 0 0 9px rgba(22, 249, 45, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(35, 172, 28, 0);
+  }
 }
 
 .timeline-empty {
