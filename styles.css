@@ -421,6 +421,29 @@ nav {
   transform: translateY(0);
 }
 
+/* row that holds the two PDF buttons side by side */
+.hero-pdf-btns-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  justify-content: center;
+  align-items: center;
+  margin: .25rem 0;
+}
+
+/* Twist button: purple accent */
+.hero-finalists-btn--twist {
+  border-color: rgba(167, 139, 250, .5);
+  background: linear-gradient(135deg, rgba(139, 92, 246, .35), rgba(109, 40, 217, .2));
+  box-shadow: 0 10px 36px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .18), 0 0 18px rgba(139, 92, 246, .25);
+}
+
+.hero-finalists-btn--twist:hover {
+  border-color: rgba(167, 139, 250, .75);
+  background: linear-gradient(135deg, rgba(139, 92, 246, .48), rgba(109, 40, 217, .32));
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .4), 0 0 28px rgba(139, 92, 246, .4);
+}
+
 /* bottom bar: countdown + apply button */
 .hero-overlay-bottom {
   width: 100%;
