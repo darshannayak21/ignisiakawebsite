@@ -30,6 +30,7 @@ function onYouTubeIframeAPIReady() {
       loop: 1,
       playlist: YT_VIDEO_ID, // needed for loop=1 to work
       controls: 0,   // hide all player controls
+      modestbranding: 1,   // suppress YouTube logo
       rel: 0,   // no related videos at end
       iv_load_policy: 3,   // hide annotations
       playsinline: 1,   // inline on iOS

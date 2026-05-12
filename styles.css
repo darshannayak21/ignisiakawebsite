@@ -278,9 +278,13 @@ nav {
   position: absolute;
   top: 50%;
   left: 50%;
+  /* Add ~150px extra height so YouTube's bottom control bar is
+     pushed below the overflow:hidden boundary on #yt-bg-wrap */
   width:  max(100%, 177.78vh);
-  height: max(100%, 56.25vw);
-  transform: translate(-50%, -50%);
+  height: calc(max(100%, 56.25vw) + 150px);
+  /* Shift up by 75px so the video stays centred while the
+     bottom 75px (containing controls) is hidden below the edge */
+  transform: translate(-50%, calc(-50% - 75px));
   pointer-events: none;
 }
 
