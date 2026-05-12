@@ -149,89 +149,130 @@ document.querySelectorAll('.mob-link, .mobile-cta').forEach(el => {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 
 
-/* ─── GALLERY MOBILE CAROUSEL ────────────────────────────── */
+/* ─── GALLERY CAROUSEL ────────────────────────────────────────────── */
 (function initGalleryCarousel() {
-  const MOBILE_BP = 600;
+  const mainImg    = document.getElementById('glryMainImg');
+  const prevBtn    = document.getElementById('glryPrev');
+  const nextBtn    = document.getElementById('glryNext');
+  const thumbsEl   = document.getElementById('glryThumbs');
+  const counterEl  = document.getElementById('glryCounter');
+  const progressEl = document.getElementById('glryProgressBar');
+  const stageEl    = document.getElementById('glryStage');
 
-  const grid = document.getElementById('galleryGrid');
-  const prev = document.getElementById('galleryPrev');
-  const next = document.getElementById('galleryNext');
-  const dotsWrap = document.getElementById('galleryDots');
+  if (!mainImg || !thumbsEl) return;
 
-  if (!grid || !prev || !next || !dotsWrap) return;
+  const thumbs = Array.from(thumbsEl.querySelectorAll('.glry-thumb'));
+  const total  = thumbs.length;
+  let current  = 0;
+  let autoTimer = null;
+  let progTimer = null;
+  const INTERVAL = 4000; // ms between auto-advance
 
-  const items = Array.from(grid.querySelectorAll('.gallery-item'));
-  const total = items.length;
-  let current = 0;
-  let dots = [];
+  /* ── Get full src list from thumbnails ── */
+  const srcs = thumbs.map(t => t.querySelector('img').src);
 
-  /* ── build dots ── */
-  function buildDots() {
-    dotsWrap.innerHTML = '';
-    dots = items.map((_, i) => {
-      const d = document.createElement('button');
-      d.className = 'gallery-dot' + (i === 0 ? ' active' : '');
-      d.setAttribute('aria-label', 'Go to image ' + (i + 1));
-      d.addEventListener('click', () => goTo(i));
-      dotsWrap.appendChild(d);
-      return d;
-    });
-  }
+  /* ── Go to a specific slide ── */
+  function goTo(idx, fromAuto) {
+    if (idx < 0) idx = total - 1;
+    if (idx >= total) idx = 0;
 
-  /* ── scroll to slide index ── */
-  function goTo(idx) {
-    if (idx < 0 || idx >= total) return;
+    const prev = current;
     current = idx;
-    const item = items[idx];
-    // scroll the track so the target item's left edge aligns with the grid's left edge
-    grid.scrollTo({ left: item.offsetLeft - grid.offsetLeft, behavior: 'smooth' });
-    updateUI();
+
+    /* Cross-fade main image */
+    mainImg.classList.add('glry-fade-out');
+    setTimeout(() => {
+      mainImg.src = srcs[current];
+      mainImg.classList.remove('glry-fade-out');
+    }, 220);
+
+    /* Update thumbnail active state */
+    thumbs[prev].classList.remove('active');
+    thumbs[current].classList.add('active');
+
+    /* Scroll active thumb into view */
+    thumbs[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+    /* Counter */
+    if (counterEl) counterEl.textContent = (current + 1) + ' / ' + total;
+
+    /* Progress bar */
+    startProgress();
   }
 
-  /* ── refresh arrow states + active dot ── */
-  function updateUI() {
-    prev.classList.toggle('disabled', current === 0);
-    next.classList.toggle('disabled', current === total - 1);
-    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  /* ── Progress bar animation ── */
+  function startProgress() {
+    if (!progressEl) return;
+    clearTimeout(progTimer);
+    progressEl.style.transition = 'none';
+    progressEl.style.width = '0%';
+    /* Force reflow */
+    void progressEl.offsetWidth;
+    progressEl.style.transition = 'width ' + INTERVAL + 'ms linear';
+    progressEl.style.width = '100%';
   }
 
-  /* ── arrow buttons ── */
-  prev.addEventListener('click', () => goTo(current - 1));
-  next.addEventListener('click', () => goTo(current + 1));
+  /* ── Auto-advance ── */
+  function startAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => goTo(current + 1, true), INTERVAL);
+  }
 
-  /* ── keep current in sync when user finger-swipes ── */
-  let scrollTimer;
-  grid.addEventListener('scroll', () => {
-    clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(() => {
-      // find which item is most visible
-      const gridLeft = grid.getBoundingClientRect().left;
-      let closest = 0;
-      let minDist = Infinity;
-      items.forEach((item, i) => {
-        const dist = Math.abs(item.getBoundingClientRect().left - gridLeft);
-        if (dist < minDist) { minDist = dist; closest = i; }
-      });
-      if (closest !== current) { current = closest; updateUI(); }
-    }, 80);
-  });
-
-  /* ── init / respond to resize ── */
-  function setup() {
-    if (window.innerWidth <= MOBILE_BP) {
-      buildDots();
-      updateUI();
-    } else {
-      dotsWrap.innerHTML = '';
-      dots = [];
-      // reset scroll position so desktop grid is unaffected
-      grid.scrollLeft = 0;
+  function stopAuto() {
+    clearInterval(autoTimer);
+    if (progressEl) {
+      progressEl.style.transition = 'none';
+      progressEl.style.width = '0%';
     }
   }
 
-  setup();
-  window.addEventListener('resize', setup);
+  /* ── Arrow buttons ── */
+  if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+
+  /* ── Thumbnail clicks ── */
+  thumbs.forEach((t, i) => {
+    t.addEventListener('click', () => { goTo(i); resetAuto(); });
+  });
+
+  /* ── Keyboard navigation ── */
+  document.addEventListener('keydown', e => {
+    const sec = document.getElementById('gallery');
+    if (!sec) return;
+    const r = sec.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > window.innerHeight) return; // section not visible
+    if (e.key === 'ArrowLeft')  { goTo(current - 1); resetAuto(); }
+    if (e.key === 'ArrowRight') { goTo(current + 1); resetAuto(); }
+  });
+
+  /* ── Pause on hover ── */
+  if (stageEl) {
+    stageEl.addEventListener('mouseenter', stopAuto);
+    stageEl.addEventListener('mouseleave', () => { startAuto(); startProgress(); });
+  }
+
+  /* ── Reset auto-play (called after manual nav) ── */
+  function resetAuto() {
+    stopAuto();
+    startAuto();
+    startProgress();
+  }
+
+  /* ── Touch / swipe support on the stage ── */
+  let touchStartX = 0;
+  if (stageEl) {
+    stageEl.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+    stageEl.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) { goTo(dx < 0 ? current + 1 : current - 1); resetAuto(); }
+    }, { passive: true });
+  }
+
+  /* ── Init ── */
+  goTo(0);
+  startAuto();
 })();
+
 
 
 /* ─── REGISTRATION MODAL ───────────────────────────────────────────────── */

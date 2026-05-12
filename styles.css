@@ -4694,232 +4694,221 @@ footer {
   margin: 0 auto;
 }
 
-/* ── Grid layout ── */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 280px 280px;
-  gap: 14px;
-}
+/* ═══════════════════════════════════════════════════════════════════
+   NEW  GLRY  CAROUSEL
+   ═══════════════════════════════════════════════════════════════════ */
 
-/* Featured image: col 1, spans both rows */
-.gallery-featured {
-  grid-column: 1;
-  grid-row: 1 / 3;
-}
-
-/* The remaining 4 items fill col 2-3, rows 1-2 naturally */
-
-/* ── Individual item ── */
-.gallery-item {
-  border-radius: 18px;
-  overflow: hidden;
-  background: #111;
-  border: 1px solid rgba(255, 255, 255, .08);
-  position: relative;
-}
-
-.gallery-img-wrap {
+/* ── Outer wrapper ── */
+.glry-carousel {
   position: relative;
   width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  user-select: none;
+}
+
+/* ── Main image stage ── */
+.glry-stage {
+  position: relative;
+  width: 100%;
+  /* 16:9 aspect ratio for the main viewer */
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0d0d0d;
+  border: 1px solid rgba(139, 92, 246, .18);
+  box-shadow:
+    0 0 0 1px rgba(139, 92, 246, .08),
+    0 24px 80px rgba(0, 0, 0, .55),
+    0 0 60px rgba(139, 92, 246, .08);
+}
+
+.glry-main-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  /* cross-fade handled by JS opacity transitions */
+  opacity: 1;
+  transition: opacity .45s ease;
+  filter: brightness(.92) saturate(1.08);
+}
+
+/* fading-out class added by JS during transition */
+.glry-main-img.glry-fade-out {
+  opacity: 0;
+}
+
+/* subtle purple vignette overlay */
+.glry-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(139, 92, 246, .12) 0%, transparent 55%),
+    linear-gradient(to top, rgba(0, 0, 0, .45) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Counter badge ── */
+.glry-counter {
+  position: absolute;
+  bottom: 16px;
+  right: 18px;
+  z-index: 5;
+  background: rgba(10, 10, 10, .72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 100px;
+  padding: .28rem .85rem;
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: .04em;
+  color: rgba(255, 255, 255, .75);
+}
+
+/* ── Auto-play progress bar ── */
+.glry-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, .1);
+  z-index: 6;
+  border-radius: 0 0 20px 20px;
   overflow: hidden;
 }
 
-.gallery-img-wrap img {
+.glry-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--cyan), rgba(139, 92, 246, .9));
+  transition: width linear;
+  border-radius: 0 0 20px 20px;
+}
+
+/* ── Prev / Next arrow buttons ── */
+.glry-btn {
+  position: absolute;
+  top: calc(50% - 55px); /* vertically centred on stage, offset for thumb strip */
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(139, 92, 246, .35);
+  background: rgba(10, 10, 10, .72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: rgba(255, 255, 255, .88);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .22s, border-color .22s, transform .22s, opacity .22s;
+}
+
+.glry-btn svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.glry-btn-prev { left: -24px; }
+.glry-btn-next { right: -24px; }
+
+.glry-btn:hover {
+  background: rgba(139, 92, 246, .32);
+  border-color: rgba(139, 92, 246, .7);
+  color: #fff;
+}
+
+.glry-btn:active {
+  transform: translateY(-50%) scale(.9);
+}
+
+.glry-btn.glry-disabled {
+  opacity: .28;
+  pointer-events: none;
+}
+
+/* ── Thumbnail strip ── */
+.glry-thumbs-wrap {
+  margin-top: 14px;
+  overflow: hidden;
+  /* edge fade-out masks */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.glry-thumbs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 4px 6px 6px;
+}
+
+.glry-thumbs::-webkit-scrollbar { display: none; }
+
+.glry-thumb {
+  flex: 0 0 100px;
+  height: 68px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, .08);
+  opacity: .55;
+  transition: opacity .25s, border-color .25s, transform .25s;
+  position: relative;
+}
+
+.glry-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform .55s cubic-bezier(.25, .46, .45, .94),
-    filter .55s ease;
-  filter: brightness(.9) saturate(1.05);
-}
-
-.gallery-item:hover .gallery-img-wrap img {
-  transform: scale(1.06);
-  filter: brightness(1) saturate(1.15);
-}
-
-/* Subtle purple overlay on hover */
-.gallery-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg,
-      rgba(139, 92, 246, .18) 0%,
-      rgba(0, 0, 0, .0) 60%);
-  opacity: 0;
-  transition: opacity .4s ease;
   pointer-events: none;
 }
 
-.gallery-item:hover .gallery-overlay {
+.glry-thumb:hover {
+  opacity: .85;
+  border-color: rgba(139, 92, 246, .5);
+  transform: scale(1.04);
+}
+
+.glry-thumb.active {
   opacity: 1;
-}
-
-/* Purple glow border on hover */
-.gallery-item::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 18px;
-  box-shadow: 0 0 0 1.5px rgba(139, 92, 246, 0);
-  transition: box-shadow .4s ease;
-  pointer-events: none;
-}
-
-.gallery-item:hover::after {
-  box-shadow: 0 0 0 1.5px rgba(139, 92, 246, .55),
-    0 8px 40px rgba(139, 92, 246, .18);
+  border-color: var(--cyan);
+  transform: scale(1.06);
+  box-shadow: 0 0 12px rgba(139, 92, 246, .35);
 }
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 240px 240px 240px;
-  }
-
-  .gallery-featured {
-    grid-column: 1 / 3;
-    grid-row: 1;
-  }
+  .glry-btn-prev { left: -16px; }
+  .glry-btn-next { right: -16px; }
+  .glry-btn { width: 40px; height: 40px; }
+  .glry-btn svg { width: 18px; height: 18px; }
+  .glry-thumb { flex: 0 0 82px; height: 58px; }
 }
 
-/* ── Carousel wrapper (arrows hidden on desktop) ── */
-.gallery-carousel-wrap {
-  position: relative;
-}
-
-.gallery-arrow {
-  display: none;
-  /* hidden on desktop/tablet; shown via mobile media query */
-}
-
-.gallery-dots {
-  display: none;
-  /* same */
-}
-
-/* ── Mobile: full carousel ── */
 @media (max-width: 600px) {
+  .glry-btn { display: none; }
+  .glry-thumb { flex: 0 0 70px; height: 50px; border-radius: 8px; }
+  .glry-stage { aspect-ratio: 4 / 3; border-radius: 14px; }
+  .glry-thumbs-wrap { margin-top: 10px; }
+}
 
-  /* wrapper becomes position context for arrows */
-  .gallery-carousel-wrap {
-    position: relative;
-    /* horizontal padding leaves room for the half-visible arrows */
-  }
-
-  /* Turn the grid into a horizontal snap-scroll track */
-  .gallery-grid {
-    display: flex !important;
-    flex-direction: row;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    gap: 12px;
-    /* hide scrollbar */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    /* reset grid-specific rules */
-    grid-template-columns: unset;
-    grid-template-rows: unset;
-    padding-bottom: 4px;
-    /* prevent clipping of box-shadow */
-  }
-
-  .gallery-grid::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Every card becomes a fixed-width, full-height flex child */
-  .gallery-item,
-  .gallery-item.gallery-featured {
-    flex: 0 0 calc(100% - 0px);
-    width: calc(100% - 0px);
-    height: 260px;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    /* reset desktop grid placement */
-    grid-column: unset;
-    grid-row: unset;
-    border-radius: 16px;
-  }
-
-  /* ── Arrow buttons ── */
-  .gallery-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid rgba(139, 92, 246, .4);
-    background: rgba(10, 10, 10, .75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    color: rgba(255, 255, 255, .85);
-    cursor: pointer;
-    transition: background .2s, border-color .2s, transform .2s;
-  }
-
-  .gallery-arrow svg {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-  }
-
-  .gallery-arrow:hover {
-    background: rgba(139, 92, 246, .3);
-    border-color: rgba(139, 92, 246, .75);
-    color: #fff;
-  }
-
-  .gallery-arrow:active {
-    transform: translateY(-50%) scale(.92);
-  }
-
-  .gallery-arrow.disabled {
-    opacity: .25;
-    pointer-events: none;
-  }
-
-  .gallery-arrow-prev {
-    left: -4px;
-  }
-
-  .gallery-arrow-next {
-    right: -4px;
-  }
-
-  /* ── Dot indicators ── */
-  .gallery-dots {
-    display: flex;
-    justify-content: center;
-    gap: 7px;
-    margin-top: 18px;
-  }
-
-  .gallery-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, .22);
-    border: 1px solid rgba(255, 255, 255, .12);
-    cursor: pointer;
-    transition: background .25s, transform .25s;
-  }
-
-  .gallery-dot.active {
-    background: var(--cyan);
-    border-color: var(--cyan);
-    transform: scale(1.25);
-  }
+@media (max-width: 400px) {
+  .glry-thumb { flex: 0 0 60px; height: 44px; }
 }
 
 /* ─── RESULTS ANNOUNCEMENT ───────────────────────────────────────────────── */
