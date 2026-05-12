@@ -262,37 +262,24 @@ nav {
   background: radial-gradient(ellipse at 50% 30%, #1a1030 0%, #080A0F 70%);
 }
 
-/* ── YouTube iframe "object-fit: cover" wrapper ──── */
-#yt-bg-wrap {
+/* ── Mux HLS background video — fills hero like object-fit:cover ── */
+#hero-video {
   position: absolute;
   inset: 0;
-  overflow: hidden;
-  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: inherit;
   pointer-events: none;
+  z-index: 0;
 }
 
-/* Scale the iframe to always cover the container at 16:9 (like object-fit:cover).
-   177.78vh = 100vh × 16/9; 56.25vw = 100vw × 9/16  */
-#yt-bg-wrap iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  /* Add ~150px extra height so YouTube's bottom control bar is
-     pushed below the overflow:hidden boundary on #yt-bg-wrap */
-  width:  max(100%, 177.78vh);
-  height: calc(max(100%, 56.25vw) + 150px);
-  /* Shift up by 75px so the video stays centred while the
-     bottom 75px (containing controls) is hidden below the edge */
-  transform: translate(-50%, calc(-50% - 75px));
-  pointer-events: none;
-}
 
-/* ── Hero loader: gradient shown until YouTube fires PLAYING ── */
+/* ── Hero loader: shown until HLS fires 'playing' event ── */
 #hero-loader {
   position: absolute;
   inset: 0;
-  z-index: 1;            /* above #yt-bg-wrap (0), below .hero-video-overlay (2) */
+  z-index: 1;            /* above #hero-video (0), below .hero-video-overlay (2) */
   border-radius: inherit;
   background: radial-gradient(ellipse at 50% 30%, #1a1030 0%, #080A0F 70%);
   transition: opacity .6s ease;
@@ -300,16 +287,6 @@ nav {
 }
 #hero-loader.loaded {
   opacity: 0;
-}
-
-/* Kept for safety, but no <video> element is in the hero anymore */
-.hero-video-wrap video {
-  width: 100%;
-  display: block;
-  height: 92vh;
-  max-height: 92vh;
-  object-fit: cover;
-  border-radius: 24px;
 }
 
 /* dark gradient over video so text is readable */

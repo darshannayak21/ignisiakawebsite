@@ -158,6 +158,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="typewriter.css">
   <link rel="stylesheet" href="styles.css">
+  <!-- HLS.js — enables HLS playback in non-Safari browsers -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -229,9 +231,7 @@
       <!-- YouTube background video — zero bandwidth from your server.
            Upload your video to YouTube (Unlisted is fine), then replace
            YOUR_VIDEO_ID below AND in script.js with the actual video ID. -->
-      <div id="yt-bg-wrap">
-        <div id="yt-player"></div>
-      </div>
+      <video id="hero-video" autoplay muted loop playsinline aria-hidden="true"></video>
       <!-- Gradient shown until the YouTube player fires its PLAYING event.
            Fades out smoothly so there's no jump to a black/blank frame.  -->
       <div id="hero-loader" aria-hidden="true"></div>
