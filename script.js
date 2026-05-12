@@ -25,18 +25,18 @@ function onYouTubeIframeAPIReady() {
     host: 'https://www.youtube-nocookie.com',
     videoId: YT_VIDEO_ID,
     playerVars: {
-      autoplay:       1,
-      mute:           1,   // required for autoplay in most browsers
-      loop:           1,
-      playlist:       YT_VIDEO_ID, // needed for loop=1 to work
-      controls:       0,   // hide all player controls
-      rel:            0,   // no related videos at end
+      autoplay: 1,
+      mute: 1,   // required for autoplay in most browsers
+      loop: 1,
+      playlist: YT_VIDEO_ID, // needed for loop=1 to work
+      controls: 0,   // hide all player controls
+      rel: 0,   // no related videos at end
       iv_load_policy: 3,   // hide annotations
-      playsinline:    1,   // inline on iOS
-      disablekb:      1,   // disable keyboard shortcuts
-      fs:             0,   // no fullscreen button
+      playsinline: 1,   // inline on iOS
+      disablekb: 1,   // disable keyboard shortcuts
+      fs: 0,   // no fullscreen button
       cc_load_policy: 0,   // no captions
-      origin:         'https://ignisia.tech'
+      origin: 'https://ignisia.tech'
     },
     events: {
       onReady: function (e) { e.target.playVideo(); },
@@ -151,22 +151,22 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu();
 
 /* ─── GALLERY CAROUSEL ────────────────────────────────────────────── */
 (function initGalleryCarousel() {
-  const mainImg    = document.getElementById('glryMainImg');
-  const prevBtn    = document.getElementById('glryPrev');
-  const nextBtn    = document.getElementById('glryNext');
-  const thumbsEl   = document.getElementById('glryThumbs');
-  const counterEl  = document.getElementById('glryCounter');
+  const mainImg = document.getElementById('glryMainImg');
+  const prevBtn = document.getElementById('glryPrev');
+  const nextBtn = document.getElementById('glryNext');
+  const thumbsEl = document.getElementById('glryThumbs');
+  const counterEl = document.getElementById('glryCounter');
   const progressEl = document.getElementById('glryProgressBar');
-  const stageEl    = document.getElementById('glryStage');
+  const stageEl = document.getElementById('glryStage');
 
   if (!mainImg || !thumbsEl) return;
 
   const thumbs = Array.from(thumbsEl.querySelectorAll('.glry-thumb'));
-  const total  = thumbs.length;
-  let current  = 0;
+  const total = thumbs.length;
+  let current = 0;
   let autoTimer = null;
   let progTimer = null;
-  const INTERVAL = 4000; // ms between auto-advance
+  const INTERVAL = 5400; // ms between auto-advance
 
   /* ── Get full src list from thumbnails ── */
   const srcs = thumbs.map(t => t.querySelector('img').src);
@@ -241,7 +241,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu();
     if (!sec) return;
     const r = sec.getBoundingClientRect();
     if (r.bottom < 0 || r.top > window.innerHeight) return; // section not visible
-    if (e.key === 'ArrowLeft')  { goTo(current - 1); resetAuto(); }
+    if (e.key === 'ArrowLeft') { goTo(current - 1); resetAuto(); }
     if (e.key === 'ArrowRight') { goTo(current + 1); resetAuto(); }
   });
 
