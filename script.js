@@ -1,3 +1,14 @@
+/* ─── ALWAYS OPEN AT THE TOP ────────────────────────────────
+   Prevent the browser from restoring a previously scrolled
+   position (e.g. the gallery) when the page reloads.
+──────────────────────────────────────────────────────────── */
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+if (!window.location.hash) {
+  window.scrollTo(0, 0);
+}
+
 /* ─── MUX HLS BACKGROUND VIDEO ────────────────────────────
    Stream served via Mux — no YouTube watermark, no controls.
 ──────────────────────────────────────────────────────────── */
@@ -175,8 +186,12 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu();
     thumbs[prev].classList.remove('active');
     thumbs[current].classList.add('active');
 
-    /* Scroll active thumb into view */
-    thumbs[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    /* Scroll active thumb into view (within the thumb strip only, never the page) */
+    const activeThumb = thumbs[current];
+    thumbsEl.scrollTo({
+      left: activeThumb.offsetLeft - (thumbsEl.clientWidth / 2) + (activeThumb.clientWidth / 2),
+      behavior: 'smooth'
+    });
 
     /* Counter */
     if (counterEl) counterEl.textContent = (current + 1) + ' / ' + total;
