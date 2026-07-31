@@ -2,7 +2,7 @@
    Set SHOW_GALLERY to true or false to instantly show/hide
    the Gallery section and its navigation link across the site.
 ──────────────────────────────────────────────────────────── */
-const SHOW_GALLERY = false;
+const SHOW_GALLERY = true;
 
 (function initGalleryToggle() {
   function applyToggle() {

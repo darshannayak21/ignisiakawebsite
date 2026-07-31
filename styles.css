@@ -1104,17 +1104,6 @@ nav {
 }
 
 /* ─── ABOUT (REDESIGNED) ───────────────────────────────────────────────── */
-#about {
-  background: var(--bg);
-}
-
-/* left-aligned header block */
-.about-header {
-  text-align: left;
-  max-width: 860px;
-  margin: 0 0 3.5rem;
-}
-
 /* ─── SHARED HERO TYPOGRAPHY FOR SECTION HEADINGS ────────────────────── */
 .section-hero-title {
   font-family: var(--font-serif);
@@ -1128,19 +1117,84 @@ nav {
   text-align: left;
 }
 
-.about-serif-em {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--cyan);
+/* ─── ABOUT SECTION LAYOUT ─────────────────────────────────────────────── */
+.about-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 3.5rem;
+  align-items: start;
+  margin-bottom: 2.5rem;
 }
 
-.about-lead {
+.about-left-col {
+  position: sticky;
+  top: 100px;
+}
+
+.about-subheading {
+  font-family: var(--font-head);
+  font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+  letter-spacing: -.01em;
+}
+
+.about-grand-copy {
   font-size: 16px;
-  color: var(--muted);
-  line-height: 1.75;
-  max-width: 680px;
-  margin: 0;
+  color: rgba(255, 255, 255, .8);
+  line-height: 1.8;
+  margin-bottom: 1.8rem;
+  letter-spacing: .01em;
+}
+
+.about-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.about-bottom-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+}
+
+.about-bottom-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--cyan);
+  background: rgba(139, 92, 246, .08);
+  border: 1px solid rgba(139, 92, 246, .25);
+  border-radius: 100px;
+  padding: .45rem 1.25rem;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+  text-decoration: none;
+}
+
+.about-bottom-link:hover {
+  transform: translateY(-2px);
+  background: rgba(139, 92, 246, .18);
+  border-color: rgba(139, 92, 246, .45);
+  color: var(--white);
+}
+
+@media (max-width: 900px) {
+  .about-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+  .about-left-col {
+    position: static;
+  }
 }
 
 /* ── about card (prize-card style) ── */
