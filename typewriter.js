@@ -1,7 +1,7 @@
 // Typewriter effect for developer signature
 document.addEventListener("DOMContentLoaded", function () {
-  const prefix = "< Code by ";
-  const name = "Tanish";
+  const prefix = "< Built by ";
+  const name = "Ignisia Tech Team";
   const suffix = " />";
   const developerCredit = document.getElementById("developer-credit");
 
