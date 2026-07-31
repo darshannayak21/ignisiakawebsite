@@ -6,8 +6,8 @@ const SHOW_GALLERY = true;
 
 (function initGalleryToggle() {
   function applyToggle() {
-    const galleryEl = document.getElementById('gallery');
-    const galleryNavLinks = document.querySelectorAll('a[href="#gallery"]');
+    const galleryEl = document.getElementById('about-gallery') || document.getElementById('gallery');
+    const galleryNavLinks = document.querySelectorAll('a[href="#about-gallery"], a[href="#gallery"]');
 
     if (galleryEl) {
       galleryEl.style.display = SHOW_GALLERY ? '' : 'none';
