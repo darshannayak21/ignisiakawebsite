@@ -1,7 +1,35 @@
-/* ─── ALWAYS OPEN AT THE TOP ────────────────────────────────
-   Prevent the browser from restoring a previously scrolled
-   position (e.g. the gallery) when the page reloads.
+/* ─── GALLERY VISIBILITY TOGGLE ────────────────────────────
+   Set SHOW_GALLERY to true or false to instantly show/hide
+   the Gallery section and its navigation link across the site.
 ──────────────────────────────────────────────────────────── */
+const SHOW_GALLERY = false;
+
+(function initGalleryToggle() {
+  function applyToggle() {
+    const galleryEl = document.getElementById('gallery');
+    const galleryNavLinks = document.querySelectorAll('a[href="#gallery"]');
+
+    if (galleryEl) {
+      galleryEl.style.display = SHOW_GALLERY ? '' : 'none';
+    }
+
+    galleryNavLinks.forEach(link => {
+      const parentLi = link.closest('li');
+      if (parentLi) {
+        parentLi.style.display = SHOW_GALLERY ? '' : 'none';
+      } else {
+        link.style.display = SHOW_GALLERY ? '' : 'none';
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyToggle);
+  } else {
+    applyToggle();
+  }
+})();
+
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
