@@ -302,7 +302,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   /* push top content below the floating navbar */
   padding: calc(1.25rem + 56px + 2rem) 2rem 2.5rem;
   border-radius: 24px;
@@ -367,6 +367,10 @@ nav {
   gap: .8rem;
   text-align: center;
   padding: 0 2rem;
+  /* Float block upward — auto top margin eats the free space above,
+     fixed bottom margin reserves breathing room beneath */
+  margin-top: auto;
+  margin-bottom: 12vh;
 }
 
 .hero-finalists-btn {
@@ -509,6 +513,10 @@ nav {
   align-items: center;
   gap: .65rem;
   flex-shrink: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: auto;
+  width: 100%;
 }
 
 .hero-insta-cta {
@@ -544,6 +552,16 @@ nav {
   color: #fff;
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
   flex-shrink: 0;
+}
+
+/* LinkedIn icon — official blue */
+.hero-linkedin-icon {
+  background: #0077B5;
+}
+
+/* Join Ignisia Club icon — site violet accent */
+.hero-club-icon {
+  background: var(--cyan);
 }
 
 .hero-insta-icon svg {
@@ -3473,7 +3491,7 @@ footer {
     width: 100%;
     justify-content: center;
     gap: .55rem;
-    max-width: 290px;
+    max-width: 100%;
   }
 
   .hero-finalists-btn {
@@ -4106,7 +4124,7 @@ footer {
 
 .hero-ai-row {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   margin-top: -0.8em;
   padding-right: .2rem;
 }

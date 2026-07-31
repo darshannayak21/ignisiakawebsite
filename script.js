@@ -56,11 +56,14 @@ const EVENT_DATE = new Date(2026, 3, 3, 9, 0, 0); // April 3, 2026 09:00
 function pad(n) { return String(n).padStart(2, '0'); }
 
 function updateCountdown() {
+  const cdDays = document.getElementById('cd-days');
+  if (!cdDays) return;
+
   const now = new Date();
   const diff = EVENT_DATE - now;
 
   if (diff <= 0) {
-    document.getElementById('cd-days').textContent = '00';
+    cdDays.textContent = '00';
     document.getElementById('cd-hours').textContent = '00';
     document.getElementById('cd-min').textContent = '00';
     document.getElementById('cd-sec').textContent = '00';
@@ -72,14 +75,16 @@ function updateCountdown() {
   const mins = Math.floor((diff % 3600000) / 60000);
   const secs = Math.floor((diff % 60000) / 1000);
 
-  document.getElementById('cd-days').textContent = pad(days);
+  cdDays.textContent = pad(days);
   document.getElementById('cd-hours').textContent = pad(hours);
   document.getElementById('cd-min').textContent = pad(mins);
   document.getElementById('cd-sec').textContent = pad(secs);
 }
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
+if (document.getElementById('cd-days')) {
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
 
 
 /* ─── PARTICLE CANVAS ───────────────────────────────────── */
