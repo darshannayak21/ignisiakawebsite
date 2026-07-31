@@ -41,11 +41,11 @@ if (!window.location.hash) {
    Easily update committee members, roles, and image paths here
 ──────────────────────────────────────────────────────────── */
 const committeeMembers = [
-  { id: 1, name: "Name 1", role: "Lead Organizer", imagePath: "assets/committee/head-1.jpg" },
-  { id: 2, name: "Name 2", role: "Technical Head", imagePath: "assets/committee/head-2.jpg" },
-  { id: 3, name: "Name 3", role: "Operations Head", imagePath: "assets/committee/head-3.jpg" },
-  { id: 4, name: "Name 4", role: "Logistics Head", imagePath: "assets/committee/head-4.jpg" },
-  { id: 5, name: "Name 5", role: "Outreach Head", imagePath: "assets/committee/head-5.jpg" }
+  { id: 1, name: "Member Name", role: "President", imagePath: "assets/committee/head-1.jpg" },
+  { id: 2, name: "Member Name", role: "General Secretary", imagePath: "assets/committee/head-2.jpg" },
+  { id: 3, name: "Member Name", role: "Principal Coordinator", imagePath: "assets/committee/head-3.jpg" },
+  { id: 4, name: "Member Name", role: "Media Head", imagePath: "assets/committee/head-4.jpg" },
+  { id: 5, name: "Member Name", role: "Treasurer", imagePath: "assets/committee/head-5.jpg" }
 ];
 
 /* ─── MUX HLS BACKGROUND VIDEO ────────────────────────────
