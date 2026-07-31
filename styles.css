@@ -564,6 +564,21 @@ nav {
   background: var(--cyan);
 }
 
+/* Report icon — purple gradient */
+.hero-report-icon {
+  background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%);
+}
+
+/* View Winners icon — gold/amber gradient */
+.hero-winners-icon {
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+}
+
+/* Certificates icon — cyan/blue gradient */
+.hero-cert-icon {
+  background: linear-gradient(135deg, #06B6D4 0%, #3B82F6 100%);
+}
+
 .hero-insta-icon svg {
   width: 18px;
   height: 18px;
