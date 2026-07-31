@@ -1108,35 +1108,21 @@ nav {
   background: var(--bg);
 }
 
-/* centered header block */
+/* left-aligned header block */
 .about-header {
-  text-align: center;
-  max-width: 780px;
-  margin: 0 auto 4.5rem;
+  text-align: left;
+  max-width: 860px;
+  margin: 0 0 3.5rem;
 }
 
-.about-eyebrow-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  background: rgba(255, 255, 255, .05);
-  border: 1px solid rgba(255, 255, 255, .12);
-  border-radius: 100px;
-  padding: .35rem 1.1rem .35rem .75rem;
-  font-size: 15px;
-  letter-spacing: .12em;
-  color: rgba(255, 255, 255, .55);
-  text-transform: uppercase;
-  margin-bottom: 1.6rem;
-}
-
-.about-big-title {
-  font-family: var(--font-head);
-  font-size: clamp(2rem, 5vw, 3.8rem);
+.about-section-title {
+  font-family: var(--font-serif);
+  font-style: italic;
   font-weight: 500;
+  font-size: clamp(3rem, 7vw, 5.2rem);
   color: var(--white);
   letter-spacing: -.025em;
-  line-height: 1.1;
+  line-height: 1.05;
   margin-bottom: 1.2rem;
 }
 
@@ -1148,11 +1134,11 @@ nav {
 }
 
 .about-lead {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--muted);
   line-height: 1.75;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 680px;
+  margin: 0;
 }
 
 /* ── about card (prize-card style) ── */
@@ -3266,8 +3252,8 @@ footer {
   }
 
   /* about */
-  .about-big-title {
-    font-size: clamp(1.9rem, 5vw, 2.8rem);
+  .about-section-title {
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
   }
 
   .about-card {
@@ -3554,8 +3540,8 @@ footer {
     font-size: clamp(1.7rem, 7.5vw, 2.6rem);
   }
 
-  .about-big-title {
-    font-size: clamp(1.7rem, 7.5vw, 2.6rem);
+  .about-section-title {
+    font-size: clamp(2rem, 8vw, 3rem);
   }
 
   .themes-lead,
