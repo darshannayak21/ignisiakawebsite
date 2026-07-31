@@ -9,6 +9,17 @@ if (!window.location.hash) {
   window.scrollTo(0, 0);
 }
 
+/* ─── MANAGEMENT COMMITTEE DATA ────────────────────────────
+   Easily update committee members, roles, and image paths here
+──────────────────────────────────────────────────────────── */
+const committeeMembers = [
+  { id: 1, name: "Name 1", role: "Lead Organizer", imagePath: "assets/committee/head-1.jpg" },
+  { id: 2, name: "Name 2", role: "Technical Head", imagePath: "assets/committee/head-2.jpg" },
+  { id: 3, name: "Name 3", role: "Operations Head", imagePath: "assets/committee/head-3.jpg" },
+  { id: 4, name: "Name 4", role: "Logistics Head", imagePath: "assets/committee/head-4.jpg" },
+  { id: 5, name: "Name 5", role: "Outreach Head", imagePath: "assets/committee/head-5.jpg" }
+];
+
 /* ─── MUX HLS BACKGROUND VIDEO ────────────────────────────
    Stream served via Mux — no YouTube watermark, no controls.
 ──────────────────────────────────────────────────────────── */

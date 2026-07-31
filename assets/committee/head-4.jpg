@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg_4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141420"/>
+      <stop offset="100%" stop-color="#0a0a10"/>
+    </linearGradient>
+    <radialGradient id="glow_4" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg_4)"/>
+  <rect width="400" height="400" fill="url(#glow_4)"/>
+  <circle cx="200" cy="150" r="60" fill="#8B5CF6" fill-opacity="0.2" stroke="#8B5CF6" stroke-width="2"/>
+  <path d="M 100 320 C 100 230, 300 230, 300 320" fill="#8B5CF6" fill-opacity="0.15" stroke="#8B5CF6" stroke-width="2"/>
+  <text x="200" y="370" font-family="sans-serif" font-size="16" fill="#888899" text-anchor="middle" letter-spacing="2">HEAD 04</text>
+</svg>
