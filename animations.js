@@ -52,6 +52,10 @@ gsap.fromTo('.hero-overlay-bottom',
     if (!pageReady || !counterDone) return;
     /* small pause so user sees 100 */
     setTimeout(function () {
+      if (vid && vid.paused) {
+        vid.muted = true;
+        vid.play().catch(function () {});
+      }
       loader.classList.add('loader-done');
       setTimeout(function () {
         if (loader && loader.parentNode) loader.parentNode.removeChild(loader);

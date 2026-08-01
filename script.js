@@ -63,16 +63,49 @@ var _heroLoaderFallback = setTimeout(function () {
   var video = document.getElementById('hero-video');
   if (!video) return;
 
-  // Slow down the video to make it more ambient
-  video.playbackRate = 0.75;
+  video.muted = true;
+  video.defaultMuted = true;
 
-  function onCanPlay() {
+  function hideLoader() {
     clearTimeout(_heroLoaderFallback);
     var loader = document.getElementById('hero-loader');
     if (loader) loader.classList.add('loaded');
   }
 
-  video.addEventListener('playing', onCanPlay, { once: true });
+  function tryPlay() {
+    var p = video.play();
+    if (p !== undefined) {
+      p.then(function () {
+        video.playbackRate = 0.85;
+        hideLoader();
+      }).catch(function () {
+        // Fallback if browser blocks un-gestured autoplay
+        var triggerPlay = function () {
+          video.play();
+          video.playbackRate = 0.85;
+          hideLoader();
+          window.removeEventListener('touchstart', triggerPlay);
+          window.removeEventListener('click', triggerPlay);
+          window.removeEventListener('scroll', triggerPlay);
+        };
+        window.addEventListener('touchstart', triggerPlay, { once: true, passive: true });
+        window.addEventListener('click', triggerPlay, { once: true, passive: true });
+        window.addEventListener('scroll', triggerPlay, { once: true, passive: true });
+      });
+    }
+  }
+
+  video.addEventListener('loadeddata', hideLoader, { once: true });
+  video.addEventListener('canplay', hideLoader, { once: true });
+  video.addEventListener('playing', hideLoader, { once: true });
+
+  // Try playing immediately
+  tryPlay();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', tryPlay, { once: true });
+  }
+  window.addEventListener('load', tryPlay, { once: true });
+  window.addEventListener('pageshow', tryPlay);
 }());
 
 /* ─── COUNTDOWN TIMER ───────────────────────────────────────

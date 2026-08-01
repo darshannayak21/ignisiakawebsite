@@ -838,7 +838,7 @@
       align-items: center;
       justify-content: center;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
     }
 
     .interactive-hover-btn .btn-default-text {
@@ -851,11 +851,11 @@
       position: relative;
       z-index: 2;
     }
-    
+
     .interactive-hover-btn .btn-default-text svg {
       stroke: #2938cf !important;
     }
-    
+
     .interactive-hover-btn:hover .btn-default-text {
       transform: translateX(48px);
       opacity: 0;
@@ -863,7 +863,8 @@
 
     .interactive-hover-btn .btn-hover-layer {
       position: absolute;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       z-index: 2;
       display: flex;
       height: 100%;
@@ -876,12 +877,12 @@
       transform: translateX(-40px);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    
+
     .interactive-hover-btn:hover .btn-hover-layer {
       transform: translateX(0);
       opacity: 1;
     }
-    
+
     .interactive-hover-btn .btn-hover-layer svg {
       stroke: #FFFFFF !important;
     }
@@ -899,7 +900,7 @@
       z-index: 1;
       pointer-events: none;
     }
-    
+
     .interactive-hover-btn:hover .btn-expand-dot {
       transform: translateY(-50%) scale(50);
     }
@@ -930,7 +931,7 @@
     /* Continuous vertical track line */
     .aceternity-timeline-line {
       position: absolute;
-      left: 20px;
+      left: 12px;
       top: 0;
       bottom: 0;
       width: 2px;
@@ -967,9 +968,9 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      padding-top: 3.5rem;
-      padding-bottom: 3.5rem;
-      min-height: 260px;
+      padding-top: 2.2rem;
+      padding-bottom: 2.2rem;
+      min-height: 220px;
     }
 
     @media (min-width: 768px) {
@@ -979,6 +980,7 @@
         padding-top: 6rem;
         padding-bottom: 6rem;
         gap: 3rem;
+        min-height: 260px;
       }
     }
 
@@ -1004,16 +1006,16 @@
     /* Node circular indicator aligned precisely on top of the vertical line */
     .aceternity-timeline-node {
       position: absolute;
-      left: 1px; /* Centers 40px node over 20px line on mobile */
-      width: 40px;
-      height: 40px;
+      left: -2px; /* Centers 30px node over 12px line on mobile: -2px + 15px = 13px */
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       background: #FFFFFF;
       border: 1px solid #e2e8f0;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       z-index: 35;
       transition: border-color 0.25s ease, box-shadow 0.25s ease;
     }
@@ -1021,16 +1023,25 @@
     @media (min-width: 768px) {
       .aceternity-timeline-node {
         left: 13px; /* 13px + 20px (half width) = 33px, perfectly centered on 32px line */
+        width: 40px;
+        height: 40px;
       }
     }
 
     .aceternity-timeline-dot {
-      width: 14px;
-      height: 14px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: #e2e8f0;
       border: 1px solid #cbd5e1;
       transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    @media (min-width: 768px) {
+      .aceternity-timeline-dot {
+        width: 14px;
+        height: 14px;
+      }
     }
 
     .aceternity-timeline-item.active-node .aceternity-timeline-node {
@@ -1057,7 +1068,8 @@
         font-style: italic;
         font-size: 2.8rem;
         font-weight: 500;
-        color: #9ca3af; /* Light grey when inactive */
+        color: #9ca3af;
+        /* Light grey when inactive */
         line-height: 1.1;
         letter-spacing: -0.01em;
         transition: color 0.25s ease;
@@ -1065,19 +1077,20 @@
     }
 
     .aceternity-timeline-item.active-node .aceternity-timeline-title {
-      color: #000000; /* Pure black when reached/active, NOT purple */
+      color: #000000;
+      /* Pure black when reached/active, NOT purple */
     }
 
     .aceternity-timeline-title-mob {
       display: block;
-      padding-left: 55px;
+      padding-left: 0 !important;
       font-family: var(--font-serif);
       font-style: italic;
-      font-size: 1.9rem;
+      font-size: 1.85rem;
       font-weight: 500;
       color: #9ca3af;
       line-height: 1.1;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
       transition: color 0.25s ease;
     }
 
@@ -1095,7 +1108,7 @@
     .aceternity-timeline-content {
       position: relative;
       width: 100%;
-      padding-left: 55px;
+      padding-left: 33px;
       padding-right: 0;
     }
 
@@ -1157,10 +1170,10 @@
       margin-left: 0;
       stroke: #111827;
       transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                  max-width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                  opacity 0.2s ease,
-                  transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                  margin-left 0.25s ease;
+        max-width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.2s ease,
+        transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+        margin-left 0.25s ease;
       overflow: hidden;
       display: inline-block;
       vertical-align: middle;
@@ -1303,7 +1316,7 @@
       overflow: hidden;
       margin-bottom: 1.5rem;
       background: #f1f5f9;
-      border: 1px solid rgba(0,0,0,0.06);
+      border: 1px solid rgba(0, 0, 0, 0.06);
     }
 
     .timeline-modal-banner img {
@@ -1395,17 +1408,21 @@
       border: 1px solid rgba(0, 0, 0, 0.08) !important;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
     }
+
     .committee-card-head:hover {
       border-color: rgba(99, 102, 241, 0.35) !important;
       box-shadow: 0 16px 36px rgba(99, 102, 241, 0.12) !important;
     }
+
     .committee-img-wrap {
       background: #f8fafc !important;
       border: 1px solid rgba(0, 0, 0, 0.06) !important;
     }
+
     .committee-card-name {
       color: #0f172a !important;
     }
+
     .committee-card-role {
       color: #4f46e5 !important;
     }
@@ -1537,7 +1554,7 @@
     <!-- video frame with overlay (full hero) -->
     <div class="hero-video-wrap">
       <!-- Background Video -->
-      <video id="hero-video" autoplay muted loop playsinline aria-hidden="true">
+      <video id="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true">
         <source src="bg.mp4" type="video/mp4">
       </video>
       <!-- Gradient shown until video is ready.
@@ -2019,9 +2036,8 @@
             <h4>Become a Member</h4>
             <p>Join the core network of AI builders and tech enthusiasts at MIT-WPU.</p>
           </div>
-          <a href="https://forms.gle/nrfLV9y8r5PyZZZs8" target="_blank" rel="noopener"
-            class="interactive-hover-btn">
-            
+          <a href="https://forms.gle/nrfLV9y8r5PyZZZs8" target="_blank" rel="noopener" class="interactive-hover-btn">
+
             <span class="btn-default-text">
               Join Ignisia Club
             </span>
@@ -2068,7 +2084,7 @@
         </div>
 
         <div class="aceternity-timeline-list">
-          
+
           <!-- 1: March 2026 - Ignisia -->
           <div class="aceternity-timeline-item active-node">
             <div class="aceternity-timeline-sticky">
@@ -2080,17 +2096,21 @@
             <div class="aceternity-timeline-content">
               <h3 class="aceternity-timeline-title-mob">March 2026</h3>
               <h4 class="aceternity-event-title">Ignisia &mdash; National AI Hackathon</h4>
-              <p class="aceternity-event-desc">MIT World Peace University's flagship national artificial intelligence hackathon bringing together India's top student innovators for an intense 24-hour sprint to build, deploy, and scale groundbreaking AI solutions.</p>
+              <p class="aceternity-event-desc">MIT World Peace University's flagship national artificial intelligence
+                hackathon bringing together India's top student innovators for an intense 24-hour sprint to build,
+                deploy, and scale groundbreaking AI solutions.</p>
               <button class="timeline-know-more-btn" data-modal="modal-ignisia" aria-label="Know more about Ignisia">
                 <span>Know More</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 12h14"></path>
                   <path d="m12 5 7 7-7 7"></path>
                 </svg>
               </button>
               <div class="aceternity-img-wrap">
                 <div class="aceternity-img-placeholder">
-                  <img src="gallery/475f9720-0209-4cd1-808e-2fd05d771b0f.JPG" alt="Ignisia AI Hackathon" loading="lazy" />
+                  <img src="gallery/475f9720-0209-4cd1-808e-2fd05d771b0f.JPG" alt="Ignisia AI Hackathon"
+                    loading="lazy" />
                 </div>
               </div>
             </div>
@@ -2107,17 +2127,22 @@
             <div class="aceternity-timeline-content">
               <h3 class="aceternity-timeline-title-mob">April 2026</h3>
               <h4 class="aceternity-event-title">Technophilia and Innovision</h4>
-              <p class="aceternity-event-desc">The combined national technical festival and premier project exhibition featuring coding contests, robotics challenges, research presentations, and capstone project exhibitions evaluated by industry juries.</p>
-              <button class="timeline-know-more-btn" data-modal="modal-technophilia-innovision" aria-label="Know more about Technophilia and Innovision">
+              <p class="aceternity-event-desc">The combined national technical festival and premier project exhibition
+                featuring coding contests, robotics challenges, research presentations, and capstone project exhibitions
+                evaluated by industry juries.</p>
+              <button class="timeline-know-more-btn" data-modal="modal-technophilia-innovision"
+                aria-label="Know more about Technophilia and Innovision">
                 <span>Know More</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 12h14"></path>
                   <path d="m12 5 7 7-7 7"></path>
                 </svg>
               </button>
               <div class="aceternity-img-wrap">
                 <div class="aceternity-img-placeholder">
-                  <img src="gallery/52ee26f5-0d43-491e-943c-f1ba7464c20d.JPG" alt="Technophilia and Innovision" loading="lazy" />
+                  <img src="gallery/52ee26f5-0d43-491e-943c-f1ba7464c20d.JPG" alt="Technophilia and Innovision"
+                    loading="lazy" />
                 </div>
               </div>
             </div>
@@ -2134,17 +2159,21 @@
             <div class="aceternity-timeline-content">
               <h3 class="aceternity-timeline-title-mob">August 2026</h3>
               <h4 class="aceternity-event-title">I-Talk &mdash; Innovation &amp; Leadership Summit</h4>
-              <p class="aceternity-event-desc">The flagship thought-leadership conference featuring interactive sessions, keynotes, fireside chats, live demos, and mentorship with distinguished leaders across tech, industry, and research.</p>
+              <p class="aceternity-event-desc">The flagship thought-leadership conference featuring interactive
+                sessions, keynotes, fireside chats, live demos, and mentorship with distinguished leaders across tech,
+                industry, and research.</p>
               <button class="timeline-know-more-btn" data-modal="modal-italk" aria-label="Know more about I-Talk">
                 <span>Know More</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 12h14"></path>
                   <path d="m12 5 7 7-7 7"></path>
                 </svg>
               </button>
               <div class="aceternity-img-wrap">
                 <div class="aceternity-img-placeholder">
-                  <img src="gallery/0bbf6592-f382-4106-9e35-9a8319ef1c4b.JPG" alt="I-Talk Speaker Series" loading="lazy" />
+                  <img src="gallery/0bbf6592-f382-4106-9e35-9a8319ef1c4b.JPG" alt="I-Talk Speaker Series"
+                    loading="lazy" />
                 </div>
               </div>
             </div>
@@ -2161,17 +2190,21 @@
             <div class="aceternity-timeline-content">
               <h3 class="aceternity-timeline-title-mob">October 2026</h3>
               <h4 class="aceternity-event-title">Incubex &mdash; National Startup &amp; Innovation Challenge</h4>
-              <p class="aceternity-event-desc">The flagship entrepreneurship competition connecting student innovators with mentorship, industry feedback, venture incubation, and angel investment across maturity stages from Ideation to registered Startups.</p>
+              <p class="aceternity-event-desc">The flagship entrepreneurship competition connecting student innovators
+                with mentorship, industry feedback, venture incubation, and angel investment across maturity stages from
+                Ideation to registered Startups.</p>
               <button class="timeline-know-more-btn" data-modal="modal-incubex" aria-label="Know more about Incubex">
                 <span>Know More</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 12h14"></path>
                   <path d="m12 5 7 7-7 7"></path>
                 </svg>
               </button>
               <div class="aceternity-img-wrap">
                 <div class="aceternity-img-placeholder">
-                  <img src="gallery/2171f89a-8e02-4de6-899e-b59c73a1f4bd.JPG" alt="Incubex Startup Challenge" loading="lazy" />
+                  <img src="gallery/2171f89a-8e02-4de6-899e-b59c73a1f4bd.JPG" alt="Incubex Startup Challenge"
+                    loading="lazy" />
                 </div>
               </div>
             </div>
@@ -2195,7 +2228,8 @@
       <div class="committee-5grid fade-in delay-1" id="committeeGrid">
         <div class="committee-card-head">
           <div class="committee-img-wrap">
-            <img class="img-vivaan" src="gallery/VIVAAN.webp" alt="Vivaan Mathur - President" loading="lazy" style="object-position: center 15%;" />
+            <img class="img-vivaan" src="gallery/VIVAAN.webp" alt="Vivaan Mathur - President" loading="lazy"
+              style="object-position: center 15%;" />
           </div>
           <div class="committee-card-info">
             <h3 class="committee-card-name">Vivaan Mathur</h3>
@@ -2205,7 +2239,8 @@
 
         <div class="committee-card-head">
           <div class="committee-img-wrap">
-            <img class="img-ansh" src="gallery/ANSH.webp" alt="Ansh Thakare - Principal Coordinator" loading="lazy" style="object-position: center 50%;" />
+            <img class="img-ansh" src="gallery/ANSH.webp" alt="Ansh Thakare - Principal Coordinator" loading="lazy"
+              style="object-position: center 50%;" />
           </div>
           <div class="committee-card-info">
             <h3 class="committee-card-name">Ansh Thakare</h3>
@@ -2215,7 +2250,8 @@
 
         <div class="committee-card-head">
           <div class="committee-img-wrap">
-            <img class="img-anushka" src="gallery/ANUSHKA.webp" alt="Anushka Wani - General Secretary" loading="lazy" style="object-position: center 15%;" />
+            <img class="img-anushka" src="gallery/ANUSHKA.webp" alt="Anushka Wani - General Secretary" loading="lazy"
+              style="object-position: center 15%;" />
           </div>
           <div class="committee-card-info">
             <h3 class="committee-card-name">Anushka Wani</h3>
@@ -2225,7 +2261,8 @@
 
         <div class="committee-card-head">
           <div class="committee-img-wrap">
-            <img class="img-jaanvi" src="gallery/JAANVI.webp" alt="Janavi Honrao - Media Head" loading="lazy" style="object-position: center 78%;" />
+            <img class="img-jaanvi" src="gallery/JAANVI.webp" alt="Janavi Honrao - Media Head" loading="lazy"
+              style="object-position: center 78%;" />
           </div>
           <div class="committee-card-info">
             <h3 class="committee-card-name">Janavi Honrao</h3>
@@ -2235,7 +2272,8 @@
 
         <div class="committee-card-head">
           <div class="committee-img-wrap">
-            <img class="img-aryan" src="gallery/ARYANMORE.webp" alt="Aryan More - Treasurer" loading="lazy" style="object-position: center 75%;" />
+            <img class="img-aryan" src="gallery/ARYANMORE.webp" alt="Aryan More - Treasurer" loading="lazy"
+              style="object-position: center 75%;" />
           </div>
           <div class="committee-card-info">
             <h3 class="committee-card-name">Aryan More</h3>
@@ -2349,12 +2387,14 @@
   <!-- ═══════════════════════════════════════════
        TIMELINE EVENT MODAL POPUPS (THE 4 FLAGSHIP EVENTS)
   ═══════════════════════════════════════════ -->
-  
+
   <!-- 1. Modal: Ignisia -->
-  <div class="timeline-modal-backdrop" id="modal-ignisia" role="dialog" aria-modal="true" aria-labelledby="modal-ignisia-title">
+  <div class="timeline-modal-backdrop" id="modal-ignisia" role="dialog" aria-modal="true"
+    aria-labelledby="modal-ignisia-title">
     <div class="timeline-modal-card">
       <button class="timeline-modal-close" aria-label="Close modal">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
@@ -2367,17 +2407,22 @@
 
       <div class="timeline-modal-section">
         <h4 class="timeline-modal-section-title">What It Is</h4>
-        <p class="timeline-modal-text">MIT World Peace University's flagship national artificial intelligence hackathon &mdash; a grand stage bringing together India's most extraordinary student innovators, coders, and visionaries for an intense 24-hour physical building sprint on campus.</p>
+        <p class="timeline-modal-text">MIT World Peace University's flagship national artificial intelligence hackathon
+          &mdash; a grand stage bringing together India's most extraordinary student innovators, coders, and visionaries
+          for an intense 24-hour physical building sprint on campus.</p>
       </div>
 
       <div class="timeline-modal-section">
         <h4 class="timeline-modal-section-title">Purpose</h4>
-        <p class="timeline-modal-text">Empower student builders to engineer, deploy, and scale groundbreaking AI solutions addressing critical real-world problems &mdash; spanning generative systems, autonomous agents, computer vision, and intelligent automation.</p>
+        <p class="timeline-modal-text">Empower student builders to engineer, deploy, and scale groundbreaking AI
+          solutions addressing critical real-world problems &mdash; spanning generative systems, autonomous agents,
+          computer vision, and intelligent automation.</p>
       </div>
 
       <div class="timeline-modal-section">
         <h4 class="timeline-modal-section-title">Governance &amp; Timeline</h4>
-        <p class="timeline-modal-text">Held annually in <strong>March 2026</strong>. Governed and executed by the Ignisia Organising Secretariat and Core Committee.</p>
+        <p class="timeline-modal-text">Held annually in <strong>March 2026</strong>. Governed and executed by the
+          Ignisia Organising Secretariat and Core Committee.</p>
       </div>
 
       <div class="timeline-modal-section">
@@ -2405,36 +2450,45 @@
   </div>
 
   <!-- 2. Modal: Technophilia and Innovision -->
-  <div class="timeline-modal-backdrop" id="modal-technophilia-innovision" role="dialog" aria-modal="true" aria-labelledby="modal-technophilia-innovision-title">
+  <div class="timeline-modal-backdrop" id="modal-technophilia-innovision" role="dialog" aria-modal="true"
+    aria-labelledby="modal-technophilia-innovision-title">
     <div class="timeline-modal-card">
       <button class="timeline-modal-close" aria-label="Close modal">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
       <span class="timeline-modal-badge">April 2026</span>
-      <h3 class="timeline-modal-title" id="modal-technophilia-innovision-title">Technophilia and Innovision &mdash; National Tech Fest &amp; Showcase</h3>
+      <h3 class="timeline-modal-title" id="modal-technophilia-innovision-title">Technophilia and Innovision &mdash;
+        National Tech Fest &amp; Showcase</h3>
       <div class="timeline-modal-banner">
-        <img src="gallery/52ee26f5-0d43-491e-943c-f1ba7464c20d.JPG" alt="Technophilia and Innovision Showcase" loading="lazy" />
+        <img src="gallery/52ee26f5-0d43-491e-943c-f1ba7464c20d.JPG" alt="Technophilia and Innovision Showcase"
+          loading="lazy" />
       </div>
 
       <div class="timeline-modal-section">
         <h4 class="timeline-modal-section-title">What It Is</h4>
-        <p class="timeline-modal-text">The premier national technical festival and capstone exhibition platform &mdash; uniting competitive coding contests, robotics challenges, research presentations, and the National Level Project Exhibition under one comprehensive technical showcase.</p>
+        <p class="timeline-modal-text">The premier national technical festival and capstone exhibition platform &mdash;
+          uniting competitive coding contests, robotics challenges, research presentations, and the National Level
+          Project Exhibition under one comprehensive technical showcase.</p>
       </div>
 
       <div class="timeline-modal-section">
         <h4 class="timeline-modal-section-title">Two Core Pillars</h4>
         <ul class="timeline-modal-list">
-          <li><strong>Technophilia National Technical Fest:</strong> Coding tournaments, AI hack challenges, robotics arena, technical conferences, and paper presentations.</li>
-          <li><strong>Innovision Project Exhibition:</strong> Final Year Polytechnic Capstone Review and National Open Project Showcase evaluated by industry juries.</li>
+          <li><strong>Technophilia National Technical Fest:</strong> Coding tournaments, AI hack challenges, robotics
+            arena, technical conferences, and paper presentations.</li>
+          <li><strong>Innovision Project Exhibition:</strong> Final Year Polytechnic Capstone Review and National Open
+            Project Showcase evaluated by industry juries.</li>
         </ul>
       </div>
 
       <div class="timeline-modal-section">
         <h4 class="timeline-modal-section-title">Purpose &amp; Timeline</h4>
-        <p class="timeline-modal-text">Showcase engineering and applied research projects, recognize student innovation, and foster academia-industry ties. Held annually in <strong>April 2026</strong>.</p>
+        <p class="timeline-modal-text">Showcase engineering and applied research projects, recognize student innovation,
+          and foster academia-industry ties. Held annually in <strong>April 2026</strong>.</p>
       </div>
 
       <div class="timeline-modal-section">
@@ -2451,10 +2505,12 @@
   </div>
 
   <!-- 3. Modal: I-Talk -->
-  <div class="timeline-modal-backdrop" id="modal-italk" role="dialog" aria-modal="true" aria-labelledby="modal-italk-title">
+  <div class="timeline-modal-backdrop" id="modal-italk" role="dialog" aria-modal="true"
+    aria-labelledby="modal-italk-title">
     <div class="timeline-modal-card">
       <button class="timeline-modal-close" aria-label="Close modal">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
@@ -2467,17 +2523,23 @@
 
       <div class="timeline-modal-section">
         <h4 class="timeline-modal-section-title">What It Is</h4>
-        <p class="timeline-modal-text">The flagship thought-leadership conference featuring interactive sessions (not lecture-style) with distinguished personalities from academia, industry, entrepreneurship, government, research, media, and sports &mdash; keynotes, fireside chats, Q&amp;As, panels, live demos, and mentor interactions.</p>
+        <p class="timeline-modal-text">The flagship thought-leadership conference featuring interactive sessions (not
+          lecture-style) with distinguished personalities from academia, industry, entrepreneurship, government,
+          research, media, and sports &mdash; keynotes, fireside chats, Q&amp;As, panels, live demos, and mentor
+          interactions.</p>
       </div>
 
       <div class="timeline-modal-section">
         <h4 class="timeline-modal-section-title">Purpose</h4>
-        <p class="timeline-modal-text">Inspire students, build networking and mentorship opportunities, and expose them to emerging technologies, AI breakthroughs, and global industry trends.</p>
+        <p class="timeline-modal-text">Inspire students, build networking and mentorship opportunities, and expose them
+          to emerging technologies, AI breakthroughs, and global industry trends.</p>
       </div>
 
       <div class="timeline-modal-section">
         <h4 class="timeline-modal-section-title">Governance &amp; Timeline</h4>
-        <p class="timeline-modal-text">Held annually in <strong>August 2026</strong>. Led by Club President (ex-officio Student Convener), Organising Secretariat (President, Principal Coordinator, General Secretary), Co-Convener (appointed Event Coordinator), Crew, and Volunteers.</p>
+        <p class="timeline-modal-text">Held annually in <strong>August 2026</strong>. Led by Club President (ex-officio
+          Student Convener), Organising Secretariat (President, Principal Coordinator, General Secretary), Co-Convener
+          (appointed Event Coordinator), Crew, and Volunteers.</p>
       </div>
 
       <div class="timeline-modal-section">
@@ -2507,23 +2569,28 @@
   </div>
 
   <!-- 4. Modal: Incubex -->
-  <div class="timeline-modal-backdrop" id="modal-incubex" role="dialog" aria-modal="true" aria-labelledby="modal-incubex-title">
+  <div class="timeline-modal-backdrop" id="modal-incubex" role="dialog" aria-modal="true"
+    aria-labelledby="modal-incubex-title">
     <div class="timeline-modal-card">
       <button class="timeline-modal-close" aria-label="Close modal">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
       <span class="timeline-modal-badge">October 2026</span>
-      <h3 class="timeline-modal-title" id="modal-incubex-title">Incubex &mdash; National Startup &amp; Innovation Challenge</h3>
+      <h3 class="timeline-modal-title" id="modal-incubex-title">Incubex &mdash; National Startup &amp; Innovation
+        Challenge</h3>
       <div class="timeline-modal-banner">
         <img src="gallery/2171f89a-8e02-4de6-899e-b59c73a1f4bd.JPG" alt="Incubex Startup Challenge" loading="lazy" />
       </div>
 
       <div class="timeline-modal-section">
         <h4 class="timeline-modal-section-title">What It Is</h4>
-        <p class="timeline-modal-text">The flagship entrepreneurship competition &mdash; distinct from problem-statement hackathons, Incubex lets participants pitch their own original ideas, products, and startups before academicians, industry leaders, founders, and angel investors.</p>
+        <p class="timeline-modal-text">The flagship entrepreneurship competition &mdash; distinct from problem-statement
+          hackathons, Incubex lets participants pitch their own original ideas, products, and startups before
+          academicians, industry leaders, founders, and angel investors.</p>
       </div>
 
       <div class="timeline-modal-section">
@@ -2540,7 +2607,9 @@
 
       <div class="timeline-modal-section">
         <h4 class="timeline-modal-section-title">Purpose &amp; Governance</h4>
-        <p class="timeline-modal-text">Connect student innovators to mentorship, industry feedback, incubation, and investment. Held annually in <strong>October 2026</strong> under the tri-level Secretariat governance model.</p>
+        <p class="timeline-modal-text">Connect student innovators to mentorship, industry feedback, incubation, and
+          investment. Held annually in <strong>October 2026</strong> under the tri-level Secretariat governance model.
+        </p>
       </div>
 
       <div class="timeline-modal-section">
