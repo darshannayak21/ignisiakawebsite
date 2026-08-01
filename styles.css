@@ -3135,11 +3135,13 @@ footer {
   font-weight: 500;
   color: var(--white);
   letter-spacing: -.025em;
-  line-height: 1;
+  line-height: 1.25;
+  padding-bottom: 0.3em;
   margin-top: 0;
   margin-bottom: 1.5rem;
   text-align: center;
   text-shadow: 0 0 40px rgba(139, 92, 246, .2);
+  overflow: visible;
 }
 
 .footer-tagline {
