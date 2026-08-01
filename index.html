@@ -224,47 +224,16 @@
       box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.6) !important;
     }
 
-    /* Ultra-Transparent Glassmorphism Pill for MIT WPU Hero Eyebrow */
+    /* Hero Typography */
     .hero-overlay-eyebrow {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      padding: 0.55rem 1.4rem !important;
-      border-radius: 9999px !important;
-      background: rgba(255, 255, 255, 0.1) !important;
-      border: 1px solid rgba(255, 255, 255, 0.28) !important;
-      backdrop-filter: blur(14px) saturate(160%) !important;
-      -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 8px 32px rgba(0, 0, 0, 0.18) !important;
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-
-    .hero-overlay-eyebrow:hover {
-      transform: translateY(-2px) !important;
-      background: rgba(255, 255, 255, 0.18) !important;
-      border-color: rgba(255, 255, 255, 0.45) !important;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 12px 36px rgba(0, 0, 0, 0.25) !important;
+      background: rgba(255, 255, 255, 0.8) !important;
+      border: 1px solid rgba(139, 92, 246, 0.25) !important;
+      color: #4b5563 !important;
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.05) !important;
     }
 
     .hero-overlay-eyebrow img {
-      height: 48px !important;
-      width: auto !important;
-      max-width: 100% !important;
-      object-fit: contain !important;
-      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5)) !important;
-      margin: 0 !important;
-      display: block !important;
-    }
-
-    @media (max-width: 600px) {
-      .hero-overlay-eyebrow {
-        padding: 0.45rem 1.1rem !important;
-      }
-      .hero-overlay-eyebrow img {
-        height: 38px !important;
-      }
+      filter: invert(1) opacity(0.8);
     }
 
     .hero-title {
@@ -613,7 +582,7 @@
       }
     }
 
-    /* ─── Attachment 4: Mobile Navigation Overlay & Drawer (Centered Design) ─── */
+    /* ─── Attachment 4: Mobile Navigation Overlay & Drawer (Grid Aligned Tags) ─── */
     .mobile-menu {
       display: flex !important;
       flex-direction: column !important;
@@ -626,7 +595,7 @@
       bottom: 0 !important;
       width: 100vw !important;
       height: 100dvh !important;
-      background: rgba(255, 255, 255, 0.94) !important;
+      background: rgba(255, 255, 255, 0.95) !important;
       backdrop-filter: blur(28px) saturate(180%) !important;
       -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
       z-index: 1050 !important;
@@ -682,36 +651,43 @@
       color: #FFFFFF !important;
     }
 
+    .mob-nav-wrap {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      width: 100% !important;
+      margin: auto 0 !important;
+    }
+
     .mob-nav {
       display: flex !important;
       flex-direction: column !important;
-      align-items: center !important;
+      align-items: flex-start !important;
       justify-content: center !important;
-      gap: 1.1rem !important;
-      width: 100% !important;
-      max-width: 400px !important;
-      margin: auto 0 !important;
-      text-align: center !important;
+      gap: 1.25rem !important;
+      width: fit-content !important;
+      min-width: 220px !important;
       list-style: none !important;
       padding: 0 !important;
+      margin: 0 !important;
     }
 
     .mobile-menu li {
       width: 100% !important;
-      text-align: center !important;
+      text-align: left !important;
       padding: 0 !important;
     }
 
     .mobile-menu li a {
       display: inline-flex !important;
       align-items: center !important;
-      justify-content: center !important;
-      gap: 0.6rem !important;
+      justify-content: flex-start !important;
+      gap: 1rem !important;
       color: #0f172a !important;
       font-family: var(--font-head) !important;
       font-weight: 600 !important;
-      font-size: 1.75rem !important;
-      padding: 0.4rem 1rem !important;
+      font-size: 1.85rem !important;
+      padding: 0.3rem 0.5rem !important;
       border-radius: 12px !important;
       transition: color 0.2s ease, transform 0.2s ease !important;
       text-decoration: none !important;
@@ -719,19 +695,25 @@
     }
 
     .mobile-menu li a .mob-idx {
+      width: 34px !important;
+      height: 26px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
       color: #2938cf !important;
+      font-family: var(--font-body) !important;
       font-weight: 700 !important;
       background: rgba(41, 56, 207, 0.08) !important;
-      padding: 3px 8px !important;
       border-radius: 6px !important;
       font-size: 12px !important;
+      flex-shrink: 0 !important;
     }
 
     .mobile-menu li a:hover,
     .mobile-menu li a:active {
       color: #2938cf !important;
       background: transparent !important;
-      transform: translateY(-2px) !important;
+      transform: translateX(4px) !important;
     }
 
     .mob-footer {
@@ -743,27 +725,59 @@
       border-top: none !important;
     }
 
+    /* Glassmorphism CTA Pill matching Hero button styling */
     .mob-cta-btn {
       display: inline-flex !important;
       align-items: center !important;
-      justify-content: center !important;
+      justify-content: space-between !important;
+      gap: 0.75rem !important;
       width: 100% !important;
-      min-height: 48px !important;
-      padding: 0.75rem 1.8rem !important;
-      border-radius: 9999px !important;
-      background: #1e293b !important;
-      color: #ffffff !important;
+      max-width: 280px !important;
+      min-height: 50px !important;
+      padding: 0.6rem 1.25rem 0.6rem 0.55rem !important;
+      border-radius: 999px !important;
+      background: rgba(255, 255, 255, 0.75) !important;
+      border: 1px solid rgba(0, 0, 0, 0.12) !important;
+      backdrop-filter: blur(16px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+      color: #0f172a !important;
       font-family: var(--font-body) !important;
-      font-size: 15px !important;
+      font-size: 0.95rem !important;
       font-weight: 600 !important;
       text-decoration: none !important;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2) !important;
-      transition: transform 0.2s ease, background 0.2s ease !important;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
     }
 
     .mob-cta-btn:hover {
-      background: #0f172a !important;
       transform: translateY(-2px) !important;
+      background: rgba(255, 255, 255, 0.94) !important;
+      border-color: rgba(41, 56, 207, 0.35) !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), 0 12px 28px rgba(41, 56, 207, 0.15) !important;
+      color: #2938cf !important;
+    }
+
+    .mob-cta-icon {
+      width: 32px !important;
+      height: 32px !important;
+      border-radius: 50% !important;
+      background: linear-gradient(135deg, #6366f1 0%, #2938cf 100%) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      color: #ffffff !important;
+      flex-shrink: 0 !important;
+    }
+
+    .mob-cta-arrow {
+      font-size: 0.9rem !important;
+      color: #64748b !important;
+      transition: transform 0.2s ease, color 0.2s ease !important;
+    }
+
+    .mob-cta-btn:hover .mob-cta-arrow {
+      transform: translate(2px, -2px) !important;
+      color: #2938cf !important;
     }
 
     .nav-overlay {
@@ -1761,57 +1775,110 @@
       color: #4f46e5 !important;
     }
 
-    /* ─── FOOTER OVERRIDES ─── */
-    .footer-copy,
-    .footer-uni-line,
-    .footer-contact-link,
-    .footer-email {
-      color: #1a1a1a !important;
+    /* ─── FOOTER OVERRIDES (Single Vertical Column Alignment per Image 3) ─── */
+    footer {
+      padding: 3.5rem 0 2.5rem !important;
+      background: #ffffff !important;
+      border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .footer-content-block {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 0.85rem !important;
+      max-width: 600px !important;
     }
 
     .footer-wordmark {
-      background: linear-gradient(to right, #2938cf 0%, #a78bfa 100%);
+      font-family: var(--font-head) !important;
+      font-size: 2.2rem !important;
+      font-weight: 800 !important;
+      background: linear-gradient(to right, #2938cf 0%, #a78bfa 100%) !important;
       -webkit-background-clip: text !important;
       -webkit-text-fill-color: transparent !important;
       background-clip: text !important;
       color: transparent !important;
-      padding-bottom: 0.15em;
-      margin-bottom: 1.5rem !important;
-      display: inline-block;
+      margin-bottom: 0.25rem !important;
+      display: inline-block !important;
     }
 
-    /* Footer Social Icons */
-    .footer-social-top {
-      margin-top: 1rem !important;
+    .footer-copy {
+      font-family: var(--font-body) !important;
+      font-size: 0.95rem !important;
+      line-height: 1.5 !important;
+      color: #1e293b !important;
+      margin: 0 !important;
+    }
+
+    .footer-address {
+      font-family: var(--font-body) !important;
+      font-size: 0.95rem !important;
+      line-height: 1.5 !important;
+      color: #475569 !important;
+      margin: 0 !important;
+    }
+
+    .footer-social-row {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.75rem !important;
+      margin: 0.4rem 0 !important;
+    }
+
+    .footer-social-row a {
+      width: 40px !important;
+      height: 40px !important;
+      border-radius: 50% !important;
+      background: #ffffff !important;
+      border: 1px solid #cbd5e1 !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      gap: 1.25rem !important;
+      color: #1e293b !important;
+      transition: all 0.2s ease !important;
+      text-decoration: none !important;
     }
 
-    .footer-social-top a,
-    .footer-social a {
-      background: #FFFFFF !important;
-      border: 1px solid #d1d5db !important;
-      /* Light grey border */
-      color: #1a1a1a !important;
+    .footer-social-row a:hover {
+      background: #f1f5f9 !important;
+      border-color: #2938cf !important;
+      color: #2938cf !important;
+      transform: translateY(-2px) !important;
     }
 
-    .footer-social-top a:hover,
-    .footer-social a:hover {
-      background: #f3f4f6 !important;
-      border-color: #9ca3af !important;
+    .footer-social-row a svg {
+      width: 18px !important;
+      height: 18px !important;
+      stroke: #1e293b !important;
+      fill: none !important;
     }
 
-    .footer-social-top a svg,
-    .footer-social a svg {
-      stroke: #1a1a1a !important;
-    }
-
-    .footer-social-top a svg[fill="currentColor"],
-    .footer-social a svg[fill="currentColor"] {
-      fill: #1a1a1a !important;
+    .footer-social-row a svg[fill="currentColor"] {
+      fill: #1e293b !important;
       stroke: none !important;
+    }
+
+    .footer-contacts-list {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 0.35rem !important;
+      margin-top: 0.2rem !important;
+    }
+
+    .footer-contact-link,
+    .footer-email {
+      font-family: var(--font-body) !important;
+      font-size: 0.95rem !important;
+      color: #1e293b !important;
+      text-decoration: none !important;
+      transition: color 0.2s ease !important;
+    }
+
+    .footer-contact-link:hover,
+    .footer-email:hover {
+      color: #2938cf !important;
     }
   </style>
 </head>
@@ -1863,21 +1930,34 @@
   <!-- mobile nav overlay -->
   <div class="nav-overlay" id="navOverlay"></div>
 
-  <!-- mobile nav drawer (Attachment 4 Centered Design) -->
+  <!-- mobile nav drawer (Attachment 4 Centered Design with Left-Aligned Grid Tags) -->
   <div class="mobile-menu" id="mobileMenu" role="navigation">
     <div class="mob-header">
       <span class="mob-header-label">Navigation</span>
       <button class="mob-close" id="mobClose" aria-label="Close menu">&#x2715;</button>
     </div>
-    <ul class="mob-nav">
-      <li><a href="#about" class="mob-link"><span class="mob-idx">01</span>About</a></li>
-      <li><a href="#club" class="mob-link"><span class="mob-idx">02</span>Club</a></li>
-      <li><a href="#timeline" class="mob-link"><span class="mob-idx">03</span>Timeline</a></li>
-      <li><a href="#committee" class="mob-link"><span class="mob-idx">04</span>Committee</a></li>
-      <li><a href="#about-gallery" class="mob-link"><span class="mob-idx">05</span>Gallery</a></li>
-    </ul>
+    <div class="mob-nav-wrap">
+      <ul class="mob-nav">
+        <li><a href="#about" class="mob-link"><span class="mob-idx">01</span><span>About</span></a></li>
+        <li><a href="#club" class="mob-link"><span class="mob-idx">02</span><span>Club</span></a></li>
+        <li><a href="#timeline" class="mob-link"><span class="mob-idx">03</span><span>Timeline</span></a></li>
+        <li><a href="#committee" class="mob-link"><span class="mob-idx">04</span><span>Committee</span></a></li>
+        <li><a href="#about-gallery" class="mob-link"><span class="mob-idx">05</span><span>Gallery</span></a></li>
+      </ul>
+    </div>
     <div class="mob-footer">
-      <a href="https://forms.gle/nrfLV9y8r5PyZZZs8" target="_blank" rel="noopener" class="mob-cta-btn">Join Ignisia Club</a>
+      <a href="https://forms.gle/nrfLV9y8r5PyZZZs8" target="_blank" rel="noopener" class="mob-cta-btn">
+        <span class="mob-cta-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <line x1="19" y1="8" x2="19" y2="14" />
+            <line x1="22" y1="11" x2="16" y2="11" />
+          </svg>
+        </span>
+        <span>Join Ignisia Club</span>
+        <span class="mob-cta-arrow" aria-hidden="true">↗</span>
+      </a>
     </div>
   </div>
 
@@ -1899,9 +1979,9 @@
       <div class="hero-video-overlay">
 
         <!-- top: MIT label pill -->
-        <div class="hero-overlay-eyebrow" aria-label="MIT World Peace University">
-          <img src="assets/images/MIT-white-logo.png" alt="MIT WPU" />
-        </div>
+        <p class="hero-overlay-eyebrow"><img
+            style="height: 68px; width: auto; max-width: 100%; margin-bottom: 6px; margin-right: 12px; margin-left: 12px;"
+            src="assets/images/MIT-white-logo.png" alt="MIT WPU"></p>
 
         <!-- center: brand + tagline -->
         <div class="hero-video-center">
@@ -2723,12 +2803,13 @@
 
   <footer>
     <div class="container">
-      <div class="footer-top">
+      <div class="footer-content-block">
         <div class="footer-wordmark">Ignisia</div>
 
+        <p class="footer-copy">&copy; 2026 Ignisia &mdash; MIT World Peace University. All rights reserved.</p>
+        <p class="footer-address">Kothrud, Pune &ndash; 411038, Maharashtra, India</p>
 
-
-        <div class="footer-social-top">
+        <div class="footer-social-row">
           <a href="https://www.instagram.com/ignisiamit?igsh=cm5hamdoYXVsODR1&utm_source=qr" target="_blank"
             rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24">
@@ -2750,56 +2831,11 @@
               <circle cx="4" cy="4" r="2" />
             </svg>
           </a>
-          <a href="tel:+918999129332" aria-label="Call">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 peric 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg>
-          </a>
-          <a href="mailto:ignisia@mitwpu.edu.in" aria-label="Email">
-            <svg viewBox="0 0 24 24">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
-          </a>
         </div>
 
-      </div>
-
-      <div class="footer-bottom">
-        <div class="footer-bottom-left">
-          <span class="footer-copy">&copy; 2026 Ignisia &mdash; MIT World Peace University. All rights reserved.</span>
-          <span class="footer-uni-line">Kothrud, Pune &ndash; 411038, Maharashtra, India</span>
-        </div>
-
-        <div class="footer-bottom-right">
-          <div class="footer-social">
-            <a href="https://www.instagram.com/ignisiamit?igsh=cm5hamdoYXVsODR1&utm_source=qr" target="_blank"
-              rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-              </svg>
-            </a>
-            <a href="https://x.com/ignisiamit?s=11" target="_blank" rel="noopener" aria-label="X">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/company/ignisia-26/" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect x="2" y="9" width="4" height="12" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-            </a>
-          </div>
-          <div class="footer-contacts">
-            <a href="tel:+918999129332" class="footer-contact-link">+91 89991 29332</a>
-            <a href="tel:+919769695019" class="footer-contact-link">+91 97696 95019</a>
-          </div>
+        <div class="footer-contacts-list">
+          <a href="tel:+918999129332" class="footer-contact-link">+91 89991 29332</a>
+          <a href="tel:+919769695019" class="footer-contact-link">+91 97696 95019</a>
           <a href="mailto:ignisia@mitwpu.edu.in" class="footer-email">ignisia@mitwpu.edu.in</a>
         </div>
       </div>
@@ -2809,9 +2845,7 @@
       </div>
       <script src="typewriter.js"></script>
 
-
     </div>
-
   </footer>
 
   <!-- ═══════════════════════════════════════════
