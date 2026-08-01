@@ -374,16 +374,45 @@
 
     /* Fallback/Default style for pills outside the hero (like Official Document) */
     .hero-insta-cta {
-      background: rgba(255, 255, 255, 0.4) !important;
-      border: 1px solid rgba(0, 0, 0, 0.08) !important;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.5) !important;
-      color: #1a1a1a !important;
-      backdrop-filter: blur(16px) saturate(180%) !important;
-      -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+      background: rgba(255, 255, 255, 0.82) !important;
+      border: 1px solid rgba(255, 255, 255, 0.9) !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), 0 8px 24px rgba(41, 56, 207, 0.1) !important;
+      color: #0f172a !important;
+      backdrop-filter: blur(24px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
     }
 
     .hero-insta-cta:hover {
-      background: #f3f4f6 !important;
+      background: rgba(255, 255, 255, 0.96) !important;
+      border-color: rgba(41, 56, 207, 0.35) !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), 0 12px 28px rgba(41, 56, 207, 0.16) !important;
+    }
+
+    .hero-cta-group .hero-insta-cta::before,
+    .hero-cta-group .hero-insta-cta::after {
+      display: none !important;
+    }
+
+    .hero-insta-kicker {
+      color: #4338ca !important;
+      font-size: 0.68rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.04em !important;
+      text-transform: uppercase !important;
+    }
+
+    .hero-insta-handle {
+      color: #0f172a !important;
+      font-size: 0.94rem !important;
+      font-weight: 700 !important;
+    }
+
+    .hero-insta-arrow {
+      color: #4338ca !important;
+      font-size: 0.95rem !important;
+      font-weight: 700 !important;
     }
 
     .hero-pdf-btns-row .gradient-button svg {
@@ -391,7 +420,7 @@
     }
 
     .hero-insta-icon {
-      background: #2938cf !important;
+      background: linear-gradient(135deg, #6366f1 0%, #2938cf 100%) !important;
     }
 
     .hero-insta-icon svg {
