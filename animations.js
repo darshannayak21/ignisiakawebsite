@@ -1,24 +1,30 @@
 gsap.registerPlugin(ScrollTrigger);
 
-/* video frame entrance */
-gsap.fromTo('.hero-video-wrap',
-  { opacity: 0, y: 40, scale: 0.97 },
-  { opacity: 1, y: 0, scale: 1, duration: 1.2, ease: 'power3.out', delay: 0.2 }
-);
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* stagger overlay elements */
-gsap.fromTo('.hero-overlay-eyebrow',
-  { opacity: 0, y: -12 },
-  { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 0.6 }
-);
-gsap.fromTo('.hero-video-center',
-  { opacity: 0, y: 16 },
-  { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 0.75 }
-);
-gsap.fromTo('.hero-overlay-bottom',
-  { opacity: 0, y: 12 },
-  { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out', delay: 1 }
-);
+if (!prefersReducedMotion) {
+  /* video frame entrance */
+  gsap.fromTo('.hero-video-wrap',
+    { opacity: 0, y: 40, scale: 0.97 },
+    { opacity: 1, y: 0, scale: 1, duration: 1.2, ease: 'power3.out', delay: 0.2 }
+  );
+
+  /* stagger overlay elements */
+  gsap.fromTo('.hero-overlay-eyebrow',
+    { opacity: 0, y: -12 },
+    { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 0.6 }
+  );
+  gsap.fromTo('.hero-video-center',
+    { opacity: 0, y: 16 },
+    { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 0.75 }
+  );
+  gsap.fromTo('.hero-overlay-bottom',
+    { opacity: 0, y: 12 },
+    { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out', delay: 1 }
+  );
+} else {
+  gsap.set('.hero-video-wrap, .hero-overlay-eyebrow, .hero-video-center, .hero-overlay-bottom', { opacity: 1, y: 0, scale: 1 });
+}
 
 /* ── loader dismiss ── */
 (function () {
@@ -46,7 +52,14 @@ gsap.fromTo('.hero-overlay-bottom',
       tryDismiss();
     }
   }
-  requestAnimationFrame(tick);
+  
+  if (!prefersReducedMotion) {
+    requestAnimationFrame(tick);
+  } else {
+    if (counterEl) counterEl.innerHTML = '<span>100</span>%';
+    if (fill) fill.style.width = '100%';
+    counterDone = true;
+  }
 
   function tryDismiss() {
     if (!pageReady || !counterDone) return;
@@ -77,26 +90,36 @@ gsap.fromTo('.hero-overlay-bottom',
 }());
 
 /* pills below video on scroll */
-gsap.fromTo('.hero-below',
-  { opacity: 0, y: 20 },
-  {
-    opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
-    scrollTrigger: { trigger: '.hero-below', start: 'top 90%' }
-  }
-);
+if (!prefersReducedMotion) {
+  gsap.fromTo('.hero-below',
+    { opacity: 0, y: 20 },
+    {
+      opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+      scrollTrigger: { trigger: '.hero-below', start: 'top 90%' }
+    }
+  );
+} else {
+  gsap.set('.hero-below', { opacity: 1, y: 0 });
+}
 
 /* animated counter for prizes */
-gsap.to('#animatedPrizeCounter', {
-  innerText: 100000,
-  duration: 2.5,
-  ease: 'power3.out',
-  snap: { innerText: 1 },
-  onUpdate: function () {
-    let val = Math.round(this.targets()[0].innerText);
-    this.targets()[0].innerText = val.toLocaleString('en-IN');
-  },
-  scrollTrigger: {
-    trigger: '#prizes',
-    start: 'top 80%'
+if (document.getElementById('animatedPrizeCounter')) {
+  if (!prefersReducedMotion) {
+    gsap.to('#animatedPrizeCounter', {
+      innerText: 100000,
+      duration: 2.5,
+      ease: 'power3.out',
+      snap: { innerText: 1 },
+      onUpdate: function () {
+        let val = Math.round(this.targets()[0].innerText);
+        this.targets()[0].innerText = val.toLocaleString('en-IN');
+      },
+      scrollTrigger: {
+        trigger: '#prizes',
+        start: 'top 80%'
+      }
+    });
+  } else {
+    document.getElementById('animatedPrizeCounter').innerText = "1,00,000";
   }
-});
+}

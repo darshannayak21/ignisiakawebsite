@@ -10,25 +10,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#080A0F" />
   <meta name="description"
-    content="Ignisia 2026 is MIT-WPU's national-level AI hackathon in Pune. Build impactful AI solutions, compete for INR 1,00,000+ prizes, and join a 24-hour grand finale." />
+    content="Ignisia is MIT-WPU's AI and technology club in Pune, creator of a national-level AI hackathon and year-round innovation events, workshops, and build sprints." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="author" content="Ignisia - MIT World Peace University" />
-  <title>IGNISIA — MIT WPU National AI Hackathon</title>
+  <title>Ignisia | MIT-WPU AI Club &amp; National AI Hackathon</title>
   <link rel="canonical" href="https://ignisia.tech/" />
   <link rel="alternate" href="https://ignisia.tech/" hreflang="en-IN" />
+  <link rel="alternate" href="https://ignisia.tech/" hreflang="x-default" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Ignisia" />
-  <meta property="og:title" content="Ignisia 2026 | MIT-WPU National AI Hackathon" />
+  <meta property="og:title" content="Ignisia | MIT-WPU AI Club &amp; National AI Hackathon" />
   <meta property="og:description"
-    content="Join Ignisia 2026, MIT-WPU's flagship AI hackathon. National-level competition, 24-hour grand finale, and INR 1,00,000+ prize pool." />
+    content="Explore MIT-WPU's AI and technology community, national AI hackathon, innovation events, workshops, and student build sprints in Pune." />
   <meta property="og:url" content="https://ignisia.tech/" />
   <meta property="og:image" content="https://ignisia.tech/favicon_io-2/android-chrome-512x512.png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:image:alt" content="Ignisia — MIT-WPU AI and technology community" />
   <meta property="og:locale" content="en_IN" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ignisia 2026 | MIT-WPU National AI Hackathon" />
+  <meta name="twitter:title" content="Ignisia | MIT-WPU AI Club &amp; National AI Hackathon" />
   <meta name="twitter:description"
-    content="Build, compete, and evolve at Ignisia 2026. National-level AI hackathon with a 24-hour finale at MIT-WPU, Pune." />
+    content="MIT-WPU's AI and technology community, national AI hackathon, innovation events, workshops, and student build sprints in Pune." />
   <meta name="twitter:image" content="https://ignisia.tech/favicon_io-2/android-chrome-512x512.png" />
+  <meta name="twitter:image:alt" content="Ignisia — MIT-WPU AI and technology community" />
   <meta name="twitter:url" content="https://ignisia.tech/" />
   <!-- Favicon — 512 px PNG listed first so Google picks it up for search results -->
   <link rel="icon" type="image/png" sizes="512x512" href="/favicon_io-2/android-chrome-512x512.png" />
@@ -39,136 +44,92 @@
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io-2/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <!-- WebSite schema — enables Google Sitelinks for this domain -->
+  <!-- Entity graph: connects the site, organization, page, and completed flagship event. -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Ignisia",
-      "alternateName": "Ignisia 2026 - MIT-WPU AI Hackathon",
-      "url": "https://ignisia.tech/"
-    }
-  </script>
-  <!-- SiteNavigationElement schema — teaches Google the section structure for sitelinks -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Ignisia Site Sections",
-      "itemListElement": [
+      "@graph": [
         {
-          "@type": "SiteNavigationElement",
-          "position": 1,
-          "name": "About Ignisia",
-          "description": "About MIT-WPU's flagship AI hackathon",
-          "url": "https://ignisia.tech/#about"
+          "@type": "WebSite",
+          "@id": "https://ignisia.tech/#website",
+          "url": "https://ignisia.tech/",
+          "name": "Ignisia",
+          "alternateName": "Ignisia — MIT-WPU AI & Technology Club",
+          "inLanguage": "en-IN",
+          "publisher": { "@id": "https://ignisia.tech/#organization" }
         },
         {
-          "@type": "SiteNavigationElement",
-          "position": 2,
-          "name": "Brochure",
-          "description": "Official event brochure and PPT template",
-          "url": "https://ignisia.tech/#brochure"
+          "@type": "Organization",
+          "@id": "https://ignisia.tech/#organization",
+          "name": "Ignisia",
+          "url": "https://ignisia.tech/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://ignisia.tech/favicon_io-2/android-chrome-512x512.png",
+            "width": 512,
+            "height": 512
+          },
+          "email": "ignisia@mitwpu.edu.in",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "MIT World Peace University, Kothrud",
+            "addressLocality": "Pune",
+            "postalCode": "411038",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN"
+          },
+          "sameAs": [
+            "https://www.instagram.com/ignisiamit",
+            "https://x.com/ignisiamit",
+            "https://www.linkedin.com/company/ignisia-26/"
+          ]
         },
         {
-          "@type": "SiteNavigationElement",
-          "position": 3,
-          "name": "Timeline",
-          "description": "Key dates and deadlines for Ignisia 2026",
-          "url": "https://ignisia.tech/#timeline"
+          "@type": "WebPage",
+          "@id": "https://ignisia.tech/#webpage",
+          "url": "https://ignisia.tech/",
+          "name": "Ignisia | MIT-WPU AI Club & National AI Hackathon",
+          "description": "Ignisia is MIT-WPU's AI and technology club in Pune, creator of a national-level AI hackathon and year-round innovation initiatives.",
+          "isPartOf": { "@id": "https://ignisia.tech/#website" },
+          "about": { "@id": "https://ignisia.tech/#organization" },
+          "inLanguage": "en-IN"
         },
         {
-          "@type": "SiteNavigationElement",
-          "position": 4,
-          "name": "Themes",
-          "description": "Hackathon problem domains and themes",
-          "url": "https://ignisia.tech/#themes"
-        },
-        {
-          "@type": "SiteNavigationElement",
-          "position": 5,
-          "name": "Prize Pool",
-          "description": "INR 1,00,000+ in prizes for top teams",
-          "url": "https://ignisia.tech/#prizes"
-        },
-        {
-          "@type": "SiteNavigationElement",
-          "position": 6,
-          "name": "Eligibility",
-          "description": "Who can register and compete at Ignisia 2026",
-          "url": "https://ignisia.tech/#eligibility"
-        },
-        {
-          "@type": "SiteNavigationElement",
-          "position": 7,
-          "name": "Gallery",
-          "description": "Photos from the MIT-WPU campus and event venue",
-          "url": "https://ignisia.tech/#gallery"
+          "@type": "Event",
+          "@id": "https://ignisia.tech/#ignisia-2026",
+          "name": "Ignisia 2026 - MIT-WPU National AI Hackathon",
+          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+          "eventStatus": "https://schema.org/EventCompleted",
+          "startDate": "2026-04-03T09:00:00+05:30",
+          "endDate": "2026-04-04T18:00:00+05:30",
+          "url": "https://ignisia.tech/#about",
+          "description": "MIT-WPU's completed national-level, 24-hour AI hackathon for student teams building solutions to real-world problems.",
+          "image": "https://ignisia.tech/gallery/d84cfe8a-7988-41a8-8385-b30d51a9165b.JPG",
+          "location": {
+            "@type": "Place",
+            "name": "MIT World Peace University",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Kothrud",
+              "addressLocality": "Pune",
+              "postalCode": "411038",
+              "addressRegion": "Maharashtra",
+              "addressCountry": "IN"
+            }
+          },
+          "organizer": { "@id": "https://ignisia.tech/#organization" }
         }
       ]
-    }
-  </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Event",
-      "name": "Ignisia 2026 - MIT-WPU AI Hackathon",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "startDate": "2026-04-03T09:00:00+05:30",
-      "endDate": "2026-04-04T18:00:00+05:30",
-      "url": "https://ignisia.tech/",
-      "description": "Ignisia is MIT-WPU's national-level AI hackathon where student teams build AI solutions for real-world impact.",
-      "image": [
-        "https://ignisia.tech/favicon_io-2/android-chrome-512x512.png"
-      ],
-      "location": {
-        "@type": "Place",
-        "name": "MIT World Peace University",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Kothrud",
-          "addressLocality": "Pune",
-          "postalCode": "411038",
-          "addressRegion": "Maharashtra",
-          "addressCountry": "IN"
-        }
-      },
-      "organizer": {
-        "@type": "Organization",
-        "name": "Ignisia",
-        "url": "https://ignisia.tech/",
-        "email": "ignisia@mitwpu.edu.in",
-        "sameAs": [
-          "https://www.instagram.com/ignisiamit",
-          "https://x.com/ignisiamit",
-          "https://www.linkedin.com/company/ignisia-26/"
-        ]
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "399",
-        "priceCurrency": "INR",
-        "availability": "https://schema.org/InStock",
-        "url": "https://unstop.com/p/ignisia-2026-mit-world-peace-university-pune-maharashtra-1650331"
-      }
     }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <!-- Satoshi (Fontshare) -->
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet" />
-  <!-- Instrument Serif (Google Fonts) -->
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <!-- Only the Google font families used by the page. -->
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Montserrat:wght@400;500&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="typewriter.css">
   <link rel="stylesheet" href="styles.css">
-  <!-- HLS.js — enables HLS playback in non-Safari browsers -->
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
   <style id="light-hero-override">
     /* ─── GLOBAL LIGHT THEME OVERRIDES ─── */
     /* Root variables now set directly in styles.css */
@@ -2236,7 +2197,7 @@
     <!-- video frame with overlay (full hero) -->
     <div class="hero-video-wrap">
       <!-- Background Video -->
-      <video id="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true">
+      <video id="hero-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" aria-hidden="true">
         <source src="bg.mp4" type="video/mp4">
       </video>
       <!-- Gradient shown until video is ready.
@@ -2255,7 +2216,8 @@
           <div class="hero-title-block">
             <h1 class="hero-title">Ignisia</h1>
           </div>
-          <p class="hero-tagline">Think&nbsp; <span class="hero-tagline-accent">Build</span>&nbsp; Evolve</p>
+          <p class="hero-tagline">MIT-WPU AI &amp; Technology Club</p>
+          <p class="hero-tagline" aria-label="Think. Build. Evolve.">Think.&nbsp; <span class="hero-tagline-accent">Build.</span>&nbsp; Evolve.</p>
           <!-- BROCHURE BUTTON -->
           <div class="hero-pdf-btns-row">
             <a href="assets/docs/Ignisia_Brochure.pdf" target="_blank" rel="noopener"
@@ -2272,7 +2234,7 @@
           <div style="display: none;" class="overlay-pills-row">
             <span class="overlay-pill">National Level</span>
             <span class="overlay-pill">24 Hours</span>
-            <span class="overlay-pill">₹1,00,000+ Prize Pool</span>
+            <span class="overlay-pill">₹1,00,000 Prize Pool</span>
           </div>
         </div>
 
@@ -2426,7 +2388,7 @@
               <span class="compact-cta-icon report-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                   <polyline points="14 2 14 8 20 8" />
                   <line x1="16" y1="13" x2="8" y2="13" />
                   <line x1="16" y1="17" x2="8" y2="17" />
@@ -2473,7 +2435,7 @@
         <!-- stats row -->
         <div class="about-stats-row">
           <div class="about-stat">
-            <div class="about-stat-num">₹1 Lakh+</div>
+            <div class="about-stat-num">₹1,00,000</div>
             <div class="about-stat-label">Prize Pool</div>
             <div class="about-stat-desc">Rewarding the builders who ship impactful AI</div>
           </div>
@@ -2503,7 +2465,7 @@
           </div>
           <div class="about-benefit">
             <div class="about-benefit-title">Physical Format</div>
-            <p class="about-benefit-desc">Fully on-campus at MIT-WPU, Pune. Build, collaborate, and present in person.
+            <p class="about-benefit-desc">Fully on-campus at MIT-WPU, Pune. Build, collaborate, and present in person.</p>
           </div>
         </div>
       </div>
@@ -2528,7 +2490,8 @@
         <!-- Main image stage -->
         <div class="glry-stage" id="glryStage">
           <img class="glry-main-img" id="glryMainImg" src="gallery/d84cfe8a-7988-41a8-8385-b30d51a9165b.JPG"
-            alt="Ignisia Gallery" />
+            alt="Students and organizers at the Ignisia 2026 AI hackathon at MIT-WPU Pune" width="4160" height="2773"
+            loading="lazy" decoding="async" />
           <div class="glry-overlay"></div>
           <!-- Counter badge -->
           <div class="glry-counter" id="glryCounter">1 / 47</div>
@@ -2542,99 +2505,99 @@
         <div class="glry-thumbs-wrap">
           <div class="glry-thumbs" id="glryThumbs">
             <div class="glry-thumb active" data-idx="0"><img src="gallery/d84cfe8a-7988-41a8-8385-b30d51a9165b.JPG"
-                alt="1" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="1"><img src="gallery/a9716939-fe11-465f-ab8d-2e7e387615ca.JPG" alt="2"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="2"><img src="gallery/4368dbe2-8a73-4620-8202-0c81b377fd6a.JPG" alt="3"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="3"><img src="gallery/bb82033e-b800-49f5-8546-d3f67fbea5b8.JPG" alt="4"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="4"><img src="gallery/61aad6ff-3ba7-433b-aca9-e3d4a8a2769b.JPG" alt="5"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="5"><img src="gallery/736864d8-7e64-446b-a565-26acb661a726.JPG" alt="6"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="6"><img src="gallery/PHOTO-2026-03-06-15-05-06.jpg" alt="7"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="7"><img src="gallery/85e5cbbc-d74e-465d-87bc-612874cd3d3e.JPG" alt="8"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="8"><img src="gallery/ba567dea-1652-4c4a-b46b-b6fc49800caa.JPG" alt="9"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="9"><img src="gallery/4175671b-d05c-4afc-9a2f-6c8b1c6adaec.JPG" alt="10"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="10"><img src="gallery/cc1f6062-cd53-4b81-b79c-c0e44f0bbd85.JPG" alt="11"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="11"><img src="gallery/PHOTO-2026-03-06-15-05-07.jpg" alt="12"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="12"><img src="gallery/707ac2da-a551-4ff8-8447-c77a8acbbb2a.JPG" alt="13"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="13"><img src="gallery/ebdf73ea-fb5c-46d1-8273-405c83627f5a.JPG" alt="14"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="14"><img src="gallery/3883d1cb-1d33-48e4-b405-2cc37a507402.JPG" alt="15"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="15"><img src="gallery/dbc10cf2-c680-4c1f-a05c-e63a1425d7e9.JPG" alt="16"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="16"><img src="gallery/a87cad8f-eb7b-4265-bc66-021b336ea32c.JPG" alt="17"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="17"><img src="gallery/PHOTO-2026-03-06-15-05-08.jpg" alt="18"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="18"><img src="gallery/6b82a8b0-b72a-48d3-9da9-f35847a635f9.JPG" alt="19"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="19"><img src="gallery/e68ce162-fccd-4fde-8fdb-e517bf8d123f.JPG" alt="20"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="20"><img src="gallery/8f962316-1098-4acf-be9c-09a14e27f3fe.JPG" alt="21"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="21"><img src="gallery/b5963f6a-1a11-47fd-9485-9717735be3bb.JPG" alt="22"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="22"><img src="gallery/13cc0da2-9f5c-492e-b933-3497194c708f.JPG" alt="23"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="23"><img src="gallery/fae8cbcf-cd1b-46f0-ba14-05a6504f3242.JPG" alt="24"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="24"><img src="gallery/52ee26f5-0d43-491e-943c-f1ba7464c20d.JPG" alt="25"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="25"><img src="gallery/90a8cd7f-a4a3-48a3-83aa-5ff33f45f6ee.JPG" alt="26"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="26"><img src="gallery/475f9720-0209-4cd1-808e-2fd05d771b0f.JPG" alt="27"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="27"><img src="gallery/PHOTO-2026-03-06-15-05-06 2.jpg" alt="28"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="28"><img src="gallery/c4dfc400-aef4-4645-bed0-36e74e02d23b.JPG" alt="29"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="29"><img src="gallery/2171f89a-8e02-4de6-899e-b59c73a1f4bd.JPG" alt="30"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="30"><img src="gallery/6af001a2-9ee1-446c-9db3-f24f8e1d2c90.JPG" alt="31"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="31"><img src="gallery/0bbf6592-f382-4106-9e35-9a8319ef1c4b.JPG" alt="32"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="32"><img src="gallery/3cddd717-aac1-44c5-aadc-6553ad4b8e2c.JPG" alt="33"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="33"><img src="gallery/90213092-69f0-410d-ab28-e69d5fcf7f1b.JPG" alt="34"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="34"><img src="gallery/58f8f26d-8c01-443e-9c15-5f9639b5c76f.JPG" alt="35"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="35"><img src="gallery/a04c8eac-a6db-45e1-8be2-dd6bc1c53f30.JPG" alt="36"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="36"><img src="gallery/7ecc2305-dbe2-4cf5-85fa-a068eb28d2fd.JPG" alt="37"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="37"><img src="gallery/18670286-3afc-4295-a55a-6ab86464f5fd.JPG" alt="38"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="38"><img src="gallery/43967e51-0070-4e1f-b4ce-bfdeb312e8f4.JPG" alt="39"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="39"><img src="gallery/b841f183-f7eb-4161-b23f-820315bc4548.JPG" alt="40"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="40"><img src="gallery/6f9f6692-8b6c-4930-9b05-c129ff906c1b.JPG" alt="41"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="41"><img src="gallery/37abde0f-4898-4bba-9593-66decea9864c.JPG" alt="42"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="42"><img src="gallery/d67b8aad-9500-4e97-b442-fd2d1ff63474.JPG" alt="43"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="43"><img src="gallery/8784cb00-753d-4416-bf51-1fbadbf89b6c.JPG" alt="44"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="44"><img src="gallery/1fc5b1c1-e2d5-49b9-8183-a4b36c72c761.JPG" alt="45"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="45"><img src="gallery/PHOTO-2026-03-06-15-05-07 2.jpg" alt="46"
-                loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="46"><img src="gallery/b3362a25-5d20-4210-bbf2-6239015757c4.JPG" alt="47"
-                loading="lazy" /></div>
+                alt="Ignisia AI hackathon event highlight — photo 1" loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="1"><img src="gallery/a9716939-fe11-465f-ab8d-2e7e387615ca.JPG" alt="Ignisia AI hackathon event highlight — photo 2"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="2"><img src="gallery/4368dbe2-8a73-4620-8202-0c81b377fd6a.JPG" alt="Ignisia AI hackathon event highlight — photo 3"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="3"><img src="gallery/bb82033e-b800-49f5-8546-d3f67fbea5b8.JPG" alt="Ignisia AI hackathon event highlight — photo 4"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="4"><img src="gallery/61aad6ff-3ba7-433b-aca9-e3d4a8a2769b.JPG" alt="Ignisia AI hackathon event highlight — photo 5"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="5"><img src="gallery/736864d8-7e64-446b-a565-26acb661a726.JPG" alt="Ignisia AI hackathon event highlight — photo 6"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="6"><img src="gallery/PHOTO-2026-03-06-15-05-06.jpg" alt="Ignisia AI hackathon event highlight — photo 7"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="7"><img src="gallery/85e5cbbc-d74e-465d-87bc-612874cd3d3e.JPG" alt="Ignisia AI hackathon event highlight — photo 8"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="8"><img src="gallery/ba567dea-1652-4c4a-b46b-b6fc49800caa.JPG" alt="Ignisia AI hackathon event highlight — photo 9"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="9"><img src="gallery/4175671b-d05c-4afc-9a2f-6c8b1c6adaec.JPG" alt="Ignisia AI hackathon event highlight — photo 10"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="10"><img src="gallery/cc1f6062-cd53-4b81-b79c-c0e44f0bbd85.JPG" alt="Ignisia AI hackathon event highlight — photo 11"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="11"><img src="gallery/PHOTO-2026-03-06-15-05-07.jpg" alt="Ignisia AI hackathon event highlight — photo 12"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="12"><img src="gallery/707ac2da-a551-4ff8-8447-c77a8acbbb2a.JPG" alt="Ignisia AI hackathon event highlight — photo 13"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="13"><img src="gallery/ebdf73ea-fb5c-46d1-8273-405c83627f5a.JPG" alt="Ignisia AI hackathon event highlight — photo 14"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="14"><img src="gallery/3883d1cb-1d33-48e4-b405-2cc37a507402.JPG" alt="Ignisia AI hackathon event highlight — photo 15"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="15"><img src="gallery/dbc10cf2-c680-4c1f-a05c-e63a1425d7e9.JPG" alt="Ignisia AI hackathon event highlight — photo 16"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="16"><img src="gallery/a87cad8f-eb7b-4265-bc66-021b336ea32c.JPG" alt="Ignisia AI hackathon event highlight — photo 17"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="17"><img src="gallery/PHOTO-2026-03-06-15-05-08.jpg" alt="Ignisia AI hackathon event highlight — photo 18"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="18"><img src="gallery/6b82a8b0-b72a-48d3-9da9-f35847a635f9.JPG" alt="Ignisia AI hackathon event highlight — photo 19"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="19"><img src="gallery/e68ce162-fccd-4fde-8fdb-e517bf8d123f.JPG" alt="Ignisia AI hackathon event highlight — photo 20"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="20"><img src="gallery/8f962316-1098-4acf-be9c-09a14e27f3fe.JPG" alt="Ignisia AI hackathon event highlight — photo 21"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="21"><img src="gallery/b5963f6a-1a11-47fd-9485-9717735be3bb.JPG" alt="Ignisia AI hackathon event highlight — photo 22"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="22"><img src="gallery/13cc0da2-9f5c-492e-b933-3497194c708f.JPG" alt="Ignisia AI hackathon event highlight — photo 23"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="23"><img src="gallery/fae8cbcf-cd1b-46f0-ba14-05a6504f3242.JPG" alt="Ignisia AI hackathon event highlight — photo 24"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="24"><img src="gallery/52ee26f5-0d43-491e-943c-f1ba7464c20d.JPG" alt="Ignisia AI hackathon event highlight — photo 25"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="25"><img src="gallery/90a8cd7f-a4a3-48a3-83aa-5ff33f45f6ee.JPG" alt="Ignisia AI hackathon event highlight — photo 26"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="26"><img src="gallery/475f9720-0209-4cd1-808e-2fd05d771b0f.JPG" alt="Ignisia AI hackathon event highlight — photo 27"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="27"><img src="gallery/PHOTO-2026-03-06-15-05-06 2.jpg" alt="Ignisia AI hackathon event highlight — photo 28"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="28"><img src="gallery/c4dfc400-aef4-4645-bed0-36e74e02d23b.JPG" alt="Ignisia AI hackathon event highlight — photo 29"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="29"><img src="gallery/2171f89a-8e02-4de6-899e-b59c73a1f4bd.JPG" alt="Ignisia AI hackathon event highlight — photo 30"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="30"><img src="gallery/6af001a2-9ee1-446c-9db3-f24f8e1d2c90.JPG" alt="Ignisia AI hackathon event highlight — photo 31"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="31"><img src="gallery/0bbf6592-f382-4106-9e35-9a8319ef1c4b.JPG" alt="Ignisia AI hackathon event highlight — photo 32"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="32"><img src="gallery/3cddd717-aac1-44c5-aadc-6553ad4b8e2c.JPG" alt="Ignisia AI hackathon event highlight — photo 33"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="33"><img src="gallery/90213092-69f0-410d-ab28-e69d5fcf7f1b.JPG" alt="Ignisia AI hackathon event highlight — photo 34"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="34"><img src="gallery/58f8f26d-8c01-443e-9c15-5f9639b5c76f.JPG" alt="Ignisia AI hackathon event highlight — photo 35"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="35"><img src="gallery/a04c8eac-a6db-45e1-8be2-dd6bc1c53f30.JPG" alt="Ignisia AI hackathon event highlight — photo 36"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="36"><img src="gallery/7ecc2305-dbe2-4cf5-85fa-a068eb28d2fd.JPG" alt="Ignisia AI hackathon event highlight — photo 37"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="37"><img src="gallery/18670286-3afc-4295-a55a-6ab86464f5fd.JPG" alt="Ignisia AI hackathon event highlight — photo 38"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="38"><img src="gallery/43967e51-0070-4e1f-b4ce-bfdeb312e8f4.JPG" alt="Ignisia AI hackathon event highlight — photo 39"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="39"><img src="gallery/b841f183-f7eb-4161-b23f-820315bc4548.JPG" alt="Ignisia AI hackathon event highlight — photo 40"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="40"><img src="gallery/6f9f6692-8b6c-4930-9b05-c129ff906c1b.JPG" alt="Ignisia AI hackathon event highlight — photo 41"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="41"><img src="gallery/37abde0f-4898-4bba-9593-66decea9864c.JPG" alt="Ignisia AI hackathon event highlight — photo 42"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="42"><img src="gallery/d67b8aad-9500-4e97-b442-fd2d1ff63474.JPG" alt="Ignisia AI hackathon event highlight — photo 43"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="43"><img src="gallery/8784cb00-753d-4416-bf51-1fbadbf89b6c.JPG" alt="Ignisia AI hackathon event highlight — photo 44"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="44"><img src="gallery/1fc5b1c1-e2d5-49b9-8183-a4b36c72c761.JPG" alt="Ignisia AI hackathon event highlight — photo 45"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="45"><img src="gallery/PHOTO-2026-03-06-15-05-07 2.jpg" alt="Ignisia AI hackathon event highlight — photo 46"
+                loading="lazy" decoding="async" /></div>
+            <div class="glry-thumb" data-idx="46"><img src="gallery/b3362a25-5d20-4210-bbf2-6239015757c4.JPG" alt="Ignisia AI hackathon event highlight — photo 47"
+                loading="lazy" decoding="async" /></div>
           </div>
         </div>
 
@@ -2650,7 +2613,7 @@
   <section id="club" class="section">
     <div class="container">
       <div class="club-header fade-in">
-        <h2 class="section-hero-title">About Ignisia</h2>
+        <h2 class="section-hero-title">About IGNISIA Club</h2>
         <p class="club-lead">The premier AI &amp; Technology community at MIT World Peace University — driving
           innovation, research, and hands-on builder culture.</p>
       </div>
@@ -2701,7 +2664,7 @@
         <div class="club-cta-box">
           <div class="club-cta-text">
             <h4>Become a Member</h4>
-            <p>Join the core network of AI builders and tech enthusiasts at MIT-WPU.</p>
+            <p>For ambitious students across all MIT-WPU academic disciplines and experience levels, ready to challenge the status quo.</p>
           </div>
           <a href="https://forms.gle/nrfLV9y8r5PyZZZs8" target="_blank" rel="noopener" class="interactive-hover-btn">
 
@@ -2771,7 +2734,7 @@
                   <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </span>
                 <span class="tl-btn-copy">
-                  <span class="tl-btn-kicker">Core Event</span>
+                  <span class="tl-btn-kicker">Flagship Event</span>
                   <span class="tl-btn-label">Know More</span>
                 </span>
                 <span class="tl-btn-arrow" aria-hidden="true">↗</span>
@@ -2779,7 +2742,7 @@
               <div class="aceternity-img-wrap">
                 <div class="aceternity-img-placeholder">
                   <img src="gallery/475f9720-0209-4cd1-808e-2fd05d771b0f.JPG" alt="Ignisia AI Hackathon"
-                    loading="lazy" />
+                    loading="lazy" decoding="async" />
                 </div>
               </div>
             </div>
@@ -2805,7 +2768,7 @@
                   <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                 </span>
                 <span class="tl-btn-copy">
-                  <span class="tl-btn-kicker">Core Event</span>
+                  <span class="tl-btn-kicker">Flagship Event</span>
                   <span class="tl-btn-label">Know More</span>
                 </span>
                 <span class="tl-btn-arrow" aria-hidden="true">↗</span>
@@ -2813,7 +2776,7 @@
               <div class="aceternity-img-wrap">
                 <div class="aceternity-img-placeholder">
                   <img src="gallery/52ee26f5-0d43-491e-943c-f1ba7464c20d.JPG" alt="Technophilia and Innovision"
-                    loading="lazy" />
+                    loading="lazy" decoding="async" />
                 </div>
               </div>
             </div>
@@ -2838,7 +2801,7 @@
                   <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                 </span>
                 <span class="tl-btn-copy">
-                  <span class="tl-btn-kicker">Core Event</span>
+                  <span class="tl-btn-kicker">Flagship Event</span>
                   <span class="tl-btn-label">Know More</span>
                 </span>
                 <span class="tl-btn-arrow" aria-hidden="true">↗</span>
@@ -2846,7 +2809,7 @@
               <div class="aceternity-img-wrap">
                 <div class="aceternity-img-placeholder">
                   <img src="gallery/0bbf6592-f382-4106-9e35-9a8319ef1c4b.JPG" alt="I-Talk Speaker Series"
-                    loading="lazy" />
+                    loading="lazy" decoding="async" />
                 </div>
               </div>
             </div>
@@ -2871,7 +2834,7 @@
                   <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                 </span>
                 <span class="tl-btn-copy">
-                  <span class="tl-btn-kicker">Core Event</span>
+                  <span class="tl-btn-kicker">Flagship Event</span>
                   <span class="tl-btn-label">Know More</span>
                 </span>
                 <span class="tl-btn-arrow" aria-hidden="true">↗</span>
@@ -2879,7 +2842,7 @@
               <div class="aceternity-img-wrap">
                 <div class="aceternity-img-placeholder">
                   <img src="gallery/2171f89a-8e02-4de6-899e-b59c73a1f4bd.JPG" alt="Incubex Startup Challenge"
-                    loading="lazy" />
+                    loading="lazy" decoding="async" />
                 </div>
               </div>
             </div>
@@ -2913,7 +2876,7 @@
               <div class="aceternity-img-wrap">
                 <div class="aceternity-img-placeholder">
                   <img src="gallery/3cddd717-aac1-44c5-aadc-6553ad4b8e2c.JPG" alt="Workshops and Bootcamps"
-                    loading="lazy" />
+                    loading="lazy" decoding="async" />
                 </div>
               </div>
             </div>
@@ -2947,7 +2910,7 @@
               <div class="aceternity-img-wrap">
                 <div class="aceternity-img-placeholder">
                   <img src="gallery/90213092-69f0-410d-ab28-e69d5fcf7f1b.JPG" alt="DSA Competitive Programming"
-                    loading="lazy" />
+                    loading="lazy" decoding="async" />
                 </div>
               </div>
             </div>
@@ -2981,7 +2944,7 @@
               <div class="aceternity-img-wrap">
                 <div class="aceternity-img-placeholder">
                   <img src="gallery/58f8f26d-8c01-443e-9c15-5f9639b5c76f.JPG" alt="Community Networking"
-                    loading="lazy" />
+                    loading="lazy" decoding="async" />
                 </div>
               </div>
             </div>
@@ -2999,13 +2962,13 @@
   <section id="committee" class="section">
     <div class="container">
       <div class="committee-header fade-in">
-        <h2 class="section-hero-title">Management Committee</h2>
+        <h2 class="section-hero-title">Executive Committee</h2>
       </div>
 
       <div class="committee-5grid fade-in delay-1" id="committeeGrid">
         <div class="committee-card-head">
           <div class="committee-img-wrap">
-            <img class="img-vivaan" src="gallery/VIVAAN.webp" alt="Vivaan Mathur - President" loading="lazy"
+            <img class="img-vivaan" src="gallery/VIVAAN.webp" alt="Vivaan Mathur - President" loading="lazy" decoding="async"
               style="object-position: center 15%;" />
           </div>
           <div class="committee-card-info">
@@ -3016,7 +2979,7 @@
 
         <div class="committee-card-head">
           <div class="committee-img-wrap">
-            <img class="img-ansh" src="gallery/ANSH.webp" alt="Ansh Thakare - Principal Coordinator" loading="lazy"
+            <img class="img-ansh" src="gallery/ANSH.webp" alt="Ansh Thakare - Principal Coordinator" loading="lazy" decoding="async"
               style="object-position: center 50%;" />
           </div>
           <div class="committee-card-info">
@@ -3027,7 +2990,7 @@
 
         <div class="committee-card-head">
           <div class="committee-img-wrap">
-            <img class="img-anushka" src="gallery/ANUSHKA.webp" alt="Anushka Wani - General Secretary" loading="lazy"
+            <img class="img-anushka" src="gallery/ANUSHKA.webp" alt="Anushka Wani - General Secretary" loading="lazy" decoding="async"
               style="object-position: center 15%;" />
           </div>
           <div class="committee-card-info">
@@ -3038,7 +3001,7 @@
 
         <div class="committee-card-head">
           <div class="committee-img-wrap">
-            <img class="img-jaanvi" src="gallery/JAANVI.webp" alt="Janavi Honrao - Media Head" loading="lazy"
+            <img class="img-jaanvi" src="gallery/JAANVI.webp" alt="Janavi Honrao - Media Head" loading="lazy" decoding="async"
               style="object-position: center 78%;" />
           </div>
           <div class="committee-card-info">
@@ -3049,7 +3012,7 @@
 
         <div class="committee-card-head">
           <div class="committee-img-wrap">
-            <img class="img-aryan" src="gallery/ARYANMORE.webp" alt="Aryan More - Treasurer" loading="lazy"
+            <img class="img-aryan" src="gallery/ARYANMORE.webp" alt="Aryan More - Treasurer" loading="lazy" decoding="async"
               style="object-position: center 75%;" />
           </div>
           <div class="committee-card-info">
@@ -3158,10 +3121,10 @@
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-      <span class="timeline-modal-badge">Core Event &middot; March 2026</span>
+      <span class="timeline-modal-badge">Flagship Event &middot; March 2026</span>
       <h3 class="timeline-modal-title" id="modal-ignisia-title">Ignisia &mdash; National AI Hackathon</h3>
       <div class="timeline-modal-banner">
-        <img src="gallery/475f9720-0209-4cd1-808e-2fd05d771b0f.JPG" alt="Ignisia AI Hackathon" loading="lazy" />
+        <img src="gallery/475f9720-0209-4cd1-808e-2fd05d771b0f.JPG" alt="Ignisia AI Hackathon" loading="lazy" decoding="async" />
       </div>
 
       <div class="timeline-modal-section">
@@ -3196,7 +3159,7 @@
           <span class="timeline-modal-tag">Idea Submission: Mar 17, 2026</span>
           <span class="timeline-modal-tag">Screening: Mar 18–22, 2026</span>
           <span class="timeline-modal-tag">24-Hour Grand Finale On-Campus</span>
-          <span class="timeline-modal-tag">Prize Pool: ₹1 Lakh+</span>
+          <span class="timeline-modal-tag">Prize Pool: ₹1,00,000</span>
         </div>
       </div>
 
@@ -3221,10 +3184,10 @@
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-      <span class="timeline-modal-badge">Core Events &middot; April 2026</span>
+      <span class="timeline-modal-badge">Flagship Events &middot; April 2026</span>
       <h3 class="timeline-modal-title" id="modal-technophilia-innovision-title">Technophilia &amp; Innovision &mdash; National Tech Fest &amp; Showcase</h3>
       <div class="timeline-modal-banner">
-        <img src="gallery/52ee26f5-0d43-491e-943c-f1ba7464c20d.JPG" alt="Technophilia and Innovision" loading="lazy" />
+        <img src="gallery/52ee26f5-0d43-491e-943c-f1ba7464c20d.JPG" alt="Technophilia and Innovision" loading="lazy" decoding="async" />
       </div>
 
       <div class="timeline-modal-section">
@@ -3232,7 +3195,7 @@
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           Full Description
         </h4>
-        <p class="timeline-modal-text">Two powerful events held concurrently: <strong>Technophilia</strong> is the flagship annual national technical festival — a multi-day celebration of innovation through competitions, conferences, workshops, and exhibitions. <strong>Innovision</strong> is the national project exhibition and showcase, providing students a platform to demonstrate engineering design, applied research, and technological problem-solving before academicians, industry experts, and the wider community.</p>
+        <p class="timeline-modal-text"><strong>Technophilia</strong> is the flagship annual national technical festival — a multi-day celebration of innovation through competitions, conferences, workshops, and exhibitions. <strong>Innovision</strong> is the national project exhibition and showcase, providing students a platform to demonstrate engineering design, applied research, and technological problem-solving before academicians, industry experts, and the wider community.</p>
       </div>
 
       <div class="timeline-modal-section">
@@ -3257,9 +3220,8 @@
         <div class="timeline-modal-tags">
           <span class="timeline-modal-tag">Annual — March / April</span>
           <span class="timeline-modal-tag">Technophilia: Coding Contests &amp; Conferences</span>
-          <span class="timeline-modal-tag">Innovision Track 1: Capstone Review (3rd Year)</span>
+          <span class="timeline-modal-tag">Innovision Track 1: Capstone Review (Final Year students)</span>
           <span class="timeline-modal-tag">Innovision Track 2: National Open Exhibition</span>
-          <span class="timeline-modal-tag">Separate Awards per Department</span>
         </div>
       </div>
 
@@ -3284,10 +3246,10 @@
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-      <span class="timeline-modal-badge">Core Event &middot; August 2026</span>
+      <span class="timeline-modal-badge">Flagship Event &middot; August 2026</span>
       <h3 class="timeline-modal-title" id="modal-italk-title">I-Talk &mdash; Innovation &amp; Leadership Summit</h3>
       <div class="timeline-modal-banner">
-        <img src="gallery/0bbf6592-f382-4106-9e35-9a8319ef1c4b.JPG" alt="I-Talk Speaker Series" loading="lazy" />
+        <img src="gallery/0bbf6592-f382-4106-9e35-9a8319ef1c4b.JPG" alt="I-Talk Speaker Series" loading="lazy" decoding="async" />
       </div>
 
       <div class="timeline-modal-section">
@@ -3350,10 +3312,10 @@
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-      <span class="timeline-modal-badge">Core Event &middot; October 2026</span>
+      <span class="timeline-modal-badge">Flagship Event &middot; October 2026</span>
       <h3 class="timeline-modal-title" id="modal-incubex-title">Incubex &mdash; National Startup &amp; Innovation Challenge</h3>
       <div class="timeline-modal-banner">
-        <img src="gallery/2171f89a-8e02-4de6-899e-b59c73a1f4bd.JPG" alt="Incubex Startup Challenge" loading="lazy" />
+        <img src="gallery/2171f89a-8e02-4de6-899e-b59c73a1f4bd.JPG" alt="Incubex Startup Challenge" loading="lazy" decoding="async" />
       </div>
 
       <div class="timeline-modal-section">
@@ -3418,7 +3380,7 @@
       <span class="timeline-modal-badge">Educational Session &middot; Continuous Initiative</span>
       <h3 class="timeline-modal-title" id="modal-workshops-title">Workshops &amp; Upskilling Bootcamps</h3>
       <div class="timeline-modal-banner">
-        <img src="gallery/3cddd717-aac1-44c5-aadc-6553ad4b8e2c.JPG" alt="Workshops and Bootcamps" loading="lazy" />
+        <img src="gallery/3cddd717-aac1-44c5-aadc-6553ad4b8e2c.JPG" alt="Workshops and Bootcamps" loading="lazy" decoding="async" />
       </div>
 
       <div class="timeline-modal-section">
@@ -3485,7 +3447,7 @@
       <span class="timeline-modal-badge">Tech Initiative &middot; Continuous Initiative</span>
       <h3 class="timeline-modal-title" id="modal-dsa-title">DSA &amp; Competitive Programming Initiative</h3>
       <div class="timeline-modal-banner">
-        <img src="gallery/90213092-69f0-410d-ab28-e69d5fcf7f1b.JPG" alt="DSA and Competitive Programming" loading="lazy" />
+        <img src="gallery/90213092-69f0-410d-ab28-e69d5fcf7f1b.JPG" alt="DSA and Competitive Programming" loading="lazy" decoding="async" />
       </div>
 
       <div class="timeline-modal-section">
@@ -3549,7 +3511,7 @@
       <span class="timeline-modal-badge">Tech Initiative &middot; Continuous Initiative</span>
       <h3 class="timeline-modal-title" id="modal-networking-title">Networking &amp; Community Growth</h3>
       <div class="timeline-modal-banner">
-        <img src="gallery/58f8f26d-8c01-443e-9c15-5f9639b5c76f.JPG" alt="Community Networking" loading="lazy" />
+        <img src="gallery/58f8f26d-8c01-443e-9c15-5f9639b5c76f.JPG" alt="Community Networking" loading="lazy" decoding="async" />
       </div>
 
       <div class="timeline-modal-section">

@@ -311,10 +311,13 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu();
     if (e.key === 'ArrowRight') { goTo(current + 1); resetAuto(); }
   });
 
-  /* ── Pause on hover ── */
-  if (stageEl) {
-    stageEl.addEventListener('mouseenter', stopAuto);
-    stageEl.addEventListener('mouseleave', () => { startAuto(); startProgress(); });
+  /* ── Pause on hover or focus ── */
+  const galleryWrap = document.getElementById('about-gallery') || document.getElementById('gallery');
+  if (galleryWrap) {
+    galleryWrap.addEventListener('mouseenter', stopAuto);
+    galleryWrap.addEventListener('mouseleave', () => { startAuto(); startProgress(); });
+    galleryWrap.addEventListener('focusin', stopAuto);
+    galleryWrap.addEventListener('focusout', () => { startAuto(); startProgress(); });
   }
 
   /* ── Reset auto-play (called after manual nav) ── */
@@ -456,10 +459,14 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu();
 (function initTimelineModals() {
   const openButtons = document.querySelectorAll('.timeline-know-more-btn');
   const modaldrops = document.querySelectorAll('.timeline-modal-backdrop');
+  let activeTrigger = null;
+  let trapListener = null;
 
   function openModal(modalId, triggerBtn) {
     const targetModal = document.getElementById(modalId);
     if (!targetModal) return;
+
+    activeTrigger = triggerBtn;
 
     const card = targetModal.querySelector('.timeline-modal-card');
     if (card && triggerBtn) {
@@ -471,6 +478,32 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu();
 
     targetModal.classList.add('open');
     document.body.style.overflow = 'hidden';
+
+    // Trap focus
+    const focusable = targetModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    if (focusable.length) {
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      
+      if (trapListener) targetModal.removeEventListener('keydown', trapListener);
+      trapListener = function(e) {
+        if (e.key === 'Tab') {
+          if (e.shiftKey) {
+            if (document.activeElement === first) {
+              last.focus();
+              e.preventDefault();
+            }
+          } else {
+            if (document.activeElement === last) {
+              first.focus();
+              e.preventDefault();
+            }
+          }
+        }
+      };
+      targetModal.addEventListener('keydown', trapListener);
+      setTimeout(() => first.focus(), 50);
+    }
   }
 
   function closeModal(modal) {
@@ -478,6 +511,10 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu();
     const anyOpen = document.querySelector('.timeline-modal-backdrop.open');
     if (!anyOpen) {
       document.body.style.overflow = '';
+    }
+    if (activeTrigger) {
+      activeTrigger.focus();
+      activeTrigger = null;
     }
   }
 
