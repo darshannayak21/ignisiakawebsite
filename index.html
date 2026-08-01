@@ -1137,54 +1137,93 @@
       max-width: 680px;
     }
 
-    /* ─── TIMELINE KNOW MORE BUTTON ─── */
+    /* ─── TIMELINE KNOW MORE BUTTON — mirrors hero-insta-cta glass pill ─── */
     .timeline-know-more-btn {
       display: inline-flex;
       align-items: center;
-      padding: 0.42rem 1.15rem;
-      margin-bottom: 1.35rem;
-      border-radius: 9999px;
+      gap: 0.6rem;
+      min-height: 46px;
+      padding: 0.5rem 0.9rem 0.5rem 0.55rem;
+      border-radius: 999px;
+      font-family: var(--font-body);
       font-size: 0.88rem;
       font-weight: 600;
-      color: #111827;
-      background: #ffffff;
-      border: 1px solid #d1d5db;
+      color: #0f172a;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(10px) saturate(130%);
+      -webkit-backdrop-filter: blur(10px) saturate(130%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 4px 14px rgba(0,0,0,0.07);
       cursor: pointer;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      margin-bottom: 1.35rem;
     }
 
     .timeline-know-more-btn:hover {
-      background: #f9fafb;
-      border-color: #9ca3af;
-      color: #000000;
-      transform: translateY(-1px);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      transform: translateY(-2px);
+      border-color: rgba(41, 56, 207, 0.35);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,1), 0 8px 22px rgba(41,56,207,0.12);
     }
 
-    .timeline-know-more-btn svg {
-      width: 0;
-      max-width: 0;
-      opacity: 0;
-      transform: translateX(-4px);
-      margin-left: 0;
-      stroke: #111827;
-      transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-        max-width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-        opacity 0.2s ease,
-        transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-        margin-left 0.25s ease;
-      overflow: hidden;
-      display: inline-block;
-      vertical-align: middle;
+    /* Icon circle inside button — matches hero-insta-icon pattern */
+    .tl-btn-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #6366f1 0%, #2938cf 100%);
     }
 
-    .timeline-know-more-btn:hover svg {
-      width: 15px;
-      max-width: 15px;
-      opacity: 1;
-      transform: translateX(0);
-      margin-left: 0.45rem;
+    .tl-btn-icon svg {
+      width: 13px;
+      height: 13px;
+      stroke: #ffffff;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Label stack inside button — matches hero-insta-copy pattern */
+    .tl-btn-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.2;
+    }
+
+    .tl-btn-kicker {
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: #6b7280;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .tl-btn-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    /* Arrow — matches hero-insta-arrow */
+    .tl-btn-arrow {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-left: auto;
+      padding-left: 0.25rem;
+      transition: transform 0.22s ease, color 0.22s ease;
+    }
+
+    .timeline-know-more-btn:hover .tl-btn-arrow {
+      transform: translate(2px, -2px);
+      color: #2938cf;
     }
 
     .aceternity-img-wrap {
@@ -2096,16 +2135,18 @@
             <div class="aceternity-timeline-content">
               <h3 class="aceternity-timeline-title-mob">March 2026</h3>
               <h4 class="aceternity-event-title">Ignisia &mdash; National AI Hackathon</h4>
-              <p class="aceternity-event-desc">MIT World Peace University's flagship national artificial intelligence
-                hackathon bringing together India's top student innovators for an intense 24-hour sprint to build,
-                deploy, and scale groundbreaking AI solutions.</p>
+              <p class="aceternity-event-desc">MIT World Peace University's flagship national AI hackathon &mdash;
+                a 24-hour physical building sprint where India's top student innovators engineer and deploy groundbreaking
+                AI solutions for real-world impact.</p>
               <button class="timeline-know-more-btn" data-modal="modal-ignisia" aria-label="Know more about Ignisia">
-                <span>Know More</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
+                <span class="tl-btn-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </span>
+                <span class="tl-btn-copy">
+                  <span class="tl-btn-kicker">Core Event</span>
+                  <span class="tl-btn-label">Know More</span>
+                </span>
+                <span class="tl-btn-arrow" aria-hidden="true">↗</span>
               </button>
               <div class="aceternity-img-wrap">
                 <div class="aceternity-img-placeholder">
@@ -2126,18 +2167,20 @@
             </div>
             <div class="aceternity-timeline-content">
               <h3 class="aceternity-timeline-title-mob">April 2026</h3>
-              <h4 class="aceternity-event-title">Technophilia and Innovision</h4>
-              <p class="aceternity-event-desc">The combined national technical festival and premier project exhibition
-                featuring coding contests, robotics challenges, research presentations, and capstone project exhibitions
-                evaluated by industry juries.</p>
+              <h4 class="aceternity-event-title">Technophilia &amp; Innovision</h4>
+              <p class="aceternity-event-desc">Ignisia's national technical festival and premier project exhibition
+                &mdash; bringing coding contests, robotics, research talks, and capstone project showcases
+                under one roof, evaluated by industry juries.</p>
               <button class="timeline-know-more-btn" data-modal="modal-technophilia-innovision"
                 aria-label="Know more about Technophilia and Innovision">
-                <span>Know More</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
+                <span class="tl-btn-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </span>
+                <span class="tl-btn-copy">
+                  <span class="tl-btn-kicker">Core Event</span>
+                  <span class="tl-btn-label">Know More</span>
+                </span>
+                <span class="tl-btn-arrow" aria-hidden="true">↗</span>
               </button>
               <div class="aceternity-img-wrap">
                 <div class="aceternity-img-placeholder">
@@ -2160,15 +2203,17 @@
               <h3 class="aceternity-timeline-title-mob">August 2026</h3>
               <h4 class="aceternity-event-title">I-Talk &mdash; Innovation &amp; Leadership Summit</h4>
               <p class="aceternity-event-desc">The flagship thought-leadership conference featuring interactive
-                sessions, keynotes, fireside chats, live demos, and mentorship with distinguished leaders across tech,
-                industry, and research.</p>
+                keynotes, fireside chats, live demos, and mentor interactions with distinguished leaders across
+                tech, industry, and research &mdash; audience participation is at the core.</p>
               <button class="timeline-know-more-btn" data-modal="modal-italk" aria-label="Know more about I-Talk">
-                <span>Know More</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
+                <span class="tl-btn-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </span>
+                <span class="tl-btn-copy">
+                  <span class="tl-btn-kicker">Core Event</span>
+                  <span class="tl-btn-label">Know More</span>
+                </span>
+                <span class="tl-btn-arrow" aria-hidden="true">↗</span>
               </button>
               <div class="aceternity-img-wrap">
                 <div class="aceternity-img-placeholder">
@@ -2190,20 +2235,124 @@
             <div class="aceternity-timeline-content">
               <h3 class="aceternity-timeline-title-mob">October 2026</h3>
               <h4 class="aceternity-event-title">Incubex &mdash; National Startup &amp; Innovation Challenge</h4>
-              <p class="aceternity-event-desc">The flagship entrepreneurship competition connecting student innovators
-                with mentorship, industry feedback, venture incubation, and angel investment across maturity stages from
-                Ideation to registered Startups.</p>
+              <p class="aceternity-event-desc">The flagship entrepreneurship platform connecting student innovators
+                and startups with mentorship, industry feedback, incubation opportunities, and potential
+                angel investment &mdash; from raw Ideation to registered Startups.</p>
               <button class="timeline-know-more-btn" data-modal="modal-incubex" aria-label="Know more about Incubex">
-                <span>Know More</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
+                <span class="tl-btn-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </span>
+                <span class="tl-btn-copy">
+                  <span class="tl-btn-kicker">Core Event</span>
+                  <span class="tl-btn-label">Know More</span>
+                </span>
+                <span class="tl-btn-arrow" aria-hidden="true">↗</span>
               </button>
               <div class="aceternity-img-wrap">
                 <div class="aceternity-img-placeholder">
                   <img src="gallery/2171f89a-8e02-4de6-899e-b59c73a1f4bd.JPG" alt="Incubex Startup Challenge"
+                    loading="lazy" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5: Year-Round - Workshops & Bootcamps -->
+          <div class="aceternity-timeline-item">
+            <div class="aceternity-timeline-sticky">
+              <div class="aceternity-timeline-node">
+                <div class="aceternity-timeline-dot"></div>
+              </div>
+              <h3 class="aceternity-timeline-title">Year-Round</h3>
+            </div>
+            <div class="aceternity-timeline-content">
+              <h3 class="aceternity-timeline-title-mob">Year-Round</h3>
+              <h4 class="aceternity-event-title">Workshops &amp; Upskilling Bootcamps</h4>
+              <p class="aceternity-event-desc">Structured domain-specific workshops and learning bootcamps
+                running throughout the academic year &mdash; covering AI/ML, Web Dev, Cybersecurity, Cloud,
+                Blockchain, and more with assignments, projects, and mentorship.</p>
+              <button class="timeline-know-more-btn" data-modal="modal-workshops"
+                aria-label="Know more about Workshops and Bootcamps">
+                <span class="tl-btn-icon" aria-hidden="true" style="background: linear-gradient(135deg,#059669,#0d9488);">
+                  <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </span>
+                <span class="tl-btn-copy">
+                  <span class="tl-btn-kicker">Educational Session</span>
+                  <span class="tl-btn-label">Know More</span>
+                </span>
+                <span class="tl-btn-arrow" aria-hidden="true">↗</span>
+              </button>
+              <div class="aceternity-img-wrap">
+                <div class="aceternity-img-placeholder">
+                  <img src="gallery/3cddd717-aac1-44c5-aadc-6553ad4b8e2c.JPG" alt="Workshops and Bootcamps"
+                    loading="lazy" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6: Year-Round - DSA & Competitive Programming -->
+          <div class="aceternity-timeline-item">
+            <div class="aceternity-timeline-sticky">
+              <div class="aceternity-timeline-node">
+                <div class="aceternity-timeline-dot"></div>
+              </div>
+              <h3 class="aceternity-timeline-title">Year-Round</h3>
+            </div>
+            <div class="aceternity-timeline-content">
+              <h3 class="aceternity-timeline-title-mob">Year-Round</h3>
+              <h4 class="aceternity-event-title">DSA &amp; Competitive Programming Initiative</h4>
+              <p class="aceternity-event-desc">From foundational Data Structures &amp; Algorithms to ICPC-level
+                preparation &mdash; a structured competitive programming programme building algorithmic
+                thinkers, interview-ready coders, and national contest competitors.</p>
+              <button class="timeline-know-more-btn" data-modal="modal-dsa"
+                aria-label="Know more about DSA and Competitive Programming">
+                <span class="tl-btn-icon" aria-hidden="true" style="background: linear-gradient(135deg,#d97706,#b45309);">
+                  <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </span>
+                <span class="tl-btn-copy">
+                  <span class="tl-btn-kicker">Tech Initiative</span>
+                  <span class="tl-btn-label">Know More</span>
+                </span>
+                <span class="tl-btn-arrow" aria-hidden="true">↗</span>
+              </button>
+              <div class="aceternity-img-wrap">
+                <div class="aceternity-img-placeholder">
+                  <img src="gallery/90213092-69f0-410d-ab28-e69d5fcf7f1b.JPG" alt="DSA Competitive Programming"
+                    loading="lazy" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7: Year-Round - Networking & Community -->
+          <div class="aceternity-timeline-item">
+            <div class="aceternity-timeline-sticky">
+              <div class="aceternity-timeline-node">
+                <div class="aceternity-timeline-dot"></div>
+              </div>
+              <h3 class="aceternity-timeline-title">Year-Round</h3>
+            </div>
+            <div class="aceternity-timeline-content">
+              <h3 class="aceternity-timeline-title-mob">Year-Round</h3>
+              <h4 class="aceternity-event-title">Networking &amp; Community Growth</h4>
+              <p class="aceternity-event-desc">Ignisia's community backbone &mdash; connecting members with
+                researchers, entrepreneurs, alumni, and industry leaders through Discord, GitHub, mentorship
+                programmes, study groups, and multi-platform digital ecosystems.</p>
+              <button class="timeline-know-more-btn" data-modal="modal-networking"
+                aria-label="Know more about Networking and Community Growth">
+                <span class="tl-btn-icon" aria-hidden="true" style="background: linear-gradient(135deg,#7c3aed,#4f46e5);">
+                  <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="tl-btn-copy">
+                  <span class="tl-btn-kicker">Tech Initiative</span>
+                  <span class="tl-btn-label">Know More</span>
+                </span>
+                <span class="tl-btn-arrow" aria-hidden="true">↗</span>
+              </button>
+              <div class="aceternity-img-wrap">
+                <div class="aceternity-img-placeholder">
+                  <img src="gallery/58f8f26d-8c01-443e-9c15-5f9639b5c76f.JPG" alt="Community Networking"
                     loading="lazy" />
                 </div>
               </div>
@@ -2399,57 +2548,59 @@
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-      <span class="timeline-modal-badge">March 2026</span>
+      <span class="timeline-modal-badge">Core Event &middot; March 2026</span>
       <h3 class="timeline-modal-title" id="modal-ignisia-title">Ignisia &mdash; National AI Hackathon</h3>
       <div class="timeline-modal-banner">
         <img src="gallery/475f9720-0209-4cd1-808e-2fd05d771b0f.JPG" alt="Ignisia AI Hackathon" loading="lazy" />
       </div>
 
       <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">What It Is</h4>
-        <p class="timeline-modal-text">MIT World Peace University's flagship national artificial intelligence hackathon
-          &mdash; a grand stage bringing together India's most extraordinary student innovators, coders, and visionaries
-          for an intense 24-hour physical building sprint on campus.</p>
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Full Description
+        </h4>
+        <p class="timeline-modal-text">MIT World Peace University's flagship national AI hackathon &mdash; a grand stage bringing together India's most extraordinary student innovators, coders, and visionaries. Teams compete in an intense <strong>24-hour physical building sprint</strong> on campus, engineering AI solutions that address critical real-world problems. Evaluation focuses on both technological excellence and positive societal impact.</p>
       </div>
 
       <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">Purpose</h4>
-        <p class="timeline-modal-text">Empower student builders to engineer, deploy, and scale groundbreaking AI
-          solutions addressing critical real-world problems &mdash; spanning generative systems, autonomous agents,
-          computer vision, and intelligent automation.</p>
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Key Objectives
+        </h4>
+        <ul class="timeline-modal-list">
+          <li>Provide a premier national platform for AI innovation and applied technical excellence</li>
+          <li>Foster interdisciplinary collaboration to solve complex societal challenges</li>
+          <li>Evaluate projects on technical rigor and real-world societal impact</li>
+          <li>Connect student innovators with mentors, researchers, and industry leaders</li>
+          <li>Establish Ignisia as India's leading student-led AI competition</li>
+        </ul>
       </div>
 
       <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">Governance &amp; Timeline</h4>
-        <p class="timeline-modal-text">Held annually in <strong>March 2026</strong>. Governed and executed by the
-          Ignisia Organising Secretariat and Core Committee.</p>
-      </div>
-
-      <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">Key Activities</h4>
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Key Dates &amp; Highlights
+        </h4>
         <div class="timeline-modal-tags">
-          <span class="timeline-modal-tag">24-Hour Building Sprint</span>
-          <span class="timeline-modal-tag">AI Mentorship Tracks</span>
-          <span class="timeline-modal-tag">Industry Jury Evaluation</span>
-          <span class="timeline-modal-tag">Live Product Demos</span>
-          <span class="timeline-modal-tag">Keynote &amp; Tech Talks</span>
+          <span class="timeline-modal-tag">Annual — March</span>
+          <span class="timeline-modal-tag">Idea Submission: Mar 17, 2026</span>
+          <span class="timeline-modal-tag">Screening: Mar 18–22, 2026</span>
+          <span class="timeline-modal-tag">24-Hour Grand Finale On-Campus</span>
+          <span class="timeline-modal-tag">Prize Pool: ₹1 Lakh+</span>
         </div>
       </div>
 
       <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">Expected Outcomes</h4>
-        <div class="timeline-modal-tags">
-          <span class="timeline-modal-tag highlight">Production-Ready AI MVPs</span>
-          <span class="timeline-modal-tag highlight">National Level Recognition</span>
-          <span class="timeline-modal-tag highlight">Grand Prize Pool &amp; Grants</span>
-          <span class="timeline-modal-tag highlight">Internship &amp; Hiring Connects</span>
-          <span class="timeline-modal-tag highlight">Incubation Fast-Track</span>
-        </div>
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Target Audience &amp; Deliverables
+        </h4>
+        <p class="timeline-modal-text">Open to student teams from <strong>all recognised educational institutions across India</strong> (National Level). Participants deliver a working AI prototype or deployed product solving a real-world problem. Formats include generative AI, autonomous agents, computer vision, NLP, and intelligent automation.</p>
       </div>
     </div>
   </div>
 
-  <!-- 2. Modal: Technophilia and Innovision -->
+  <!-- 2. Modal: Technophilia & Innovision -->
   <div class="timeline-modal-backdrop" id="modal-technophilia-innovision" role="dialog" aria-modal="true"
     aria-labelledby="modal-technophilia-innovision-title">
     <div class="timeline-modal-card">
@@ -2460,46 +2611,54 @@
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-      <span class="timeline-modal-badge">April 2026</span>
-      <h3 class="timeline-modal-title" id="modal-technophilia-innovision-title">Technophilia and Innovision &mdash;
-        National Tech Fest &amp; Showcase</h3>
+      <span class="timeline-modal-badge">Core Events &middot; April 2026</span>
+      <h3 class="timeline-modal-title" id="modal-technophilia-innovision-title">Technophilia &amp; Innovision &mdash; National Tech Fest &amp; Showcase</h3>
       <div class="timeline-modal-banner">
-        <img src="gallery/52ee26f5-0d43-491e-943c-f1ba7464c20d.JPG" alt="Technophilia and Innovision Showcase"
-          loading="lazy" />
+        <img src="gallery/52ee26f5-0d43-491e-943c-f1ba7464c20d.JPG" alt="Technophilia and Innovision" loading="lazy" />
       </div>
 
       <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">What It Is</h4>
-        <p class="timeline-modal-text">The premier national technical festival and capstone exhibition platform &mdash;
-          uniting competitive coding contests, robotics challenges, research presentations, and the National Level
-          Project Exhibition under one comprehensive technical showcase.</p>
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Full Description
+        </h4>
+        <p class="timeline-modal-text">Two powerful events held concurrently: <strong>Technophilia</strong> is the flagship annual national technical festival — a multi-day celebration of innovation through competitions, conferences, workshops, and exhibitions. <strong>Innovision</strong> is the national project exhibition and showcase, providing students a platform to demonstrate engineering design, applied research, and technological problem-solving before academicians, industry experts, and the wider community.</p>
       </div>
 
       <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">Two Core Pillars</h4>
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Key Objectives
+        </h4>
         <ul class="timeline-modal-list">
-          <li><strong>Technophilia National Technical Fest:</strong> Coding tournaments, AI hack challenges, robotics
-            arena, technical conferences, and paper presentations.</li>
-          <li><strong>Innovision Project Exhibition:</strong> Final Year Polytechnic Capstone Review and National Open
-            Project Showcase evaluated by industry juries.</li>
+          <li>Promote technical education, innovation, and interdisciplinary collaboration</li>
+          <li>Provide practical learning and hands-on skill development opportunities</li>
+          <li>Recognise outstanding student innovations through national awards</li>
+          <li>Facilitate academia–industry interaction and research culture</li>
+          <li>Encourage entrepreneurship and product development</li>
         </ul>
       </div>
 
       <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">Purpose &amp; Timeline</h4>
-        <p class="timeline-modal-text">Showcase engineering and applied research projects, recognize student innovation,
-          and foster academia-industry ties. Held annually in <strong>April 2026</strong>.</p>
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Key Dates &amp; Highlights
+        </h4>
+        <div class="timeline-modal-tags">
+          <span class="timeline-modal-tag">Annual — March / April</span>
+          <span class="timeline-modal-tag">Technophilia: Coding Contests &amp; Conferences</span>
+          <span class="timeline-modal-tag">Innovision Track 1: Capstone Review (3rd Year)</span>
+          <span class="timeline-modal-tag">Innovision Track 2: National Open Exhibition</span>
+          <span class="timeline-modal-tag">Separate Awards per Department</span>
+        </div>
       </div>
 
       <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">Expected Outcomes</h4>
-        <div class="timeline-modal-tags">
-          <span class="timeline-modal-tag highlight">Practical Skill Mastery</span>
-          <span class="timeline-modal-tag highlight">Capstone Project Validation</span>
-          <span class="timeline-modal-tag highlight">Industry Jury Feedback</span>
-          <span class="timeline-modal-tag highlight">Commercialization Support</span>
-          <span class="timeline-modal-tag highlight">National Awards &amp; Grants</span>
-        </div>
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Target Audience &amp; Deliverables
+        </h4>
+        <p class="timeline-modal-text"><strong>Technophilia:</strong> Students, researchers, academicians, and industry professionals (national level). <strong>Innovision:</strong> MIT-WPU final-year Polytechnic students (Track 1) and students from all recognised institutions nationwide (Track 2). Judges include faculty members, academic coordinators, and industry experts.</p>
       </div>
     </div>
   </div>
@@ -2515,55 +2674,57 @@
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-      <span class="timeline-modal-badge">August 2026</span>
+      <span class="timeline-modal-badge">Core Event &middot; August 2026</span>
       <h3 class="timeline-modal-title" id="modal-italk-title">I-Talk &mdash; Innovation &amp; Leadership Summit</h3>
       <div class="timeline-modal-banner">
         <img src="gallery/0bbf6592-f382-4106-9e35-9a8319ef1c4b.JPG" alt="I-Talk Speaker Series" loading="lazy" />
       </div>
 
       <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">What It Is</h4>
-        <p class="timeline-modal-text">The flagship thought-leadership conference featuring interactive sessions (not
-          lecture-style) with distinguished personalities from academia, industry, entrepreneurship, government,
-          research, media, and sports &mdash; keynotes, fireside chats, Q&amp;As, panels, live demos, and mentor
-          interactions.</p>
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Full Description
+        </h4>
+        <p class="timeline-modal-text">The flagship thought-leadership and knowledge-sharing conference of Ignisia Club — organised to inspire students through meaningful interactions with distinguished personalities from <strong>academia, industry, entrepreneurship, government, research, media, and sports</strong>. Unlike conventional lecture-based conferences, I-Talks emphasise interactive learning, audience participation, open dialogue, and experiential engagement.</p>
       </div>
 
       <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">Purpose</h4>
-        <p class="timeline-modal-text">Inspire students, build networking and mentorship opportunities, and expose them
-          to emerging technologies, AI breakthroughs, and global industry trends.</p>
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Key Objectives
+        </h4>
+        <ul class="timeline-modal-list">
+          <li>Inspire students through real-world experiences and success stories</li>
+          <li>Promote innovation, leadership, entrepreneurship, and lifelong learning</li>
+          <li>Facilitate interaction between students and distinguished personalities</li>
+          <li>Expose participants to emerging technologies, industries, and global trends</li>
+          <li>Create networking and mentorship opportunities; foster curiosity and professional growth</li>
+        </ul>
       </div>
 
       <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">Governance &amp; Timeline</h4>
-        <p class="timeline-modal-text">Held annually in <strong>August 2026</strong>. Led by Club President (ex-officio
-          Student Convener), Organising Secretariat (President, Principal Coordinator, General Secretary), Co-Convener
-          (appointed Event Coordinator), Crew, and Volunteers.</p>
-      </div>
-
-      <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">Key Activities</h4>
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Key Dates &amp; Formats
+        </h4>
         <div class="timeline-modal-tags">
-          <span class="timeline-modal-tag">Keynote Talks</span>
+          <span class="timeline-modal-tag">Annual — August / September</span>
+          <span class="timeline-modal-tag">Keynote Conversations</span>
           <span class="timeline-modal-tag">Fireside Chats</span>
-          <span class="timeline-modal-tag">Technical Panels</span>
-          <span class="timeline-modal-tag">AI &amp; Tech Demonstrations</span>
-          <span class="timeline-modal-tag">Startup Founder Dialogues</span>
-          <span class="timeline-modal-tag">Audience Q&amp;A</span>
-          <span class="timeline-modal-tag">VIP Networking</span>
+          <span class="timeline-modal-tag">Panel Discussions</span>
+          <span class="timeline-modal-tag">Live Demonstrations</span>
+          <span class="timeline-modal-tag">Mentor Interactions</span>
+          <span class="timeline-modal-tag">Innovation Showcases</span>
+          <span class="timeline-modal-tag">Networking Sessions</span>
         </div>
       </div>
 
       <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">Expected Outcomes</h4>
-        <div class="timeline-modal-tags">
-          <span class="timeline-modal-tag highlight">Industry Awareness</span>
-          <span class="timeline-modal-tag highlight">Executive Mentorship</span>
-          <span class="timeline-modal-tag highlight">Career Guidance</span>
-          <span class="timeline-modal-tag highlight">Internship Opportunities</span>
-          <span class="timeline-modal-tag highlight">Research Collaborations</span>
-        </div>
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Target Audience &amp; Deliverables
+        </h4>
+        <p class="timeline-modal-text">Open to all Ignisia Club members, students, and the broader MIT-WPU community. Speakers include distinguished personalities from diverse fields. Active audience participation is a core design principle — not a passive lecture experience.</p>
       </div>
     </div>
   </div>
@@ -2579,23 +2740,41 @@
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-      <span class="timeline-modal-badge">October 2026</span>
-      <h3 class="timeline-modal-title" id="modal-incubex-title">Incubex &mdash; National Startup &amp; Innovation
-        Challenge</h3>
+      <span class="timeline-modal-badge">Core Event &middot; October 2026</span>
+      <h3 class="timeline-modal-title" id="modal-incubex-title">Incubex &mdash; National Startup &amp; Innovation Challenge</h3>
       <div class="timeline-modal-banner">
         <img src="gallery/2171f89a-8e02-4de6-899e-b59c73a1f4bd.JPG" alt="Incubex Startup Challenge" loading="lazy" />
       </div>
 
       <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">What It Is</h4>
-        <p class="timeline-modal-text">The flagship entrepreneurship competition &mdash; distinct from problem-statement
-          hackathons, Incubex lets participants pitch their own original ideas, products, and startups before
-          academicians, industry leaders, founders, and angel investors.</p>
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Full Description
+        </h4>
+        <p class="timeline-modal-text">The flagship entrepreneurship and startup challenge of Ignisia Club. Unlike conventional hackathons or problem-statement competitions, <strong>Incubex focuses on the full spectrum of the innovation journey</strong> — from raw ideation to registered, operational startups. It functions as a platform connecting innovators with mentors, industry feedback, incubation opportunities, strategic partnerships, and potential investment.</p>
       </div>
 
       <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">Maturity Classification</h4>
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Key Objectives
+        </h4>
+        <ul class="timeline-modal-list">
+          <li>Promote innovation and entrepreneurial thinking among students</li>
+          <li>Support the transformation of ideas into viable products and startups</li>
+          <li>Facilitate interaction between innovators, mentors, investors, and industry leaders</li>
+          <li>Recognise high-potential technologies and business ideas</li>
+          <li>Establish Ignisia as a national platform for student entrepreneurship</li>
+        </ul>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Competition Stages
+        </h4>
         <div class="timeline-modal-tags">
+          <span class="timeline-modal-tag">Annual — October / November</span>
           <span class="timeline-modal-tag">1. Ideation</span>
           <span class="timeline-modal-tag">2. Validation</span>
           <span class="timeline-modal-tag">3. Prototype</span>
@@ -2606,21 +2785,208 @@
       </div>
 
       <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">Purpose &amp; Governance</h4>
-        <p class="timeline-modal-text">Connect student innovators to mentorship, industry feedback, incubation, and
-          investment. Held annually in <strong>October 2026</strong> under the tri-level Secretariat governance model.
-        </p>
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Target Audience &amp; Deliverables
+        </h4>
+        <p class="timeline-modal-text">Open to <strong>student innovators and startup founders from all recognised educational institutions</strong>. Judges include entrepreneurs, founders, VCs, angel investors, academicians, and subject-matter experts. Format includes pitching, mentor sessions, investor interactions, and exhibitions. In association with incubation centres, accelerators, startup ecosystems, and MIT-WPU.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Modal: Workshops & Bootcamps -->
+  <div class="timeline-modal-backdrop" id="modal-workshops" role="dialog" aria-modal="true"
+    aria-labelledby="modal-workshops-title">
+    <div class="timeline-modal-card">
+      <button class="timeline-modal-close" aria-label="Close modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <span class="timeline-modal-badge">Educational Session &middot; Year-Round</span>
+      <h3 class="timeline-modal-title" id="modal-workshops-title">Workshops &amp; Upskilling Bootcamps</h3>
+      <div class="timeline-modal-banner">
+        <img src="gallery/3cddd717-aac1-44c5-aadc-6553ad4b8e2c.JPG" alt="Workshops and Bootcamps" loading="lazy" />
       </div>
 
       <div class="timeline-modal-section">
-        <h4 class="timeline-modal-section-title">Expected Outcomes</h4>
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Full Description
+        </h4>
+        <p class="timeline-modal-text">The Upskilling Tracks framework is the official ecosystem for technical education, professional development, innovation, research, and continuous learning within Ignisia Club. <strong>Structured Upskilling Tracks</strong> cover emerging technologies and industry-relevant domains with learning paths, practical assignments, workshops, projects, and assessments. The Club also maintains a central repository of educational resources and formal mentorship programmes.</p>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Key Objectives
+        </h4>
+        <ul class="timeline-modal-list">
+          <li>Promote continuous technical learning and strengthen problem-solving abilities</li>
+          <li>Prepare members for industry careers and academic excellence</li>
+          <li>Support participation in national and international competitions</li>
+          <li>Promote entrepreneurship, product development, and lifelong learning</li>
+          <li>Develop leadership through technical excellence</li>
+        </ul>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Tech Domains Covered
+        </h4>
         <div class="timeline-modal-tags">
-          <span class="timeline-modal-tag highlight">Student Startups</span>
-          <span class="timeline-modal-tag highlight">Product Prototypes &amp; MVPs</span>
-          <span class="timeline-modal-tag highlight">Incubation Support</span>
-          <span class="timeline-modal-tag highlight">Angel/VC Investor Connect</span>
-          <span class="timeline-modal-tag highlight">Industry Partnerships</span>
+          <span class="timeline-modal-tag highlight">AI &amp; Machine Learning</span>
+          <span class="timeline-modal-tag highlight">Web Design &amp; Development</span>
+          <span class="timeline-modal-tag highlight">Mobile App Development</span>
+          <span class="timeline-modal-tag highlight">Cybersecurity</span>
+          <span class="timeline-modal-tag highlight">Blockchain &amp; Web3</span>
+          <span class="timeline-modal-tag highlight">Cloud Computing &amp; DevOps</span>
+          <span class="timeline-modal-tag highlight">Internet of Things</span>
+          <span class="timeline-modal-tag highlight">Data Science</span>
+          <span class="timeline-modal-tag highlight">UI/UX Design</span>
         </div>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Target Audience &amp; Deliverables
+        </h4>
+        <p class="timeline-modal-text">Open to <strong>all Ignisia Club members and students</strong> throughout the academic year. Learning formats include lectures, practice sessions, workshops, projects, assessments, mentorship, and peer study groups. May include certification programmes in collaboration with academic institutions and industry organisations.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Modal: DSA & Competitive Programming -->
+  <div class="timeline-modal-backdrop" id="modal-dsa" role="dialog" aria-modal="true"
+    aria-labelledby="modal-dsa-title">
+    <div class="timeline-modal-card">
+      <button class="timeline-modal-close" aria-label="Close modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <span class="timeline-modal-badge">Tech Initiative &middot; Year-Round</span>
+      <h3 class="timeline-modal-title" id="modal-dsa-title">DSA &amp; Competitive Programming Initiative</h3>
+      <div class="timeline-modal-banner">
+        <img src="gallery/90213092-69f0-410d-ab28-e69d5fcf7f1b.JPG" alt="DSA and Competitive Programming" loading="lazy" />
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Full Description
+        </h4>
+        <p class="timeline-modal-text">The Competitive Programming Programmes are established to enhance <strong>algorithmic thinking, programming proficiency, computational problem-solving, and technical interview preparedness</strong> among members. The Core Programming &amp; DSA Team manages algorithm design, data structures, competitive programming, contests, optimisation, mentoring, and technical interview preparation. Includes a dedicated <strong>ICPC Cell</strong> for international-level competition preparation.</p>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Key Objectives
+        </h4>
+        <ul class="timeline-modal-list">
+          <li>Enhance algorithmic thinking and programming proficiency</li>
+          <li>Strengthen computational problem-solving skills</li>
+          <li>Prepare members for technical interviews at top companies</li>
+          <li>Represent the university in national and international programming contests (ICPC)</li>
+          <li>Build a competitive programming culture within Ignisia</li>
+        </ul>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Programme Highlights
+        </h4>
+        <div class="timeline-modal-tags">
+          <span class="timeline-modal-tag">Year-Round Structured Programme</span>
+          <span class="timeline-modal-tag">ICPC Cell (Selection + Training Camps)</span>
+          <span class="timeline-modal-tag">Internal Ranking &amp; Contests</span>
+          <span class="timeline-modal-tag">Codeforces &amp; LeetCode</span>
+          <span class="timeline-modal-tag">HackerRank &amp; CodeChef</span>
+          <span class="timeline-modal-tag">Mock Contests &amp; Peer Mentoring</span>
+        </div>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Target Audience &amp; Topics
+        </h4>
+        <p class="timeline-modal-text">Open to <strong>all Ignisia members</strong> with interest in competitive programming and technical interview preparation. Topics include: Data Structures, Algorithms, Problem Solving, Complexity Analysis, Programming Techniques, Interview Preparation, and Advanced Competitive Programming.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Modal: Networking & Community Growth -->
+  <div class="timeline-modal-backdrop" id="modal-networking" role="dialog" aria-modal="true"
+    aria-labelledby="modal-networking-title">
+    <div class="timeline-modal-card">
+      <button class="timeline-modal-close" aria-label="Close modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <span class="timeline-modal-badge">Tech Initiative &middot; Year-Round</span>
+      <h3 class="timeline-modal-title" id="modal-networking-title">Networking &amp; Community Growth</h3>
+      <div class="timeline-modal-banner">
+        <img src="gallery/58f8f26d-8c01-443e-9c15-5f9639b5c76f.JPG" alt="Community Networking" loading="lazy" />
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Full Description
+        </h4>
+        <p class="timeline-modal-text">The community backbone of Ignisia Club — building lasting connections among students, alumni, faculty, industry professionals, researchers, and policymakers. The Club maintains a <strong>multi-platform digital ecosystem</strong> (Website, GitHub Organisation, Discord Server, Email Services) and engages its community through I-Talks, mentorship programmes, hackathon support, study groups, and certification initiatives. It also connects innovators with investment and incubation opportunities.</p>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Key Objectives
+        </h4>
+        <ul class="timeline-modal-list">
+          <li>Connect students with researchers, entrepreneurs, industry leaders, policymakers, and alumni</li>
+          <li>Establish and maintain a strong multi-channel digital community presence</li>
+          <li>Foster interdisciplinary collaboration among students from diverse academic backgrounds</li>
+          <li>Promote responsible innovation and the ethical application of technology</li>
+          <li>Develop leadership, professionalism, and organisational excellence</li>
+        </ul>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Official Digital Platforms
+        </h4>
+        <div class="timeline-modal-tags">
+          <span class="timeline-modal-tag highlight">ignisia.tech (Official Website)</span>
+          <span class="timeline-modal-tag highlight">GitHub Organisation</span>
+          <span class="timeline-modal-tag highlight">Discord Server</span>
+          <span class="timeline-modal-tag highlight">Official Email Services</span>
+          <span class="timeline-modal-tag">Mentorship Programmes</span>
+          <span class="timeline-modal-tag">Peer Study Groups</span>
+          <span class="timeline-modal-tag">Alumni Network</span>
+          <span class="timeline-modal-tag">Hackathon Support</span>
+        </div>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Target Audience &amp; Deliverables
+        </h4>
+        <p class="timeline-modal-text">Targets <strong>all Ignisia Club members, potential members, alumni, and industry partners</strong>. Delivers an active online community, mentorship connections, alumni network, and industry partnerships. Includes career guidance, technical mentoring, project supervision, research support, startup mentoring, and professional development support.</p>
       </div>
     </div>
   </div>
