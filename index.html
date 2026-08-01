@@ -582,71 +582,335 @@
       }
     }
 
-    /* Mobile Navigation Drawer UI Overhaul (Matches light & #2938cf theme) */
+    /* ─── Attachment 4: Mobile Navigation Overlay & Drawer (Centered Design) ─── */
     .mobile-menu {
-      background: rgba(255, 255, 255, 0.96) !important;
-      backdrop-filter: blur(24px) saturate(180%) !important;
-      -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-      border-left: 1px solid rgba(41, 56, 207, 0.15) !important;
-      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.08) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100vw !important;
+      height: 100dvh !important;
+      background: rgba(255, 255, 255, 0.94) !important;
+      backdrop-filter: blur(28px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+      z-index: 1050 !important;
+      padding: 1.5rem 1.5rem 2.5rem !important;
+      border: none !important;
+      box-shadow: none !important;
+      transform: translateY(-100%) !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, visibility 0.4s !important;
+    }
+
+    .mobile-menu.open {
+      transform: translateY(0) !important;
+      visibility: visible !important;
+      opacity: 1 !important;
     }
 
     .mob-header {
-      border-bottom: 1px solid rgba(41, 56, 207, 0.1) !important;
-      padding: 1.4rem 1.6rem !important;
+      width: 100% !important;
+      max-width: 500px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 0.5rem 0.5rem 1rem !important;
+      border-bottom: none !important;
     }
 
     .mob-header-label {
       color: #2938cf !important;
       font-weight: 700 !important;
-      letter-spacing: 0.2em !important;
+      letter-spacing: 0.15em !important;
       font-size: 13px !important;
     }
 
     .mob-close {
-      border: 1px solid rgba(41, 56, 207, 0.2) !important;
-      background: rgba(41, 56, 207, 0.06) !important;
-      color: #2938cf !important;
-      border-radius: 10px !important;
-      font-size: 15px !important;
+      width: 36px !important;
+      height: 36px !important;
+      border-radius: 50% !important;
+      border: 1px solid rgba(0, 0, 0, 0.12) !important;
+      background: rgba(0, 0, 0, 0.05) !important;
+      color: #1e293b !important;
+      font-size: 16px !important;
       transition: all 0.2s ease !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
     }
 
     .mob-close:hover {
-      background: #2938cf !important;
+      background: #1e293b !important;
       color: #FFFFFF !important;
-      border-color: #2938cf !important;
+    }
+
+    .mob-nav {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 1.1rem !important;
+      width: 100% !important;
+      max-width: 400px !important;
+      margin: auto 0 !important;
+      text-align: center !important;
+      list-style: none !important;
+      padding: 0 !important;
+    }
+
+    .mobile-menu li {
+      width: 100% !important;
+      text-align: center !important;
+      padding: 0 !important;
     }
 
     .mobile-menu li a {
-      color: #1f2937 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.6rem !important;
+      color: #0f172a !important;
+      font-family: var(--font-head) !important;
       font-weight: 600 !important;
-      font-size: 1.15rem !important;
+      font-size: 1.75rem !important;
+      padding: 0.4rem 1rem !important;
       border-radius: 12px !important;
-      padding: 0.9rem 1rem !important;
-      transition: all 0.2s ease !important;
+      transition: color 0.2s ease, transform 0.2s ease !important;
+      text-decoration: none !important;
+      background: transparent !important;
     }
 
     .mobile-menu li a .mob-idx {
       color: #2938cf !important;
       font-weight: 700 !important;
       background: rgba(41, 56, 207, 0.08) !important;
-      padding: 4px 9px !important;
-      border-radius: 8px !important;
+      padding: 3px 8px !important;
+      border-radius: 6px !important;
       font-size: 12px !important;
-      letter-spacing: 0.04em !important;
     }
 
     .mobile-menu li a:hover,
     .mobile-menu li a:active {
       color: #2938cf !important;
-      background: rgba(41, 56, 207, 0.08) !important;
+      background: transparent !important;
+      transform: translateY(-2px) !important;
+    }
+
+    .mob-footer {
+      width: 100% !important;
+      max-width: 320px !important;
+      display: flex !important;
+      justify-content: center !important;
+      padding-top: 1rem !important;
+      border-top: none !important;
+    }
+
+    .mob-cta-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 100% !important;
+      min-height: 48px !important;
+      padding: 0.75rem 1.8rem !important;
+      border-radius: 9999px !important;
+      background: #1e293b !important;
+      color: #ffffff !important;
+      font-family: var(--font-body) !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      text-decoration: none !important;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2) !important;
+      transition: transform 0.2s ease, background 0.2s ease !important;
+    }
+
+    .mob-cta-btn:hover {
+      background: #0f172a !important;
+      transform: translateY(-2px) !important;
     }
 
     .nav-overlay {
       background: rgba(15, 23, 42, 0.45) !important;
-      backdrop-filter: blur(8px) !important;
-      -webkit-backdrop-filter: blur(8px) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+    }
+
+    /* ─── Attachment 2: Compact CTA Button Cluster (Replaces oversized buttons) ─── */
+    .compact-cta-cluster {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+
+    .compact-cta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.42rem 0.95rem 0.42rem 0.45rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(14px) saturate(160%);
+      -webkit-backdrop-filter: blur(14px) saturate(160%);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 4px 14px rgba(0, 0, 0, 0.05);
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: #0f172a;
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      white-space: nowrap;
+    }
+
+    .compact-cta-pill:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.95);
+      border-color: rgba(41, 56, 207, 0.35);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), 0 8px 20px rgba(41, 56, 207, 0.12);
+      color: #2938cf;
+    }
+
+    .compact-cta-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .compact-cta-icon.report-icon {
+      background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+    }
+
+    .compact-cta-icon.winners-icon {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+
+    .compact-cta-icon.cert-icon {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+
+    .compact-cta-icon svg {
+      width: 14px;
+      height: 14px;
+      stroke: #ffffff;
+    }
+
+    .compact-cta-text {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .compact-cta-arrow {
+      font-size: 0.85rem;
+      color: #64748b;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .compact-cta-pill:hover .compact-cta-arrow {
+      transform: translate(2px, -2px);
+      color: #2938cf;
+    }
+
+    /* ─── Attachment 3: Custom Clean Scrollbar for Modals & Drawers ─── */
+    .timeline-modal-card::-webkit-scrollbar,
+    .register-modal-card::-webkit-scrollbar,
+    .mob-nav::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    .timeline-modal-card::-webkit-scrollbar-track,
+    .register-modal-card::-webkit-scrollbar-track,
+    .mob-nav::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .timeline-modal-card::-webkit-scrollbar-thumb,
+    .register-modal-card::-webkit-scrollbar-thumb,
+    .mob-nav::-webkit-scrollbar-thumb {
+      background: rgba(41, 56, 207, 0.25);
+      border-radius: 9999px;
+    }
+
+    .timeline-modal-card::-webkit-scrollbar-thumb:hover,
+    .register-modal-card::-webkit-scrollbar-thumb:hover,
+    .mob-nav::-webkit-scrollbar-thumb:hover {
+      background: rgba(41, 56, 207, 0.5);
+    }
+
+    .timeline-modal-card,
+    .register-modal-card,
+    .mob-nav {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(41, 56, 207, 0.25) transparent;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+
+    /* ─── Attachment 1: Mobile Viewport Alignment & Responsiveness (<480px) ─── */
+    @media (max-width: 480px) {
+      html, body {
+        overflow-x: hidden !important;
+      }
+
+      .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+
+      .section {
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+      }
+
+      .section-hero-title {
+        font-size: 2.2rem !important;
+        line-height: 1.15 !important;
+      }
+
+      .about-grand-copy {
+        font-size: 0.98rem !important;
+        line-height: 1.6 !important;
+      }
+
+      .compact-cta-cluster {
+        gap: 0.5rem !important;
+      }
+
+      .compact-cta-pill {
+        padding: 0.38rem 0.75rem 0.38rem 0.4rem !important;
+        font-size: 0.82rem !important;
+      }
+
+      .timeline-modal-card {
+        padding: 1.4rem 1.1rem !important;
+        border-radius: 1.25rem !important;
+        max-height: 86vh !important;
+      }
+
+      .timeline-modal-title {
+        font-size: 1.4rem !important;
+      }
+
+      .committee-5grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
     }
 
     /* Hero Mobile Responsiveness & Bottom Padding */
@@ -1568,22 +1832,23 @@
   <!-- mobile nav overlay -->
   <div class="nav-overlay" id="navOverlay"></div>
 
-  <!-- mobile nav drawer -->
-  <ul class="mobile-menu" id="mobileMenu" role="navigation">
+  <!-- mobile nav drawer (Attachment 4 Centered Design) -->
+  <div class="mobile-menu" id="mobileMenu" role="navigation">
     <div class="mob-header">
       <span class="mob-header-label">Navigation</span>
       <button class="mob-close" id="mobClose" aria-label="Close menu">&#x2715;</button>
     </div>
-    <div class="mob-nav">
+    <ul class="mob-nav">
       <li><a href="#about" class="mob-link"><span class="mob-idx">01</span>About</a></li>
       <li><a href="#club" class="mob-link"><span class="mob-idx">02</span>Club</a></li>
       <li><a href="#timeline" class="mob-link"><span class="mob-idx">03</span>Timeline</a></li>
       <li><a href="#committee" class="mob-link"><span class="mob-idx">04</span>Committee</a></li>
-      <li><a href="#gallery" class="mob-link"><span class="mob-idx">05</span>Gallery</a></li>
-    </div>
+      <li><a href="#about-gallery" class="mob-link"><span class="mob-idx">05</span>Gallery</a></li>
+    </ul>
     <div class="mob-footer">
+      <a href="https://forms.gle/nrfLV9y8r5PyZZZs8" target="_blank" rel="noopener" class="mob-cta-btn">Join Ignisia Club</a>
     </div>
-  </ul>
+  </div>
 
   <!-- ╔═══════════════════════════════════════╗ -->
   <!-- ║               HERO                    ║ -->
@@ -1777,30 +2042,53 @@
             into industry-defining technology.
           </p>
 
-          <div class="about-cta-row">
-            <a href="assets/docs/Ignisia_Report.pdf" target="_blank" rel="noopener" class="hero-insta-cta"
-              aria-label="View Report Document">
-              <span class="hero-insta-icon hero-report-icon" aria-hidden="true">
+          <div class="compact-cta-cluster">
+            <a href="assets/docs/Ignisia_Report.pdf" target="_blank" rel="noopener" class="compact-cta-pill"
+              aria-label="Official Report Document">
+              <span class="compact-cta-icon report-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" style="width:16px;height:16px;">
+                  stroke-linejoin="round">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                   <polyline points="14 2 14 8 20 8" />
                   <line x1="16" y1="13" x2="8" y2="13" />
                   <line x1="16" y1="17" x2="8" y2="17" />
                 </svg>
               </span>
-              <span class="hero-insta-copy">
-                <span class="hero-insta-kicker">Official Document</span>
-                <span class="hero-insta-handle">Report</span>
+              <span class="compact-cta-text">Report</span>
+              <span class="compact-cta-arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a href="assets/docs/Ignisia_Report.pdf" target="_blank" rel="noopener" class="compact-cta-pill"
+              aria-label="View Winners Document">
+              <span class="compact-cta-icon winners-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="7" />
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                </svg>
               </span>
-              <span class="hero-insta-arrow" aria-hidden="true">↗</span>
+              <span class="compact-cta-text">View Winners</span>
+              <span class="compact-cta-arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1jhPU9fhE6bXk4CZlsrAYyPELyfqKh8Lo" target="_blank"
+              rel="noopener" class="compact-cta-pill" aria-label="View Certificates on Google Drive">
+              <span class="compact-cta-icon cert-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                </svg>
+              </span>
+              <span class="compact-cta-text">Certificates</span>
+              <span class="compact-cta-arrow" aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
       </div>
 
       <!-- about card -->
-      <div class="about-card fade-in delay-1" style="margin-top: 3.5rem;">
+      <div class="about-card fade-in delay-1" style="margin-top: 2.5rem;">
 
         <div class="about-card-badge"><span class="prize-badge-dot"></span>Event at a Glance</div>
 
@@ -1840,41 +2128,6 @@
             <p class="about-benefit-desc">Fully on-campus at MIT-WPU, Pune. Build, collaborate, and present in person.
           </div>
         </div>
-      </div>
-
-      <!-- Bottom Links (View winners & Certificates) -->
-      <div class="about-bottom-links fade-in delay-2">
-        <a href="assets/docs/Ignisia_Report.pdf" target="_blank" rel="noopener" class="hero-insta-cta"
-          aria-label="View Winners Document">
-          <span class="hero-insta-icon hero-winners-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" style="width:16px;height:16px;">
-              <circle cx="12" cy="8" r="7" />
-              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
-            </svg>
-          </span>
-          <span class="hero-insta-copy">
-            <span class="hero-insta-kicker">Ignisia 2026</span>
-            <span class="hero-insta-handle">View Winners</span>
-          </span>
-          <span class="hero-insta-arrow" aria-hidden="true">↗</span>
-        </a>
-
-        <a href="https://drive.google.com/drive/folders/1jhPU9fhE6bXk4CZlsrAYyPELyfqKh8Lo" target="_blank"
-          rel="noopener" class="hero-insta-cta" aria-label="View Certificates on Google Drive">
-          <span class="hero-insta-icon hero-cert-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" style="width:16px;height:16px;">
-              <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-              <path d="M6 12v5c3 3 9 3 12 0v-5" />
-            </svg>
-          </span>
-          <span class="hero-insta-copy">
-            <span class="hero-insta-kicker">Google Drive</span>
-            <span class="hero-insta-handle">Certificates</span>
-          </span>
-          <span class="hero-insta-arrow" aria-hidden="true">↗</span>
-        </a>
       </div>
 
       <!-- ── Event Photo Gallery Carousel (Embedded in About Section) ── -->
