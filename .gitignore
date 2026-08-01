@@ -1,2 +1,31 @@
-# Ignore macOS metadata files
+# System & OS Files
 .DS_Store
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# IDE & Editor Configs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Large / Binary Media Assets
+*.mp4
+*.mov
+# Ignoring head photos as requested
+assets/committee/head-*.jpg
+
+# Temporary & Build Assets
+*.tmp
+*.temp
+SEO-PLAYBOOK.md
+# Ignore specific PDFs
+*.pdf
+
+# Fallback cache
+node_modules/
+.npm/
