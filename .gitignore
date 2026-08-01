@@ -14,7 +14,6 @@ Thumbs.db
 *.sw?
 
 # Large / Binary Media Assets
-*.mp4
 *.mov
 # Ignoring head photos as requested
 assets/committee/head-*.jpg
