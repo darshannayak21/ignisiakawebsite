@@ -169,9 +169,1317 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
+  <style id="light-hero-override">
+    /* ─── GLOBAL LIGHT THEME OVERRIDES ─── */
+    /* Root variables now set directly in styles.css */
+
+    /* Fix some specific elements that need actual white instead of the inverted --white */
+    .hero-pdf-btns-row .gradient-button,
+    .hero-apply-corner,
+    .mobile-cta {
+      color: #FFFFFF !important;
+    }
+
+    /* ─── LIGHT THEME OVERRIDES FOR HERO SECTION ─── */
+
+    /* Nav Overrides */
+    #navbar {
+      background: rgba(255, 255, 255, 0.7) !important;
+      border: 1px solid rgba(139, 92, 246, 0.2) !important;
+      box-shadow: 0 8px 32px rgba(139, 92, 246, 0.08) !important;
+    }
+
+    .nav-logo {
+      color: #2938cf !important;
+    }
+
+    .nav-links a {
+      color: #4b5563 !important;
+    }
+
+    .nav-links a:hover {
+      color: #2938cf !important;
+    }
+
+    .nav-hamburger span {
+      background: #2938cf !important;
+    }
+
+    /* Hero Background & Overlays */
+    .hero-video-wrap {
+      background: #FFFFFF !important;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(139, 92, 246, 0.05) !important;
+    }
+
+    #hero-loader {
+      display: none !important;
+      opacity: 0 !important;
+    }
+
+    .hero-video-overlay {
+      background: transparent !important;
+      border: 1px solid rgba(139, 92, 246, 0.15) !important;
+      box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.6) !important;
+    }
+
+    /* Hero Typography */
+    .hero-overlay-eyebrow {
+      background: rgba(255, 255, 255, 0.8) !important;
+      border: 1px solid rgba(139, 92, 246, 0.25) !important;
+      color: #4b5563 !important;
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.05) !important;
+    }
+
+    .hero-overlay-eyebrow img {
+      filter: invert(1) opacity(0.8);
+    }
+
+    .hero-title {
+      background: linear-gradient(to right, #2938cf 0%, #a78bfa 100%);
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      color: transparent !important;
+      text-shadow: none !important;
+      opacity: 0.95;
+      padding-bottom: 0.25em;
+      /* Fix 'g' clipping */
+      margin-bottom: -0.25em;
+      /* Offset the padding so spacing remains exact */
+    }
+
+    .hero-ai-badge {
+      background: rgba(139, 92, 246, 0.1) !important;
+      color: #2938cf !important;
+    }
+
+    .hero-tagline {
+      color: #4b5563 !important;
+    }
+
+    .hero-tagline-accent {
+      color: #2938cf !important;
+    }
+
+    /* Hero Buttons */
+    .hero-apply-corner {
+      background: #2938cf !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 8px 24px rgba(41, 56, 207, 0.25) !important;
+      border: none !important;
+    }
+
+    .hero-apply-corner svg {
+      stroke: #FFFFFF !important;
+    }
+
+    /* Liquid Glass Effect for View Brochure, Hero Social Pills */
+    .hero-pdf-btns-row .gradient-button,
+    .hero-cta-group .hero-insta-cta,
+    .glry-btn {
+      background: transparent !important;
+      color: #2938cf !important;
+      border: none !important;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      transition: transform 0.3s ease !important;
+      border-radius: 9999px !important;
+    }
+
+    /* Navbar styling: Reverted from liquid glass, made more transparent */
+    #navbar {
+      background: rgba(255, 255, 255, 0.15) !important;
+      /* More transparent */
+      backdrop-filter: blur(32px) saturate(160%) !important;
+      -webkit-backdrop-filter: blur(32px) saturate(160%) !important;
+      border: 1px solid rgba(0, 0, 0, 0.05) !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+      z-index: 1000 !important;
+    }
+
+    #navbar a {
+      color: #2938cf !important;
+    }
+
+    .hero-pdf-btns-row .gradient-button:hover,
+    .hero-cta-group .hero-insta-cta:hover {
+      transform: scale(1.05);
+    }
+
+    .hero-pdf-btns-row .gradient-button::before,
+    .hero-cta-group .hero-insta-cta::before,
+    .glry-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      backdrop-filter: url("#container-glass") !important;
+      -webkit-backdrop-filter: url("#container-glass") !important;
+      border-radius: inherit;
+      display: block !important;
+      background: transparent !important;
+    }
+
+    .hero-pdf-btns-row .gradient-button::after,
+    .hero-cta-group .hero-insta-cta::after,
+    .glry-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      border-radius: inherit;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.08), inset 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.09), inset -3px -3px 0.5px -3.5px rgba(255, 255, 255, 0.9), inset 1px 1px 1px -0.5px rgba(255, 255, 255, 0.7), inset -1px -1px 1px -0.5px rgba(255, 255, 255, 0.7), inset 0 0 6px 6px rgba(255, 255, 255, 0.2), inset 0 0 2px 2px rgba(255, 255, 255, 0.1), 0 0 12px rgba(0, 0, 0, 0.05) !important;
+      pointer-events: none;
+      display: block !important;
+      background: transparent !important;
+    }
+
+    /* Restore specific positioning for Gallery Buttons (overridden by liquid glass block) */
+    .glry-btn {
+      position: absolute !important;
+      z-index: 20 !important;
+    }
+
+    .glry-btn-prev {
+      left: -35px !important;
+    }
+
+    .glry-btn-next {
+      right: -35px !important;
+    }
+
+    .glry-btn:hover {
+      transform: translateY(-50%) scale(1.1) !important;
+      background: #FFFFFF !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Add extra frosted blur specifically to gallery buttons while keeping liquid distortion */
+    .glry-btn::before {
+      backdrop-filter: url("#container-glass") blur(12px) !important;
+      -webkit-backdrop-filter: url("#container-glass") blur(12px) !important;
+    }
+
+    /* Fallback/Default style for pills outside the hero (like Official Document) */
+    .hero-insta-cta {
+      background: rgba(255, 255, 255, 0.4) !important;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.5) !important;
+      color: #1a1a1a !important;
+      backdrop-filter: blur(16px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    }
+
+    .hero-insta-cta:hover {
+      background: #f3f4f6 !important;
+    }
+
+    .hero-pdf-btns-row .gradient-button svg {
+      stroke: #2938cf !important;
+    }
+
+    .hero-insta-icon {
+      background: #2938cf !important;
+    }
+
+    .hero-insta-icon svg {
+      stroke: #FFFFFF !important;
+    }
+
+    .hero-insta-kicker {
+      color: #6b7280 !important;
+    }
+
+    .hero-insta-handle {
+      color: #2938cf !important;
+    }
+
+    .hero-insta-arrow {
+      color: #2938cf !important;
+    }
+
+    /* Loader Overrides for Light Theme */
+    #loader {
+      background: #FFFFFF !important;
+    }
+
+    .loader-counter {
+      color: #2938cf !important;
+    }
+
+    .loader-counter span {
+      color: #2938cf !important;
+    }
+
+    .loader-track {
+      background: rgba(41, 56, 207, 0.15) !important;
+    }
+
+    .loader-fill {
+      background: #2938cf !important;
+    }
+
+    /* About Section Text Colors */
+    .section-hero-title,
+    .about-subheading,
+    .about-grand-copy {
+      color: #1a1a1a !important;
+    }
+
+    /* Hero Countdown */
+    .overlay-countdown .countdown-num {
+      color: #1a1a1a !important;
+    }
+
+    .overlay-countdown .countdown-sep {
+      color: #2938cf !important;
+    }
+
+    .overlay-countdown .countdown-unit span:last-child {
+      color: #6b7280 !important;
+    }
+
+    /* About Section: Event at a Glance Card */
+    .about-card {
+      background: #f8f9fa !important;
+      /* Very light grey */
+      border: 1px solid #e5e7eb !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+    }
+
+    .about-card-badge {
+      background: #ffffff !important;
+      color: #1a1a1a !important;
+      border: 1px solid #d1d5db !important;
+    }
+
+    .about-stat-num {
+      color: #1a1a1a !important;
+      /* Black for the large background numbers */
+    }
+
+    .about-stat-label {
+      color: #2938cf !important;
+    }
+
+    .about-stat-desc,
+    .about-benefit-desc {
+      color: #4b5563 !important;
+    }
+
+    .about-benefit-title {
+      color: #1a1a1a !important;
+    }
+
+    .about-benefit::before,
+    .about-benefit-title::before {
+      color: #2938cf !important;
+    }
+
+    /* Ignisia Club Section Light Theme */
+    .club-lead {
+      color: #4b5563 !important;
+    }
+
+    .club-card {
+      background: #f8f9fa !important;
+      border: 1px solid #e5e7eb !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+    }
+
+    .club-feature {
+      background: #ffffff !important;
+      border: 1px solid #e5e7eb !important;
+    }
+
+    .club-feature-title {
+      color: #1a1a1a !important;
+    }
+
+    .club-feature-desc {
+      color: #4b5563 !important;
+    }
+
+    .club-feature-icon {
+      background: #f1f5f9 !important;
+      border: 1px solid #e2e8f0 !important;
+    }
+
+    .club-feature-icon svg {
+      stroke: #2938cf !important;
+    }
+
+    .club-cta-box {
+      background: #ffffff !important;
+      border: 1px solid #e5e7eb !important;
+    }
+
+    .club-cta-text h4 {
+      color: #1a1a1a !important;
+    }
+
+    .club-cta-text p {
+      color: #4b5563 !important;
+    }
+
+    @media (max-width: 900px) {
+      .club-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+        gap: 1.2rem !important;
+      }
+
+      .club-feature {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 1.6rem 1.4rem !important;
+      }
+
+      .club-cta-box {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 1.6rem 1.4rem !important;
+        gap: 1.25rem !important;
+        box-sizing: border-box !important;
+      }
+
+      .club-cta-box .interactive-hover-btn {
+        width: 100% !important;
+        min-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .club-card {
+        padding: 1.25rem 1rem !important;
+      }
+
+      .club-grid {
+        gap: 1rem !important;
+      }
+
+      .club-feature {
+        padding: 1.35rem 1.1rem !important;
+      }
+
+      .club-cta-box {
+        padding: 1.35rem 1.1rem !important;
+      }
+    }
+
+    /* Mobile Navigation Drawer UI Overhaul (Matches light & #2938cf theme) */
+    .mobile-menu {
+      background: rgba(255, 255, 255, 0.96) !important;
+      backdrop-filter: blur(24px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+      border-left: 1px solid rgba(41, 56, 207, 0.15) !important;
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .mob-header {
+      border-bottom: 1px solid rgba(41, 56, 207, 0.1) !important;
+      padding: 1.4rem 1.6rem !important;
+    }
+
+    .mob-header-label {
+      color: #2938cf !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.2em !important;
+      font-size: 13px !important;
+    }
+
+    .mob-close {
+      border: 1px solid rgba(41, 56, 207, 0.2) !important;
+      background: rgba(41, 56, 207, 0.06) !important;
+      color: #2938cf !important;
+      border-radius: 10px !important;
+      font-size: 15px !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .mob-close:hover {
+      background: #2938cf !important;
+      color: #FFFFFF !important;
+      border-color: #2938cf !important;
+    }
+
+    .mobile-menu li a {
+      color: #1f2937 !important;
+      font-weight: 600 !important;
+      font-size: 1.15rem !important;
+      border-radius: 12px !important;
+      padding: 0.9rem 1rem !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .mobile-menu li a .mob-idx {
+      color: #2938cf !important;
+      font-weight: 700 !important;
+      background: rgba(41, 56, 207, 0.08) !important;
+      padding: 4px 9px !important;
+      border-radius: 8px !important;
+      font-size: 12px !important;
+      letter-spacing: 0.04em !important;
+    }
+
+    .mobile-menu li a:hover,
+    .mobile-menu li a:active {
+      color: #2938cf !important;
+      background: rgba(41, 56, 207, 0.08) !important;
+    }
+
+    .nav-overlay {
+      background: rgba(15, 23, 42, 0.45) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+    }
+
+    /* Hero Mobile Responsiveness & Bottom Padding */
+    @media (max-width: 900px) {
+      #hero {
+        padding-top: 16px !important;
+        padding-bottom: 3.5rem !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+      }
+
+      .hero-video-wrap {
+        width: 95% !important;
+        min-height: 840px !important;
+        height: auto !important;
+        margin: 16px auto 2rem !important;
+        border-radius: 20px !important;
+        overflow: hidden !important;
+        position: relative !important;
+      }
+
+      .hero-video-wrap video,
+      #hero-video {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-height: none !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        border-radius: 20px !important;
+      }
+
+      .hero-video-overlay {
+        position: relative !important;
+        min-height: 840px !important;
+        height: auto !important;
+        padding: calc(75px + 1.8rem) 1.2rem 3.5rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 1.5rem !important;
+        box-sizing: border-box !important;
+      }
+
+      .hero-overlay-eyebrow {
+        margin-top: 1.25rem !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        align-self: center !important;
+        display: inline-flex !important;
+        justify-content: center !important;
+        text-align: center !important;
+      }
+
+      .hero-video-center {
+        margin: auto 0 !important;
+        padding: 1.2rem 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
+      }
+
+      .hero-title {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+      .hero-tagline {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+      .hero-cta-group {
+        margin-top: 2rem !important;
+        margin-bottom: 0.5rem !important;
+        padding-bottom: 1.5rem !important;
+        gap: 0.85rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        text-align: center !important;
+      }
+
+      .hero-cta-group .interactive-hover-btn {
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+      .hero-cta-group .hero-insta-cta {
+        width: 100% !important;
+        max-width: 320px !important;
+        justify-content: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box !important;
+        padding: 0.75rem 1rem !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #hero {
+        padding-top: 14px !important;
+        padding-bottom: 3.5rem !important;
+      }
+
+      .hero-video-wrap {
+        min-height: 860px !important;
+        height: auto !important;
+        border-radius: 18px !important;
+        margin: 14px auto 2rem !important;
+      }
+
+      .hero-video-wrap video,
+      #hero-video {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-height: none !important;
+        object-fit: cover !important;
+      }
+
+      .hero-video-overlay {
+        padding: calc(75px + 1.8rem) 1rem 3.5rem !important;
+        min-height: 860px !important;
+        height: auto !important;
+      }
+
+      .hero-overlay-eyebrow {
+        margin-top: 1.5rem !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+      .hero-cta-group {
+        margin-top: 1.8rem !important;
+        padding-bottom: 1.5rem !important;
+        gap: 0.75rem !important;
+      }
+    }
+
+    .developer-signature {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
+      width: 100% !important;
+    }
+
+    /* Developer Signature Gradient (Matches Ignisia Title from Left to Right: Blue to Purple) */
+    .typewriter,
+    #developer-credit,
+    .developer-name {
+      background: linear-gradient(to right, #2938cf 0%, #a78bfa 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      color: transparent !important;
+      font-weight: 600 !important;
+      text-align: center !important;
+    }
+
+    /* Interactive Hover Button styling (Clean center-blooming expansion) */
+    .interactive-hover-btn {
+      position: relative;
+      display: inline-flex;
+      min-width: 200px;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 9999px;
+      border: 1px solid #d1d5db;
+      background: #FFFFFF !important;
+      padding: 0.8rem 1.75rem;
+      text-align: center;
+      font-weight: 600;
+      color: #2938cf !important;
+      text-decoration: none;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+    }
+
+    .interactive-hover-btn .btn-default-text {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transform: translateX(12px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      z-index: 2;
+    }
+    
+    .interactive-hover-btn .btn-default-text svg {
+      stroke: #2938cf !important;
+    }
+    
+    .interactive-hover-btn:hover .btn-default-text {
+      transform: translateX(48px);
+      opacity: 0;
+    }
+
+    .interactive-hover-btn .btn-hover-layer {
+      position: absolute;
+      top: 0; left: 0;
+      z-index: 2;
+      display: flex;
+      height: 100%;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: #FFFFFF !important;
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .interactive-hover-btn:hover .btn-hover-layer {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    
+    .interactive-hover-btn .btn-hover-layer svg {
+      stroke: #FFFFFF !important;
+    }
+
+    .interactive-hover-btn .btn-expand-dot {
+      position: absolute;
+      left: 1.25rem;
+      top: 50%;
+      height: 8px;
+      width: 8px;
+      border-radius: 9999px;
+      background: #2938cf;
+      transform: translateY(-50%) scale(1);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    .interactive-hover-btn:hover .btn-expand-dot {
+      transform: translateY(-50%) scale(50);
+    }
+
+    /* ─── ACETERNITY TIMELINE STYLING ─── */
+    .timeline-header {
+      text-align: left !important;
+      max-width: 1100px;
+      margin: 0 auto 2.5rem !important;
+      padding: 0 1rem;
+    }
+
+    .timeline-lead {
+      color: #4b5563 !important;
+      text-align: left !important;
+      margin: 0.5rem 0 0 0 !important;
+      font-size: 1.1rem;
+    }
+
+    /* ─── ACETERNITY TIMELINE (EXACT STICKY SCROLLING MECHANICS) ─── */
+    .aceternity-timeline-container {
+      position: relative;
+      max-width: 1100px;
+      margin: 3rem auto 0;
+      padding-bottom: 8rem;
+    }
+
+    /* Continuous vertical track line */
+    .aceternity-timeline-line {
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent 0%, #e2e8f0 4%, #e2e8f0 96%, transparent 100%);
+      z-index: 1;
+    }
+
+    @media (min-width: 768px) {
+      .aceternity-timeline-line {
+        left: 32px;
+      }
+    }
+
+    /* Animated gradient beam (Zero CSS transition for instant real-time sync with scroll) */
+    .aceternity-timeline-line-progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0px;
+      background: linear-gradient(to bottom, #8b5cf6 0%, #6366f1 40%, #2938cf 100%);
+      border-radius: 9999px;
+      box-shadow: 0 0 14px rgba(41, 56, 207, 0.55);
+      /* No CSS transition so scroll calculation is instant with zero lag */
+    }
+
+    .aceternity-timeline-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Each item has height and top padding so the sticky title can travel/stick */
+    .aceternity-timeline-item {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+      min-height: 260px;
+    }
+
+    @media (min-width: 768px) {
+      .aceternity-timeline-item {
+        flex-direction: row;
+        align-items: flex-start;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+        gap: 3rem;
+      }
+    }
+
+    /* The STICKY container that glides down with the user's scroll */
+    .aceternity-timeline-sticky {
+      position: sticky;
+      top: 140px;
+      align-self: flex-start;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .aceternity-timeline-sticky {
+        max-width: 400px;
+        width: 400px;
+        flex-shrink: 0;
+      }
+    }
+
+    /* Node circular indicator aligned precisely on top of the vertical line */
+    .aceternity-timeline-node {
+      position: absolute;
+      left: 1px; /* Centers 40px node over 20px line on mobile */
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      z-index: 35;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    @media (min-width: 768px) {
+      .aceternity-timeline-node {
+        left: 13px; /* 13px + 20px (half width) = 33px, perfectly centered on 32px line */
+      }
+    }
+
+    .aceternity-timeline-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      border: 1px solid #cbd5e1;
+      transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .aceternity-timeline-item.active-node .aceternity-timeline-node {
+      border-color: #2938cf;
+      box-shadow: 0 0 16px rgba(41, 56, 207, 0.35);
+    }
+
+    .aceternity-timeline-item.active-node .aceternity-timeline-dot {
+      background: #2938cf;
+      border-color: #2938cf;
+      box-shadow: 0 0 10px rgba(41, 56, 207, 0.6);
+    }
+
+    /* Cursive/Editorial Title on the Left: Light Grey by default, turns crisp Black when active */
+    .aceternity-timeline-title {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .aceternity-timeline-title {
+        display: block;
+        padding-left: 75px;
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-size: 2.8rem;
+        font-weight: 500;
+        color: #9ca3af; /* Light grey when inactive */
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        transition: color 0.25s ease;
+      }
+    }
+
+    .aceternity-timeline-item.active-node .aceternity-timeline-title {
+      color: #000000; /* Pure black when reached/active, NOT purple */
+    }
+
+    .aceternity-timeline-title-mob {
+      display: block;
+      padding-left: 55px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.9rem;
+      font-weight: 500;
+      color: #9ca3af;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      transition: color 0.25s ease;
+    }
+
+    .aceternity-timeline-item.active-node .aceternity-timeline-title-mob {
+      color: #000000;
+    }
+
+    @media (min-width: 768px) {
+      .aceternity-timeline-title-mob {
+        display: none;
+      }
+    }
+
+    /* Content on the right */
+    .aceternity-timeline-content {
+      position: relative;
+      width: 100%;
+      padding-left: 55px;
+      padding-right: 0;
+    }
+
+    @media (min-width: 768px) {
+      .aceternity-timeline-content {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    .aceternity-event-title {
+      font-family: var(--font-head);
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+
+    .aceternity-event-desc {
+      color: #4b5563;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      margin-bottom: 1.15rem;
+      max-width: 680px;
+    }
+
+    /* ─── TIMELINE KNOW MORE BUTTON ─── */
+    .timeline-know-more-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.42rem 1.15rem;
+      margin-bottom: 1.35rem;
+      border-radius: 9999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #111827;
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .timeline-know-more-btn:hover {
+      background: #f9fafb;
+      border-color: #9ca3af;
+      color: #000000;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .timeline-know-more-btn svg {
+      width: 0;
+      max-width: 0;
+      opacity: 0;
+      transform: translateX(-4px);
+      margin-left: 0;
+      stroke: #111827;
+      transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                  max-width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.2s ease,
+                  transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                  margin-left 0.25s ease;
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .timeline-know-more-btn:hover svg {
+      width: 15px;
+      max-width: 15px;
+      opacity: 1;
+      transform: translateX(0);
+      margin-left: 0.45rem;
+    }
+
+    .aceternity-img-wrap {
+      max-width: 620px;
+      width: 100%;
+    }
+
+    .aceternity-img-placeholder {
+      position: relative;
+      width: 100%;
+      height: 260px;
+      border-radius: 1rem;
+      overflow: hidden;
+      background: #f1f5f9;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .aceternity-img-placeholder:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    .aceternity-img-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ─── TIMELINE EVENT MODAL POPUP ─── */
+    .timeline-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
+    }
+
+    .timeline-modal-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .timeline-modal-card {
+      position: relative;
+      background: #ffffff;
+      border-radius: 1.5rem;
+      max-width: 680px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+      padding: 2.25rem;
+      transform: scale(0.2);
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      will-change: transform, opacity;
+    }
+
+    .timeline-modal-backdrop.open .timeline-modal-card {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .timeline-modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 2;
+    }
+
+    .timeline-modal-close:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+      transform: rotate(90deg);
+    }
+
+    .timeline-modal-badge {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #4338ca;
+      background: rgba(99, 102, 241, 0.1);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      margin-bottom: 0.6rem;
+    }
+
+    .timeline-modal-title {
+      font-family: var(--font-head);
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      padding-right: 2rem;
+    }
+
+    .timeline-modal-banner {
+      width: 100%;
+      height: 220px;
+      border-radius: 1rem;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      background: #f1f5f9;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .timeline-modal-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .timeline-modal-section {
+      margin-bottom: 1.4rem;
+    }
+
+    .timeline-modal-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-modal-section-title {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 0.45rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .timeline-modal-text {
+      color: #475569;
+      font-size: 0.96rem;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .timeline-modal-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.4rem 0 0 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.45rem;
+    }
+
+    .timeline-modal-list li {
+      position: relative;
+      padding-left: 1.3rem;
+      color: #475569;
+      font-size: 0.93rem;
+      line-height: 1.5;
+    }
+
+    .timeline-modal-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0.3rem;
+      color: #6366f1;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .timeline-modal-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.5rem;
+    }
+
+    .timeline-modal-tag {
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      color: #334155;
+    }
+
+    .timeline-modal-tag.highlight {
+      background: rgba(99, 102, 241, 0.08);
+      border-color: rgba(99, 102, 241, 0.2);
+      color: #4338ca;
+      font-weight: 600;
+    }
+
+    /* ─── COMMITTEE CARDS LIGHT THEME ─── */
+    .committee-card-head {
+      background: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+    }
+    .committee-card-head:hover {
+      border-color: rgba(99, 102, 241, 0.35) !important;
+      box-shadow: 0 16px 36px rgba(99, 102, 241, 0.12) !important;
+    }
+    .committee-img-wrap {
+      background: #f8fafc !important;
+      border: 1px solid rgba(0, 0, 0, 0.06) !important;
+    }
+    .committee-card-name {
+      color: #0f172a !important;
+    }
+    .committee-card-role {
+      color: #4f46e5 !important;
+    }
+
+    /* ─── FOOTER OVERRIDES ─── */
+    .footer-copy,
+    .footer-uni-line,
+    .footer-contact-link,
+    .footer-email {
+      color: #1a1a1a !important;
+    }
+
+    .footer-wordmark {
+      background: linear-gradient(to right, #2938cf 0%, #a78bfa 100%);
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      color: transparent !important;
+      padding-bottom: 0.15em;
+      margin-bottom: 1.5rem !important;
+      display: inline-block;
+    }
+
+    /* Footer Social Icons */
+    .footer-social-top {
+      margin-top: 1rem !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 1.25rem !important;
+    }
+
+    .footer-social-top a,
+    .footer-social a {
+      background: #FFFFFF !important;
+      border: 1px solid #d1d5db !important;
+      /* Light grey border */
+      color: #1a1a1a !important;
+    }
+
+    .footer-social-top a:hover,
+    .footer-social a:hover {
+      background: #f3f4f6 !important;
+      border-color: #9ca3af !important;
+    }
+
+    .footer-social-top a svg,
+    .footer-social a svg {
+      stroke: #1a1a1a !important;
+    }
+
+    .footer-social-top a svg[fill="currentColor"],
+    .footer-social a svg[fill="currentColor"] {
+      fill: #1a1a1a !important;
+      stroke: none !important;
+    }
+  </style>
 </head>
 
 <body>
+
+  <!-- Liquid Glass Filter Definition -->
+  <svg style="display: none;" aria-hidden="true">
+    <defs>
+      <filter id="container-glass" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.05 0.05" numOctaves="1" seed="1" result="turbulence" />
+        <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
+        <feDisplacementMap in="SourceGraphic" in2="blurredNoise" scale="70" xChannelSelector="R" yChannelSelector="B"
+          result="displaced" />
+        <feGaussianBlur in="displaced" stdDeviation="6" result="finalBlur" />
+        <feComposite in="finalBlur" in2="finalBlur" operator="over" />
+      </filter>
+    </defs>
+  </svg>
 
   <!-- LOADING SCREEN -->
   <div id="loader">
@@ -228,11 +1536,11 @@
 
     <!-- video frame with overlay (full hero) -->
     <div class="hero-video-wrap">
-      <!-- YouTube background video — zero bandwidth from your server.
-           Upload your video to YouTube (Unlisted is fine), then replace
-           YOUR_VIDEO_ID below AND in script.js with the actual video ID. -->
-      <video id="hero-video" autoplay muted loop playsinline aria-hidden="true"></video>
-      <!-- Gradient shown until the YouTube player fires its PLAYING event.
+      <!-- Background Video -->
+      <video id="hero-video" autoplay muted loop playsinline aria-hidden="true">
+        <source src="bg.mp4" type="video/mp4">
+      </video>
+      <!-- Gradient shown until video is ready.
            Fades out smoothly so there's no jump to a black/blank frame.  -->
       <div id="hero-loader" aria-hidden="true"></div>
 
@@ -309,10 +1617,11 @@
           </a>
 
           <!-- Join Ignisia Club -->
-          <a href="https://forms.gle/nrfLV9y8r5PyZZZs8" target="_blank" rel="noopener"
-            class="hero-insta-cta" aria-label="Join Ignisia Club">
+          <a href="https://forms.gle/nrfLV9y8r5PyZZZs8" target="_blank" rel="noopener" class="hero-insta-cta"
+            aria-label="Join Ignisia Club">
             <span class="hero-insta-icon hero-club-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
                 <circle cx="9" cy="7" r="4" />
                 <line x1="19" y1="8" x2="19" y2="14" />
@@ -407,17 +1716,24 @@
         <div class="about-right-col">
           <h3 class="about-subheading">India's Premier National AI Hackathon</h3>
           <p class="about-grand-copy">
-            Ignisia is MIT World Peace University's flagship national artificial intelligence hackathon — a grand stage bringing together India's most extraordinary student innovators, coders, and visionaries. Designed as an intense 24-hour physical building sprint on campus, Ignisia challenges teams to engineer, deploy, and scale groundbreaking AI solutions that address critical real-world problems. From generative systems and autonomous agents to computer vision and intelligent automation, Ignisia is where raw ambition transforms into industry-defining technology.
+            Ignisia is MIT World Peace University's flagship national artificial intelligence hackathon — a grand stage
+            bringing together India's most extraordinary student innovators, coders, and visionaries. Designed as an
+            intense 24-hour physical building sprint on campus, Ignisia challenges teams to engineer, deploy, and scale
+            groundbreaking AI solutions that address critical real-world problems. From generative systems and
+            autonomous agents to computer vision and intelligent automation, Ignisia is where raw ambition transforms
+            into industry-defining technology.
           </p>
 
           <div class="about-cta-row">
-            <a href="assets/docs/Ignisia_Report.pdf" target="_blank" rel="noopener" class="hero-insta-cta" aria-label="View Report Document">
+            <a href="assets/docs/Ignisia_Report.pdf" target="_blank" rel="noopener" class="hero-insta-cta"
+              aria-label="View Report Document">
               <span class="hero-insta-icon hero-report-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                  <polyline points="14 2 14 8 20 8"/>
-                  <line x1="16" y1="13" x2="8" y2="13"/>
-                  <line x1="16" y1="17" x2="8" y2="17"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" style="width:16px;height:16px;">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
                 </svg>
               </span>
               <span class="hero-insta-copy">
@@ -475,11 +1791,13 @@
 
       <!-- Bottom Links (View winners & Certificates) -->
       <div class="about-bottom-links fade-in delay-2">
-        <a href="assets/docs/Ignisia_Report.pdf" target="_blank" rel="noopener" class="hero-insta-cta" aria-label="View Winners Document">
+        <a href="assets/docs/Ignisia_Report.pdf" target="_blank" rel="noopener" class="hero-insta-cta"
+          aria-label="View Winners Document">
           <span class="hero-insta-icon hero-winners-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;">
-              <circle cx="12" cy="8" r="7"/>
-              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" style="width:16px;height:16px;">
+              <circle cx="12" cy="8" r="7" />
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
             </svg>
           </span>
           <span class="hero-insta-copy">
@@ -489,11 +1807,13 @@
           <span class="hero-insta-arrow" aria-hidden="true">↗</span>
         </a>
 
-        <a href="https://drive.google.com/drive/folders/1jhPU9fhE6bXk4CZlsrAYyPELyfqKh8Lo" target="_blank" rel="noopener" class="hero-insta-cta" aria-label="View Certificates on Google Drive">
+        <a href="https://drive.google.com/drive/folders/1jhPU9fhE6bXk4CZlsrAYyPELyfqKh8Lo" target="_blank"
+          rel="noopener" class="hero-insta-cta" aria-label="View Certificates on Google Drive">
           <span class="hero-insta-icon hero-cert-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;">
-              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" style="width:16px;height:16px;">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+              <path d="M6 12v5c3 3 9 3 12 0v-5" />
             </svg>
           </span>
           <span class="hero-insta-copy">
@@ -537,53 +1857,100 @@
         <!-- Thumbnail strip -->
         <div class="glry-thumbs-wrap">
           <div class="glry-thumbs" id="glryThumbs">
-            <div class="glry-thumb active" data-idx="0"><img src="gallery/d84cfe8a-7988-41a8-8385-b30d51a9165b.JPG" alt="1" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="1"><img src="gallery/a9716939-fe11-465f-ab8d-2e7e387615ca.JPG" alt="2" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="2"><img src="gallery/4368dbe2-8a73-4620-8202-0c81b377fd6a.JPG" alt="3" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="3"><img src="gallery/bb82033e-b800-49f5-8546-d3f67fbea5b8.JPG" alt="4" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="4"><img src="gallery/61aad6ff-3ba7-433b-aca9-e3d4a8a2769b.JPG" alt="5" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="5"><img src="gallery/736864d8-7e64-446b-a565-26acb661a726.JPG" alt="6" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="6"><img src="gallery/PHOTO-2026-03-06-15-05-06.jpg" alt="7" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="7"><img src="gallery/85e5cbbc-d74e-465d-87bc-612874cd3d3e.JPG" alt="8" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="8"><img src="gallery/ba567dea-1652-4c4a-b46b-b6fc49800caa.JPG" alt="9" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="9"><img src="gallery/4175671b-d05c-4afc-9a2f-6c8b1c6adaec.JPG" alt="10" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="10"><img src="gallery/cc1f6062-cd53-4b81-b79c-c0e44f0bbd85.JPG" alt="11" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="11"><img src="gallery/PHOTO-2026-03-06-15-05-07.jpg" alt="12" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="12"><img src="gallery/707ac2da-a551-4ff8-8447-c77a8acbbb2a.JPG" alt="13" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="13"><img src="gallery/ebdf73ea-fb5c-46d1-8273-405c83627f5a.JPG" alt="14" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="14"><img src="gallery/3883d1cb-1d33-48e4-b405-2cc37a507402.JPG" alt="15" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="15"><img src="gallery/dbc10cf2-c680-4c1f-a05c-e63a1425d7e9.JPG" alt="16" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="16"><img src="gallery/a87cad8f-eb7b-4265-bc66-021b336ea32c.JPG" alt="17" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="17"><img src="gallery/PHOTO-2026-03-06-15-05-08.jpg" alt="18" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="18"><img src="gallery/6b82a8b0-b72a-48d3-9da9-f35847a635f9.JPG" alt="19" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="19"><img src="gallery/e68ce162-fccd-4fde-8fdb-e517bf8d123f.JPG" alt="20" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="20"><img src="gallery/8f962316-1098-4acf-be9c-09a14e27f3fe.JPG" alt="21" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="21"><img src="gallery/b5963f6a-1a11-47fd-9485-9717735be3bb.JPG" alt="22" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="22"><img src="gallery/13cc0da2-9f5c-492e-b933-3497194c708f.JPG" alt="23" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="23"><img src="gallery/fae8cbcf-cd1b-46f0-ba14-05a6504f3242.JPG" alt="24" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="24"><img src="gallery/52ee26f5-0d43-491e-943c-f1ba7464c20d.JPG" alt="25" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="25"><img src="gallery/90a8cd7f-a4a3-48a3-83aa-5ff33f45f6ee.JPG" alt="26" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="26"><img src="gallery/475f9720-0209-4cd1-808e-2fd05d771b0f.JPG" alt="27" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="27"><img src="gallery/PHOTO-2026-03-06-15-05-06 2.jpg" alt="28" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="28"><img src="gallery/c4dfc400-aef4-4645-bed0-36e74e02d23b.JPG" alt="29" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="29"><img src="gallery/2171f89a-8e02-4de6-899e-b59c73a1f4bd.JPG" alt="30" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="30"><img src="gallery/6af001a2-9ee1-446c-9db3-f24f8e1d2c90.JPG" alt="31" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="31"><img src="gallery/0bbf6592-f382-4106-9e35-9a8319ef1c4b.JPG" alt="32" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="32"><img src="gallery/3cddd717-aac1-44c5-aadc-6553ad4b8e2c.JPG" alt="33" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="33"><img src="gallery/90213092-69f0-410d-ab28-e69d5fcf7f1b.JPG" alt="34" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="34"><img src="gallery/58f8f26d-8c01-443e-9c15-5f9639b5c76f.JPG" alt="35" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="35"><img src="gallery/a04c8eac-a6db-45e1-8be2-dd6bc1c53f30.JPG" alt="36" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="36"><img src="gallery/7ecc2305-dbe2-4cf5-85fa-a068eb28d2fd.JPG" alt="37" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="37"><img src="gallery/18670286-3afc-4295-a55a-6ab86464f5fd.JPG" alt="38" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="38"><img src="gallery/43967e51-0070-4e1f-b4ce-bfdeb312e8f4.JPG" alt="39" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="39"><img src="gallery/b841f183-f7eb-4161-b23f-820315bc4548.JPG" alt="40" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="40"><img src="gallery/6f9f6692-8b6c-4930-9b05-c129ff906c1b.JPG" alt="41" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="41"><img src="gallery/37abde0f-4898-4bba-9593-66decea9864c.JPG" alt="42" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="42"><img src="gallery/d67b8aad-9500-4e97-b442-fd2d1ff63474.JPG" alt="43" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="43"><img src="gallery/8784cb00-753d-4416-bf51-1fbadbf89b6c.JPG" alt="44" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="44"><img src="gallery/1fc5b1c1-e2d5-49b9-8183-a4b36c72c761.JPG" alt="45" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="45"><img src="gallery/PHOTO-2026-03-06-15-05-07 2.jpg" alt="46" loading="lazy" /></div>
-            <div class="glry-thumb" data-idx="46"><img src="gallery/b3362a25-5d20-4210-bbf2-6239015757c4.JPG" alt="47" loading="lazy" /></div>
+            <div class="glry-thumb active" data-idx="0"><img src="gallery/d84cfe8a-7988-41a8-8385-b30d51a9165b.JPG"
+                alt="1" loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="1"><img src="gallery/a9716939-fe11-465f-ab8d-2e7e387615ca.JPG" alt="2"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="2"><img src="gallery/4368dbe2-8a73-4620-8202-0c81b377fd6a.JPG" alt="3"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="3"><img src="gallery/bb82033e-b800-49f5-8546-d3f67fbea5b8.JPG" alt="4"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="4"><img src="gallery/61aad6ff-3ba7-433b-aca9-e3d4a8a2769b.JPG" alt="5"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="5"><img src="gallery/736864d8-7e64-446b-a565-26acb661a726.JPG" alt="6"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="6"><img src="gallery/PHOTO-2026-03-06-15-05-06.jpg" alt="7"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="7"><img src="gallery/85e5cbbc-d74e-465d-87bc-612874cd3d3e.JPG" alt="8"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="8"><img src="gallery/ba567dea-1652-4c4a-b46b-b6fc49800caa.JPG" alt="9"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="9"><img src="gallery/4175671b-d05c-4afc-9a2f-6c8b1c6adaec.JPG" alt="10"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="10"><img src="gallery/cc1f6062-cd53-4b81-b79c-c0e44f0bbd85.JPG" alt="11"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="11"><img src="gallery/PHOTO-2026-03-06-15-05-07.jpg" alt="12"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="12"><img src="gallery/707ac2da-a551-4ff8-8447-c77a8acbbb2a.JPG" alt="13"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="13"><img src="gallery/ebdf73ea-fb5c-46d1-8273-405c83627f5a.JPG" alt="14"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="14"><img src="gallery/3883d1cb-1d33-48e4-b405-2cc37a507402.JPG" alt="15"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="15"><img src="gallery/dbc10cf2-c680-4c1f-a05c-e63a1425d7e9.JPG" alt="16"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="16"><img src="gallery/a87cad8f-eb7b-4265-bc66-021b336ea32c.JPG" alt="17"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="17"><img src="gallery/PHOTO-2026-03-06-15-05-08.jpg" alt="18"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="18"><img src="gallery/6b82a8b0-b72a-48d3-9da9-f35847a635f9.JPG" alt="19"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="19"><img src="gallery/e68ce162-fccd-4fde-8fdb-e517bf8d123f.JPG" alt="20"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="20"><img src="gallery/8f962316-1098-4acf-be9c-09a14e27f3fe.JPG" alt="21"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="21"><img src="gallery/b5963f6a-1a11-47fd-9485-9717735be3bb.JPG" alt="22"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="22"><img src="gallery/13cc0da2-9f5c-492e-b933-3497194c708f.JPG" alt="23"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="23"><img src="gallery/fae8cbcf-cd1b-46f0-ba14-05a6504f3242.JPG" alt="24"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="24"><img src="gallery/52ee26f5-0d43-491e-943c-f1ba7464c20d.JPG" alt="25"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="25"><img src="gallery/90a8cd7f-a4a3-48a3-83aa-5ff33f45f6ee.JPG" alt="26"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="26"><img src="gallery/475f9720-0209-4cd1-808e-2fd05d771b0f.JPG" alt="27"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="27"><img src="gallery/PHOTO-2026-03-06-15-05-06 2.jpg" alt="28"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="28"><img src="gallery/c4dfc400-aef4-4645-bed0-36e74e02d23b.JPG" alt="29"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="29"><img src="gallery/2171f89a-8e02-4de6-899e-b59c73a1f4bd.JPG" alt="30"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="30"><img src="gallery/6af001a2-9ee1-446c-9db3-f24f8e1d2c90.JPG" alt="31"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="31"><img src="gallery/0bbf6592-f382-4106-9e35-9a8319ef1c4b.JPG" alt="32"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="32"><img src="gallery/3cddd717-aac1-44c5-aadc-6553ad4b8e2c.JPG" alt="33"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="33"><img src="gallery/90213092-69f0-410d-ab28-e69d5fcf7f1b.JPG" alt="34"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="34"><img src="gallery/58f8f26d-8c01-443e-9c15-5f9639b5c76f.JPG" alt="35"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="35"><img src="gallery/a04c8eac-a6db-45e1-8be2-dd6bc1c53f30.JPG" alt="36"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="36"><img src="gallery/7ecc2305-dbe2-4cf5-85fa-a068eb28d2fd.JPG" alt="37"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="37"><img src="gallery/18670286-3afc-4295-a55a-6ab86464f5fd.JPG" alt="38"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="38"><img src="gallery/43967e51-0070-4e1f-b4ce-bfdeb312e8f4.JPG" alt="39"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="39"><img src="gallery/b841f183-f7eb-4161-b23f-820315bc4548.JPG" alt="40"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="40"><img src="gallery/6f9f6692-8b6c-4930-9b05-c129ff906c1b.JPG" alt="41"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="41"><img src="gallery/37abde0f-4898-4bba-9593-66decea9864c.JPG" alt="42"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="42"><img src="gallery/d67b8aad-9500-4e97-b442-fd2d1ff63474.JPG" alt="43"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="43"><img src="gallery/8784cb00-753d-4416-bf51-1fbadbf89b6c.JPG" alt="44"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="44"><img src="gallery/1fc5b1c1-e2d5-49b9-8183-a4b36c72c761.JPG" alt="45"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="45"><img src="gallery/PHOTO-2026-03-06-15-05-07 2.jpg" alt="46"
+                loading="lazy" /></div>
+            <div class="glry-thumb" data-idx="46"><img src="gallery/b3362a25-5d20-4210-bbf2-6239015757c4.JPG" alt="47"
+                loading="lazy" /></div>
           </div>
         </div>
 
@@ -600,43 +1967,50 @@
     <div class="container">
       <div class="club-header fade-in">
         <h2 class="section-hero-title">About Ignisia</h2>
-        <p class="club-lead">The premier AI &amp; Technology community at MIT World Peace University — driving innovation, research, and hands-on builder culture.</p>
+        <p class="club-lead">The premier AI &amp; Technology community at MIT World Peace University — driving
+          innovation, research, and hands-on builder culture.</p>
       </div>
 
       <div class="club-card fade-in delay-1">
         <div class="club-grid">
           <div class="club-feature">
             <div class="club-feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
               </svg>
             </div>
             <h3 class="club-feature-title">AI Innovation Labs</h3>
-            <p class="club-feature-desc">Build real-world LLM, computer vision, and autonomous agent projects with peer developers and mentors.</p>
+            <p class="club-feature-desc">Build real-world LLM, computer vision, and autonomous agent projects with peer
+              developers and mentors.</p>
           </div>
 
           <div class="club-feature">
             <div class="club-feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <polygon points="12 8 8 12 12 16 16 12 12 8"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polygon points="12 8 8 12 12 16 16 12 12 8" />
               </svg>
             </div>
             <h3 class="club-feature-title">Hackathons &amp; Sprints</h3>
-            <p class="club-feature-desc">Host national level hackathons, internal build sprints, and hands-on technical workshops throughout the academic year.</p>
+            <p class="club-feature-desc">Host national level hackathons, internal build sprints, and hands-on technical
+              workshops throughout the academic year.</p>
           </div>
 
           <div class="club-feature">
             <div class="club-feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
               </svg>
             </div>
             <h3 class="club-feature-title">Industry Connect</h3>
-            <p class="club-feature-desc">Direct interaction with tech leaders, alumni, startup founders, and AI research laboratories.</p>
+            <p class="club-feature-desc">Direct interaction with tech leaders, alumni, startup founders, and AI research
+              laboratories.</p>
           </div>
         </div>
 
@@ -645,14 +2019,25 @@
             <h4>Become a Member</h4>
             <p>Join the core network of AI builders and tech enthusiasts at MIT-WPU.</p>
           </div>
-          <a href="https://forms.gle/nrfLV9y8r5PyZZZs8" target="_blank" rel="noopener" class="brochure-download-btn gradient-button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <line x1="19" y1="8" x2="19" y2="14"/>
-              <line x1="22" y1="11" x2="16" y2="11"/>
-            </svg>
-            Join Ignisia Club
+          <a href="https://forms.gle/nrfLV9y8r5PyZZZs8" target="_blank" rel="noopener"
+            class="interactive-hover-btn">
+            
+            <span class="btn-default-text">
+              Join Ignisia Club
+            </span>
+
+            <div class="btn-hover-layer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" style="width:18px;height:18px;">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <line x1="19" y1="8" x2="19" y2="14" />
+                <line x1="22" y1="11" x2="16" y2="11" />
+              </svg>
+              <span>Join Ignisia Club</span>
+            </div>
+
+            <div class="btn-expand-dot"></div>
           </a>
         </div>
       </div>
@@ -676,96 +2061,123 @@
         <p class="timeline-lead">Timeline Events of the Club</p>
       </div>
 
-      <div class="timeline-track">
-
-        <!-- 1: Registrations Open — ACTIVE -->
-        <div class="timeline-item tl-active fade-in">
-          <div class="timeline-side-left">
-            <div class="timeline-date">Mar 5, 2026</div>
-            <div class="timeline-title">Registrations Open</div>
-            <p class="timeline-desc">We're open for applications! Gather your team, pick a topic you're passionate
-              about, and start your journey.</p>
-            <span class="timeline-pill">&#9679;&ensp;Registration Open</span>
-          </div>
-          <div class="timeline-node">
-            <div class="timeline-node-inner">
-              <div class="timeline-node-dot"></div>
-            </div>
-          </div>
-          <div class="timeline-side-right timeline-empty"></div>
+      <div class="aceternity-timeline-container" id="timelineContainer">
+        <!-- The continuous vertical line -->
+        <div class="aceternity-timeline-line">
+          <div class="aceternity-timeline-line-progress" id="timelineProgress"></div>
         </div>
 
-        <!-- 2: Idea Submission -->
-        <div class="timeline-item fade-in delay-1">
-          <div class="timeline-side-left timeline-empty"></div>
-          <div class="timeline-node">
-            <div class="timeline-node-inner">
-              <div class="timeline-node-dot"></div>
+        <div class="aceternity-timeline-list">
+          
+          <!-- 1: March 2026 - Ignisia -->
+          <div class="aceternity-timeline-item active-node">
+            <div class="aceternity-timeline-sticky">
+              <div class="aceternity-timeline-node">
+                <div class="aceternity-timeline-dot"></div>
+              </div>
+              <h3 class="aceternity-timeline-title">March 2026</h3>
+            </div>
+            <div class="aceternity-timeline-content">
+              <h3 class="aceternity-timeline-title-mob">March 2026</h3>
+              <h4 class="aceternity-event-title">Ignisia &mdash; National AI Hackathon</h4>
+              <p class="aceternity-event-desc">MIT World Peace University's flagship national artificial intelligence hackathon bringing together India's top student innovators for an intense 24-hour sprint to build, deploy, and scale groundbreaking AI solutions.</p>
+              <button class="timeline-know-more-btn" data-modal="modal-ignisia" aria-label="Know more about Ignisia">
+                <span>Know More</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </button>
+              <div class="aceternity-img-wrap">
+                <div class="aceternity-img-placeholder">
+                  <img src="gallery/475f9720-0209-4cd1-808e-2fd05d771b0f.JPG" alt="Ignisia AI Hackathon" loading="lazy" />
+                </div>
+              </div>
             </div>
           </div>
-          <div class="timeline-side-right">
-            <div class="timeline-date">Mar 17, 2026</div>
-            <div class="timeline-title">Idea Submission Deadline</div>
-            <p class="timeline-desc">Share your idea with us, tell us what problem you want to solve, and explain your
-              unique approach.</p>
-            <span class="timeline-pill tl-upcoming">Stage 1 Deadline</span>
-          </div>
-        </div>
 
-
-        <!-- 3: Screening Round — LEFT -->
-        <div class="timeline-item fade-in delay-2">
-          <div class="timeline-side-left">
-            <div class="timeline-date">18 Mar - 22 Mar, 2026</div>
-            <div class="timeline-title">Screening Round</div>
-            <p class="timeline-desc">Selected PPTs will be contacted for online interview.</p>
-            <span class="timeline-pill tl-upcoming">Interview Round</span>
-          </div>
-          <div class="timeline-node">
-            <div class="timeline-node-inner">
-              <div class="timeline-node-dot"></div>
+          <!-- 2: April 2026 - Technophilia and Innovision -->
+          <div class="aceternity-timeline-item">
+            <div class="aceternity-timeline-sticky">
+              <div class="aceternity-timeline-node">
+                <div class="aceternity-timeline-dot"></div>
+              </div>
+              <h3 class="aceternity-timeline-title">April 2026</h3>
+            </div>
+            <div class="aceternity-timeline-content">
+              <h3 class="aceternity-timeline-title-mob">April 2026</h3>
+              <h4 class="aceternity-event-title">Technophilia and Innovision</h4>
+              <p class="aceternity-event-desc">The combined national technical festival and premier project exhibition featuring coding contests, robotics challenges, research presentations, and capstone project exhibitions evaluated by industry juries.</p>
+              <button class="timeline-know-more-btn" data-modal="modal-technophilia-innovision" aria-label="Know more about Technophilia and Innovision">
+                <span>Know More</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </button>
+              <div class="aceternity-img-wrap">
+                <div class="aceternity-img-placeholder">
+                  <img src="gallery/52ee26f5-0d43-491e-943c-f1ba7464c20d.JPG" alt="Technophilia and Innovision" loading="lazy" />
+                </div>
+              </div>
             </div>
           </div>
-          <div class="timeline-side-right timeline-empty"></div>
-        </div>
 
-
-        <!-- 4: Finalists Announced — RIGHT -->
-        <div class="timeline-item fade-in delay-3">
-          <div class="timeline-side-left timeline-empty"></div>
-          <div class="timeline-node">
-            <div class="timeline-node-inner">
-              <div class="timeline-node-dot"></div>
+          <!-- 3: August 2026 - I-Talk -->
+          <div class="aceternity-timeline-item">
+            <div class="aceternity-timeline-sticky">
+              <div class="aceternity-timeline-node">
+                <div class="aceternity-timeline-dot"></div>
+              </div>
+              <h3 class="aceternity-timeline-title">August 2026</h3>
+            </div>
+            <div class="aceternity-timeline-content">
+              <h3 class="aceternity-timeline-title-mob">August 2026</h3>
+              <h4 class="aceternity-event-title">I-Talk &mdash; Innovation &amp; Leadership Summit</h4>
+              <p class="aceternity-event-desc">The flagship thought-leadership conference featuring interactive sessions, keynotes, fireside chats, live demos, and mentorship with distinguished leaders across tech, industry, and research.</p>
+              <button class="timeline-know-more-btn" data-modal="modal-italk" aria-label="Know more about I-Talk">
+                <span>Know More</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </button>
+              <div class="aceternity-img-wrap">
+                <div class="aceternity-img-placeholder">
+                  <img src="gallery/0bbf6592-f382-4106-9e35-9a8319ef1c4b.JPG" alt="I-Talk Speaker Series" loading="lazy" />
+                </div>
+              </div>
             </div>
           </div>
-          <div class="timeline-side-right">
-            <div class="timeline-date">Mar 24, 2026</div>
-            <div class="timeline-title">Announcement of Shortlisted Teams</div>
-            <p class="timeline-desc">The shortlisted teams have been announced. Please refer to the official
-              finalists list for complete details.</p>
-            <span class="timeline-pill ">
-              Results out NOW
-            </span>
-          </div>
-        </div>
 
-        <!-- 5: Grand Finale — LEFT -->
-        <div class="timeline-item fade-in delay-4">
-          <div class="timeline-side-left">
-            <div class="timeline-date">Apr 3 & 4, 2026</div>
-            <div class="timeline-title">GRAND FINALE &mdash; 24 Hours</div>
-            <p class="timeline-desc">Join us on campus at MIT-WPU, Pune, for 24 hours of building, collaboration, and
-              competing for the top prize.</p>
-            <span class="timeline-pill">Main Event</span>
-          </div>
-          <div class="timeline-node">
-            <div class="timeline-node-inner">
-              <div class="timeline-node-dot"></div>
+          <!-- 4: October 2026 - Incubex -->
+          <div class="aceternity-timeline-item">
+            <div class="aceternity-timeline-sticky">
+              <div class="aceternity-timeline-node">
+                <div class="aceternity-timeline-dot"></div>
+              </div>
+              <h3 class="aceternity-timeline-title">October 2026</h3>
+            </div>
+            <div class="aceternity-timeline-content">
+              <h3 class="aceternity-timeline-title-mob">October 2026</h3>
+              <h4 class="aceternity-event-title">Incubex &mdash; National Startup &amp; Innovation Challenge</h4>
+              <p class="aceternity-event-desc">The flagship entrepreneurship competition connecting student innovators with mentorship, industry feedback, venture incubation, and angel investment across maturity stages from Ideation to registered Startups.</p>
+              <button class="timeline-know-more-btn" data-modal="modal-incubex" aria-label="Know more about Incubex">
+                <span>Know More</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </button>
+              <div class="aceternity-img-wrap">
+                <div class="aceternity-img-placeholder">
+                  <img src="gallery/2171f89a-8e02-4de6-899e-b59c73a1f4bd.JPG" alt="Incubex Startup Challenge" loading="lazy" />
+                </div>
+              </div>
             </div>
           </div>
-          <div class="timeline-side-right timeline-empty"></div>
-        </div>
 
+        </div>
       </div>
     </div>
   </section>
@@ -783,7 +2195,7 @@
       <div class="committee-5grid fade-in delay-1" id="committeeGrid">
         <div class="committee-card-head">
           <div class="committee-img-wrap">
-            <img src="assets/committee/head-1.jpg" alt="Vivaan Mathur - President" loading="lazy" />
+            <img class="img-vivaan" src="gallery/VIVAAN.webp" alt="Vivaan Mathur - President" loading="lazy" style="object-position: center 15%;" />
           </div>
           <div class="committee-card-info">
             <h3 class="committee-card-name">Vivaan Mathur</h3>
@@ -793,7 +2205,7 @@
 
         <div class="committee-card-head">
           <div class="committee-img-wrap">
-            <img src="assets/committee/head-3.jpg" alt="Ansh Thakare - Principal Coordinator" loading="lazy" />
+            <img class="img-ansh" src="gallery/ANSH.webp" alt="Ansh Thakare - Principal Coordinator" loading="lazy" style="object-position: center 50%;" />
           </div>
           <div class="committee-card-info">
             <h3 class="committee-card-name">Ansh Thakare</h3>
@@ -803,7 +2215,7 @@
 
         <div class="committee-card-head">
           <div class="committee-img-wrap">
-            <img src="assets/committee/head-2.jpg" alt="Anushka Wani - General Secretary" loading="lazy" />
+            <img class="img-anushka" src="gallery/ANUSHKA.webp" alt="Anushka Wani - General Secretary" loading="lazy" style="object-position: center 15%;" />
           </div>
           <div class="committee-card-info">
             <h3 class="committee-card-name">Anushka Wani</h3>
@@ -813,7 +2225,7 @@
 
         <div class="committee-card-head">
           <div class="committee-img-wrap">
-            <img src="assets/committee/head-4.jpg" alt="Janavi Honrao - Media Head" loading="lazy" />
+            <img class="img-jaanvi" src="gallery/JAANVI.webp" alt="Janavi Honrao - Media Head" loading="lazy" style="object-position: center 78%;" />
           </div>
           <div class="committee-card-info">
             <h3 class="committee-card-name">Janavi Honrao</h3>
@@ -823,7 +2235,7 @@
 
         <div class="committee-card-head">
           <div class="committee-img-wrap">
-            <img src="assets/committee/head-5.jpg" alt="Aryan More - Treasurer" loading="lazy" />
+            <img class="img-aryan" src="gallery/ARYANMORE.webp" alt="Aryan More - Treasurer" loading="lazy" style="object-position: center 75%;" />
           </div>
           <div class="committee-card-info">
             <h3 class="committee-card-name">Aryan More</h3>
@@ -883,7 +2295,7 @@
             </svg>
           </a>
         </div>
-      
+
       </div>
 
       <div class="footer-bottom">
@@ -933,6 +2345,216 @@
     </div>
 
   </footer>
+
+  <!-- ═══════════════════════════════════════════
+       TIMELINE EVENT MODAL POPUPS (THE 4 FLAGSHIP EVENTS)
+  ═══════════════════════════════════════════ -->
+  
+  <!-- 1. Modal: Ignisia -->
+  <div class="timeline-modal-backdrop" id="modal-ignisia" role="dialog" aria-modal="true" aria-labelledby="modal-ignisia-title">
+    <div class="timeline-modal-card">
+      <button class="timeline-modal-close" aria-label="Close modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <span class="timeline-modal-badge">March 2026</span>
+      <h3 class="timeline-modal-title" id="modal-ignisia-title">Ignisia &mdash; National AI Hackathon</h3>
+      <div class="timeline-modal-banner">
+        <img src="gallery/475f9720-0209-4cd1-808e-2fd05d771b0f.JPG" alt="Ignisia AI Hackathon" loading="lazy" />
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">What It Is</h4>
+        <p class="timeline-modal-text">MIT World Peace University's flagship national artificial intelligence hackathon &mdash; a grand stage bringing together India's most extraordinary student innovators, coders, and visionaries for an intense 24-hour physical building sprint on campus.</p>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">Purpose</h4>
+        <p class="timeline-modal-text">Empower student builders to engineer, deploy, and scale groundbreaking AI solutions addressing critical real-world problems &mdash; spanning generative systems, autonomous agents, computer vision, and intelligent automation.</p>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">Governance &amp; Timeline</h4>
+        <p class="timeline-modal-text">Held annually in <strong>March 2026</strong>. Governed and executed by the Ignisia Organising Secretariat and Core Committee.</p>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">Key Activities</h4>
+        <div class="timeline-modal-tags">
+          <span class="timeline-modal-tag">24-Hour Building Sprint</span>
+          <span class="timeline-modal-tag">AI Mentorship Tracks</span>
+          <span class="timeline-modal-tag">Industry Jury Evaluation</span>
+          <span class="timeline-modal-tag">Live Product Demos</span>
+          <span class="timeline-modal-tag">Keynote &amp; Tech Talks</span>
+        </div>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">Expected Outcomes</h4>
+        <div class="timeline-modal-tags">
+          <span class="timeline-modal-tag highlight">Production-Ready AI MVPs</span>
+          <span class="timeline-modal-tag highlight">National Level Recognition</span>
+          <span class="timeline-modal-tag highlight">Grand Prize Pool &amp; Grants</span>
+          <span class="timeline-modal-tag highlight">Internship &amp; Hiring Connects</span>
+          <span class="timeline-modal-tag highlight">Incubation Fast-Track</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Modal: Technophilia and Innovision -->
+  <div class="timeline-modal-backdrop" id="modal-technophilia-innovision" role="dialog" aria-modal="true" aria-labelledby="modal-technophilia-innovision-title">
+    <div class="timeline-modal-card">
+      <button class="timeline-modal-close" aria-label="Close modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <span class="timeline-modal-badge">April 2026</span>
+      <h3 class="timeline-modal-title" id="modal-technophilia-innovision-title">Technophilia and Innovision &mdash; National Tech Fest &amp; Showcase</h3>
+      <div class="timeline-modal-banner">
+        <img src="gallery/52ee26f5-0d43-491e-943c-f1ba7464c20d.JPG" alt="Technophilia and Innovision Showcase" loading="lazy" />
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">What It Is</h4>
+        <p class="timeline-modal-text">The premier national technical festival and capstone exhibition platform &mdash; uniting competitive coding contests, robotics challenges, research presentations, and the National Level Project Exhibition under one comprehensive technical showcase.</p>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">Two Core Pillars</h4>
+        <ul class="timeline-modal-list">
+          <li><strong>Technophilia National Technical Fest:</strong> Coding tournaments, AI hack challenges, robotics arena, technical conferences, and paper presentations.</li>
+          <li><strong>Innovision Project Exhibition:</strong> Final Year Polytechnic Capstone Review and National Open Project Showcase evaluated by industry juries.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">Purpose &amp; Timeline</h4>
+        <p class="timeline-modal-text">Showcase engineering and applied research projects, recognize student innovation, and foster academia-industry ties. Held annually in <strong>April 2026</strong>.</p>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">Expected Outcomes</h4>
+        <div class="timeline-modal-tags">
+          <span class="timeline-modal-tag highlight">Practical Skill Mastery</span>
+          <span class="timeline-modal-tag highlight">Capstone Project Validation</span>
+          <span class="timeline-modal-tag highlight">Industry Jury Feedback</span>
+          <span class="timeline-modal-tag highlight">Commercialization Support</span>
+          <span class="timeline-modal-tag highlight">National Awards &amp; Grants</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Modal: I-Talk -->
+  <div class="timeline-modal-backdrop" id="modal-italk" role="dialog" aria-modal="true" aria-labelledby="modal-italk-title">
+    <div class="timeline-modal-card">
+      <button class="timeline-modal-close" aria-label="Close modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <span class="timeline-modal-badge">August 2026</span>
+      <h3 class="timeline-modal-title" id="modal-italk-title">I-Talk &mdash; Innovation &amp; Leadership Summit</h3>
+      <div class="timeline-modal-banner">
+        <img src="gallery/0bbf6592-f382-4106-9e35-9a8319ef1c4b.JPG" alt="I-Talk Speaker Series" loading="lazy" />
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">What It Is</h4>
+        <p class="timeline-modal-text">The flagship thought-leadership conference featuring interactive sessions (not lecture-style) with distinguished personalities from academia, industry, entrepreneurship, government, research, media, and sports &mdash; keynotes, fireside chats, Q&amp;As, panels, live demos, and mentor interactions.</p>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">Purpose</h4>
+        <p class="timeline-modal-text">Inspire students, build networking and mentorship opportunities, and expose them to emerging technologies, AI breakthroughs, and global industry trends.</p>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">Governance &amp; Timeline</h4>
+        <p class="timeline-modal-text">Held annually in <strong>August 2026</strong>. Led by Club President (ex-officio Student Convener), Organising Secretariat (President, Principal Coordinator, General Secretary), Co-Convener (appointed Event Coordinator), Crew, and Volunteers.</p>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">Key Activities</h4>
+        <div class="timeline-modal-tags">
+          <span class="timeline-modal-tag">Keynote Talks</span>
+          <span class="timeline-modal-tag">Fireside Chats</span>
+          <span class="timeline-modal-tag">Technical Panels</span>
+          <span class="timeline-modal-tag">AI &amp; Tech Demonstrations</span>
+          <span class="timeline-modal-tag">Startup Founder Dialogues</span>
+          <span class="timeline-modal-tag">Audience Q&amp;A</span>
+          <span class="timeline-modal-tag">VIP Networking</span>
+        </div>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">Expected Outcomes</h4>
+        <div class="timeline-modal-tags">
+          <span class="timeline-modal-tag highlight">Industry Awareness</span>
+          <span class="timeline-modal-tag highlight">Executive Mentorship</span>
+          <span class="timeline-modal-tag highlight">Career Guidance</span>
+          <span class="timeline-modal-tag highlight">Internship Opportunities</span>
+          <span class="timeline-modal-tag highlight">Research Collaborations</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Modal: Incubex -->
+  <div class="timeline-modal-backdrop" id="modal-incubex" role="dialog" aria-modal="true" aria-labelledby="modal-incubex-title">
+    <div class="timeline-modal-card">
+      <button class="timeline-modal-close" aria-label="Close modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <span class="timeline-modal-badge">October 2026</span>
+      <h3 class="timeline-modal-title" id="modal-incubex-title">Incubex &mdash; National Startup &amp; Innovation Challenge</h3>
+      <div class="timeline-modal-banner">
+        <img src="gallery/2171f89a-8e02-4de6-899e-b59c73a1f4bd.JPG" alt="Incubex Startup Challenge" loading="lazy" />
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">What It Is</h4>
+        <p class="timeline-modal-text">The flagship entrepreneurship competition &mdash; distinct from problem-statement hackathons, Incubex lets participants pitch their own original ideas, products, and startups before academicians, industry leaders, founders, and angel investors.</p>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">Maturity Classification</h4>
+        <div class="timeline-modal-tags">
+          <span class="timeline-modal-tag">1. Ideation</span>
+          <span class="timeline-modal-tag">2. Validation</span>
+          <span class="timeline-modal-tag">3. Prototype</span>
+          <span class="timeline-modal-tag">4. MVP</span>
+          <span class="timeline-modal-tag">5. Registered Startup</span>
+          <span class="timeline-modal-tag">6. Deep Tech &amp; Research</span>
+        </div>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">Purpose &amp; Governance</h4>
+        <p class="timeline-modal-text">Connect student innovators to mentorship, industry feedback, incubation, and investment. Held annually in <strong>October 2026</strong> under the tri-level Secretariat governance model.</p>
+      </div>
+
+      <div class="timeline-modal-section">
+        <h4 class="timeline-modal-section-title">Expected Outcomes</h4>
+        <div class="timeline-modal-tags">
+          <span class="timeline-modal-tag highlight">Student Startups</span>
+          <span class="timeline-modal-tag highlight">Product Prototypes &amp; MVPs</span>
+          <span class="timeline-modal-tag highlight">Incubation Support</span>
+          <span class="timeline-modal-tag highlight">Angel/VC Investor Connect</span>
+          <span class="timeline-modal-tag highlight">Industry Partnerships</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ═══════════════════════════════════════════
        JAVASCRIPT

@@ -41,17 +41,17 @@ if (!window.location.hash) {
    Easily update committee members, roles, and image paths here
 ──────────────────────────────────────────────────────────── */
 const committeeMembers = [
-  { id: 1, name: "Vivaan Mathur", role: "President", imagePath: "assets/committee/head-1.jpg" },
-  { id: 2, name: "Ansh Thakare", role: "Principal Coordinator", imagePath: "assets/committee/head-3.jpg" },
-  { id: 3, name: "Anushka Wani", role: "General Secretary", imagePath: "assets/committee/head-2.jpg" },
-  { id: 4, name: "Janavi Honrao", role: "Media Head", imagePath: "assets/committee/head-4.jpg" },
-  { id: 5, name: "Aryan More", role: "Treasurer", imagePath: "assets/committee/head-5.jpg" }
+  { id: 1, name: "Vivaan Mathur", role: "President", imagePath: "gallery/VIVAAN.webp" },
+  { id: 2, name: "Ansh Thakare", role: "Principal Coordinator", imagePath: "gallery/ANSH.webp" },
+  { id: 3, name: "Anushka Wani", role: "General Secretary", imagePath: "gallery/ANUSHKA.webp" },
+  { id: 4, name: "Janavi Honrao", role: "Media Head", imagePath: "gallery/JAANVI.webp" },
+  { id: 5, name: "Aryan More", role: "Treasurer", imagePath: "gallery/ARYANMORE.webp" }
 ];
 
 /* ─── MUX HLS BACKGROUND VIDEO ────────────────────────────
-   Stream served via Mux — no YouTube watermark, no controls.
+   Disabled in favor of local bg.mp4.
 ──────────────────────────────────────────────────────────── */
-var HLS_SRC = 'https://stream.mux.com/4IMYGcL01xjs7ek5ANO17JC4VQVUTsojZlnw4fXzwSxc.m3u8';
+// var HLS_SRC = 'https://stream.mux.com/4IMYGcL01xjs7ek5ANO17JC4VQVUTsojZlnw4fXzwSxc.m3u8';
 
 // Fallback: hide loader after 8 s in case the stream stalls
 var _heroLoaderFallback = setTimeout(function () {
@@ -63,6 +63,9 @@ var _heroLoaderFallback = setTimeout(function () {
   var video = document.getElementById('hero-video');
   if (!video) return;
 
+  // Slow down the video to make it more ambient
+  video.playbackRate = 0.75;
+
   function onCanPlay() {
     clearTimeout(_heroLoaderFallback);
     var loader = document.getElementById('hero-loader');
@@ -70,20 +73,6 @@ var _heroLoaderFallback = setTimeout(function () {
   }
 
   video.addEventListener('playing', onCanPlay, { once: true });
-
-  if (typeof Hls !== 'undefined' && Hls.isSupported()) {
-    // Non-Safari: use HLS.js
-    var hls = new Hls({ autoStartLoad: true, startLevel: -1 });
-    hls.loadSource(HLS_SRC);
-    hls.attachMedia(video);
-    hls.on(Hls.Events.MANIFEST_PARSED, function () {
-      video.play().catch(function () {});
-    });
-  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-    // Safari: native HLS support
-    video.src = HLS_SRC;
-    video.play().catch(function () {});
-  }
 }());
 
 /* ─── COUNTDOWN TIMER ───────────────────────────────────────
@@ -368,3 +357,126 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu();
     option.addEventListener('click', closeModal);
   });
 })();
+
+/* ─── ACETERNITY TIMELINE SCROLL ANIMATION (FRAMER MOTION REPLICA) ─── */
+(function initAceternityTimeline() {
+  const container = document.getElementById('timelineContainer');
+  const progressElem = document.getElementById('timelineProgress');
+  const items = document.querySelectorAll('.aceternity-timeline-item');
+
+  if (!container || !progressElem) return;
+
+  let ticking = false;
+
+  function updateTimeline() {
+    const rect = container.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    // Start animation when container top reaches 40% of viewport
+    // End animation when container bottom reaches 50% of viewport
+    // This ensures the beam reaches the first node early
+    const startThreshold = windowHeight * 0.4;
+    const endThreshold = windowHeight * 0.5;
+
+    const scrolled = startThreshold - rect.top;
+    const totalSpan = rect.height - (endThreshold - startThreshold);
+
+    let progress = totalSpan > 0 ? (scrolled / totalSpan) : 0;
+    progress = Math.max(0, Math.min(1, progress));
+
+    const currentBeamHeight = progress * rect.height;
+    progressElem.style.height = currentBeamHeight + 'px';
+
+    // Synchronize node activation exactly when the beam touches the node center
+    items.forEach(item => {
+      const node = item.querySelector('.aceternity-timeline-node');
+      if (!node) return;
+
+      const nodeRect = node.getBoundingClientRect();
+      const nodeCenterInContainer = (nodeRect.top + nodeRect.height / 2) - rect.top;
+
+      if (currentBeamHeight >= nodeCenterInContainer - 10) {
+        item.classList.add('active-node');
+      } else {
+        item.classList.remove('active-node');
+      }
+    });
+
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateTimeline);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  updateTimeline();
+})();
+
+/* ═══════════════════════════════════════════
+   TIMELINE EVENT MODAL POPUPS
+═══════════════════════════════════════════ */
+(function initTimelineModals() {
+  const openButtons = document.querySelectorAll('.timeline-know-more-btn');
+  const modaldrops = document.querySelectorAll('.timeline-modal-backdrop');
+
+  function openModal(modalId, triggerBtn) {
+    const targetModal = document.getElementById(modalId);
+    if (!targetModal) return;
+
+    const card = targetModal.querySelector('.timeline-modal-card');
+    if (card && triggerBtn) {
+      const rect = triggerBtn.getBoundingClientRect();
+      const originX = rect.left + rect.width / 2;
+      const originY = rect.top + rect.height / 2;
+      card.style.transformOrigin = `${originX}px ${originY}px`;
+    }
+
+    targetModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(modal) {
+    modal.classList.remove('open');
+    const anyOpen = document.querySelector('.timeline-modal-backdrop.open');
+    if (!anyOpen) {
+      document.body.style.overflow = '';
+    }
+  }
+
+  openButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const modalId = btn.getAttribute('data-modal');
+      if (modalId) openModal(modalId, btn);
+    });
+  });
+
+  modaldrops.forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal(modal);
+      }
+    });
+
+    const closeBtn = modal.querySelector('.timeline-modal-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        closeModal(modal);
+      });
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const activeModal = document.querySelector('.timeline-modal-backdrop.open');
+      if (activeModal) closeModal(activeModal);
+    }
+  });
+})();
+
+

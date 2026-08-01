@@ -10,14 +10,18 @@
 
 .typewriter {
   position: relative;
-  font-family: Instrument Serif;
+  font-family: 'Instrument Serif', serif;
   font-style: italic;
-  font-size: 1.1rem;
-  color: #ffffff66;
+  font-size: 1.2rem;
+  background: linear-gradient(to right, #2938cf 0%, #a78bfa 100%);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
   overflow: hidden;
   white-space: nowrap;
-  font-weight: 400;
-  letter-spacing: 0.02em;
+  font-weight: 500;
+  letter-spacing: 0.03em;
   margin-top: 0;
   display: inline-block;
   /* Improved stability across screen sizes */
@@ -29,9 +33,13 @@
 
 /* Style for the developer name */
 .developer-name {
-  color: #ffffff88;
+  background: linear-gradient(to right, #2938cf 0%, #a78bfa 100%);
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .typewriter::after {
