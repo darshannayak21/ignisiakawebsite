@@ -3946,26 +3946,61 @@ footer {
   }
 
   .hero-insta-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
+    max-width: 320px;
+    min-height: 52px;
+    padding: .5rem 1.25rem .5rem .55rem;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    gap: .75rem;
+  }
+
+  .hero-insta-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    padding: .62rem .84rem;
-    min-height: 46px;
-    gap: .55rem;
+    flex-shrink: 0;
+  }
+
+  .hero-insta-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    line-height: 1.2;
   }
 
   .hero-insta-kicker {
-    display: none;
+    display: block;
+    font-size: .68rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, .75);
+    letter-spacing: .03em;
+    text-transform: uppercase;
   }
 
   .hero-insta-handle {
-    font-size: .82rem;
-    letter-spacing: .02em;
+    font-size: .92rem;
+    font-weight: 600;
+    color: #fff;
     white-space: nowrap;
   }
 
   .hero-insta-arrow {
-    margin-left: 0;
-    font-size: .9rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    font-size: .95rem;
+    line-height: 1;
+    flex-shrink: 0;
   }
 
   .hero-apply-corner {
