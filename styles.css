@@ -11,10 +11,10 @@
   --bg: #FFFFFF;
   --bg2: #f8f9fa;
   --bg3: #f1f5f9;
-  --brand-primary: #8B5CF6;
-  --brand-primary-dim: #7C3AED;
-  --brand-primary-glow: rgba(139, 92, 246, .18);
-  --brand-primary-glow2: rgba(139, 92, 246, .38);
+  --cyan: #8B5CF6;
+  --cyan-dim: #7C3AED;
+  --cyan-glow: rgba(139, 92, 246, .18);
+  --cyan-glow2: rgba(139, 92, 246, .38);
   --white: #1a1a1a;
   --muted: #6b7280;
   --border: rgba(139, 92, 246, .2);
@@ -53,7 +53,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--brand-primary-dim);
+  background: var(--cyan-dim);
   border-radius: 2px;
 }
 
@@ -78,7 +78,7 @@ a
   font-family: var(--font-body);
   font-size: 15px;
   letter-spacing: .3em;
-  color: var(--brand-primary);
+  color: var(--cyan);
   text-transform: uppercase;
   margin-bottom: 1rem;
   opacity: .75;
@@ -96,7 +96,7 @@ a
 }
 
 .cyan {
-  color: var(--brand-primary);
+  color: var(--cyan);
 }
 
 /* fade-in animation class added by IntersectionObserver */
@@ -198,7 +198,7 @@ nav {
   letter-spacing: 0;
   text-transform: none;
   color: #fff;
-  background: var(--brand-primary);
+  background: var(--cyan);
   border: 1.5px solid transparent;
   padding: .65rem 1.5rem;
   cursor: pointer;
@@ -210,8 +210,8 @@ nav {
 
 .nav-cta:hover {
   background: transparent;
-  color: var(--brand-primary);
-  border-color: var(--brand-primary);
+  color: var(--cyan);
+  border-color: var(--cyan);
 }
 
 .nav-cta:active {
@@ -332,7 +332,7 @@ nav {
 .hero-overlay-eyebrow .badge-dot {
   width: 6px;
   height: 6px;
-  background: var(--brand-primary);
+  background: var(--cyan);
   border-radius: 50%;
   flex-shrink: 0;
   animation: pulse 2s ease-in-out infinite;
@@ -490,7 +490,7 @@ nav {
   font-size: 16px;
   font-weight: 500;
   color: #fff;
-  background: var(--brand-primary);
+  background: var(--cyan);
   border: none;
   padding: 1rem 1.1rem;
   cursor: pointer;
@@ -561,7 +561,7 @@ nav {
 
 /* Join Ignisia Club icon — site violet accent */
 .hero-club-icon {
-  background: var(--brand-primary);
+  background: var(--cyan);
 }
 
 /* Report icon — purple gradient */
@@ -761,7 +761,7 @@ nav {
 
 .register-option:hover {
   background: rgba(139, 92, 246, 0.2);
-  border-color: var(--brand-primary);
+  border-color: var(--cyan);
   transform: translateX(6px);
   box-shadow: 0 8px 24px rgba(139, 92, 246, 0.2);
 }
@@ -780,7 +780,7 @@ nav {
 .register-option-icon svg {
   width: 28px;
   height: 28px;
-  stroke: var(--brand-primary);
+  stroke: var(--cyan);
   fill: none;
   stroke-width: 2;
 }
@@ -804,7 +804,7 @@ nav {
 
 .register-option-arrow {
   font-size: 1.2rem;
-  color: var(--brand-primary);
+  color: var(--cyan);
   transition: transform 0.2s ease;
 }
 
@@ -868,7 +868,7 @@ nav {
 .badge-dot {
   width: 7px;
   height: 7px;
-  background: var(--brand-primary);
+  background: var(--cyan);
   border-radius: 50%;
   flex-shrink: 0;
   animation: pulse 2s ease-in-out infinite;
@@ -975,7 +975,7 @@ nav {
 .countdown-sep {
   font-family: var(--font-head);
   font-size: clamp(1.5rem, 4vw, 3rem);
-  color: var(--brand-primary-dim);
+  color: var(--cyan-dim);
   opacity: .5;
   align-self: center;
   padding-bottom: 1rem;
@@ -1031,8 +1031,8 @@ nav {
   letter-spacing: 0;
   text-transform: none;
   color: #fff;
-  background: var(--brand-primary);
-  border: 1px solid var(--brand-primary);
+  background: var(--cyan);
+  border: 1px solid var(--cyan);
   padding: .85rem 2.2rem;
   cursor: pointer;
   text-decoration: none;
@@ -1092,7 +1092,7 @@ nav {
 .scroll-line {
   width: 1px;
   height: 40px;
-  background: linear-gradient(to bottom, var(--brand-primary), transparent);
+  background: linear-gradient(to bottom, var(--cyan), transparent);
   animation: scrollDrop 2s ease-in-out infinite;
 }
 
@@ -1187,7 +1187,7 @@ nav {
   font-family: var(--font-body);
   font-size: 15px;
   font-weight: 500;
-  color: var(--brand-primary);
+  color: var(--cyan);
   background: rgba(139, 92, 246, .08);
   border: 1px solid rgba(139, 92, 246, .25);
   border-radius: 100px;
@@ -1290,7 +1290,7 @@ nav {
   font-weight: 500;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: var(--brand-primary);
+  color: var(--cyan);
   margin-bottom: .35rem;
 }
 
@@ -1337,7 +1337,7 @@ nav {
 
 .about-benefit-title::before {
   content: '✦';
-  color: var(--brand-primary);
+  color: var(--cyan);
   font-size: 14px;
   flex-shrink: 0;
 }
@@ -1743,7 +1743,7 @@ nav {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
-  color: var(--brand-primary);
+  color: var(--cyan);
 }
 
 .how-lead {
@@ -1802,7 +1802,7 @@ nav {
   font-size: 13px;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--brand-primary);
+  color: var(--cyan);
   margin-bottom: .8rem;
 }
 
@@ -1834,7 +1834,7 @@ nav {
   font-size: 16px;
   font-weight: 500;
   color: #fff;
-  background: var(--brand-primary);
+  background: var(--cyan);
   padding: 1rem 2.8rem;
   border-radius: 100px;
   text-decoration: none;
@@ -1981,7 +1981,7 @@ nav {
   font-size: 16px;
   font-weight: 500;
   color: #fff;
-  background: var(--brand-primary);
+  background: var(--cyan);
   padding: .9rem 1.5rem;
   border-radius: 100px;
   text-decoration: none;
@@ -2547,7 +2547,7 @@ nav {
   font-family: var(--font-head);
   font-size: 1.15rem;
   font-weight: 600;
-  color: var(--brand-primary);
+  color: var(--cyan);
   flex-shrink: 0;
 }
 
@@ -2586,7 +2586,7 @@ nav {
 }
 
 .round-detail-icon {
-  color: var(--brand-primary);
+  color: var(--cyan);
   font-size: 15px;
   flex-shrink: 0;
   margin-top: 2px;
@@ -2621,7 +2621,7 @@ nav {
 .round-venue-badge svg {
   width: 14px;
   height: 14px;
-  stroke: var(--brand-primary);
+  stroke: var(--cyan);
   stroke-width: 1.5;
   fill: none;
   stroke-linecap: round;
@@ -2683,7 +2683,7 @@ nav {
 .entry-fee-accent {
   font-family: var(--font-serif);
   font-style: italic;
-  color: var(--brand-primary);
+  color: var(--cyan);
   font-size: .85em;
 }
 
@@ -2874,7 +2874,7 @@ nav {
   align-items: center;
   justify-content: center;
   gap: .2rem;
-  background: var(--brand-primary);
+  background: var(--cyan);
   color: #fff;
   font-family: var(--font-body);
   font-size: 16px;
@@ -2946,7 +2946,7 @@ nav {
 }
 
 .prize-perk-icon {
-  color: var(--brand-primary);
+  color: var(--cyan);
   font-size: 16px;
   flex-shrink: 0;
   line-height: 1;
@@ -3135,13 +3135,11 @@ footer {
   font-weight: 500;
   color: var(--white);
   letter-spacing: -.025em;
-  line-height: 1.25;
-  padding-bottom: 0.3em;
+  line-height: 1;
   margin-top: 0;
   margin-bottom: 1.5rem;
   text-align: center;
   text-shadow: 0 0 40px rgba(139, 92, 246, .2);
-  overflow: visible;
 }
 
 .footer-tagline {
@@ -3196,7 +3194,7 @@ footer {
   display: inline-flex;
   align-items: center;
   gap: .5rem;
-  background: var(--brand-primary);
+  background: var(--cyan);
   color: #fff;
   font-family: var(--font-body);
   font-size: 16px;
@@ -3344,7 +3342,7 @@ footer {
 /* ─── SECTION DIVIDERS ───────────────────────────────────────────────────── */
 .divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--brand-primary), transparent);
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
   opacity: .2;
 }
 
@@ -3610,7 +3608,7 @@ footer {
   font-size: 16px;
   font-weight: 600;
   color: #fff;
-  background: var(--brand-primary);
+  background: var(--cyan);
   padding: 1rem 1.5rem;
   text-decoration: none;
   border-radius: 12px;
@@ -3662,7 +3660,7 @@ footer {
 
   .hero-video-wrap {
     width: 95%;
-    min-height: min(95dvh, 840px);
+    min-height: 840px;
     height: auto;
     border-radius: 20px;
     position: relative;
@@ -3682,7 +3680,7 @@ footer {
   .hero-video-overlay {
     border-radius: 20px;
     position: relative;
-    min-height: min(95dvh, 840px);
+    min-height: 840px;
     height: auto;
     padding: calc(.85rem + 52px + 1.8rem) 1.5rem 3.5rem;
     gap: .6rem;
@@ -3948,61 +3946,26 @@ footer {
   }
 
   .hero-insta-cta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
-    max-width: 320px;
-    min-height: 52px;
-    padding: .5rem 1.25rem .5rem .55rem;
-    box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
-    gap: .75rem;
-  }
-
-  .hero-insta-icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .hero-insta-copy {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    line-height: 1.2;
+    padding: .62rem .84rem;
+    min-height: 46px;
+    gap: .55rem;
   }
 
   .hero-insta-kicker {
-    display: block;
-    font-size: .68rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, .75);
-    letter-spacing: .03em;
-    text-transform: uppercase;
+    display: none;
   }
 
   .hero-insta-handle {
-    font-size: .92rem;
-    font-weight: 600;
-    color: #fff;
+    font-size: .82rem;
+    letter-spacing: .02em;
     white-space: nowrap;
   }
 
   .hero-insta-arrow {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-    font-size: .95rem;
-    line-height: 1;
-    flex-shrink: 0;
+    margin-left: 0;
+    font-size: .9rem;
   }
 
   .hero-apply-corner {
@@ -4906,7 +4869,7 @@ footer {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
-  color: var(--brand-primary);
+  color: var(--cyan);
 }
 
 .gallery-lead {
@@ -5010,7 +4973,7 @@ footer {
 .glry-progress-bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, var(--brand-primary), rgba(139, 92, 246, .9));
+  background: linear-gradient(90deg, var(--cyan), rgba(139, 92, 246, .9));
   transition: width linear;
   border-radius: 0 0 20px 20px;
 }
@@ -5103,15 +5066,15 @@ footer {
 
 .glry-thumb:hover {
   opacity: .85;
-  border-color: rgba(139, 92, 246, .5);
+  border-color: rgba(41, 56, 207, .6);
   transform: scale(1.04);
 }
 
 .glry-thumb.active {
   opacity: 1;
-  border-color: var(--brand-primary);
+  border-color: #2938cf;
   transform: scale(1.06);
-  box-shadow: 0 0 12px rgba(139, 92, 246, .35);
+  box-shadow: 0 0 16px rgba(41, 56, 207, .45), 0 0 0 1.5px #2938cf;
 }
 
 /* ── Responsive ── */
@@ -5262,19 +5225,4 @@ footer {
   padding: .75rem 2rem;
   letter-spacing: .03em;
   cursor: default;
-}
-
-/* ─── PREFERS REDUCED MOTION ───────────────────────────────────────────── */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .fade-in {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
 }
